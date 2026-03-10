@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "OpenClaw Dashboard 简体中文增强翻译",
+  "description": "为 OpenClaw Web UI 补齐尚未接入 i18n 的固定英文文案。",
+  "version": "0.1.0",
+  "homepage_url": "https://github.com/cloud11/openclaw-dashboard-zh-cn",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://127.0.0.1:18789/*",
+        "http://localhost:18789/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
