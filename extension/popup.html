@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Dashboard 汉化设置</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header class="header">
+        <img src="icons/lobster-48.png" alt="龙虾图标" class="logo" />
+        <div>
+          <h1>汉化开关</h1>
+          <p>OpenClaw Dashboard</p>
+        </div>
+      </header>
+
+      <label class="switch-row">
+        <span>启用翻译</span>
+        <input id="enabled" type="checkbox" />
+      </label>
+
+      <label class="field">
+        <span>生效网址（可多个，逗号分隔）</span>
+        <input id="hosts" type="text" placeholder="127.0.0.1,localhost" />
+      </label>
+
+      <label class="field">
+        <span>生效端口（可多个，逗号分隔）</span>
+        <input id="ports" type="text" placeholder="18789" />
+      </label>
+
+      <button id="save" type="button">保存配置</button>
+      <p id="status" class="status"></p>
+
+      <footer class="meta">
+        <p>插件版本：<strong id="extension-version">-</strong></p>
+        <p>适配 OpenClaw：<strong id="openclaw-version">2026.3.9+</strong></p>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

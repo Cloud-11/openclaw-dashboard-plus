@@ -2087,7 +2087,77 @@
     }
   }
 
-  function isOpenClawPage() {
+  const DEFAULT_RUNTIME_SETTINGS = Object.freeze({
+    enabled: true,
+    hosts: "127.0.0.1,localhost",
+    ports: "18789",
+  });
+
+  let runtimeSettings = { ...DEFAULT_RUNTIME_SETTINGS };
+
+  function normalizeListInput(input) {
+    return String(input ?? "")
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+  }
+
+  function normalizeRuntimeSettings(rawSettings) {
+    return {
+      enabled: rawSettings?.enabled !== false,
+      hosts:
+        typeof rawSettings?.hosts === "string" && rawSettings.hosts.trim()
+          ? rawSettings.hosts
+          : DEFAULT_RUNTIME_SETTINGS.hosts,
+      ports:
+        typeof rawSettings?.ports === "string" && rawSettings.ports.trim()
+          ? rawSettings.ports
+          : DEFAULT_RUNTIME_SETTINGS.ports,
+    };
+  }
+
+  function mergeRuntimeSettings(partialSettings) {
+    runtimeSettings = normalizeRuntimeSettings({
+      ...runtimeSettings,
+      ...partialSettings,
+    });
+    return runtimeSettings;
+  }
+
+  function getLocationPort() {
+    const currentPort = window.location?.port || "";
+    if (currentPort) {
+      return currentPort;
+    }
+    if (window.location?.protocol === "https:") {
+      return "443";
+    }
+    if (window.location?.protocol === "http:") {
+      return "80";
+    }
+    return "";
+  }
+
+  function isConfiguredEndpoint(settings) {
+    const hostname = window.location?.hostname || "";
+    if (!hostname) {
+      return true;
+    }
+    const hostList = normalizeListInput(settings.hosts);
+    const portList = normalizeListInput(settings.ports);
+    const allowAnyHost = hostList.length === 0 || hostList.includes("*");
+    const allowAnyPort = portList.length === 0 || portList.includes("*");
+    const hostMatched =
+      allowAnyHost || hostList.some((entry) => entry.toLowerCase() === hostname.toLowerCase());
+    const locationPort = getLocationPort();
+    const portMatched = allowAnyPort || portList.includes(locationPort);
+    return hostMatched && portMatched;
+  }
+
+  function isOpenClawPage(settings = runtimeSettings) {
+    if (!settings.enabled || !isConfiguredEndpoint(settings)) {
+      return false;
+    }
     const title = document.title || "";
     if (/OpenClaw/i.test(title)) {
       return true;
@@ -2096,13 +2166,62 @@
     return /OpenClaw|Cron Jobs|Gateway Token|Main Session/i.test(text);
   }
 
+  function loadRuntimeSettings(callback) {
+    const storageSync = window.chrome?.storage?.sync;
+    if (!storageSync || typeof storageSync.get !== "function") {
+      callback(runtimeSettings);
+      return;
+    }
+    try {
+      storageSync.get(DEFAULT_RUNTIME_SETTINGS, (savedSettings) => {
+        if (window.chrome?.runtime?.lastError) {
+          callback(runtimeSettings);
+          return;
+        }
+        callback(mergeRuntimeSettings(savedSettings ?? {}));
+      });
+    } catch {
+      callback(runtimeSettings);
+    }
+  }
+
+  function watchRuntimeSettingsChanges() {
+    const storage = window.chrome?.storage;
+    if (!storage?.onChanged || typeof storage.onChanged.addListener !== "function") {
+      return;
+    }
+    storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== "sync") {
+        return;
+      }
+      const nextSettings = {};
+      if (changes.enabled) {
+        nextSettings.enabled = changes.enabled.newValue;
+      }
+      if (changes.hosts) {
+        nextSettings.hosts = changes.hosts.newValue;
+      }
+      if (changes.ports) {
+        nextSettings.ports = changes.ports.newValue;
+      }
+      mergeRuntimeSettings(nextSettings);
+      if (isOpenClawPage()) {
+        translateDocument();
+      }
+    });
+  }
+
   function patchConfirm() {
     const originalConfirm = window.confirm?.bind(window);
     if (typeof originalConfirm !== "function") {
       return;
     }
     window.confirm = function patchedConfirm(message) {
-      return originalConfirm(translateText(String(message ?? "")));
+      const originalMessage = String(message ?? "");
+      if (!isOpenClawPage()) {
+        return originalConfirm(originalMessage);
+      }
+      return originalConfirm(translateText(originalMessage));
     };
   }
 
@@ -2115,10 +2234,13 @@
   }
 
   function startObserver() {
-    if (!isOpenClawPage() || typeof MutationObserver !== "function") {
+    if (typeof MutationObserver !== "function") {
       return;
     }
     const observer = new MutationObserver((mutations) => {
+      if (!isOpenClawPage()) {
+        return;
+      }
       for (const mutation of mutations) {
         if (mutation.type === "characterData" && mutation.target) {
           translateRoot(mutation.target);
@@ -2145,27 +2267,35 @@
     translateAttribute,
     translateDocument,
     isOpenClawPage,
+    getRuntimeSettings: () => ({ ...runtimeSettings }),
   };
 
   window.__OPENCLAW_ZH_CN__ = api;
 
-  patchConfirm();
+  function initializeTranslationRuntime() {
+    patchConfirm();
+    watchRuntimeSettingsChanges();
+    startObserver();
 
-  if (document.body) {
+    if (document.body) {
+      translateDocument();
+      return;
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+          translateDocument();
+        },
+        { once: true },
+      );
+      return;
+    }
     translateDocument();
-    startObserver();
-  } else if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
-        translateDocument();
-        startObserver();
-      },
-      { once: true },
-    );
-  } else {
-    translateDocument();
-    startObserver();
   }
+
+  loadRuntimeSettings(() => {
+    initializeTranslationRuntime();
+  });
 })();
 
