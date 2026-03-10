@@ -7,6 +7,11 @@ OpenClaw Dashboard 的简体中文增强项目。
 - CRX 输出目录：`dist/`
 - 扩展弹窗：龙虾图标入口，支持启用开关、网址端口配置、版本信息显示
 
+## 截图
+
+![扩展弹窗示意图](./image.png)
+![扩展安装与效果示意图](./image2.png)
+
 ## 安装方式
 
 ### 1) JS 脚本安装（Tampermonkey / ScriptCat）
