@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Dashboard Plus</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <div class="chrome-top">
+        <header class="hero card">
+          <div class="brand">
+            <img src="icons/icon-48.png" alt="OpenClaw Dashboard Plus icon" class="logo" />
+            <div>
+              <p class="eyebrow" data-i18n="hero_eyebrow">OpenClaw Dashboard Plus</p>
+              <h1 id="hero-title" data-i18n="hero_title">增强控制面板</h1>
+              <p id="hero-caption" class="hero-copy" data-i18n="hero_caption">
+                管理多语言、缓存语言包与运行时配置，按需从 GitHub / Gitee 拉取更新。
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <nav class="tabs" aria-label="Popup Tabs">
+          <button id="tab-settings" type="button" class="tab-button is-active" data-tab="settings" data-i18n="tabs_settings">
+            设置
+          </button>
+          <button id="tab-features" type="button" class="tab-button" data-tab="features" data-i18n="tabs_features">
+            功能
+          </button>
+          <button id="tab-languages" type="button" class="tab-button" data-tab="languages" data-i18n="tabs_languages">
+            语言
+          </button>
+          <button id="tab-about" type="button" class="tab-button" data-tab="about" data-i18n="tabs_about">
+            关于
+          </button>
+        </nav>
+      </div>
+
+      <div class="panel-scroll">
+        <section class="card tab-panel is-active" data-panel="settings">
+          <div class="card-head">
+            <div>
+              <p class="section-title" data-i18n="settings_eyebrow">Runtime</p>
+              <h2 data-i18n="settings_title">基础配置</h2>
+            </div>
+          </div>
+
+          <label class="field">
+            <span data-i18n="panel_locale_label">面板界面语言</span>
+            <div id="panel-locale-control" class="custom-select">
+              <button
+                id="panel-locale-trigger"
+                type="button"
+                class="select-trigger"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              ></button>
+              <div id="panel-locale-menu" class="select-menu" role="listbox"></div>
+            </div>
+          </label>
+
+          <label class="power-toggle">
+            <span class="toggle-copy">
+              <strong data-i18n="enable_label">启用翻译</strong>
+              <small id="enabled-hint">已开启</small>
+            </span>
+            <span class="switch-control">
+              <input id="enabled" type="checkbox" />
+              <span class="switch-track">
+                <span class="switch-thumb"></span>
+              </span>
+            </span>
+          </label>
+
+          <label class="field">
+            <span data-i18n="hosts_label">生效网址</span>
+            <input id="hosts" type="text" placeholder="127.0.0.1,localhost" data-i18n-placeholder="hosts_placeholder" />
+          </label>
+
+          <label class="field">
+            <span data-i18n="ports_label">生效端口</span>
+            <input id="ports" type="text" placeholder="18789" data-i18n-placeholder="ports_placeholder" />
+          </label>
+
+          <div class="action-row">
+            <button id="save" type="button" class="primary" data-i18n="save_button">保存配置</button>
+          </div>
+          <p id="save-status" class="status" data-tone="info"></p>
+        </section>
+
+        <section class="card tab-panel" data-panel="features">
+          <div class="card-head">
+            <div>
+              <p class="section-title" data-i18n="features_eyebrow">OpenClaw UI</p>
+              <h2 data-i18n="features_title">功能与主题</h2>
+            </div>
+          </div>
+
+          <section class="sub-card">
+            <h3 data-i18n="theme_preset_title">UI 主题样式</h3>
+
+            <label class="field">
+              <span data-i18n="theme_preset_label">UI 样式预设</span>
+              <div id="theme-preset-control" class="custom-select">
+                <button
+                  id="theme-preset-trigger"
+                  type="button"
+                  class="select-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                ></button>
+                <div id="theme-preset-menu" class="select-menu" role="listbox"></div>
+              </div>
+            </label>
+
+            <label class="field">
+              <span data-i18n="theme_font_label">页面字体</span>
+              <div id="theme-font-control" class="custom-select">
+                <button
+                  id="theme-font-trigger"
+                  type="button"
+                  class="select-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                ></button>
+                <div id="theme-font-menu" class="select-menu" role="listbox"></div>
+              </div>
+            </label>
+
+            <label class="field">
+              <span data-i18n="theme_scale_label">字体大小</span>
+              <div id="theme-scale-control" class="custom-select">
+                <button
+                  id="theme-scale-trigger"
+                  type="button"
+                  class="select-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                ></button>
+                <div id="theme-scale-menu" class="select-menu" role="listbox"></div>
+              </div>
+            </label>
+
+            <div class="feature-toggle-grid">
+              <label class="feature-toggle">
+                <input id="style-override" type="checkbox" />
+                <span class="feature-toggle__copy">
+                  <strong data-i18n="theme_style_override_label">样式覆盖</strong>
+                  <small data-i18n="theme_style_override_help">统一卡片、按钮和表单观感</small>
+                </span>
+              </label>
+              <label class="feature-toggle">
+                <input id="style-repair" type="checkbox" />
+                <span class="feature-toggle__copy">
+                  <strong data-i18n="theme_style_repair_label">样式修补</strong>
+                  <small data-i18n="theme_style_repair_help">补齐边框、焦点和间距细节</small>
+                </span>
+              </label>
+              <label class="feature-toggle">
+                <input id="select-style-fix" type="checkbox" />
+                <span class="feature-toggle__copy">
+                  <strong data-i18n="theme_select_fix_label">下拉框样式修复</strong>
+                  <small data-i18n="theme_select_fix_help">把浏览器默认下拉框修成主题风格</small>
+                </span>
+              </label>
+            </div>
+
+            <div class="action-row triple">
+              <button id="save-theme" type="button" class="primary" data-i18n="theme_save_button">
+                保存主题设置
+              </button>
+              <button id="download-theme" type="button" class="secondary" data-i18n="theme_download_button">
+                拉取远端主题
+              </button>
+              <button id="clear-theme" type="button" class="ghost" data-i18n="theme_clear_button">
+                清除主题缓存
+              </button>
+            </div>
+
+            <div class="info-grid">
+              <div class="info-cell">
+                <span data-i18n="theme_current_preset">当前预设</span>
+                <strong id="theme-current-preset">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="theme_builtin_version">内置版本</span>
+                <strong id="theme-builtin-version">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="theme_cached_version">缓存版本</span>
+                <strong id="theme-cached-version">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="theme_active_source">当前来源</span>
+                <strong id="theme-active-source">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="theme_last_sync">最后同步</span>
+                <strong id="theme-last-sync">-</strong>
+              </div>
+            </div>
+
+            <p id="theme-status" class="status" data-tone="info"></p>
+          </section>
+        </section>
+
+        <section class="card tab-panel" data-panel="languages">
+          <div class="card-head">
+            <div>
+              <p class="section-title" data-i18n="language_eyebrow">Language System</p>
+              <h2 data-i18n="language_title">语言与缓存</h2>
+            </div>
+          </div>
+
+          <section class="sub-card">
+            <h3 data-i18n="content_locale_title">内容语言包</h3>
+            <label class="field">
+              <span data-i18n="content_locale_label">OpenClaw 页面语言</span>
+              <div id="locale-control" class="custom-select">
+                <button
+                  id="locale-trigger"
+                  type="button"
+                  class="select-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                ></button>
+                <div id="locale-menu" class="select-menu" role="listbox"></div>
+              </div>
+            </label>
+
+            <div class="action-row triple">
+              <button id="apply-locale" type="button" class="primary" data-i18n="content_locale_apply">
+                应用内容语言
+              </button>
+              <button id="download-locale" type="button" class="secondary" data-i18n="content_locale_download">
+                下载语言包
+              </button>
+              <button id="clear-locale" type="button" class="ghost" data-i18n="content_locale_clear">
+                清除缓存
+              </button>
+            </div>
+
+            <div class="info-grid">
+              <div class="info-cell">
+                <span data-i18n="content_locale_current">当前语言</span>
+                <strong id="current-locale">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="content_locale_builtin">内置版本</span>
+                <strong id="builtin-version">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="content_locale_cached">缓存版本</span>
+                <strong id="cached-version">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="content_locale_source">当前来源</span>
+                <strong id="active-source">-</strong>
+              </div>
+              <div class="info-cell">
+                <span data-i18n="content_locale_last_sync">最后同步</span>
+                <strong id="last-sync">-</strong>
+              </div>
+            </div>
+
+            <p id="locale-status" class="status" data-tone="info"></p>
+          </section>
+        </section>
+
+        <section class="card tab-panel" data-panel="about">
+          <div class="card-head">
+            <div>
+              <p class="section-title" data-i18n="about_eyebrow">About</p>
+              <h2 data-i18n="about_title">作者与版本</h2>
+            </div>
+            <button id="refresh-meta" type="button" class="secondary compact" data-i18n="refresh_meta_button">
+              刷新远端
+            </button>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-cell">
+              <span data-i18n="about_author">作者</span>
+              <strong id="author-name">-</strong>
+            </div>
+            <div class="info-cell">
+              <span data-i18n="about_extension_version">当前插件</span>
+              <strong id="extension-version">-</strong>
+            </div>
+            <div class="info-cell">
+              <span data-i18n="about_latest_version">远端最新</span>
+              <strong id="latest-version">-</strong>
+            </div>
+            <div class="info-cell">
+              <span data-i18n="about_openclaw_version">适配 OpenClaw</span>
+              <strong id="openclaw-version">-</strong>
+            </div>
+          </div>
+
+          <div class="link-row">
+            <a
+              id="github-link"
+              class="link-button"
+              href="#"
+              target="_blank"
+              rel="noreferrer noopener"
+              data-i18n="github_button"
+            >
+              GitHub 仓库
+            </a>
+            <a
+              id="gitee-link"
+              class="link-button muted"
+              href="#"
+              target="_blank"
+              rel="noreferrer noopener"
+              data-i18n="gitee_button"
+            >
+              Gitee 镜像
+            </a>
+          </div>
+
+          <p class="repo-note" data-i18n="repo_note">作者写的是 cloud11，欢迎给仓库点个 Star，谢谢喵。</p>
+          <p id="meta-status" class="status" data-tone="info"></p>
+        </section>
+      </div>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

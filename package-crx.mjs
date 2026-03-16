@@ -4,11 +4,11 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const extensionDir = path.join(currentDir, "extension");
-const buildScriptPath = path.join(currentDir, "build-extension.mjs");
 const distDir = path.join(currentDir, "dist");
-const extensionName = "openclaw-dashboard-zh-cn";
-const defaultKeyPath = path.join(currentDir, "extension.pem");
+const extensionDir = path.join(distDir, "extension");
+const buildScriptPath = path.join(currentDir, "build-extension.mjs");
+const extensionName = "openclaw-dashboard-plus";
+const defaultKeyPath = path.join(distDir, `${extensionName}.pem`);
 
 function readArg(name) {
   const index = process.argv.indexOf(name);

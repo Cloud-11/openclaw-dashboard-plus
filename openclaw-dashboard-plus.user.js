@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         OpenClaw Dashboard 简体中文增强翻译
-// @namespace    https://github.com/cloud11/openclaw-dashboard-zh-cn
-// @version      0.1.0
-// @description  为 OpenClaw Web UI 补齐尚未接入 i18n 的固定英文文案，可安装到 Tampermonkey、ScriptCat 等用户脚本管理器。
-// @author       OpenAI Codex
-// @homepageURL  https://github.com/cloud11/openclaw-dashboard-zh-cn
-// @supportURL   https://github.com/cloud11/openclaw-dashboard-zh-cn/issues
-// @downloadURL  https://raw.githubusercontent.com/cloud11/openclaw-dashboard-zh-cn/main/openclaw-dashboard-zh-cn.user.js
-// @updateURL    https://raw.githubusercontent.com/cloud11/openclaw-dashboard-zh-cn/main/openclaw-dashboard-zh-cn.user.js
+// @name         OpenClaw Dashboard Plus
+// @namespace    https://github.com/Cloud-11/openclaw-dashboard-plus
+// @version      0.2.0
+// @description  OpenClaw Dashboard Plus 用户脚本，提供多语言增强与固定文案补全，可安装到 Tampermonkey、ScriptCat 等用户脚本管理器。
+// @author       cloud11
+// @homepageURL  https://github.com/Cloud-11/openclaw-dashboard-plus
+// @supportURL   https://github.com/Cloud-11/openclaw-dashboard-plus/issues
+// @downloadURL  https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus.user.js
+// @updateURL    https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus.user.js
 // @license      MIT
 // @match        http://127.0.0.1:18789/*
 // @match        http://localhost:18789/*
@@ -21,6 +21,7 @@
   const EXACT_TRANSLATIONS = new Map(
     Object.entries({
       "OpenClaw Control": "OpenClaw 控制台",
+      "AI & Agents": "AI 与智能体",
       Settings: "设置",
       "Token Usage": "令牌用量",
       "Environment Variables": "环境变量",
@@ -84,11 +85,16 @@
       Enabled: "已启用",
       "Filter (client-side)": "筛选（仅客户端）",
       "Search settings...": "搜索设置...",
+      "Search or jump to… (⌘K)": "搜索或跳转… (⌘K)",
       "Tag filters:": "标签筛选：",
       "Add tags": "添加标签",
       "All Settings": "全部设置",
+      "Default model": "默认模型",
+      "Debug Mode": "调试模式",
       "Remove filter": "移除筛选",
+      "Open menu": "打开菜单",
       "Copy session name": "复制会话名称",
+      "Copy code": "复制代码",
       Copy: "复制",
       "Start Date": "开始日期",
       "End Date": "结束日期",
@@ -98,10 +104,12 @@
       "Descending": "降序",
       "Exit focus mode": "退出专注模式",
       "Could not load runtime tool catalog": "无法加载运行时工具目录",
+      "Not connected to gateway.": "未连接到网关。",
       "No skills found.": "未找到技能。",
       "No agents found.": "未找到智能体。",
       "No nodes found.": "未找到节点。",
       "No usage data for this session.": "该会话没有使用数据。",
+      "No context data": "没有上下文数据",
       "No error data": "没有错误数据",
       "No timeline data": "没有时间线数据",
       "No data in range": "所选范围内没有数据",
@@ -152,6 +160,7 @@
       Plugins: "插件",
       "Plugin management and extensions": "插件管理和扩展",
       "Workspace, identity, and model configuration.": "工作区、身份与模型配置。",
+      "Agent configurations, models, and identities": "智能体配置、模型与身份",
       "Workspace and scheduling targets.": "工作区与调度目标。",
       "Presence beacons from the gateway and clients.": "来自网关和客户端的在线信标。",
       "Connected Instances": "已连接实例",
@@ -191,19 +200,42 @@
       "Voice call tool": "语音通话工具",
       "View": "查看",
       "Close session details": "关闭会话详情",
+      "Loading chat": "正在加载聊天",
+      "Attached image": "已附加图片",
+      "Attachment preview": "附件预览",
       "Output": "输出",
       "Input": "输入",
+      "Total": "总量",
       "Cache Write": "缓存写入",
       "Cache Read": "缓存读取",
+      "Duration": "时长",
+      "Tool Calls": "工具调用",
       "Daily Usage": "每日使用情况",
+      "Daily Token Usage": "每日令牌用量",
+      "Daily Cost Usage": "每日成本用量",
+      "Usage Overview": "使用概览",
+      "Usage Over Time": "使用趋势",
       "Top Tools": "热门工具",
+      "Top Models": "热门模型",
+      "Top Providers": "热门提供商",
+      "Top Agents": "热门智能体",
+      "Top Channels": "热门频道",
+      "Peak Error Days": "错误高峰日期",
+      "Peak Error Hours": "错误高峰时段",
       "Model Mix": "模型分布",
       "Tokens by Type": "按类型统计令牌",
+      "Cost by Type": "按类型统计成本",
+      "By Type": "按类型",
+      "Per Turn": "按轮次",
+      "Cumulative": "累计",
       "Has tools": "包含工具",
       "Search conversation": "搜索对话",
       Conversation: "对话",
       "No data": "无数据",
       "Clear All": "清除全部",
+      "Built-in Skills": "内置技能",
+      "Installed Skills": "已安装技能",
+      "Extra Skills": "额外技能",
       Sessions: "会话",
       All: "全部",
       "Recently viewed": "最近查看",
@@ -239,6 +271,7 @@
       "No paired devices.": "没有已配对设备。",
       "Exec node binding": "执行节点绑定",
       "Load config": "加载配置",
+      "Open command palette": "打开命令面板",
       "Default binding": "默认绑定",
       "Any node": "任意节点",
       "Use default": "使用默认",
@@ -294,6 +327,7 @@
       "Auto-follow": "自动跟随",
       "Collapse All": "全部收起",
       "Expand All": "全部展开",
+      "Previous": "上一页",
       User: "用户",
       "Tool result": "工具结果",
       valid: "有效",
@@ -305,6 +339,7 @@
       "No changes": "没有更改",
       "Loading schema…": "加载架构中…",
       "Raw JSON5": "原始 JSON5",
+      "Schema unavailable. Use Raw.": "架构不可用。请使用原始模式。",
       "Form view can't safely edit some fields. Use Raw to avoid losing config entries.":
         "表单视图无法安全编辑某些字段。请使用原始模式以避免丢失配置项。",
       "Schema unavailable.": "架构不可用。",
@@ -312,16 +347,30 @@
       Enable: "启用",
       Disable: "禁用",
       "Installing…": "安装中…",
+      "Updating…": "更新中…",
+      "API key saved": "API 密钥已保存",
       "API key": "API 密钥",
       "Save key": "保存密钥",
       "Select an agent": "选择一个智能体",
       "Pick an agent to inspect its workspace and tools.": "选择一个智能体以检查其工作区和工具。",
       "Workspace paths and identity metadata.": "工作区路径和身份元数据。",
+      "Browse Skills Store": "浏览技能商店",
+      "Browse skills on ClawHub": "在 ClawHub 浏览技能",
+      "Control canvases": "控制画布",
+      "Control web browser": "控制网页浏览器",
+      "Create or overwrite files": "创建或覆盖文件",
+      "Fetch web content": "抓取网页内容",
+      "Gateway control": "网关控制",
+      "Image understanding": "图像理解",
+      "Make precise edits": "进行精确编辑",
+      "Manage background processes": "管理后台进程",
       "Model Selection": "模型选择",
+      "Chat model": "聊天模型",
       "Fallbacks (comma-separated)": "回退列表（逗号分隔）",
       "Channel health": "频道健康状态",
       "Channel status snapshots from the gateway.": "来自网关的频道状态快照。",
       "Channel status and configuration.": "频道状态和配置。",
+      "Channel config schema unavailable.": "频道配置架构不可用。",
       Configured: "已配置",
       Running: "运行中",
       Connected: "已连接",
@@ -332,13 +381,114 @@
       "Docs (opens in new tab)": "文档（在新标签页打开）",
       "Control UI auth docs (opens in new tab)": "Control UI 认证文档（在新标签页打开）",
       "Open run chat": "打开运行聊天",
+      "Open in Chat": "在聊天中打开",
+      "Open Files tab": "打开文件标签页",
       "Main Session": "主会话",
+      "Preview rendered markdown": "预览渲染后的 Markdown",
+      "Dismiss": "关闭",
+      "Dismiss update banner": "关闭更新提示",
+      "Update available:": "有可用更新：",
+      "Update now": "立即更新",
+      "Hide token": "隐藏令牌",
+      "Show token": "显示令牌",
+      "Toggle token visibility": "切换令牌可见性",
+      "Hide password": "隐藏密码",
+      "Show password": "显示密码",
+      "Toggle password visibility": "切换密码可见性",
+      "system or shared password": "系统密码或共享密码",
+      "Filter by key, label, kind…": "按键、标签、类型筛选…",
+      "Assistant output tokens": "助手输出令牌",
+      "User + tool input tokens": "用户与工具输入令牌",
+      "Tokens written to cache": "写入缓存的令牌",
+      "Tokens read from cache": "从缓存读取的令牌",
+      "System Prompt Breakdown": "系统提示词构成",
+      "Color mode": "颜色模式",
+      "Follow OS light or dark": "跟随系统浅色或深色模式",
+      "Force light mode": "强制浅色模式",
+      "Force dark mode": "强制深色模式",
+      "Abort sub-agents": "中止子智能体",
+      "Clear chat history": "清空聊天记录",
+      "Compact session context": "压缩会话上下文",
+      "Export session to Markdown": "将会话导出为 Markdown",
+      "List agents": "列出智能体",
+      "List sessions": "列出会话",
+      "Chat history cleared.": "聊天记录已清空。",
+      "Context compacted successfully.": "上下文压缩成功。",
+      "Exporting session...": "正在导出会话...",
+      "Check system health": "检查系统健康状态",
+      "Help me configure a channel": "帮我配置一个频道",
+      "Copy as markdown": "复制为 Markdown",
+      "Copy failed": "复制失败",
+      "Apply Patch": "应用补丁",
+      "Edit File": "编辑文件",
+      "Fetch Page": "抓取页面",
+      "Generate Image": "生成图像",
+      "Get Memory": "获取记忆",
+      "List Agents": "列出智能体",
+      "List Sessions": "列出会话",
+      "Cron Jobs": "定时任务",
+      "Gateway Error": "网关错误",
+      "Logged out.": "已退出登录。",
+      "Banner URL": "横幅图片 URL",
+      "HTTPS URL to a banner image": "指向横幅图片的 HTTPS URL",
+      "Lightning Address": "闪电地址",
+      "JSON value": "JSON 值",
       "Reject this device pairing request?": "要拒绝此设备配对请求吗？",
       "Profile publish failed on all relays.": "所有中继上的资料发布均失败。",
       "Profile published to relays.": "资料已发布到中继。",
       "Profile imported from relays. Review and publish.": "已从中继导入资料。请检查后发布。",
       "Profile imported. Review and publish.": "资料已导入。请检查后发布。",
       "Config hash missing; reload and retry.": "配置哈希缺失，请重新加载后重试。",
+      "Exec approvals hash missing; reload and retry.": "执行审批配置哈希缺失，请重新加载后重试。",
+      "Your configuration is invalid. Some settings may not work as expected.":
+        "你的配置无效，部分设置可能无法按预期工作。",
+      "This connection does not have the operator.read scope. Some features may be unavailable.":
+        "当前连接没有 `operator.read` 权限范围，部分功能可能不可用。",
+      "No settings in this section": "本分组没有可用设置",
+      "No configured models": "没有已配置模型",
+      "Connect to the gateway to start chatting...": "连接到网关后即可开始聊天...",
+      "Add a message or paste more images...": "输入消息或粘贴更多图片...",
+      "Speech recognition is not supported in this browser":
+        "当前浏览器不支持语音识别",
+      "Speech synthesis is not supported in this browser":
+        "当前浏览器不支持语音合成",
+      "Completed": "已完成",
+      "Copied!": "已复制！",
+      "Type `/` to open the command menu.": "输入 `/` 可打开命令菜单。",
+      "No active sub-agent sessions found.": "未找到活跃的子智能体会话。",
+      "New device token (copy and store securely):": "新的设备令牌（请复制并妥善保存）：",
+      "Select a node before loading exec approvals.": "请先选择一个节点，再加载执行审批配置。",
+      "Select a node before saving exec approvals.": "请先选择一个节点，再保存执行审批配置。",
+      "Failure alert threshold must be greater than 0.":
+        "失败告警阈值必须大于 0。",
+      "Verifiable identifier (e.g., you@domain.com)":
+        "可验证标识符（例如：you@domain.com）",
+      "Lightning address for tips (LUD-16)": "用于打赏的闪电地址（LUD-16）",
+      "Avg Tokens / Msg": "平均令牌/消息",
+      "Avg Cost / Msg": "平均成本/消息",
+      "Throughput": "吞吐量",
+      "Error Rate": "错误率",
+      "Cache Hit Rate": "缓存命中率",
+      "Total user + assistant messages in range.": "所选范围内的用户与助手消息总数。",
+      "Total tool call count across sessions.": "所选会话范围内的工具调用总次数。",
+      "Total message/tool errors in range.": "所选范围内的消息/工具错误总数。",
+      "Average tokens per message in this range.": "该范围内每条消息的平均令牌数。",
+      "Average cost per message when providers report costs.":
+        "当提供商上报成本数据时，显示每条消息的平均成本。",
+      "Average cost per message when providers report costs. Cost data is missing for some or all sessions in this range.":
+        "当提供商上报成本数据时，显示每条消息的平均成本。该范围内部分或全部会话缺少成本数据。",
+      "Distinct sessions in the range.": "所选范围内的去重会话数。",
+      "Throughput shows tokens per minute over active time. Higher is better.":
+        "吞吐量表示活跃时段内的每分钟令牌数，越高越好。",
+      "Error rate = errors / total messages. Lower is better.":
+        "错误率 = 错误数 / 消息总数，越低越好。",
+      "Cache hit rate = cache read / (input + cache read). Higher is better.":
+        "缓存命中率 = 缓存读取 /（输入 + 缓存读取），越高越好。",
+      "No provider data": "没有提供商数据",
+      "No agent data": "没有智能体数据",
+      "No channel data": "没有频道数据",
+      "No tool calls": "没有工具调用",
+      "No model data": "没有模型数据",
       never: "从未",
     }),
   );
@@ -346,6 +496,11 @@
   const ATTRIBUTE_NAMES = new Set(["title", "aria-label", "placeholder"]);
   const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "TEXTAREA", "PRE", "CODE"]);
   const SHOW_TEXT = typeof NodeFilter !== "undefined" ? NodeFilter.SHOW_TEXT : 4;
+  const REMOTE_FETCH_TIMEOUT_MS = 4000;
+  const REMOTE_LANGUAGE_STORAGE_KEYS = Object.freeze({
+    bundles: "remoteLanguageBundles",
+    states: "remoteLanguageStates",
+  });
   const CONFIG_HELP_TRANSLATIONS = new Map(
     Object.entries({
       "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history.":
@@ -1650,7 +1805,7 @@
         "网关运行时设置面，涵盖绑定模式、认证、控制界面、远程传输和运行安全控制。除非你明确希望将网关暴露到受信任本地接口之外，否则请保持保守默认值。",
     }),
   );
-  const CONFIG_LABEL_REPLACEMENTS = [
+  let CONFIG_LABEL_REPLACEMENTS = [
     ["Config Last Touched Version", "配置最近修改版本"],
     ["Config Last Touched At", "配置最近修改时间"],
     ["Shell Environment Import", "Shell 环境导入"],
@@ -1816,9 +1971,19 @@
     ["(hours)", "（小时）"],
     ["(sec)", "（秒）"],
   ];
-  const ORDERED_CONFIG_LABEL_REPLACEMENTS = [...CONFIG_LABEL_REPLACEMENTS].toSorted(
-    (a, b) => b[0].length - a[0].length,
-  );
+  let ORDERED_CONFIG_LABEL_REPLACEMENTS = [];
+  function refreshOrderedConfigLabelReplacements() {
+    ORDERED_CONFIG_LABEL_REPLACEMENTS = [...CONFIG_LABEL_REPLACEMENTS].toSorted(
+      (a, b) => b[0].length - a[0].length,
+    );
+  }
+  refreshOrderedConfigLabelReplacements();
+  const BASE_EXACT_TRANSLATIONS = new Map(EXACT_TRANSLATIONS);
+  const BASE_CONFIG_HELP_TRANSLATIONS = new Map(CONFIG_HELP_TRANSLATIONS);
+  const BASE_CONFIG_LABEL_REPLACEMENTS = CONFIG_LABEL_REPLACEMENTS.map(([source, target]) => [
+    source,
+    target,
+  ]);
   const SKIP_SELECTORS = [
     ".chat-text",
     ".chat-thinking",
@@ -1868,6 +2033,30 @@
       [/^(\d+)\s+days$/i, (_, count) => `${count} 天`],
       [/^(\d+)\s+hours$/i, (_, count) => `${count} 小时`],
       [/^(\d+)\s+msgs$/i, (_, count) => `${count} 条消息`],
+      [/^(\d+)\s+calls$/i, (_, count) => `${count} 次调用`],
+      [/^(\d+)\s+tools$/i, (_, count) => `${count} 个工具`],
+      [/^(\d+)\s+tool results$/i, (_, count) => `${count} 个工具结果`],
+      [/^(\d+)\s+tools used$/i, (_, count) => `已使用 ${count} 个工具`],
+      [/^(\d+)\s+user\s+·\s+(\d+)\s+assistant$/i, (_, user, assistant) => {
+        return `${user} 条用户消息 · ${assistant} 条助手消息`;
+      }],
+      [/^Across\s+(\d+)\s+messages$/i, (_, count) => `共 ${count} 条消息`],
+      [/^of\s+(\d+)\s+in range$/i, (_, count) => `范围内共 ${count} 个`],
+      [/^(.+)\s+total$/i, (_, value) => `总计 ${value}`],
+      [/^(.+)\s+cached\s+·\s+(.+)\s+prompt$/i, (_, cached, prompt) => {
+        return `${cached} 已缓存 · ${prompt} 提示词`;
+      }],
+      [/^(\d+)\s+errors\s+·\s+(.+)\s+avg session$/i, (_, errors, avgSession) => {
+        return `${errors} 个错误 · 平均会话 ${avgSession}`;
+      }],
+      [/^(\d+)\s+errors\s+·\s+(\d+)\s+msgs\s+·\s+(.+)$/i, (_, errors, msgs, rest) => {
+        return `${errors} 个错误 · ${msgs} 条消息 · ${rest}`;
+      }],
+      [/^(.+)\s+·\s+(\d+)\s+msgs$/i, (_, left, count) => {
+        return `${translateText(left)} · ${count} 条消息`;
+      }],
+      [/^Color mode:\s*(.+)$/i, (_, rest) => `颜色模式：${translateText(rest)}`],
+      [/^JSON\s+·\s+(\d+)\s+lines$/i, (_, count) => `JSON · ${count} 行`],
       [/^At\s+(.+)$/i, (_, rest) => `在 ${rest}`],
       [/^Every\s+(.+)$/i, (_, rest) => `每 ${rest}`],
       [/^(\d+)\s+shown$/i, (_, count) => `显示 ${count} 项`],
@@ -1895,6 +2084,13 @@
         return `安全审计：${translatedRest}。运行 openclaw security audit --deep 查看详情。`;
       }],
       [/^\+(\d+)\s+more$/i, (_, count) => `另有 ${count} 项`],
+      [/^Message\s+(.+)\s+\(Enter to send\)$/i, (_, target) => {
+        return `向 ${target} 发送消息（回车发送）`;
+      }],
+      [/^(Output|Input|Cache Write|Cache Read)\s+([0-9].+)$/i, (_, label, rest) => {
+        const translatedLabel = translateText(label);
+        return `${translatedLabel} ${rest}`;
+      }],
       [/^(Output|Input|Cache Write|Cache Read):\s*(.+)$/i, (_, label, rest) => {
         const translatedLabel = translateText(label);
         return `${translatedLabel}：${rest}`;
@@ -2103,19 +2299,252 @@
     }
   }
 
+  const BUILTIN_THEME_PRESET_BUNDLE = Object.freeze({
+    schemaVersion: 1,
+    version: "builtin-0.2.0",
+    defaultPreset: "openclaw-classic",
+    presets: [
+      {
+        id: "openclaw-classic",
+        label: "OpenClaw Classic",
+        nativeLabel: "OpenClaw 原版增强",
+        description: "Keeps the original dark dashboard feeling and smooths out surface contrast.",
+        nativeDescription: "保留原版偏深色的控制台气质，同时补齐层次和控件一致性。",
+        variables: {
+          "page-bg": "#0b1220",
+          surface: "rgba(15, 23, 42, 0.92)",
+          "surface-2": "rgba(30, 41, 59, 0.92)",
+          text: "#e5eefc",
+          muted: "#9fb0cc",
+          border: "rgba(148, 163, 184, 0.22)",
+          accent: "#60a5fa",
+          "accent-soft": "rgba(96, 165, 250, 0.18)",
+          "control-bg": "#162235",
+          "control-text": "#e5eefc",
+          "control-border": "rgba(125, 159, 211, 0.3)",
+          radius: "14px",
+          shadow: "0 16px 40px rgba(2, 8, 23, 0.28)",
+        },
+      },
+      {
+        id: "plus-clean",
+        label: "Plus Clean",
+        nativeLabel: "Plus 清爽版",
+        description: "A bright and crisp management-panel style with lighter cards and calmer borders.",
+        nativeDescription: "更偏管理台的浅色清爽风格，卡片更轻，边界更干净。",
+        variables: {
+          "page-bg": "#eef4fb",
+          surface: "rgba(255, 255, 255, 0.96)",
+          "surface-2": "rgba(243, 247, 252, 0.98)",
+          text: "#1f2937",
+          muted: "#5b6474",
+          border: "rgba(148, 163, 184, 0.28)",
+          accent: "#2563eb",
+          "accent-soft": "rgba(37, 99, 235, 0.12)",
+          "control-bg": "#ffffff",
+          "control-text": "#1f2937",
+          "control-border": "rgba(125, 159, 211, 0.34)",
+          radius: "14px",
+          shadow: "0 10px 24px rgba(15, 23, 42, 0.1)",
+        },
+      },
+      {
+        id: "plus-contrast",
+        label: "Plus Contrast",
+        nativeLabel: "Plus 高对比",
+        description: "A darker, higher-contrast preset tuned for clearer hierarchy and stronger controls.",
+        nativeDescription: "更深、更高对比的预设，强调层级、按钮和输入框可读性。",
+        variables: {
+          "page-bg": "#060b16",
+          surface: "rgba(10, 17, 31, 0.96)",
+          "surface-2": "rgba(17, 24, 39, 0.96)",
+          text: "#f8fbff",
+          muted: "#b7c4dc",
+          border: "rgba(148, 163, 184, 0.28)",
+          accent: "#38bdf8",
+          "accent-soft": "rgba(56, 189, 248, 0.18)",
+          "control-bg": "#101a2b",
+          "control-text": "#f8fbff",
+          "control-border": "rgba(103, 232, 249, 0.34)",
+          radius: "14px",
+          shadow: "0 18px 46px rgba(2, 6, 23, 0.34)",
+        },
+      },
+    ],
+  });
+  const FONT_FAMILY_MAP = Object.freeze({
+    system:
+      "\"Segoe UI\", \"Google Sans\", \"PingFang SC\", \"Microsoft YaHei UI\", sans-serif",
+    modern:
+      "\"Google Sans\", \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei UI\", sans-serif",
+    noto:
+      "\"Noto Sans SC\", \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei UI\", sans-serif",
+    serif:
+      "\"Source Han Serif SC\", \"Noto Serif SC\", Georgia, serif",
+  });
+  const DEFAULT_THEME_SELECT_ARROW =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2378A6FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
+  const REMOTE_THEME_STORAGE_KEYS = Object.freeze({
+    bundle: "remoteThemePresetBundle",
+    state: "remoteThemePresetState",
+  });
+  const THEME_STYLE_ELEMENT_ID = "openclaw-dashboard-plus-theme-style";
+  const DEFAULT_THEME_REPAIR_CSS = `
+    :root { color-scheme: light dark; }
+    :where(*, *::before, *::after) { box-sizing: border-box; }
+    :where(body) {
+      font-family: var(--ocdp-font-family) !important;
+      font-size: var(--ocdp-font-scale) !important;
+      color: var(--ocdp-text) !important;
+      background: var(--ocdp-page-bg) !important;
+    }
+    :where(button, input, textarea, select) { font: inherit !important; }
+    :where(a) { color: var(--ocdp-accent) !important; }
+    :where(input::placeholder, textarea::placeholder) { color: var(--ocdp-muted) !important; }
+    :where(input, textarea, select, button, [role="button"]) {
+      transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        color 160ms ease !important;
+    }
+    :where(input:focus, textarea:focus, select:focus, button:focus-visible, [role="button"]:focus-visible) {
+      outline: none !important;
+      box-shadow: 0 0 0 3px var(--ocdp-accent-soft) !important;
+      border-color: var(--ocdp-accent) !important;
+    }
+    :where(table, thead, tbody, tr, td, th) { border-color: var(--ocdp-border) !important; }
+  `;
+  const DEFAULT_THEME_SELECT_CSS = `
+    :where(select):not([multiple]):not([size]) {
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      min-height: 2.5rem !important;
+      padding-right: 2.6rem !important;
+      background-image: url("${DEFAULT_THEME_SELECT_ARROW}") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 0.85rem center !important;
+      background-size: 1rem 1rem !important;
+    }
+    :where(option) {
+      color: var(--ocdp-control-text) !important;
+      background: var(--ocdp-surface) !important;
+    }
+  `;
+  const DEFAULT_THEME_OVERRIDE_CSS = `
+    :where(body) {
+      background:
+        radial-gradient(circle at top right, var(--ocdp-accent-soft) 0%, transparent 28%),
+        var(--ocdp-page-bg) !important;
+      color: var(--ocdp-text) !important;
+    }
+    :where(main, [class*="app"], [class*="layout"], [class*="page"]) {
+      color: var(--ocdp-text) !important;
+    }
+    :where(
+      .card, .panel, .sidebar, .toolbar,
+      [class*="card"], [class*="panel"], [class*="sidebar"], [class*="toolbar"],
+      [class*="dialog"], [class*="modal"], [data-slot="card"], section, aside
+    ) {
+      background: var(--ocdp-surface) !important;
+      border-color: var(--ocdp-border) !important;
+      color: var(--ocdp-text) !important;
+      box-shadow: var(--ocdp-shadow) !important;
+      border-radius: var(--ocdp-radius) !important;
+      backdrop-filter: blur(10px);
+    }
+    :where(header, nav, [class*="nav"], [class*="header"], [class*="topbar"], [class*="tabs"], [class*="menu"]) {
+      background: var(--ocdp-surface-2) !important;
+      border-color: var(--ocdp-border) !important;
+      color: var(--ocdp-text) !important;
+    }
+    :where(button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"]) {
+      background: var(--ocdp-control-bg) !important;
+      color: var(--ocdp-control-text) !important;
+      border: 1px solid var(--ocdp-control-border) !important;
+      border-radius: var(--ocdp-radius) !important;
+      box-shadow: none !important;
+    }
+    :where(button:hover, [role="button"]:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover) {
+      background: var(--ocdp-surface-2) !important;
+      border-color: var(--ocdp-accent) !important;
+    }
+    :where(input:not([type="checkbox"]):not([type="radio"]), textarea, select) {
+      background: var(--ocdp-control-bg) !important;
+      color: var(--ocdp-control-text) !important;
+      border: 1px solid var(--ocdp-control-border) !important;
+      border-radius: var(--ocdp-radius) !important;
+    }
+    :where(.badge, .tag, [class*="badge"], [class*="tag"], [class*="pill"]) {
+      background: var(--ocdp-accent-soft) !important;
+      color: var(--ocdp-accent) !important;
+      border-color: transparent !important;
+    }
+  `;
   const DEFAULT_RUNTIME_SETTINGS = Object.freeze({
     enabled: true,
     hosts: "127.0.0.1,localhost",
     ports: "18789",
+    locale: "zh-CN",
+    themePreset: BUILTIN_THEME_PRESET_BUNDLE.defaultPreset,
+    fontFamily: "system",
+    fontScale: "100",
+    styleOverride: true,
+    styleRepair: true,
+    selectStyleFix: true,
   });
 
   let runtimeSettings = { ...DEFAULT_RUNTIME_SETTINGS };
+  let activeTranslationLocale = DEFAULT_RUNTIME_SETTINGS.locale;
+  let translationLoadVersion = 0;
+  let themeLoadVersion = 0;
+  let activeThemeBundle = BUILTIN_THEME_PRESET_BUNDLE;
+  let activeThemePreset = BUILTIN_THEME_PRESET_BUNDLE.presets[0];
+  let remoteTranslationState = {
+    locale: DEFAULT_RUNTIME_SETTINGS.locale,
+    activeSource: "builtin",
+    translationVersion: "builtin",
+    builtinVersion: "builtin",
+    lastSyncAt: null,
+    error: null,
+  };
+  let remoteThemeState = {
+    presetId: DEFAULT_RUNTIME_SETTINGS.themePreset,
+    presetLabel:
+      BUILTIN_THEME_PRESET_BUNDLE.presets[0]?.nativeLabel ||
+      BUILTIN_THEME_PRESET_BUNDLE.presets[0]?.label ||
+      DEFAULT_RUNTIME_SETTINGS.themePreset,
+    activeSource: "builtin",
+    bundleVersion: BUILTIN_THEME_PRESET_BUNDLE.version,
+    builtinVersion: BUILTIN_THEME_PRESET_BUNDLE.version,
+    lastSyncAt: null,
+    error: null,
+  };
 
   function normalizeListInput(input) {
     return String(input ?? "")
       .split(",")
       .map((entry) => entry.trim())
       .filter(Boolean);
+  }
+
+  function normalizeChoice(value, allowedValues, fallbackValue) {
+    if (typeof value !== "string") {
+      return fallbackValue;
+    }
+    const normalizedValue = value.trim();
+    return allowedValues.includes(normalizedValue) ? normalizedValue : fallbackValue;
+  }
+
+  function normalizeFontScale(value) {
+    const rawValue =
+      typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+    const parsedValue = Number.parseFloat(rawValue || DEFAULT_RUNTIME_SETTINGS.fontScale);
+    if (!Number.isFinite(parsedValue)) {
+      return DEFAULT_RUNTIME_SETTINGS.fontScale;
+    }
+    return String(Math.min(130, Math.max(85, Math.round(parsedValue))));
   }
 
   function normalizeRuntimeSettings(rawSettings) {
@@ -2129,6 +2558,23 @@
         typeof rawSettings?.ports === "string" && rawSettings.ports.trim()
           ? rawSettings.ports
           : DEFAULT_RUNTIME_SETTINGS.ports,
+      locale:
+        typeof rawSettings?.locale === "string" && rawSettings.locale.trim()
+          ? rawSettings.locale.trim()
+          : DEFAULT_RUNTIME_SETTINGS.locale,
+      themePreset:
+        typeof rawSettings?.themePreset === "string" && rawSettings.themePreset.trim()
+          ? rawSettings.themePreset.trim()
+          : DEFAULT_RUNTIME_SETTINGS.themePreset,
+      fontFamily: normalizeChoice(
+        rawSettings?.fontFamily,
+        Object.keys(FONT_FAMILY_MAP),
+        DEFAULT_RUNTIME_SETTINGS.fontFamily,
+      ),
+      fontScale: normalizeFontScale(rawSettings?.fontScale),
+      styleOverride: rawSettings?.styleOverride !== false,
+      styleRepair: rawSettings?.styleRepair !== false,
+      selectStyleFix: rawSettings?.selectStyleFix !== false,
     };
   }
 
@@ -2138,6 +2584,496 @@
       ...partialSettings,
     });
     return runtimeSettings;
+  }
+
+  function normalizeThemePreset(entry) {
+    if (!entry || typeof entry !== "object") {
+      return null;
+    }
+    const id = typeof entry.id === "string" && entry.id.trim() ? entry.id.trim() : "";
+    if (!id) {
+      return null;
+    }
+    const label =
+      typeof entry.label === "string" && entry.label.trim() ? entry.label.trim() : id;
+    const nativeLabel =
+      typeof entry.nativeLabel === "string" && entry.nativeLabel.trim()
+        ? entry.nativeLabel.trim()
+        : label;
+    const variables =
+      entry.variables && typeof entry.variables === "object"
+        ? Object.fromEntries(
+            Object.entries(entry.variables)
+              .filter(([key, value]) => typeof key === "string" && typeof value === "string")
+              .map(([key, value]) => [key.trim(), value.trim()]),
+          )
+        : {};
+    return {
+      id,
+      label,
+      nativeLabel,
+      description:
+        typeof entry.description === "string" && entry.description.trim()
+          ? entry.description.trim()
+          : "",
+      nativeDescription:
+        typeof entry.nativeDescription === "string" && entry.nativeDescription.trim()
+          ? entry.nativeDescription.trim()
+          : "",
+      variables,
+    };
+  }
+
+  function normalizeThemeBundle(bundle, fallbackVersion = BUILTIN_THEME_PRESET_BUNDLE.version) {
+    const presets = Array.isArray(bundle?.presets)
+      ? bundle.presets.map((entry) => normalizeThemePreset(entry)).filter(Boolean)
+      : [];
+    const normalizedPresets = presets.length
+      ? presets
+      : BUILTIN_THEME_PRESET_BUNDLE.presets.map((entry) => normalizeThemePreset(entry));
+    return {
+      schemaVersion: 1,
+      version:
+        typeof bundle?.version === "string" && bundle.version.trim()
+          ? bundle.version.trim()
+          : fallbackVersion,
+      defaultPreset:
+        typeof bundle?.defaultPreset === "string" && bundle.defaultPreset.trim()
+          ? bundle.defaultPreset.trim()
+          : normalizedPresets[0]?.id || DEFAULT_RUNTIME_SETTINGS.themePreset,
+      presets: normalizedPresets,
+    };
+  }
+
+  function mergeThemeBundles(baseBundle, nextBundle) {
+    const mergedMap = new Map();
+    for (const preset of normalizeThemeBundle(baseBundle).presets) {
+      mergedMap.set(preset.id, preset);
+    }
+    for (const preset of normalizeThemeBundle(nextBundle).presets) {
+      const previousPreset = mergedMap.get(preset.id);
+      mergedMap.set(
+        preset.id,
+        previousPreset
+          ? {
+              ...previousPreset,
+              ...preset,
+              variables: {
+                ...(previousPreset.variables || {}),
+                ...(preset.variables || {}),
+              },
+            }
+          : preset,
+      );
+    }
+    return {
+      schemaVersion: 1,
+      version:
+        normalizeThemeBundle(nextBundle).version || normalizeThemeBundle(baseBundle).version,
+      defaultPreset:
+        normalizeThemeBundle(nextBundle).defaultPreset ||
+        normalizeThemeBundle(baseBundle).defaultPreset,
+      presets: Array.from(mergedMap.values()),
+    };
+  }
+
+  function resolveThemePreset(bundle, presetId) {
+    const normalizedBundle = normalizeThemeBundle(bundle);
+    return (
+      normalizedBundle.presets.find((preset) => preset.id === presetId) ||
+      normalizedBundle.presets.find((preset) => preset.id === normalizedBundle.defaultPreset) ||
+      normalizedBundle.presets[0] ||
+      normalizeThemePreset(BUILTIN_THEME_PRESET_BUNDLE.presets[0])
+    );
+  }
+
+  async function fetchJsonWithTimeout(url, timeoutMs = REMOTE_FETCH_TIMEOUT_MS) {
+    const controller =
+      typeof AbortController === "function" ? new AbortController() : null;
+    const timerId = window.setTimeout(() => {
+      controller?.abort();
+    }, timeoutMs);
+    try {
+      const response = await fetch(url, {
+        cache: "no-store",
+        signal: controller?.signal,
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    } finally {
+      window.clearTimeout(timerId);
+    }
+  }
+
+  function getSelectedLocale(settings = runtimeSettings) {
+    return normalizeRuntimeSettings(settings).locale;
+  }
+
+  function getSelectedThemePreset(settings = runtimeSettings) {
+    return normalizeRuntimeSettings(settings).themePreset;
+  }
+
+  function getThemeStyleElement() {
+    if (!(document.documentElement instanceof Element)) {
+      return null;
+    }
+    let styleElement = document.getElementById(THEME_STYLE_ELEMENT_ID);
+    if (styleElement instanceof HTMLStyleElement) {
+      return styleElement;
+    }
+    styleElement = document.createElement("style");
+    styleElement.id = THEME_STYLE_ELEMENT_ID;
+    document.documentElement.append(styleElement);
+    return styleElement;
+  }
+
+  function clearThemeStyles() {
+    document.getElementById(THEME_STYLE_ELEMENT_ID)?.remove();
+  }
+
+  function escapeCssValue(value) {
+    return String(value ?? "")
+      .replaceAll("\\", "\\\\")
+      .replaceAll("\n", " ")
+      .replaceAll(";", "")
+      .trim();
+  }
+
+  function buildThemeCss(settings, preset) {
+    const fontFamily = FONT_FAMILY_MAP[settings.fontFamily] || FONT_FAMILY_MAP.system;
+    const fontScale = `${normalizeFontScale(settings.fontScale)}%`;
+    const variables = {
+      "page-bg": "#0b1220",
+      surface: "rgba(15, 23, 42, 0.92)",
+      "surface-2": "rgba(30, 41, 59, 0.92)",
+      text: "#e5eefc",
+      muted: "#9fb0cc",
+      border: "rgba(148, 163, 184, 0.22)",
+      accent: "#60a5fa",
+      "accent-soft": "rgba(96, 165, 250, 0.18)",
+      "control-bg": "#162235",
+      "control-text": "#e5eefc",
+      "control-border": "rgba(125, 159, 211, 0.3)",
+      radius: "14px",
+      shadow: "0 16px 40px rgba(2, 8, 23, 0.28)",
+      ...(preset?.variables || {}),
+    };
+    const variableLines = Object.entries(variables)
+      .map(([key, value]) => `--ocdp-${key}: ${escapeCssValue(value)};`)
+      .join("\n");
+
+    return [
+      `:root {\n${variableLines}\n--ocdp-font-family: ${fontFamily};\n--ocdp-font-scale: ${fontScale};\n}`,
+      settings.styleOverride ? DEFAULT_THEME_OVERRIDE_CSS : "",
+      settings.styleRepair ? DEFAULT_THEME_REPAIR_CSS : "",
+      settings.selectStyleFix ? DEFAULT_THEME_SELECT_CSS : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+  }
+
+  function hasInlineBaseTranslations() {
+    return (
+      BASE_EXACT_TRANSLATIONS.size > 0 ||
+      BASE_CONFIG_HELP_TRANSLATIONS.size > 0 ||
+      BASE_CONFIG_LABEL_REPLACEMENTS.length > 0
+    );
+  }
+
+  function shouldUseInlineBaseTranslations(locale) {
+    return locale === DEFAULT_RUNTIME_SETTINGS.locale && hasInlineBaseTranslations();
+  }
+
+  function resetTranslationCollections(useBaseTranslations = false) {
+    EXACT_TRANSLATIONS.clear();
+    CONFIG_HELP_TRANSLATIONS.clear();
+    CONFIG_LABEL_REPLACEMENTS = [];
+
+    if (useBaseTranslations) {
+      for (const [source, target] of BASE_EXACT_TRANSLATIONS.entries()) {
+        EXACT_TRANSLATIONS.set(source, target);
+      }
+
+      for (const [source, target] of BASE_CONFIG_HELP_TRANSLATIONS.entries()) {
+        CONFIG_HELP_TRANSLATIONS.set(source, target);
+      }
+
+      CONFIG_LABEL_REPLACEMENTS.push(
+        ...BASE_CONFIG_LABEL_REPLACEMENTS.map(([source, target]) => [source, target]),
+      );
+    }
+
+    refreshOrderedConfigLabelReplacements();
+  }
+
+  function applyTranslationBundle(bundle) {
+    if (!bundle || typeof bundle !== "object") {
+      return false;
+    }
+
+    let changed = false;
+    let labelsChanged = false;
+
+    if (bundle.exactTranslations && typeof bundle.exactTranslations === "object") {
+      for (const [source, target] of Object.entries(bundle.exactTranslations)) {
+        if (typeof source !== "string" || typeof target !== "string") {
+          continue;
+        }
+        EXACT_TRANSLATIONS.set(source, target);
+        changed = true;
+      }
+    }
+
+    if (bundle.configHelpTranslations && typeof bundle.configHelpTranslations === "object") {
+      for (const [source, target] of Object.entries(bundle.configHelpTranslations)) {
+        if (typeof source !== "string" || typeof target !== "string") {
+          continue;
+        }
+        CONFIG_HELP_TRANSLATIONS.set(source, target);
+        changed = true;
+      }
+    }
+
+    if (Array.isArray(bundle.configLabelReplacements)) {
+      for (const entry of bundle.configLabelReplacements) {
+        if (!Array.isArray(entry) || entry.length < 2) {
+          continue;
+        }
+        const [source, target] = entry;
+        if (typeof source !== "string" || typeof target !== "string") {
+          continue;
+        }
+        CONFIG_LABEL_REPLACEMENTS.push([source, target]);
+        changed = true;
+        labelsChanged = true;
+      }
+    }
+
+    if (labelsChanged) {
+      refreshOrderedConfigLabelReplacements();
+    }
+
+    return changed;
+  }
+
+  async function loadBundledLocaleBundle(locale) {
+    const translationUrl = window.chrome?.runtime?.getURL?.(`language-packs/${locale}.json`);
+    if (!translationUrl) {
+      return null;
+    }
+    try {
+      return await fetchJsonWithTimeout(translationUrl, 2000);
+    } catch {
+      return null;
+    }
+  }
+
+  async function getLocalStorageValues(keys) {
+    const storageLocal = window.chrome?.storage?.local;
+    if (!storageLocal || typeof storageLocal.get !== "function") {
+      return null;
+    }
+    return new Promise((resolve) => {
+      try {
+        storageLocal.get(keys, (result) => {
+          if (window.chrome?.runtime?.lastError) {
+            resolve(null);
+            return;
+          }
+          resolve(result ?? null);
+        });
+      } catch {
+        resolve(null);
+      }
+    });
+  }
+
+  async function setLocalStorageValues(values) {
+    const storageLocal = window.chrome?.storage?.local;
+    if (!storageLocal || typeof storageLocal.set !== "function") {
+      return false;
+    }
+    return new Promise((resolve) => {
+      try {
+        storageLocal.set(values, () => {
+          resolve(!window.chrome?.runtime?.lastError);
+        });
+      } catch {
+        resolve(false);
+      }
+    });
+  }
+
+  async function loadStoredLanguageBundle(locale) {
+    const stored = await getLocalStorageValues([
+      REMOTE_LANGUAGE_STORAGE_KEYS.bundles,
+      REMOTE_LANGUAGE_STORAGE_KEYS.states,
+    ]);
+    if (!stored) {
+      return null;
+    }
+
+    const bundles =
+      stored[REMOTE_LANGUAGE_STORAGE_KEYS.bundles] &&
+      typeof stored[REMOTE_LANGUAGE_STORAGE_KEYS.bundles] === "object"
+        ? stored[REMOTE_LANGUAGE_STORAGE_KEYS.bundles]
+        : null;
+    const states =
+      stored[REMOTE_LANGUAGE_STORAGE_KEYS.states] &&
+      typeof stored[REMOTE_LANGUAGE_STORAGE_KEYS.states] === "object"
+        ? stored[REMOTE_LANGUAGE_STORAGE_KEYS.states]
+        : null;
+    const bundle = bundles?.[locale];
+    if (!bundle || typeof bundle !== "object") {
+      return null;
+    }
+    return {
+      bundle,
+      state: states?.[locale] && typeof states[locale] === "object" ? states[locale] : null,
+    };
+  }
+
+  async function loadStoredThemeBundle() {
+    const stored = await getLocalStorageValues([
+      REMOTE_THEME_STORAGE_KEYS.bundle,
+      REMOTE_THEME_STORAGE_KEYS.state,
+    ]);
+    if (!stored) {
+      return null;
+    }
+    const bundle =
+      stored[REMOTE_THEME_STORAGE_KEYS.bundle] &&
+      typeof stored[REMOTE_THEME_STORAGE_KEYS.bundle] === "object"
+        ? normalizeThemeBundle(stored[REMOTE_THEME_STORAGE_KEYS.bundle])
+        : null;
+    const state =
+      stored[REMOTE_THEME_STORAGE_KEYS.state] &&
+      typeof stored[REMOTE_THEME_STORAGE_KEYS.state] === "object"
+        ? stored[REMOTE_THEME_STORAGE_KEYS.state]
+        : null;
+    if (!bundle) {
+      return null;
+    }
+    return { bundle, state };
+  }
+
+  async function loadLocaleTranslations(locale, options = {}) {
+    const nextLocale = typeof locale === "string" && locale.trim()
+      ? locale.trim()
+      : DEFAULT_RUNTIME_SETTINGS.locale;
+    const loadVersion = ++translationLoadVersion;
+    const useInlineBaseTranslations = shouldUseInlineBaseTranslations(nextLocale);
+
+    resetTranslationCollections(useInlineBaseTranslations);
+
+    const bundledTranslation = await loadBundledLocaleBundle(nextLocale);
+    if (loadVersion !== translationLoadVersion) {
+      return remoteTranslationState;
+    }
+    if (bundledTranslation) {
+      applyTranslationBundle(bundledTranslation);
+    }
+
+    let nextState = {
+      locale: nextLocale,
+      activeSource:
+        bundledTranslation || useInlineBaseTranslations ? "builtin" : "original",
+      translationVersion:
+        bundledTranslation?.version ||
+        (useInlineBaseTranslations ? "inline" : "original"),
+      builtinVersion:
+        bundledTranslation?.version || (useInlineBaseTranslations ? "inline" : null),
+      lastSyncAt: null,
+      error: null,
+    };
+
+    const storedTranslation = await loadStoredLanguageBundle(nextLocale);
+    if (loadVersion !== translationLoadVersion) {
+      return remoteTranslationState;
+    }
+    if (storedTranslation?.bundle) {
+      applyTranslationBundle(storedTranslation.bundle);
+      nextState = {
+        locale: nextLocale,
+        activeSource:
+          storedTranslation.state?.sourceLabel ||
+          storedTranslation.state?.sourceId ||
+          "cached",
+        translationVersion:
+          storedTranslation.bundle.version ||
+          storedTranslation.state?.version ||
+          nextState.translationVersion,
+        builtinVersion: nextState.builtinVersion,
+        lastSyncAt: storedTranslation.state?.fetchedAt || null,
+        error: null,
+      };
+    }
+
+    activeTranslationLocale = nextLocale;
+    remoteTranslationState = nextState;
+
+    if (options.translate !== false && isOpenClawPage()) {
+      translateDocument();
+    }
+    return remoteTranslationState;
+  }
+
+  async function loadThemePresetBundle(options = {}) {
+    const nextPresetId = getSelectedThemePreset();
+    const loadVersion = ++themeLoadVersion;
+    const builtinBundle = normalizeThemeBundle(BUILTIN_THEME_PRESET_BUNDLE);
+    let mergedBundle = builtinBundle;
+    let nextState = {
+      presetId: nextPresetId,
+      presetLabel:
+        resolveThemePreset(builtinBundle, nextPresetId)?.nativeLabel ||
+        resolveThemePreset(builtinBundle, nextPresetId)?.label ||
+        nextPresetId,
+      activeSource: "builtin",
+      bundleVersion: builtinBundle.version,
+      builtinVersion: builtinBundle.version,
+      lastSyncAt: null,
+      error: null,
+    };
+
+    const storedTheme = await loadStoredThemeBundle();
+    if (loadVersion !== themeLoadVersion) {
+      return remoteThemeState;
+    }
+    if (storedTheme?.bundle) {
+      mergedBundle = mergeThemeBundles(builtinBundle, storedTheme.bundle);
+      nextState = {
+        presetId: nextPresetId,
+        presetLabel:
+          resolveThemePreset(mergedBundle, nextPresetId)?.nativeLabel ||
+          resolveThemePreset(mergedBundle, nextPresetId)?.label ||
+          nextPresetId,
+        activeSource:
+          storedTheme.state?.sourceLabel ||
+          storedTheme.state?.sourceId ||
+          "cached",
+        bundleVersion: storedTheme.bundle.version || builtinBundle.version,
+        builtinVersion: builtinBundle.version,
+        lastSyncAt: storedTheme.state?.fetchedAt || null,
+        error: null,
+      };
+    }
+
+    activeThemeBundle = mergedBundle;
+    activeThemePreset = resolveThemePreset(mergedBundle, nextPresetId);
+    remoteThemeState = {
+      ...nextState,
+      presetId: activeThemePreset?.id || nextPresetId,
+      presetLabel:
+        activeThemePreset?.nativeLabel || activeThemePreset?.label || nextPresetId,
+    };
+
+    if (options.apply !== false) {
+      applyThemeStyles();
+    }
+    return remoteThemeState;
   }
 
   function getLocationPort() {
@@ -2182,6 +3118,18 @@
     return /OpenClaw|Cron Jobs|Gateway Token|Main Session/i.test(text);
   }
 
+  function applyThemeStyles() {
+    if (!isOpenClawPage()) {
+      clearThemeStyles();
+      return;
+    }
+    const styleElement = getThemeStyleElement();
+    if (!styleElement) {
+      return;
+    }
+    styleElement.textContent = buildThemeCss(runtimeSettings, activeThemePreset);
+  }
+
   function loadRuntimeSettings(callback) {
     const storageSync = window.chrome?.storage?.sync;
     if (!storageSync || typeof storageSync.get !== "function") {
@@ -2207,22 +3155,79 @@
       return;
     }
     storage.onChanged.addListener((changes, areaName) => {
-      if (areaName !== "sync") {
+      if (areaName === "sync") {
+        const previousLocale = getSelectedLocale();
+        const nextSettings = {};
+        const themeRelatedKeys = [
+          "themePreset",
+          "fontFamily",
+          "fontScale",
+          "styleOverride",
+          "styleRepair",
+          "selectStyleFix",
+        ];
+
+        for (const key of ["enabled", "hosts", "ports", "locale", ...themeRelatedKeys]) {
+          if (changes[key]) {
+            nextSettings[key] = changes[key].newValue;
+          }
+        }
+        const themeSettingsChanged = themeRelatedKeys.some((key) => Boolean(changes[key]));
+        mergeRuntimeSettings(nextSettings);
+        const nextLocale = getSelectedLocale();
+        if (nextLocale !== previousLocale) {
+          loadLocaleTranslations(nextLocale).catch((error) => {
+            remoteTranslationState = {
+              ...remoteTranslationState,
+              locale: nextLocale,
+              error: String(error?.message || error),
+            };
+          });
+        } else if (isOpenClawPage()) {
+          translateDocument();
+        }
+
+        if (themeSettingsChanged) {
+          loadThemePresetBundle().catch((error) => {
+            remoteThemeState = {
+              ...remoteThemeState,
+              presetId: getSelectedThemePreset(),
+              error: String(error?.message || error),
+            };
+          });
+        } else {
+          applyThemeStyles();
+        }
         return;
       }
-      const nextSettings = {};
-      if (changes.enabled) {
-        nextSettings.enabled = changes.enabled.newValue;
+
+      if (
+        areaName === "local" &&
+        (changes[REMOTE_LANGUAGE_STORAGE_KEYS.bundles] ||
+          changes[REMOTE_LANGUAGE_STORAGE_KEYS.states])
+      ) {
+        const nextLocale = getSelectedLocale();
+        loadLocaleTranslations(nextLocale).catch((error) => {
+          remoteTranslationState = {
+            ...remoteTranslationState,
+            locale: nextLocale,
+            error: String(error?.message || error),
+          };
+        });
       }
-      if (changes.hosts) {
-        nextSettings.hosts = changes.hosts.newValue;
-      }
-      if (changes.ports) {
-        nextSettings.ports = changes.ports.newValue;
-      }
-      mergeRuntimeSettings(nextSettings);
-      if (isOpenClawPage()) {
-        translateDocument();
+
+      if (
+        areaName === "local" &&
+        (changes[REMOTE_THEME_STORAGE_KEYS.bundle] ||
+          changes[REMOTE_THEME_STORAGE_KEYS.state])
+      ) {
+        loadThemePresetBundle().catch((error) => {
+          remoteThemeState = {
+            ...remoteThemeState,
+            presetId: getSelectedThemePreset(),
+            error: String(error?.message || error),
+          };
+        });
       }
     });
   }
@@ -2243,6 +3248,7 @@
 
   function translateDocument() {
     if (!isOpenClawPage()) {
+      clearThemeStyles();
       return;
     }
     document.title = translateText(document.title);
@@ -2255,8 +3261,10 @@
     }
     const observer = new MutationObserver((mutations) => {
       if (!isOpenClawPage()) {
+        clearThemeStyles();
         return;
       }
+      applyThemeStyles();
       for (const mutation of mutations) {
         if (mutation.type === "characterData" && mutation.target) {
           translateRoot(mutation.target);
@@ -2283,7 +3291,12 @@
     translateAttribute,
     translateDocument,
     isOpenClawPage,
+    applyThemeStyles,
     getRuntimeSettings: () => ({ ...runtimeSettings }),
+    getRemoteTranslationState: () => ({ ...remoteTranslationState }),
+    getRemoteThemeState: () => ({ ...remoteThemeState }),
+    getActiveTranslationLocale: () => activeTranslationLocale,
+    getActiveThemePreset: () => ({ ...(activeThemePreset || {}) }),
   };
 
   window.__OPENCLAW_ZH_CN__ = api;
@@ -2293,24 +3306,46 @@
     watchRuntimeSettingsChanges();
     startObserver();
 
-    if (document.body) {
+    const applyAll = () => {
       translateDocument();
+      applyThemeStyles();
+    };
+
+    if (document.body) {
+      applyAll();
       return;
     }
     if (document.readyState === "loading") {
       document.addEventListener(
         "DOMContentLoaded",
         () => {
-          translateDocument();
+          applyAll();
         },
         { once: true },
       );
       return;
     }
-    translateDocument();
+    applyAll();
   }
 
   loadRuntimeSettings(() => {
-    initializeTranslationRuntime();
+    Promise.all([
+      loadLocaleTranslations(getSelectedLocale(), { translate: false }).catch((error) => {
+        remoteTranslationState = {
+          ...remoteTranslationState,
+          locale: getSelectedLocale(),
+          error: String(error?.message || error),
+        };
+      }),
+      loadThemePresetBundle({ apply: false }).catch((error) => {
+        remoteThemeState = {
+          ...remoteThemeState,
+          presetId: getSelectedThemePreset(),
+          error: String(error?.message || error),
+        };
+      }),
+    ]).finally(() => {
+      initializeTranslationRuntime();
+    });
   });
 })();

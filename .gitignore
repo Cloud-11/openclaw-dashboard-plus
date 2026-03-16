@@ -2,4 +2,3 @@ dist/
 *.pem
 *.crx
 node_modules/
-extension/icons/lobster-source.png

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "version": "builtin-0.2.0",
+  "defaultPreset": "openclaw-classic",
+  "presets": [
+    {
+      "id": "openclaw-classic",
+      "label": "OpenClaw Classic",
+      "nativeLabel": "OpenClaw 原版增强",
+      "description": "Keeps the original dark dashboard feeling and smooths out surface contrast.",
+      "nativeDescription": "保留原版偏深色的控制台气质，同时补齐层次和控件一致性。",
+      "variables": {
+        "page-bg": "#0b1220",
+        "surface": "rgba(15, 23, 42, 0.92)",
+        "surface-2": "rgba(30, 41, 59, 0.92)",
+        "text": "#e5eefc",
+        "muted": "#9fb0cc",
+        "border": "rgba(148, 163, 184, 0.22)",
+        "accent": "#60a5fa",
+        "accent-soft": "rgba(96, 165, 250, 0.18)",
+        "control-bg": "#162235",
+        "control-text": "#e5eefc",
+        "control-border": "rgba(125, 159, 211, 0.3)",
+        "radius": "14px",
+        "shadow": "0 16px 40px rgba(2, 8, 23, 0.28)"
+      }
+    },
+    {
+      "id": "plus-clean",
+      "label": "Plus Clean",
+      "nativeLabel": "Plus 清爽版",
+      "description": "A bright and crisp management-panel style with lighter cards and calmer borders.",
+      "nativeDescription": "更偏管理台的浅色清爽风格，卡片更轻，边界更干净。",
+      "variables": {
+        "page-bg": "#eef4fb",
+        "surface": "rgba(255, 255, 255, 0.96)",
+        "surface-2": "rgba(243, 247, 252, 0.98)",
+        "text": "#1f2937",
+        "muted": "#5b6474",
+        "border": "rgba(148, 163, 184, 0.28)",
+        "accent": "#2563eb",
+        "accent-soft": "rgba(37, 99, 235, 0.12)",
+        "control-bg": "#ffffff",
+        "control-text": "#1f2937",
+        "control-border": "rgba(125, 159, 211, 0.34)",
+        "radius": "14px",
+        "shadow": "0 10px 24px rgba(15, 23, 42, 0.1)"
+      }
+    },
+    {
+      "id": "plus-contrast",
+      "label": "Plus Contrast",
+      "nativeLabel": "Plus 高对比",
+      "description": "A darker, higher-contrast preset tuned for clearer hierarchy and stronger controls.",
+      "nativeDescription": "更深、更高对比的预设，强调层级、按钮和输入框可读性。",
+      "variables": {
+        "page-bg": "#060b16",
+        "surface": "rgba(10, 17, 31, 0.96)",
+        "surface-2": "rgba(17, 24, 39, 0.96)",
+        "text": "#f8fbff",
+        "muted": "#b7c4dc",
+        "border": "rgba(148, 163, 184, 0.28)",
+        "accent": "#38bdf8",
+        "accent-soft": "rgba(56, 189, 248, 0.18)",
+        "control-bg": "#101a2b",
+        "control-text": "#f8fbff",
+        "control-border": "rgba(103, 232, 249, 0.34)",
+        "radius": "14px",
+        "shadow": "0 18px 46px rgba(2, 6, 23, 0.34)"
+      }
+    }
+  ]
+}

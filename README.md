@@ -1,83 +1,89 @@
-# openclaw-dashboard-zh-cn
+<p align="center">
+  <img src="./icon.png" alt="OpenClaw Dashboard Plus icon" width="160">
+</p>
 
-OpenClaw Dashboard 的简体中文增强项目。
+# OpenClaw Dashboard Plus
 
-- 用户脚本文件：`openclaw-dashboard-zh-cn.user.js`
-- 扩展目录：`extension/`
-- CRX 输出目录：`dist/`
-- 扩展弹窗：龙虾图标入口，支持启用开关、网址端口配置、版本信息显示
+Multilingual userscript and browser extension tooling for OpenClaw Dashboard.
 
-## 截图
+English is the canonical README for this repository.
 
-![扩展弹窗示意图](./image.png)
-![扩展安装与效果示意图](./image2.png)
+[English](./README.md) | [简体中文](./docs/readme/README.zh-CN.md) | [繁體中文](./docs/readme/README.zh-TW.md) | [日本語](./docs/readme/README.ja.md) | [한국어](./docs/readme/README.ko.md) | [Français](./docs/readme/README.fr.md) | [Español](./docs/readme/README.es.md) | [Русский](./docs/readme/README.ru.md) | [Deutsch](./docs/readme/README.de.md) | [Tiếng Việt](./docs/readme/README.vi.md) | [Filipino](./docs/readme/README.fil.md) | [العربية](./docs/readme/README.ar.md)
 
-## 安装方式
+## Overview
 
-### 1) JS 脚本安装（Tampermonkey / ScriptCat）
+OpenClaw Dashboard Plus ships in two forms:
 
-1. 打开 `openclaw-dashboard-zh-cn.user.js`
-2. 复制完整内容
-3. 在 Tampermonkey 或 ScriptCat 新建脚本
-4. 粘贴并保存
+- `openclaw-dashboard-plus.user.js` for userscript managers such as Tampermonkey and ScriptCat
+- A browser extension built into `dist/extension/`
 
-### 2) CRX 安装
+The project adds a multilingual content layer, a popup settings panel, remote metadata updates, and downloadable language packs for OpenClaw Dashboard.
 
-1. 执行打包：
-   `node package-crx.mjs`
-2. 产物：
-   `dist/openclaw-dashboard-zh-cn.crx`
-3. 拖拽 `openclaw-dashboard-zh-cn.crx` 到 `chrome://extensions` 或 `edge://extensions`
-4. 按提示确认安装
+## Features
 
-注意：部分 Chrome / Edge 版本会直接拦截本地 `crx` 安装并提示失败，这是浏览器策略限制，不是包损坏。遇到此情况请使用下面“压缩包安装”或“解压扩展程序安装”。
+- Separate content language and popup UI language settings
+- Remote metadata and locale updates from GitHub and Gitee
+- Browser extension popup with runtime settings, cache controls, and version info
+- Shared project icon across documentation and browser extension assets
+- Build output that is kept under `dist/` instead of mixing generated files with source files
 
-复用已有签名 key（保持扩展 ID 不变）：
+## Project Layout
 
-`node package-crx.mjs --key dist/openclaw-dashboard-zh-cn.pem`
+- `openclaw-dashboard-plus.user.js`: userscript entry
+- `extension-src/`: extension source files and icon assets
+- `dist/extension/`: generated unpacked browser extension
+- `language-packs/`: repository language pack output
+- `ui-locales/`: popup UI locale files
+- `.github/workflows/build-extension.yml`: GitHub Actions build pipeline
 
-### 3) 压缩包安装（推荐备用）
+## Build
 
-1. 从 Releases 下载：
-   `openclaw-dashboard-zh-cn-extension.zip`
-2. 解压到固定目录（例如：`D:\Tools\openclaw-dashboard-zh-cn-extension`）
-3. 打开 `chrome://extensions` 或 `edge://extensions`
-4. 开启开发者模式
-5. 点击“加载已解压的扩展程序”
-6. 选择第 2 步解压后的目录（目录内要直接看到 `manifest.json`）
-
-提示：
-
-- 不要删除该解压目录，否则扩展会失效
-- 升级版本时，替换解压目录内容后在扩展页面点“刷新”
-
-### 4) 解压的扩展程序安装（本地构建）
-
-1. 先生成扩展文件：
+1. Build the unpacked browser extension:
    `node build-extension.mjs`
-2. 打开 `chrome://extensions` 或 `edge://extensions`
-3. 开启开发者模式
-4. 点击“加载已解压的扩展程序”
-5. 选择 `extension/`
+2. The generated extension will be written to:
+   `dist/extension/`
+3. Package a zip archive for browser extension distribution:
+   `node package-extension-zip.mjs`
+4. Optional: package a local CRX file:
+   `node package-crx.mjs`
 
-加载后点击工具栏龙虾图标，可在弹窗中配置：
+## Install
 
-- 启动/关闭汉化
-- 生效网址（支持逗号分隔）
-- 生效端口（支持逗号分隔）
-- 当前插件版本与适配 OpenClaw 版本
+### Userscript
 
-## 适用页面
+1. Open `openclaw-dashboard-plus.user.js`
+2. Install it with Tampermonkey, ScriptCat, or another compatible userscript manager
 
-- `http://127.0.0.1:18789/*`
-- `http://localhost:18789/*`
+### Browser Extension ZIP
 
-## 许可证
+1. Download `openclaw-dashboard-plus-extension.zip` from GitHub Actions artifacts or releases
+2. Extract it to a stable folder
+3. Open `chrome://extensions` or `edge://extensions`
+4. Enable Developer mode
+5. Click `Load unpacked`
+6. Select the extracted folder
 
-本项目使用 MIT 许可证，详见 `LICENSE`。
+### Local Unpacked Extension
 
-## 感谢名单
+1. Run `node build-extension.mjs`
+2. Open `chrome://extensions` or `edge://extensions`
+3. Enable Developer mode
+4. Click `Load unpacked`
+5. Select `dist/extension/`
 
-- OpenClaw 项目与社区
-- Tampermonkey、ScriptCat 与 Chromium 扩展生态
-- 所有提供测试与反馈的使用者
+## GitHub Actions
+
+The repository includes a Windows-based GitHub Actions workflow that:
+
+- Builds `dist/extension/`
+- Packages `dist/openclaw-dashboard-plus-extension.zip`
+- Uploads both the zip archive and unpacked extension as workflow artifacts
+
+## Screenshots
+
+![Extension popup preview](./image.png)
+![Extension install preview](./image2.png)
+
+## License
+
+This project is released under the [MIT License](./LICENSE).

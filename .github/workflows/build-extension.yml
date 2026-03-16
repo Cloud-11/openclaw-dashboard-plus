@@ -1,0 +1,39 @@
+name: Build Extension
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "v*"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build extension
+        run: node build-extension.mjs
+
+      - name: Package extension zip
+        run: node package-extension-zip.mjs
+
+      - name: Upload extension artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: openclaw-dashboard-plus-extension
+          path: |
+            dist/openclaw-dashboard-plus-extension.zip
+            dist/extension
+          if-no-files-found: error
