@@ -3,13 +3,18 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const userscriptPath = path.join(currentDir, "openclaw-dashboard-plus.user.js");
+const userscriptPath = path.join(currentDir, "openclaw-dashboard-plus-zh.user.js");
 const pluginMetadataPath = path.join(currentDir, "plugin-metadata.json");
 const themePresetsPath = path.join(currentDir, "theme-presets.json");
 const localePacksDir = path.join(currentDir, "language-packs");
 const uiLocalesDir = path.join(currentDir, "ui-locales");
 const legacyTranslationOverridesPath = path.join(currentDir, "translation-overrides.json");
 const extensionSourceDir = path.join(currentDir, "extension-src");
+const extensionStyleBundlePath = path.join(extensionSourceDir, "style-bundle.json");
+const extensionContentPatchPaths = [
+  path.join(extensionSourceDir, "content-style-bundle-patch.js"),
+  path.join(extensionSourceDir, "content-extension-patch.js"),
+];
 const distDir = path.join(currentDir, "dist");
 const extensionOutputDir = path.join(distDir, "extension");
 const extensionLocalePacksDir = path.join(extensionOutputDir, "language-packs");
@@ -35,6 +40,10 @@ function readJson(filePath) {
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+function readText(filePath) {
+  return fs.readFileSync(filePath, "utf8");
 }
 
 function copyJsonDirectory(sourceDir, targetDir) {
@@ -186,6 +195,10 @@ const manifest = {
       resources: ["theme-presets.json"],
       matches: ["http://*/*", "https://*/*"],
     },
+    {
+      resources: ["style-bundle.json", "style-modules/*"],
+      matches: ["http://*/*", "https://*/*"],
+    },
   ],
 };
 
@@ -194,8 +207,57 @@ function stripUserscriptMetadata(source) {
   return source.replace(headerPattern, "");
 }
 
-function createExtensionContentSource(userscriptSource) {
-  return stripUserscriptMetadata(userscriptSource)
+function stripInlineThemeCss(source) {
+  return source
+    .replace(/const DEFAULT_THEME_REPAIR_CSS = `[\s\S]*?`;/, 'const DEFAULT_THEME_REPAIR_CSS = ``;')
+    .replace(/const DEFAULT_THEME_SELECT_CSS = `[\s\S]*?`;/, 'const DEFAULT_THEME_SELECT_CSS = ``;')
+    .replace(/const DEFAULT_THEME_OVERRIDE_CSS = `[\s\S]*?`;/, 'const DEFAULT_THEME_OVERRIDE_CSS = ``;');
+}
+
+function hydrateStyleBundle(styleBundlePath) {
+  const styleBundle = fs.existsSync(styleBundlePath)
+    ? readJson(styleBundlePath)
+    : { schemaVersion: 1, version: "builtin", modules: [] };
+  const bundleDir = path.dirname(styleBundlePath);
+  const modules = Array.isArray(styleBundle.modules) ? styleBundle.modules : [];
+
+  return {
+    ...styleBundle,
+    modules: modules.map((module) => {
+      if (!module || typeof module !== "object") {
+        return module;
+      }
+
+      const assetPath = typeof module.assetPath === "string" && module.assetPath.trim()
+        ? module.assetPath.trim()
+        : "";
+
+      if (!assetPath || module.content != null) {
+        return module;
+      }
+
+      const resolvedPath = path.join(bundleDir, assetPath);
+      if (!fs.existsSync(resolvedPath)) {
+        return module;
+      }
+
+      if (module.kind === "json") {
+        return {
+          ...module,
+          content: readJson(resolvedPath),
+        };
+      }
+
+      return {
+        ...module,
+        content: readText(resolvedPath),
+      };
+    }),
+  };
+}
+
+function createExtensionContentSource(userscriptSource, hydratedStyleBundle) {
+  const baseSource = stripInlineThemeCss(stripUserscriptMetadata(userscriptSource))
     .replace(
       /const EXACT_TRANSLATIONS = new Map\(\s*Object\.entries\(\{[\s\S]*?\}\),\s*\);/,
       "const EXACT_TRANSLATIONS = new Map();",
@@ -206,6 +268,18 @@ function createExtensionContentSource(userscriptSource) {
     )
     .replace(/let CONFIG_LABEL_REPLACEMENTS = \[[\s\S]*?\n  \];/, "let CONFIG_LABEL_REPLACEMENTS = [];")
     .trimStart();
+
+  const patchSources = extensionContentPatchPaths
+    .filter((patchPath) => fs.existsSync(patchPath))
+    .map((patchPath) => readText(patchPath).trim())
+    .map((source) => source.replace('"__OCDP_BUILTIN_STYLE_BUNDLE__"', JSON.stringify(hydratedStyleBundle)))
+    .filter(Boolean);
+
+  if (!patchSources.length) {
+    return baseSource;
+  }
+
+  return `${baseSource}\n\n${patchSources.join("\n\n")}\n`;
 }
 
 function writeLocalePacks(localeBundles) {
@@ -231,16 +305,20 @@ function copyExtensionSource() {
 }
 
 function writeExtensionFiles() {
-  const userscriptSource = fs.readFileSync(userscriptPath, "utf8");
+  const userscriptSource = readText(userscriptPath);
   const userscriptVersion = readUserscriptVersion(userscriptSource);
   const pluginMetadata = readJson(pluginMetadataPath);
   const themePresets = readJson(themePresetsPath);
+  const styleBundle = fs.existsSync(extensionStyleBundlePath)
+    ? readJson(extensionStyleBundlePath)
+    : { version: `builtin-${userscriptVersion}` };
+  const hydratedStyleBundle = hydrateStyleBundle(extensionStyleBundlePath);
   const zhCnBundle = extractLocaleBundle(userscriptSource, userscriptVersion);
   const localeBundles = {
     "zh-CN": zhCnBundle,
     en: createEmptyLocaleBundle("en", userscriptVersion),
   };
-  const contentSource = createExtensionContentSource(userscriptSource);
+  const contentSource = createExtensionContentSource(userscriptSource, hydratedStyleBundle);
 
   const nextPluginMetadata = {
     ...pluginMetadata,
@@ -256,6 +334,10 @@ function writeExtensionFiles() {
       ...(pluginMetadata.themeBundle ?? {}),
       defaultPreset: themePresets.defaultPreset || pluginMetadata.themeBundle?.defaultPreset || "openclaw-classic",
       builtinVersion: themePresets.version || pluginMetadata.themeBundle?.builtinVersion || `builtin-${userscriptVersion}`,
+    },
+    styleBundle: {
+      ...(pluginMetadata.styleBundle ?? {}),
+      builtinVersion: styleBundle.version || pluginMetadata.styleBundle?.builtinVersion || `builtin-${userscriptVersion}`,
     },
   };
 

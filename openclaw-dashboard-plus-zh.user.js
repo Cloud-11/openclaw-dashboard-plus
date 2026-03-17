@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         OpenClaw Dashboard Plus
+// @name         OpenClaw Dashboard Plus Zh
 // @namespace    https://github.com/Cloud-11/openclaw-dashboard-plus
 // @version      0.2.0
-// @description  OpenClaw Dashboard Plus 用户脚本，提供多语言增强与固定文案补全，可安装到 Tampermonkey、ScriptCat 等用户脚本管理器。
+// @description  OpenClaw Dashboard 中文翻译用户脚本，保留中文翻译与固定文案补全能力，可安装到 Tampermonkey、ScriptCat 等用户脚本管理器。
 // @author       cloud11
 // @homepageURL  https://github.com/Cloud-11/openclaw-dashboard-plus
 // @supportURL   https://github.com/Cloud-11/openclaw-dashboard-plus/issues
-// @downloadURL  https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus.user.js
-// @updateURL    https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus.user.js
+// @downloadURL  https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus-zh.user.js
+// @updateURL    https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/openclaw-dashboard-plus-zh.user.js
 // @license      MIT
 // @match        http://127.0.0.1:18789/*
 // @match        http://localhost:18789/*
@@ -2308,44 +2308,45 @@
         id: "openclaw-classic",
         label: "OpenClaw Classic",
         nativeLabel: "OpenClaw 原版增强",
-        description: "Keeps the original dark dashboard feeling and smooths out surface contrast.",
-        nativeDescription: "保留原版偏深色的控制台气质，同时补齐层次和控件一致性。",
+        description: "Keeps the original OpenClaw palette and only repairs spacing, controls, and visual consistency.",
+        nativeDescription: "保留 OpenClaw 原本配色，只修补间距、控件和视觉一致性。",
+        preserveNativeColors: true,
         variables: {
-          "page-bg": "#0b1220",
-          surface: "rgba(15, 23, 42, 0.92)",
-          "surface-2": "rgba(30, 41, 59, 0.92)",
-          text: "#e5eefc",
-          muted: "#9fb0cc",
-          border: "rgba(148, 163, 184, 0.22)",
-          accent: "#60a5fa",
-          "accent-soft": "rgba(96, 165, 250, 0.18)",
-          "control-bg": "#162235",
-          "control-text": "#e5eefc",
-          "control-border": "rgba(125, 159, 211, 0.3)",
-          radius: "14px",
-          shadow: "0 16px 40px rgba(2, 8, 23, 0.28)",
+          "page-bg": "var(--bg)",
+          surface: "var(--bg-elevated)",
+          "surface-2": "var(--bg-hover)",
+          text: "var(--text)",
+          muted: "var(--muted)",
+          border: "var(--border)",
+          accent: "var(--accent)",
+          "accent-soft": "var(--accent-subtle)",
+          "control-bg": "var(--input)",
+          "control-text": "var(--text)",
+          "control-border": "var(--border-strong)",
+          radius: "var(--radius-md)",
+          shadow: "var(--shadow-md)",
         },
       },
       {
         id: "plus-clean",
         label: "Plus Clean",
         nativeLabel: "Plus 清爽版",
-        description: "A bright and crisp management-panel style with lighter cards and calmer borders.",
-        nativeDescription: "更偏管理台的浅色清爽风格，卡片更轻，边界更干净。",
+        description: "A restrained dark preset with cleaner surfaces and calmer borders.",
+        nativeDescription: "更克制的暗色预设，表面更整洁，边界更干净。",
         variables: {
-          "page-bg": "#eef4fb",
-          surface: "rgba(255, 255, 255, 0.96)",
-          "surface-2": "rgba(243, 247, 252, 0.98)",
-          text: "#1f2937",
-          muted: "#5b6474",
-          border: "rgba(148, 163, 184, 0.28)",
-          accent: "#2563eb",
-          "accent-soft": "rgba(37, 99, 235, 0.12)",
-          "control-bg": "#ffffff",
-          "control-text": "#1f2937",
-          "control-border": "rgba(125, 159, 211, 0.34)",
+          "page-bg": "#0c1422",
+          surface: "rgba(13, 24, 39, 0.95)",
+          "surface-2": "rgba(19, 33, 52, 0.96)",
+          text: "#edf5ff",
+          muted: "#9db0c8",
+          border: "rgba(127, 149, 182, 0.24)",
+          accent: "#7dd3fc",
+          "accent-soft": "rgba(125, 211, 252, 0.16)",
+          "control-bg": "#152338",
+          "control-text": "#edf5ff",
+          "control-border": "rgba(125, 159, 211, 0.28)",
           radius: "14px",
-          shadow: "0 10px 24px rgba(15, 23, 42, 0.1)",
+          shadow: "0 14px 30px rgba(3, 11, 23, 0.28)",
         },
       },
       {
@@ -2383,7 +2384,7 @@
       "\"Source Han Serif SC\", \"Noto Serif SC\", Georgia, serif",
   });
   const DEFAULT_THEME_SELECT_ARROW =
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2378A6FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2396A7BE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
   const REMOTE_THEME_STORAGE_KEYS = Object.freeze({
     bundle: "remoteThemePresetBundle",
     state: "remoteThemePresetState",
@@ -2395,12 +2396,14 @@
     :where(body) {
       font-family: var(--ocdp-font-family) !important;
       font-size: var(--ocdp-font-scale) !important;
-      color: var(--ocdp-text) !important;
-      background: var(--ocdp-page-bg) !important;
+      color: var(--text) !important;
+      background:
+        radial-gradient(circle at top right, var(--ocdp-page-overlay) 0%, transparent 28%),
+        var(--bg) !important;
     }
-    :where(button, input, textarea, select) { font: inherit !important; }
-    :where(a) { color: var(--ocdp-accent) !important; }
-    :where(input::placeholder, textarea::placeholder) { color: var(--ocdp-muted) !important; }
+    :where(openclaw-app, button, input, textarea, select) { font: inherit !important; }
+    :where(a, .session-link) { color: var(--accent) !important; }
+    :where(input::placeholder, textarea::placeholder) { color: var(--muted) !important; }
     :where(input, textarea, select, button, [role="button"]) {
       transition:
         background-color 160ms ease,
@@ -2410,16 +2413,29 @@
     }
     :where(input:focus, textarea:focus, select:focus, button:focus-visible, [role="button"]:focus-visible) {
       outline: none !important;
-      box-shadow: 0 0 0 3px var(--ocdp-accent-soft) !important;
-      border-color: var(--ocdp-accent) !important;
+      box-shadow: 0 0 0 3px var(--accent-subtle) !important;
+      border-color: var(--accent) !important;
     }
-    :where(table, thead, tbody, tr, td, th) { border-color: var(--ocdp-border) !important; }
+    :where(table, thead, tbody, tr, td, th) { border-color: var(--border) !important; }
+    :where(.callout) {
+      background: color-mix(in srgb, var(--danger-subtle, rgba(239, 68, 68, 0.1)) 60%, var(--bg-elevated) 40%) !important;
+    }
+    :where(code, pre, .mono, .login-gate__steps code) {
+      background: color-mix(in srgb, var(--bg-hover) 88%, transparent) !important;
+      color: var(--text) !important;
+      border-color: var(--border) !important;
+      border-radius: var(--radius-md) !important;
+    }
+    :where(.theme-orb__menu, .login-gate__card, .sidebar-version, .config-section-card, .settings-appearance__section, .settings-info-row, .cfg-array, .cfg-map, .cfg-object) {
+      box-shadow: var(--shadow-md) !important;
+    }
   `;
   const DEFAULT_THEME_SELECT_CSS = `
-    :where(select):not([multiple]):not([size]) {
+    :where(select):not(.cfg-select):not([multiple]):not([size]) {
       appearance: none !important;
       -webkit-appearance: none !important;
       -moz-appearance: none !important;
+      color-scheme: dark !important;
       min-height: 2.5rem !important;
       padding-right: 2.6rem !important;
       background-image: url("${DEFAULT_THEME_SELECT_ARROW}") !important;
@@ -2427,59 +2443,53 @@
       background-position: right 0.85rem center !important;
       background-size: 1rem 1rem !important;
     }
+    :where(.cfg-select) {
+      color-scheme: dark !important;
+    }
     :where(option) {
-      color: var(--ocdp-control-text) !important;
-      background: var(--ocdp-surface) !important;
+      color: var(--text) !important;
+      background: var(--bg-elevated) !important;
+    }
+    :where(option:checked, option:hover, option:focus) {
+      color: var(--text-strong) !important;
+      background: color-mix(in srgb, var(--accent-subtle) 82%, var(--bg-elevated) 18%) !important;
+    }
+    :where(optgroup) {
+      color: var(--muted) !important;
+      background: var(--bg) !important;
+      font-style: normal !important;
+      font-weight: 600 !important;
     }
   `;
   const DEFAULT_THEME_OVERRIDE_CSS = `
-    :where(body) {
-      background:
-        radial-gradient(circle at top right, var(--ocdp-accent-soft) 0%, transparent 28%),
-        var(--ocdp-page-bg) !important;
-      color: var(--ocdp-text) !important;
+    :where(body, openclaw-app) {
+      color: var(--text) !important;
     }
-    :where(main, [class*="app"], [class*="layout"], [class*="page"]) {
-      color: var(--ocdp-text) !important;
+    :where(.login-gate__card, .theme-orb__menu, .config-section-card, .settings-appearance__section, .settings-info-row, .cfg-array, .cfg-map, .cfg-object, .sidebar-version) {
+      border-color: var(--border) !important;
+      border-radius: var(--radius-lg) !important;
+      background: var(--bg-elevated) !important;
+      color: var(--text) !important;
+      box-shadow: var(--shadow-md) !important;
     }
-    :where(
-      .card, .panel, .sidebar, .toolbar,
-      [class*="card"], [class*="panel"], [class*="sidebar"], [class*="toolbar"],
-      [class*="dialog"], [class*="modal"], [data-slot="card"], section, aside
-    ) {
-      background: var(--ocdp-surface) !important;
-      border-color: var(--ocdp-border) !important;
-      color: var(--ocdp-text) !important;
-      box-shadow: var(--ocdp-shadow) !important;
-      border-radius: var(--ocdp-radius) !important;
-      backdrop-filter: blur(10px);
+    :where(.btn, .theme-orb__trigger, .theme-orb__option, .cfg-input__reset, .cfg-array__add, .cfg-map__add) {
+      border-radius: var(--radius-md) !important;
     }
-    :where(header, nav, [class*="nav"], [class*="header"], [class*="topbar"], [class*="tabs"], [class*="menu"]) {
-      background: var(--ocdp-surface-2) !important;
-      border-color: var(--ocdp-border) !important;
-      color: var(--ocdp-text) !important;
+    :where(.btn.primary, .cfg-segmented__btn.active, .config-mode-toggle__btn.active, .topbar-theme-mode__btn--active) {
+      background: var(--accent) !important;
+      color: var(--primary-foreground) !important;
+      border-color: color-mix(in srgb, var(--accent) 35%, transparent) !important;
     }
-    :where(button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"]) {
-      background: var(--ocdp-control-bg) !important;
-      color: var(--ocdp-control-text) !important;
-      border: 1px solid var(--ocdp-control-border) !important;
-      border-radius: var(--ocdp-radius) !important;
-      box-shadow: none !important;
+    :where(.btn:not(.primary):not(.danger), .theme-orb__trigger, .theme-orb__option, .cfg-input__reset, .cfg-array__add, .cfg-map__add) {
+      background: var(--bg-elevated) !important;
+      color: var(--text) !important;
+      border-color: var(--border-strong) !important;
     }
-    :where(button:hover, [role="button"]:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover) {
-      background: var(--ocdp-surface-2) !important;
-      border-color: var(--ocdp-accent) !important;
-    }
-    :where(input:not([type="checkbox"]):not([type="radio"]), textarea, select) {
-      background: var(--ocdp-control-bg) !important;
-      color: var(--ocdp-control-text) !important;
-      border: 1px solid var(--ocdp-control-border) !important;
-      border-radius: var(--ocdp-radius) !important;
-    }
-    :where(.badge, .tag, [class*="badge"], [class*="tag"], [class*="pill"]) {
-      background: var(--ocdp-accent-soft) !important;
-      color: var(--ocdp-accent) !important;
-      border-color: transparent !important;
+    :where(input:not([type="checkbox"]):not([type="radio"]), textarea, select, .cfg-input, .cfg-textarea, .cfg-select, .cfg-number) {
+      background: var(--input) !important;
+      color: var(--text) !important;
+      border-color: var(--border-strong) !important;
+      border-radius: var(--radius-md) !important;
     }
   `;
   const DEFAULT_RUNTIME_SETTINGS = Object.freeze({
@@ -2499,6 +2509,7 @@
   let activeTranslationLocale = DEFAULT_RUNTIME_SETTINGS.locale;
   let translationLoadVersion = 0;
   let themeLoadVersion = 0;
+  let pendingRuntimeReload = false;
   let activeThemeBundle = BUILTIN_THEME_PRESET_BUNDLE;
   let activeThemePreset = BUILTIN_THEME_PRESET_BUNDLE.presets[0];
   let remoteTranslationState = {
@@ -2612,6 +2623,7 @@
       id,
       label,
       nativeLabel,
+      preserveNativeColors: entry.preserveNativeColors === true,
       description:
         typeof entry.description === "string" && entry.description.trim()
           ? entry.description.trim()
@@ -2733,6 +2745,29 @@
     document.getElementById(THEME_STYLE_ELEMENT_ID)?.remove();
   }
 
+  function isThemeStyleNode(node) {
+    if (!(node instanceof Node)) {
+      return false;
+    }
+    const styleElement = document.getElementById(THEME_STYLE_ELEMENT_ID);
+    return Boolean(
+      styleElement &&
+        (node === styleElement ||
+          (node instanceof Element && node.closest?.(`#${THEME_STYLE_ELEMENT_ID}`)) ||
+          styleElement.contains(node)),
+    );
+  }
+
+  function scheduleRuntimeReload() {
+    if (pendingRuntimeReload) {
+      return;
+    }
+    pendingRuntimeReload = true;
+    window.setTimeout(() => {
+      window.location.reload();
+    }, 80);
+  }
+
   function escapeCssValue(value) {
     return String(value ?? "")
       .replaceAll("\\", "\\\\")
@@ -2744,28 +2779,112 @@
   function buildThemeCss(settings, preset) {
     const fontFamily = FONT_FAMILY_MAP[settings.fontFamily] || FONT_FAMILY_MAP.system;
     const fontScale = `${normalizeFontScale(settings.fontScale)}%`;
+    const preserveNativeColors = preset?.preserveNativeColors === true;
     const variables = {
-      "page-bg": "#0b1220",
-      surface: "rgba(15, 23, 42, 0.92)",
-      "surface-2": "rgba(30, 41, 59, 0.92)",
-      text: "#e5eefc",
-      muted: "#9fb0cc",
-      border: "rgba(148, 163, 184, 0.22)",
-      accent: "#60a5fa",
-      "accent-soft": "rgba(96, 165, 250, 0.18)",
-      "control-bg": "#162235",
-      "control-text": "#e5eefc",
-      "control-border": "rgba(125, 159, 211, 0.3)",
-      radius: "14px",
-      shadow: "0 16px 40px rgba(2, 8, 23, 0.28)",
+      ...(preserveNativeColors
+        ? {
+            "page-bg": "var(--bg)",
+            surface: "var(--bg-elevated)",
+            "surface-2": "var(--bg-hover)",
+            text: "var(--text)",
+            muted: "var(--muted)",
+            border: "var(--border)",
+            accent: "var(--accent)",
+            "accent-soft": "var(--accent-subtle)",
+            "control-bg": "var(--input)",
+            "control-text": "var(--text)",
+            "control-border": "var(--border-strong)",
+            radius: "var(--radius-md)",
+            shadow: "var(--shadow-md)",
+            "page-overlay": "transparent",
+          }
+        : {
+            "page-bg": "#0b1220",
+            surface: "rgba(15, 23, 42, 0.92)",
+            "surface-2": "rgba(30, 41, 59, 0.92)",
+            text: "#e5eefc",
+            muted: "#9fb0cc",
+            border: "rgba(148, 163, 184, 0.22)",
+            accent: "#60a5fa",
+            "accent-soft": "rgba(96, 165, 250, 0.18)",
+            "control-bg": "#162235",
+            "control-text": "#e5eefc",
+            "control-border": "rgba(125, 159, 211, 0.3)",
+            radius: "14px",
+            shadow: "0 16px 40px rgba(2, 8, 23, 0.28)",
+            "page-overlay": "rgba(96, 165, 250, 0.18)",
+          }),
       ...(preset?.variables || {}),
     };
+    const pageBg = escapeCssValue(variables["page-bg"]);
+    const surface = escapeCssValue(variables.surface);
+    const surface2 = escapeCssValue(variables["surface-2"]);
+    const text = escapeCssValue(variables.text);
+    const muted = escapeCssValue(variables.muted);
+    const border = escapeCssValue(variables.border);
+    const accent = escapeCssValue(variables.accent);
+    const accentSoft = escapeCssValue(variables["accent-soft"]);
+    const controlBg = escapeCssValue(variables["control-bg"]);
+    const controlText = escapeCssValue(variables["control-text"]);
+    const controlBorder = escapeCssValue(variables["control-border"]);
+    const radius = escapeCssValue(variables.radius);
+    const shadow = escapeCssValue(variables.shadow);
     const variableLines = Object.entries(variables)
       .map(([key, value]) => `--ocdp-${key}: ${escapeCssValue(value)};`)
       .join("\n");
+    const nativeVariableLines = preserveNativeColors ? "" : [
+      `--bg: ${pageBg};`,
+      `--bg-accent: ${surface};`,
+      `--bg-elevated: ${surface};`,
+      `--bg-hover: ${surface2};`,
+      `--bg-muted: ${surface2};`,
+      `--bg-content: ${pageBg};`,
+      `--card: ${surface};`,
+      `--card-foreground: ${text};`,
+      `--card-highlight: rgba(255, 255, 255, 0.04);`,
+      `--popover: ${surface};`,
+      `--popover-foreground: ${text};`,
+      `--panel: ${pageBg};`,
+      `--panel-strong: ${surface};`,
+      `--panel-hover: ${surface2};`,
+      `--chrome: ${pageBg};`,
+      `--chrome-strong: ${pageBg};`,
+      `--text: ${text};`,
+      `--text-strong: ${text};`,
+      `--chat-text: ${text};`,
+      `--muted: ${muted};`,
+      `--muted-strong: ${muted};`,
+      `--muted-foreground: ${muted};`,
+      `--border: ${border};`,
+      `--border-strong: ${controlBorder};`,
+      `--border-hover: ${accent};`,
+      `--input: ${controlBg};`,
+      `--ring: ${accent};`,
+      `--accent: ${accent};`,
+      `--accent-hover: ${accent};`,
+      `--accent-muted: ${accent};`,
+      `--accent-subtle: ${accentSoft};`,
+      `--accent-glow: ${accentSoft};`,
+      `--primary: ${accent};`,
+      `--primary-foreground: ${controlText};`,
+      `--secondary: ${surface2};`,
+      `--secondary-foreground: ${text};`,
+      `--info: ${accent};`,
+      `--font-body: ${fontFamily};`,
+      `--font-display: ${fontFamily};`,
+      `--shadow-sm: ${shadow};`,
+      `--shadow-md: ${shadow};`,
+      `--shadow-lg: ${shadow};`,
+      `--shadow-xl: ${shadow};`,
+      `--radius-sm: ${radius};`,
+      `--radius-md: ${radius};`,
+      `--radius-lg: ${radius};`,
+      `--radius-xl: ${radius};`,
+      `--radius: ${radius};`,
+    ].join("\n");
 
     return [
-      `:root {\n${variableLines}\n--ocdp-font-family: ${fontFamily};\n--ocdp-font-scale: ${fontScale};\n}`,
+      `:root,\n:root[data-theme-mode="light"],\n:root[data-theme-mode="dark"],\n:root[data-theme="openknot"],\n:root[data-theme="openknot-light"],\n:root[data-theme="dash"],\n:root[data-theme="dash-light"] {\n${variableLines}\n${nativeVariableLines}\n--ocdp-font-family: ${fontFamily};\n--ocdp-font-scale: ${fontScale};\n}`,
       settings.styleOverride ? DEFAULT_THEME_OVERRIDE_CSS : "",
       settings.styleRepair ? DEFAULT_THEME_REPAIR_CSS : "",
       settings.selectStyleFix ? DEFAULT_THEME_SELECT_CSS : "",
@@ -3127,7 +3246,11 @@
     if (!styleElement) {
       return;
     }
-    styleElement.textContent = buildThemeCss(runtimeSettings, activeThemePreset);
+    const nextCss = buildThemeCss(runtimeSettings, activeThemePreset);
+    if (styleElement.textContent === nextCss) {
+      return;
+    }
+    styleElement.textContent = nextCss;
   }
 
   function loadRuntimeSettings(callback) {
@@ -3156,8 +3279,11 @@
     }
     storage.onChanged.addListener((changes, areaName) => {
       if (areaName === "sync") {
-        const previousLocale = getSelectedLocale();
+        const previousSettings = { ...runtimeSettings };
+        const previousLocale = getSelectedLocale(previousSettings);
+        const wasActive = isOpenClawPage(previousSettings);
         const nextSettings = {};
+        const runtimeKeys = ["enabled", "hosts", "ports"];
         const themeRelatedKeys = [
           "themePreset",
           "fontFamily",
@@ -3167,13 +3293,20 @@
           "selectStyleFix",
         ];
 
-        for (const key of ["enabled", "hosts", "ports", "locale", ...themeRelatedKeys]) {
+        for (const key of [...runtimeKeys, "locale", ...themeRelatedKeys]) {
           if (changes[key]) {
             nextSettings[key] = changes[key].newValue;
           }
         }
+        const runtimeSettingsChanged = runtimeKeys.some((key) => Boolean(changes[key]));
         const themeSettingsChanged = themeRelatedKeys.some((key) => Boolean(changes[key]));
         mergeRuntimeSettings(nextSettings);
+        const isActiveNow = isOpenClawPage();
+        if (runtimeSettingsChanged && wasActive !== isActiveNow) {
+          clearThemeStyles();
+          scheduleRuntimeReload();
+          return;
+        }
         const nextLocale = getSelectedLocale();
         if (nextLocale !== previousLocale) {
           loadLocaleTranslations(nextLocale).catch((error) => {
@@ -3264,8 +3397,16 @@
         clearThemeStyles();
         return;
       }
-      applyThemeStyles();
+      if (!document.getElementById(THEME_STYLE_ELEMENT_ID)) {
+        applyThemeStyles();
+      }
       for (const mutation of mutations) {
+        if (
+          isThemeStyleNode(mutation.target) ||
+          Array.from(mutation.addedNodes).some((node) => isThemeStyleNode(node))
+        ) {
+          continue;
+        }
         if (mutation.type === "characterData" && mutation.target) {
           translateRoot(mutation.target);
         }

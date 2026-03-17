@@ -1,0 +1,34 @@
+:where(body, openclaw-app) {
+  color: var(--text) !important;
+}
+
+:where(.login-gate__card, .theme-orb__menu, .config-section-card, .settings-appearance__section, .settings-info-row, .cfg-array, .cfg-map, .cfg-object, .sidebar-version) {
+  border-color: var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  background: var(--bg-elevated) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+:where(.btn, .theme-orb__trigger, .theme-orb__option, .cfg-input__reset, .cfg-array__add, .cfg-map__add) {
+  border-radius: var(--radius-md) !important;
+}
+
+:where(.btn.primary, .cfg-segmented__btn.active, .config-mode-toggle__btn.active, .topbar-theme-mode__btn--active) {
+  background: var(--accent) !important;
+  color: var(--primary-foreground) !important;
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent) !important;
+}
+
+:where(.btn:not(.primary):not(.danger), .theme-orb__trigger, .theme-orb__option, .cfg-input__reset, .cfg-array__add, .cfg-map__add) {
+  background: var(--bg-elevated) !important;
+  color: var(--text) !important;
+  border-color: var(--border-strong) !important;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]), textarea, select, .cfg-input, .cfg-textarea, .cfg-select, .cfg-number) {
+  background: var(--input) !important;
+  color: var(--text) !important;
+  border-color: var(--border-strong) !important;
+  border-radius: var(--radius-md) !important;
+}

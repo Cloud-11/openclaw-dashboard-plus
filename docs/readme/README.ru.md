@@ -14,7 +14,7 @@
 
 Проект распространяется в двух формах:
 
-- `openclaw-dashboard-plus.user.js` как userscript
+- `openclaw-dashboard-plus-zh.user.js` как userscript
 - Браузерное расширение, собираемое в `dist/extension/`
 
 Он добавляет в OpenClaw Dashboard многоязычный слой, всплывающую панель настроек, удаленные обновления метаданных и загружаемые языковые пакеты.
@@ -29,7 +29,7 @@
 
 ## Структура проекта
 
-- `openclaw-dashboard-plus.user.js`: вход userscript
+- `openclaw-dashboard-plus-zh.user.js`: вход userscript
 - `extension-src/`: исходники расширения и иконки
 - `dist/extension/`: собранное распакованное расширение
 - `language-packs/`: вывод языковых пакетов в репозитории
@@ -51,7 +51,7 @@
 
 ### Userscript
 
-1. Откройте `openclaw-dashboard-plus.user.js`
+1. Откройте `openclaw-dashboard-plus-zh.user.js`
 2. Установите его через Tampermonkey, ScriptCat или совместимый менеджер
 
 ### ZIP расширения

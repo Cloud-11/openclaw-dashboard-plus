@@ -14,7 +14,7 @@ Multilingual na userscript at browser extension tool para sa OpenClaw Dashboard.
 
 May dalawang anyo ang proyektong ito:
 
-- `openclaw-dashboard-plus.user.js` bilang userscript
+- `openclaw-dashboard-plus-zh.user.js` bilang userscript
 - Browser extension na bina-build sa `dist/extension/`
 
 Nagdadagdag ito ng multilingual na content layer, popup settings panel, remote metadata updates, at downloadable language packs para sa OpenClaw Dashboard.
@@ -29,7 +29,7 @@ Nagdadagdag ito ng multilingual na content layer, popup settings panel, remote m
 
 ## Ayos ng Repository
 
-- `openclaw-dashboard-plus.user.js`: entry ng userscript
+- `openclaw-dashboard-plus-zh.user.js`: entry ng userscript
 - `extension-src/`: source files at icon assets ng extension
 - `dist/extension/`: generated unpacked extension
 - `language-packs/`: output ng language packs sa repository
@@ -51,7 +51,7 @@ Nagdadagdag ito ng multilingual na content layer, popup settings panel, remote m
 
 ### Userscript
 
-1. Buksan ang `openclaw-dashboard-plus.user.js`
+1. Buksan ang `openclaw-dashboard-plus-zh.user.js`
 2. I-install gamit ang Tampermonkey, ScriptCat, o ibang compatible manager
 
 ### ZIP ng Browser Extension

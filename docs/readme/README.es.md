@@ -14,7 +14,7 @@ Herramienta multilingüe de userscript y extensión de navegador para OpenClaw D
 
 El proyecto se distribuye en dos formas:
 
-- `openclaw-dashboard-plus.user.js` como userscript
+- `openclaw-dashboard-plus-zh.user.js` como userscript
 - Una extensión de navegador generada en `dist/extension/`
 
 Añade a OpenClaw Dashboard una capa multilingüe, un panel emergente, actualizaciones remotas de metadatos y paquetes de idioma descargables.
@@ -29,7 +29,7 @@ Añade a OpenClaw Dashboard una capa multilingüe, un panel emergente, actualiza
 
 ## Estructura del proyecto
 
-- `openclaw-dashboard-plus.user.js`: entrada del userscript
+- `openclaw-dashboard-plus-zh.user.js`: entrada del userscript
 - `extension-src/`: fuentes de la extensión e iconos
 - `dist/extension/`: extensión generada sin empaquetar
 - `language-packs/`: salida de paquetes de idioma del repositorio
@@ -51,7 +51,7 @@ Añade a OpenClaw Dashboard una capa multilingüe, un panel emergente, actualiza
 
 ### Userscript
 
-1. Abre `openclaw-dashboard-plus.user.js`
+1. Abre `openclaw-dashboard-plus-zh.user.js`
 2. Instálalo con Tampermonkey, ScriptCat o un gestor compatible
 
 ### ZIP de la extensión

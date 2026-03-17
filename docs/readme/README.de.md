@@ -14,7 +14,7 @@ Mehrsprachiges Userscript- und Browser-Erweiterungswerkzeug fuer OpenClaw Dashbo
 
 Das Projekt wird in zwei Formen bereitgestellt:
 
-- `openclaw-dashboard-plus.user.js` als Userscript
+- `openclaw-dashboard-plus-zh.user.js` als Userscript
 - Eine Browser-Erweiterung, die nach `dist/extension/` gebaut wird
 
 Es ergaenzt OpenClaw Dashboard um mehrsprachige Inhalte, ein Popup-Einstellungsfenster, Remote-Metadaten-Updates und herunterladbare Sprachpakete.
@@ -29,7 +29,7 @@ Es ergaenzt OpenClaw Dashboard um mehrsprachige Inhalte, ein Popup-Einstellungsf
 
 ## Projektstruktur
 
-- `openclaw-dashboard-plus.user.js`: Einstieg fuer das Userscript
+- `openclaw-dashboard-plus-zh.user.js`: Einstieg fuer das Userscript
 - `extension-src/`: Quellcode der Erweiterung und Icons
 - `dist/extension/`: generierte entpackte Erweiterung
 - `language-packs/`: Ausgabe der Sprachpakete im Repository
@@ -51,7 +51,7 @@ Es ergaenzt OpenClaw Dashboard um mehrsprachige Inhalte, ein Popup-Einstellungsf
 
 ### Userscript
 
-1. `openclaw-dashboard-plus.user.js` oeffnen
+1. `openclaw-dashboard-plus-zh.user.js` oeffnen
 2. Mit Tampermonkey, ScriptCat oder einem kompatiblen Manager installieren
 
 ### Erweiterungs-ZIP

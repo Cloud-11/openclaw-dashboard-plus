@@ -1,0 +1,19 @@
+:where(.content-header, .chat-controls__session-row) {
+  gap: 12px !important;
+}
+
+:where(.chat-controls__session-row) {
+  align-items: flex-start !important;
+}
+
+:where(.chat-controls__session, .chat-controls__model) {
+  min-width: 0 !important;
+}
+
+:where(.composer, .message-composer, .chat-composer, .chat-input, .chat-input__box) {
+  border-radius: var(--radius-lg) !important;
+}
+
+:where(.message-composer textarea, .chat-input textarea, .composer textarea) {
+  line-height: 1.55 !important;
+}

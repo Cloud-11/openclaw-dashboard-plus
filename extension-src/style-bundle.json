@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "version": "builtin-0.2.2",
+  "modules": [
+    {
+      "id": "theme-override-core",
+      "kind": "css",
+      "settingKey": "styleOverride",
+      "assetPath": "style-modules/theme-override-core.css"
+    },
+    {
+      "id": "theme-repair-core",
+      "kind": "css",
+      "settingKey": "styleRepair",
+      "assetPath": "style-modules/theme-repair-core.css"
+    },
+    {
+      "id": "theme-repair-layout",
+      "kind": "css",
+      "settingKey": "styleRepair",
+      "assetPath": "style-modules/theme-repair-layout.css"
+    },
+    {
+      "id": "theme-select-fix-core",
+      "kind": "css",
+      "settingKey": "selectStyleFix",
+      "assetPath": "style-modules/theme-select-fix-core.css"
+    },
+    {
+      "id": "theme-code-block-core",
+      "kind": "css",
+      "settingKey": "codeBlockStyleFix",
+      "assetPath": "style-modules/theme-code-block-core.css"
+    },
+    {
+      "id": "theme-style-slots",
+      "kind": "json",
+      "assetPath": "style-modules/theme-style-slots.json"
+    }
+  ]
+}

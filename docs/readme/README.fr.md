@@ -14,7 +14,7 @@ Outil multilingue de script utilisateur et d'extension de navigateur pour OpenCl
 
 Le projet existe sous deux formes :
 
-- `openclaw-dashboard-plus.user.js` pour les gestionnaires de scripts utilisateur
+- `openclaw-dashboard-plus-zh.user.js` pour les gestionnaires de scripts utilisateur
 - Une extension de navigateur générée dans `dist/extension/`
 
 Il ajoute à OpenClaw Dashboard une couche multilingue, un panneau popup, des mises à jour de métadonnées distantes et des packs de langue téléchargeables.
@@ -29,7 +29,7 @@ Il ajoute à OpenClaw Dashboard une couche multilingue, un panneau popup, des mi
 
 ## Structure du projet
 
-- `openclaw-dashboard-plus.user.js` : point d'entrée du script utilisateur
+- `openclaw-dashboard-plus-zh.user.js` : point d'entrée du script utilisateur
 - `extension-src/` : sources de l'extension et icônes
 - `dist/extension/` : extension générée non empaquetée
 - `language-packs/` : sortie des packs de langue du dépôt
@@ -51,7 +51,7 @@ Il ajoute à OpenClaw Dashboard une couche multilingue, un panneau popup, des mi
 
 ### Script utilisateur
 
-1. Ouvrez `openclaw-dashboard-plus.user.js`
+1. Ouvrez `openclaw-dashboard-plus-zh.user.js`
 2. Installez-le avec Tampermonkey, ScriptCat ou un gestionnaire compatible
 
 ### ZIP de l'extension

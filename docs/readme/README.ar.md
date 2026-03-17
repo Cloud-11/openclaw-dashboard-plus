@@ -14,7 +14,7 @@
 
 يتم توفير المشروع في شكلين:
 
-- `openclaw-dashboard-plus.user.js` كملف userscript
+- `openclaw-dashboard-plus-zh.user.js` كملف userscript
 - إضافة متصفح يتم بناؤها داخل `dist/extension/`
 
 يضيف المشروع طبقة متعددة اللغات ولوحة إعدادات منبثقة وتحديثات بيانات وصفية عن بُعد وحزم لغات قابلة للتنزيل إلى OpenClaw Dashboard.
@@ -29,7 +29,7 @@
 
 ## بنية المشروع
 
-- `openclaw-dashboard-plus.user.js`: نقطة دخول userscript
+- `openclaw-dashboard-plus-zh.user.js`: نقطة دخول userscript
 - `extension-src/`: ملفات مصدر الإضافة وموارد الأيقونات
 - `dist/extension/`: الإضافة غير المضغوطة بعد البناء
 - `language-packs/`: مخرجات حزم اللغات داخل المستودع
@@ -51,7 +51,7 @@
 
 ### userscript
 
-1. افتح `openclaw-dashboard-plus.user.js`
+1. افتح `openclaw-dashboard-plus-zh.user.js`
 2. ثبته باستخدام Tampermonkey أو ScriptCat أو أي مدير متوافق
 
 ### ملف ZIP للإضافة

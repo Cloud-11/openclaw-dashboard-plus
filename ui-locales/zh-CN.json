@@ -37,6 +37,8 @@
     "theme_style_repair_help": "补齐边框、焦点和间距细节。",
     "theme_select_fix_label": "下拉框样式修复",
     "theme_select_fix_help": "把浏览器默认下拉框修成和主题一致的风格。",
+    "theme_code_block_fix_label": "代码块样式修补",
+    "theme_code_block_fix_help": "调整代码块容器、标题栏和复制按钮的悬停反馈。",
     "theme_save_button": "保存主题设置",
     "theme_download_button": "拉取远端主题",
     "theme_download_busy": "拉取中...",

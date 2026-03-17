@@ -37,6 +37,8 @@
     "theme_style_repair_help": "Patch borders, focus rings, and spacing details.",
     "theme_select_fix_label": "Dropdown style repair",
     "theme_select_fix_help": "Restyle browser-default selects to match the active theme.",
+    "theme_code_block_fix_label": "Code block polish",
+    "theme_code_block_fix_help": "Refine the code block shell, header bar, and copy-button hover feedback.",
     "theme_save_button": "Save theme settings",
     "theme_download_button": "Fetch remote themes",
     "theme_download_busy": "Fetching...",

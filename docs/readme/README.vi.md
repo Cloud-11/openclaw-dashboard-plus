@@ -14,7 +14,7 @@ Cong cu userscript va tien ich mo rong trinh duyet da ngon ngu cho OpenClaw Dash
 
 Du an duoc phan phoi duoi hai hinh thuc:
 
-- `openclaw-dashboard-plus.user.js` duoi dang userscript
+- `openclaw-dashboard-plus-zh.user.js` duoi dang userscript
 - Tien ich mo rong trinh duyet duoc tao trong `dist/extension/`
 
 No bo sung cho OpenClaw Dashboard lop da ngon ngu, bang dieu khien popup, cap nhat metadata tu xa va cac goi ngon ngu co the tai xuong.
@@ -29,7 +29,7 @@ No bo sung cho OpenClaw Dashboard lop da ngon ngu, bang dieu khien popup, cap nh
 
 ## Cau truc du an
 
-- `openclaw-dashboard-plus.user.js`: diem vao cua userscript
+- `openclaw-dashboard-plus-zh.user.js`: diem vao cua userscript
 - `extension-src/`: ma nguon tien ich mo rong va tai nguyen bieu tuong
 - `dist/extension/`: tien ich mo rong da tao dang giai nen
 - `language-packs/`: dau ra goi ngon ngu trong kho ma nguon
@@ -51,7 +51,7 @@ No bo sung cho OpenClaw Dashboard lop da ngon ngu, bang dieu khien popup, cap nh
 
 ### Userscript
 
-1. Mo `openclaw-dashboard-plus.user.js`
+1. Mo `openclaw-dashboard-plus-zh.user.js`
 2. Cai bang Tampermonkey, ScriptCat hoac trinh quan ly tuong thich
 
 ### Tep ZIP cua tien ich mo rong

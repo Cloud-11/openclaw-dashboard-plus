@@ -12,14 +12,18 @@ const DEFAULT_SETTINGS = {
   styleOverride: true,
   styleRepair: true,
   selectStyleFix: true,
+  codeBlockStyleFix: true,
 };
 const STORAGE_KEYS = {
   bundles: "remoteLanguageBundles",
   states: "remoteLanguageStates",
   themeBundle: "remoteThemePresetBundle",
   themeState: "remoteThemePresetState",
+  styleBundle: "remoteThemeStyleBundle",
+  styleState: "remoteThemeStyleState",
 };
 const REMOTE_FETCH_TIMEOUT_MS = 6000;
+const ALLOWED_STYLE_MODULE_KINDS = new Set(["css", "html", "json"]);
 const FONT_OPTIONS = [
   {
     value: "system",
@@ -123,6 +127,7 @@ const FALLBACK_METADATA = {
   ],
   translationBundle: { defaultLocale: "zh-CN", builtinVersions: { "zh-CN": "builtin", en: "builtin" } },
   themeBundle: { defaultPreset: "openclaw-classic", builtinVersion: "builtin" },
+  styleBundle: { builtinVersion: "builtin" },
   updateSources: [
     {
       id: "github",
@@ -132,6 +137,7 @@ const FALLBACK_METADATA = {
       localeUrlTemplate: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/language-packs/{locale}.json",
       uiLocaleUrlTemplate: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/ui-locales/{locale}.json",
       themePresetsUrl: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/theme-presets.json",
+      styleBundleUrl: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/extension-src/style-bundle.json",
     },
     {
       id: "gitee",
@@ -141,6 +147,7 @@ const FALLBACK_METADATA = {
       localeUrlTemplate: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/language-packs/{locale}.json",
       uiLocaleUrlTemplate: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/ui-locales/{locale}.json",
       themePresetsUrl: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/theme-presets.json",
+      styleBundleUrl: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/extension-src/style-bundle.json",
     },
   ],
 };
@@ -166,6 +173,7 @@ function getElements() {
     styleOverride: $("style-override"),
     styleRepair: $("style-repair"),
     selectStyleFix: $("select-style-fix"),
+    codeBlockStyleFix: $("code-block-style-fix"),
     saveTheme: $("save-theme"),
     downloadTheme: $("download-theme"),
     clearTheme: $("clear-theme"),
@@ -230,6 +238,14 @@ async function fetchJson(url, timeoutMs = REMOTE_FETCH_TIMEOUT_MS) {
     throw new Error(`HTTP ${response.status}`);
   }
   return response.json();
+}
+
+async function fetchText(url, timeoutMs = REMOTE_FETCH_TIMEOUT_MS) {
+  const response = await withTimeout(fetch(url, { cache: "no-store" }), timeoutMs);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return response.text();
 }
 
 function storageGet(area, defaults) {
@@ -308,6 +324,7 @@ function normalizeThemePreset(entry) {
     id,
     label,
     nativeLabel,
+    preserveNativeColors: entry.preserveNativeColors === true,
     description: typeof entry.description === "string" && entry.description.trim() ? entry.description.trim() : "",
     nativeDescription: typeof entry.nativeDescription === "string" && entry.nativeDescription.trim()
       ? entry.nativeDescription.trim()
@@ -332,6 +349,98 @@ function normalizeThemeBundle(bundle, fallbackVersion = FALLBACK_THEME_BUNDLE.ve
       ? bundle.defaultPreset.trim()
       : normalizedPresets[0]?.id || FALLBACK_THEME_BUNDLE.defaultPreset,
     presets: normalizedPresets,
+  };
+}
+
+function normalizeStyleModule(entry) {
+  if (!entry || typeof entry !== "object") {
+    return null;
+  }
+  const id = typeof entry.id === "string" && entry.id.trim() ? entry.id.trim() : "";
+  if (!id) {
+    return null;
+  }
+  const kind = typeof entry.kind === "string" && ALLOWED_STYLE_MODULE_KINDS.has(entry.kind.trim())
+    ? entry.kind.trim()
+    : "css";
+  const assetPath = typeof entry.assetPath === "string" && entry.assetPath.trim() ? entry.assetPath.trim() : "";
+  return {
+    id,
+    kind,
+    assetPath,
+    settingKey: typeof entry.settingKey === "string" && entry.settingKey.trim() ? entry.settingKey.trim() : "",
+    presetIds: Array.isArray(entry.presetIds)
+      ? entry.presetIds.filter((value) => typeof value === "string" && value.trim()).map((value) => value.trim())
+      : [],
+    excludePresetIds: Array.isArray(entry.excludePresetIds)
+      ? entry.excludePresetIds.filter((value) => typeof value === "string" && value.trim()).map((value) => value.trim())
+      : [],
+    content: kind === "json"
+      ? (entry.content && typeof entry.content === "object" ? entry.content : null)
+      : (typeof entry.content === "string" ? entry.content : null),
+  };
+}
+
+function normalizeStyleBundle(bundle, fallbackVersion = "builtin") {
+  const modules = Array.isArray(bundle?.modules)
+    ? bundle.modules.map((entry) => normalizeStyleModule(entry)).filter(Boolean)
+    : [];
+  return {
+    schemaVersion: 1,
+    version: typeof bundle?.version === "string" && bundle.version.trim() ? bundle.version.trim() : fallbackVersion,
+    modules,
+  };
+}
+
+function inferStyleAssetKind(assetPath) {
+  const normalized = String(assetPath || "").trim().toLowerCase();
+  if (normalized.endsWith(".css")) {
+    return "css";
+  }
+  if (normalized.endsWith(".html")) {
+    return "html";
+  }
+  if (normalized.endsWith(".json")) {
+    return "json";
+  }
+  return "";
+}
+
+function resolveAssetUrl(assetPath, bundleUrl) {
+  try {
+    return new URL(assetPath, bundleUrl).toString();
+  } catch {
+    return "";
+  }
+}
+
+async function hydrateRemoteStyleBundle(bundleUrl) {
+  const bundle = normalizeStyleBundle(await fetchJson(bundleUrl), "remote");
+  const modules = [];
+  for (const module of bundle.modules) {
+    if (!module.assetPath) {
+      modules.push(module);
+      continue;
+    }
+    const inferredKind = inferStyleAssetKind(module.assetPath);
+    const kind = module.kind || inferredKind || "css";
+    if (!ALLOWED_STYLE_MODULE_KINDS.has(kind)) {
+      throw new Error(`Unsupported style asset kind: ${kind}`);
+    }
+    const assetUrl = resolveAssetUrl(module.assetPath, bundleUrl);
+    if (!assetUrl) {
+      throw new Error(`Unable to resolve style asset URL for ${module.id}`);
+    }
+    const content = kind === "json" ? await fetchJson(assetUrl) : await fetchText(assetUrl);
+    modules.push({
+      ...module,
+      kind,
+      content,
+    });
+  }
+  return {
+    ...bundle,
+    modules,
   };
 }
 
@@ -405,6 +514,10 @@ function normalizeMetadata(raw, version) {
       ...FALLBACK_METADATA.themeBundle,
       ...(metadata.themeBundle || {}),
     },
+    styleBundle: {
+      ...FALLBACK_METADATA.styleBundle,
+      ...(metadata.styleBundle || {}),
+    },
     updateSources: Array.isArray(metadata.updateSources) && metadata.updateSources.length ? metadata.updateSources : FALLBACK_METADATA.updateSources,
   };
 }
@@ -428,6 +541,10 @@ function mergeMetadata(base, next) {
     themeBundle: {
       ...(base.themeBundle || {}),
       ...(next.themeBundle || {}),
+    },
+    styleBundle: {
+      ...(base.styleBundle || {}),
+      ...(next.styleBundle || {}),
     },
     updateSources: Array.isArray(next.updateSources) && next.updateSources.length ? next.updateSources : base.updateSources,
   };
@@ -457,17 +574,23 @@ function buildThemeBundleUrls(metadata) {
   const sources = Array.isArray(metadata?.updateSources) ? metadata.updateSources : [];
   return sources.map((source) => {
     if (source?.themePresetsUrl) {
-      return { url: source.themePresetsUrl, source };
+      return {
+        url: source.themePresetsUrl,
+        styleUrl: source.styleBundleUrl || "",
+        source,
+      };
     }
     if (source?.repoUrl && /github\.com/i.test(source.repoUrl)) {
       return {
         url: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/theme-presets.json",
+        styleUrl: "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/extension-src/style-bundle.json",
         source,
       };
     }
     if (source?.repoUrl && /gitee\.com/i.test(source.repoUrl)) {
       return {
         url: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/theme-presets.json",
+        styleUrl: "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/extension-src/style-bundle.json",
         source,
       };
     }
@@ -738,6 +861,7 @@ function renderAll(elements, state) {
   elements.styleOverride.checked = state.draft.styleOverride !== false;
   elements.styleRepair.checked = state.draft.styleRepair !== false;
   elements.selectStyleFix.checked = state.draft.selectStyleFix !== false;
+  elements.codeBlockStyleFix.checked = state.draft.codeBlockStyleFix !== false;
   elements.refreshMeta.disabled = state.busy.meta;
   elements.refreshMeta.textContent = state.busy.meta
     ? t(state, "refresh_meta_busy", {}, "Refreshing...")
@@ -832,6 +956,7 @@ async function loadSettings(defaultLocale) {
       styleOverride: settings.styleOverride !== false,
       styleRepair: settings.styleRepair !== false,
       selectStyleFix: settings.selectStyleFix !== false,
+      codeBlockStyleFix: settings.codeBlockStyleFix !== false,
     };
   } catch {
     return { ...DEFAULT_SETTINGS, locale: defaultLocale || DEFAULT_SETTINGS.locale };
@@ -840,15 +965,24 @@ async function loadSettings(defaultLocale) {
 
 async function loadCache() {
   try {
-    const stored = await storageGet("local", [STORAGE_KEYS.bundles, STORAGE_KEYS.states, STORAGE_KEYS.themeBundle, STORAGE_KEYS.themeState]);
+    const stored = await storageGet("local", [
+      STORAGE_KEYS.bundles,
+      STORAGE_KEYS.states,
+      STORAGE_KEYS.themeBundle,
+      STORAGE_KEYS.themeState,
+      STORAGE_KEYS.styleBundle,
+      STORAGE_KEYS.styleState,
+    ]);
     return {
       bundles: stored?.[STORAGE_KEYS.bundles] && typeof stored[STORAGE_KEYS.bundles] === "object" ? stored[STORAGE_KEYS.bundles] : {},
       states: stored?.[STORAGE_KEYS.states] && typeof stored[STORAGE_KEYS.states] === "object" ? stored[STORAGE_KEYS.states] : {},
       themeBundle: stored?.[STORAGE_KEYS.themeBundle] && typeof stored[STORAGE_KEYS.themeBundle] === "object" ? normalizeThemeBundle(stored[STORAGE_KEYS.themeBundle]) : null,
       themeState: stored?.[STORAGE_KEYS.themeState] && typeof stored[STORAGE_KEYS.themeState] === "object" ? stored[STORAGE_KEYS.themeState] : null,
+      styleBundle: stored?.[STORAGE_KEYS.styleBundle] && typeof stored[STORAGE_KEYS.styleBundle] === "object" ? normalizeStyleBundle(stored[STORAGE_KEYS.styleBundle], "cached") : null,
+      styleState: stored?.[STORAGE_KEYS.styleState] && typeof stored[STORAGE_KEYS.styleState] === "object" ? stored[STORAGE_KEYS.styleState] : null,
     };
   } catch {
-    return { bundles: {}, states: {}, themeBundle: null, themeState: null };
+    return { bundles: {}, states: {}, themeBundle: null, themeState: null, styleBundle: null, styleState: null };
   }
 }
 
@@ -920,6 +1054,7 @@ async function saveThemeSettings(elements, state) {
     styleOverride: state.draft.styleOverride !== false,
     styleRepair: state.draft.styleRepair !== false,
     selectStyleFix: state.draft.selectStyleFix !== false,
+    codeBlockStyleFix: state.draft.codeBlockStyleFix !== false,
   };
   try {
     await storageSet("sync", nextSettings);
@@ -1063,12 +1198,32 @@ async function downloadThemeBundle(elements, state) {
         version: bundle.version || "remote",
         fetchedAt: new Date().toISOString(),
       };
+      let styleBundle = null;
+      let styleState = null;
+      if (candidate.styleUrl) {
+        try {
+          styleBundle = await hydrateRemoteStyleBundle(candidate.styleUrl);
+          styleState = {
+            sourceId: bundleState.sourceId,
+            sourceLabel: bundleState.sourceLabel,
+            version: styleBundle.version || bundleState.version,
+            fetchedAt: bundleState.fetchedAt,
+          };
+        } catch {
+          styleBundle = state.cachedStyleBundle || null;
+          styleState = state.cachedStyleState || null;
+        }
+      }
       await storageSet("local", {
         [STORAGE_KEYS.themeBundle]: bundle,
         [STORAGE_KEYS.themeState]: bundleState,
+        [STORAGE_KEYS.styleBundle]: styleBundle,
+        [STORAGE_KEYS.styleState]: styleState,
       });
       state.cachedThemeBundle = bundle;
       state.cachedThemeState = bundleState;
+      state.cachedStyleBundle = styleBundle;
+      state.cachedStyleState = styleState;
       state.busy.theme = false;
       setStatus(state, "theme", "theme_status_download_success", "success", {
         source: bundleState.sourceLabel,
@@ -1092,9 +1247,13 @@ async function clearThemeBundle(elements, state) {
     await storageSet("local", {
       [STORAGE_KEYS.themeBundle]: null,
       [STORAGE_KEYS.themeState]: null,
+      [STORAGE_KEYS.styleBundle]: null,
+      [STORAGE_KEYS.styleState]: null,
     });
     state.cachedThemeBundle = null;
     state.cachedThemeState = null;
+    state.cachedStyleBundle = null;
+    state.cachedStyleState = null;
     setStatus(state, "theme", "theme_status_clear_success", "success");
   } catch (error) {
     setStatus(state, "theme", "theme_status_clear_error", "error", { message: error.message });
@@ -1199,6 +1358,8 @@ async function initializePopup() {
     builtinThemeBundle,
     cachedThemeBundle: cache.themeBundle,
     cachedThemeState: cache.themeState,
+    cachedStyleBundle: cache.styleBundle,
+    cachedStyleState: cache.styleState,
     settings,
     draft: { ...settings },
     uiLocale: uiBundle.locale || resolvedUiLocale,
@@ -1249,6 +1410,11 @@ async function initializePopup() {
   });
   elements.selectStyleFix.addEventListener("change", () => {
     state.draft.selectStyleFix = elements.selectStyleFix.checked;
+    setStatus(state, "theme", "theme_status_selected");
+    renderAll(elements, state);
+  });
+  elements.codeBlockStyleFix.addEventListener("change", () => {
+    state.draft.codeBlockStyleFix = elements.codeBlockStyleFix.checked;
     setStatus(state, "theme", "theme_status_selected");
     renderAll(elements, state);
   });

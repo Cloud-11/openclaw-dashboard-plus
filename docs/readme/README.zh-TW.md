@@ -4,18 +4,18 @@
 
 # OpenClaw Dashboard Plus
 
-提供給 OpenClaw Dashboard 的多語言使用者腳本與瀏覽器擴充工具。
+以瀏覽器擴充為主、附帶中文翻譯使用者腳本的 OpenClaw Dashboard 工具集。
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
 ## 概述
 
-此專案提供兩種使用方式：
+此專案提供兩種使用方式，其中擴充為主：
 
-- `openclaw-dashboard-plus.user.js` 使用者腳本
 - 建置輸出到 `dist/extension/` 的瀏覽器擴充功能
+- `openclaw-dashboard-plus-zh.user.js` 中文翻譯使用者腳本
 
-它為 OpenClaw Dashboard 加入多語言內容層、擴充彈出視窗設定面板、遠端中繼資料更新與可下載語言包。
+瀏覽器擴充是目前主形態；使用者腳本保留為較輕量的中文翻譯入口，適合不方便安裝擴充的情境。
 
 ## 功能
 
@@ -27,7 +27,7 @@
 
 ## 專案結構
 
-- `openclaw-dashboard-plus.user.js`：使用者腳本入口
+- `openclaw-dashboard-plus-zh.user.js`：中文翻譯使用者腳本入口
 - `extension-src/`：擴充原始碼與圖示資源
 - `dist/extension/`：產生後的解壓擴充目錄
 - `language-packs/`：儲存在倉庫中的語言包輸出
@@ -49,7 +49,7 @@
 
 ### 使用者腳本
 
-1. 開啟 `openclaw-dashboard-plus.user.js`
+1. 開啟 `openclaw-dashboard-plus-zh.user.js`
 2. 使用 Tampermonkey、ScriptCat 或相容的使用者腳本管理器安裝
 
 ### 瀏覽器擴充 ZIP

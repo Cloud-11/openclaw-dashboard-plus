@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "slots": [
+    {
+      "id": "styleOverride",
+      "description": "Visual surface overrides for cards, inputs, and buttons."
+    },
+    {
+      "id": "styleRepair",
+      "description": "Low-risk layout, spacing, and readability repairs."
+    },
+    {
+      "id": "selectStyleFix",
+      "description": "Dropdown repair visuals loaded from the external style bundle while runtime JS keeps the interaction logic."
+    },
+    {
+      "id": "codeBlockStyleFix",
+      "description": "Code block wrapper polish for markdown output, including header chrome and copy-button hover states."
+    }
+  ]
+}

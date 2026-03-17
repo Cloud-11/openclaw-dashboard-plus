@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light dark;
+}
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+:where(body) {
+  font-family: var(--ocdp-font-family) !important;
+  font-size: var(--ocdp-font-scale) !important;
+  color: var(--text) !important;
+  background:
+    radial-gradient(circle at top right, var(--ocdp-page-overlay) 0%, transparent 28%),
+    var(--bg) !important;
+}
+
+:where(openclaw-app, button, input, textarea, select) {
+  font: inherit !important;
+}
+
+:where(a, .session-link) {
+  color: var(--accent) !important;
+}
+
+:where(input::placeholder, textarea::placeholder) {
+  color: var(--muted) !important;
+}
+
+:where(input, textarea, select, button, [role="button"]) {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease !important;
+}
+
+:where(input:focus, textarea:focus, select:focus, button:focus-visible, [role="button"]:focus-visible) {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--accent-subtle) !important;
+  border-color: var(--accent) !important;
+}
+
+:where(table, thead, tbody, tr, td, th) {
+  border-color: var(--border) !important;
+}
+
+:where(.callout) {
+  background: color-mix(in srgb, var(--danger-subtle, rgba(239, 68, 68, 0.1)) 60%, var(--bg-elevated) 40%) !important;
+}
+
+:where(code, pre, .mono, .login-gate__steps code) {
+  background: color-mix(in srgb, var(--bg-hover) 88%, transparent) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+:where(.theme-orb__menu, .login-gate__card, .sidebar-version, .config-section-card, .settings-appearance__section, .settings-info-row, .cfg-array, .cfg-map, .cfg-object) {
+  box-shadow: var(--shadow-md) !important;
+}

@@ -51,6 +51,9 @@
     "defaultPreset": "openclaw-classic",
     "builtinVersion": "builtin-0.2.0"
   },
+  "styleBundle": {
+    "builtinVersion": "builtin-0.2.2"
+  },
   "updateSources": [
     {
       "id": "github",
@@ -59,7 +62,8 @@
       "metadataUrl": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/plugin-metadata.json",
       "localeUrlTemplate": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/language-packs/{locale}.json",
       "uiLocaleUrlTemplate": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/ui-locales/{locale}.json",
-      "themePresetsUrl": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/theme-presets.json"
+      "themePresetsUrl": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/theme-presets.json",
+      "styleBundleUrl": "https://raw.githubusercontent.com/Cloud-11/openclaw-dashboard-plus/main/extension-src/style-bundle.json"
     },
     {
       "id": "gitee",
@@ -68,7 +72,8 @@
       "metadataUrl": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/plugin-metadata.json",
       "localeUrlTemplate": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/language-packs/{locale}.json",
       "uiLocaleUrlTemplate": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/ui-locales/{locale}.json",
-      "themePresetsUrl": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/theme-presets.json"
+      "themePresetsUrl": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/theme-presets.json",
+      "styleBundleUrl": "https://gitee.com/Cloud-11/openclaw-dashboard-plus/raw/main/extension-src/style-bundle.json"
     }
   ]
 }
