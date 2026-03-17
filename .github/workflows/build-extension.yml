@@ -74,14 +74,45 @@ jobs:
           git tag $env:RELEASE_TAG
           git push origin $env:RELEASE_TAG
 
+      - name: Wait for release tag propagation
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          for ($attempt = 0; $attempt -lt 20; $attempt++) {
+            gh api "repos/$env:GITHUB_REPOSITORY/git/ref/tags/$env:RELEASE_TAG" *> $null
+            if ($LASTEXITCODE -eq 0) {
+              exit 0
+            }
+
+            Start-Sleep -Seconds 2
+          }
+
+          throw "Tag $env:RELEASE_TAG was not discoverable on GitHub in time."
+
       - name: Publish GitHub release
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-        uses: softprops/action-gh-release@v2
-        with:
-          name: OpenClaw Dashboard Plus ${{ steps.version.outputs.tag }}
-          tag_name: ${{ steps.version.outputs.tag }}
-          generate_release_notes: true
-          files: dist/openclaw-dashboard-plus-extension.zip
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          $existingRelease = gh release view $env:RELEASE_TAG --json isDraft,url 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            $release = $existingRelease | ConvertFrom-Json
+            if (-not $release.isDraft) {
+              Write-Host "Release $env:RELEASE_TAG already published at $($release.url)."
+              exit 0
+            }
+
+            gh release edit $env:RELEASE_TAG --draft=false | Out-Host
+            exit 0
+          }
+
+          gh release create $env:RELEASE_TAG dist/openclaw-dashboard-plus-extension.zip --verify-tag --draft --title "OpenClaw Dashboard Plus $env:RELEASE_TAG" --generate-notes
+          gh release edit $env:RELEASE_TAG --draft=false | Out-Host
 
   release:
     needs: package
@@ -106,9 +137,22 @@ jobs:
         run: node package-extension-zip.mjs
 
       - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: OpenClaw Dashboard Plus ${{ github.ref_name }}
-          tag_name: ${{ github.ref_name }}
-          generate_release_notes: true
-          files: dist/openclaw-dashboard-plus-extension.zip
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          $existingRelease = gh release view $env:RELEASE_TAG --json isDraft,url 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            $release = $existingRelease | ConvertFrom-Json
+            if (-not $release.isDraft) {
+              Write-Host "Release $env:RELEASE_TAG already published at $($release.url)."
+              exit 0
+            }
+
+            gh release edit $env:RELEASE_TAG --draft=false | Out-Host
+            exit 0
+          }
+
+          gh release create $env:RELEASE_TAG dist/openclaw-dashboard-plus-extension.zip --verify-tag --draft --title "OpenClaw Dashboard Plus $env:RELEASE_TAG" --generate-notes
+          gh release edit $env:RELEASE_TAG --draft=false | Out-Host

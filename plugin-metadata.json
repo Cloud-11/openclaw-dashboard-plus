@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "OpenClaw Dashboard Plus",
   "description": "OpenClaw Dashboard 的多语言与增强扩展。",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "compatibility": {
     "openclaw": "2026.3.2+"
   },
