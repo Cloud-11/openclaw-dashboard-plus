@@ -2943,7 +2943,8 @@
     }
 
     const rect = activeScrollContainer.getBoundingClientRect();
-    const isVisible = rect.height > 120 && rect.bottom > 64 && rect.top < window.innerHeight - 64;
+    const viewportInset = 64;
+    const isVisible = rect.bottom > viewportInset && rect.top < window.innerHeight - viewportInset;
     railRoot.hidden = !isVisible || trackedAnchors.length === 0;
     railRoot.dataset.visible = railRoot.hidden ? "false" : "true";
 
@@ -2952,10 +2953,10 @@
       return;
     }
 
-    const right = Math.max(12, Math.round(window.innerWidth - rect.right + 10));
-    const visibleHeight = Math.max(160, Math.min(rect.height - 24, window.innerHeight * 0.78, 720));
+    const right = Math.max(12, Math.round(Math.max(window.innerWidth - Math.min(rect.right, window.innerWidth), 0) + 10));
+    const visibleHeight = Math.max(220, Math.min(window.innerHeight * 0.68, 720));
     railRoot.style.top = `${Math.round(window.innerHeight / 2)}px`;
-    railRoot.style.maxHeight = `${Math.max(160, visibleHeight)}px`;
+    railRoot.style.maxHeight = `${Math.round(visibleHeight)}px`;
     railRoot.style.right = `${right}px`;
   }
 
@@ -2972,8 +2973,7 @@
 
     syncRailPosition();
 
-    const containerRect = activeScrollContainer.getBoundingClientRect();
-    const probeTop = containerRect.top + Math.min(Math.max(containerRect.height * 0.24, 32), 160);
+    const probeTop = Math.min(window.innerHeight - 96, Math.max(96, window.innerHeight * 0.5));
     let activeIndex = 0;
 
     trackedAnchors.forEach((anchor, index) => {

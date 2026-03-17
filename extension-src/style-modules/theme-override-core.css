@@ -30,7 +30,7 @@
   border-radius: var(--radius-sm) !important;
 }
 
-:where(.btn.primary, .cfg-segmented__btn.active, .config-mode-toggle__btn.active, .topbar-theme-mode__btn--active) {
+:where(.btn.primary, .cfg-segmented__btn.active, .config-mode-toggle__btn.active) {
   background: var(--accent) !important;
   color: var(--primary-foreground) !important;
   border-color: color-mix(in srgb, var(--accent) 35%, transparent) !important;
