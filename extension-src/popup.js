@@ -22,6 +22,7 @@ const STORAGE_KEYS = {
   styleBundle: "remoteThemeStyleBundle",
   styleState: "remoteThemeStyleState",
 };
+const uiLocaleStringsCache = new Map();
 const REMOTE_FETCH_TIMEOUT_MS = 6000;
 const ALLOWED_STYLE_MODULE_KINDS = new Set(["css", "html", "json"]);
 const FONT_OPTIONS = [
@@ -640,16 +641,11 @@ function localeName(entry, uiLocale) {
     : entry.nativeLabel || entry.label || entry.code;
 }
 
-function localeOption(entry, uiLocale) {
+function localeSelfName(entry) {
   if (!entry) {
     return "";
   }
-  if (entry.label && entry.nativeLabel && entry.label !== entry.nativeLabel) {
-    return String(uiLocale || "").toLowerCase().startsWith("en")
-      ? `${entry.label} / ${entry.nativeLabel}`
-      : `${entry.nativeLabel} / ${entry.label}`;
-  }
-  return localeName(entry, uiLocale);
+  return entry.nativeLabel || entry.label || entry.code;
 }
 
 function themePresetKey(presetId, suffix) {
@@ -705,16 +701,27 @@ async function fetchUiLocaleStrings(locale, metadata = null) {
   if (!locale) {
     return null;
   }
+  if (uiLocaleStringsCache.has(locale)) {
+    return uiLocaleStringsCache.get(locale);
+  }
   try {
     const bundle = await fetchJson(chrome.runtime.getURL(`ui-locales/${locale}.json`), 2500);
-    return bundle?.strings && typeof bundle.strings === "object" ? bundle.strings : null;
+    const strings = bundle?.strings && typeof bundle.strings === "object" ? bundle.strings : null;
+    if (strings) {
+      uiLocaleStringsCache.set(locale, strings);
+    }
+    return strings;
   } catch {
     // try remote mirrors
   }
   for (const remoteUrl of buildUiLocaleUrls(metadata, locale)) {
     try {
       const bundle = await fetchJson(remoteUrl, 3000);
-      return bundle?.strings && typeof bundle.strings === "object" ? bundle.strings : null;
+      const strings = bundle?.strings && typeof bundle.strings === "object" ? bundle.strings : null;
+      if (strings) {
+        uiLocaleStringsCache.set(locale, strings);
+      }
+      return strings;
     } catch {
       // try next remote url
     }
@@ -851,6 +858,7 @@ function renderSelect(control, options, selectedValue, open) {
 
 function applyUiTexts(elements, state) {
   elements.root.lang = state.uiLocale || DEFAULT_UI_LOCALE;
+  elements.root.dir = String(state.uiLocale || DEFAULT_UI_LOCALE).toLowerCase().startsWith("ar") ? "rtl" : "ltr";
   document.title = t(state, "document_title", {}, document.title);
   for (const element of elements.i18nText) {
     element.textContent = t(state, element.dataset.i18n, {}, element.textContent);
@@ -927,7 +935,7 @@ function renderAll(elements, state) {
   renderSelect(
     elements.panelSelect,
     [{ value: SYSTEM_UI_LOCALE, label: t(state, "panel_locale_system", {}, "Follow system"), note: t(state, "panel_locale_system_note", {}, "") }].concat(
-      panelUiLocaleEntries(metadata).map((entry) => ({ value: entry.code, label: localeOption(entry, state.uiLocale) })),
+      panelUiLocaleEntries(metadata).map((entry) => ({ value: entry.code, label: localeSelfName(entry) })),
     ),
     uiSetting,
     state.openSelect === "panel",
@@ -939,7 +947,7 @@ function renderAll(elements, state) {
       const builtin = Boolean(state.localMetadata.translationBundle?.builtinVersions?.[entry.code]);
       return {
         value: entry.code,
-        label: localeOption(entry, state.uiLocale),
+        label: localeSelfName(entry),
         note: cached
           ? t(state, "locale_option_cached", { version: cached.version || t(state, "locale_source_cached", {}, "Cached") }, "Cached")
           : builtin

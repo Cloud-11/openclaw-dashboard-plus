@@ -59,70 +59,70 @@
       "code": "zh-TW",
       "label": "Traditional Chinese",
       "nativeLabel": "繁體中文",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "ja",
       "label": "Japanese",
       "nativeLabel": "日本語",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "ko",
       "label": "Korean",
       "nativeLabel": "한국어",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "fr",
       "label": "French",
       "nativeLabel": "Français",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "es",
       "label": "Spanish",
       "nativeLabel": "Español",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "ru",
       "label": "Russian",
       "nativeLabel": "Русский",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "de",
       "label": "German",
       "nativeLabel": "Deutsch",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "vi",
       "label": "Vietnamese",
       "nativeLabel": "Tiếng Việt",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "fil",
       "label": "Filipino",
       "nativeLabel": "Filipino",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "ar",
       "label": "Arabic",
       "nativeLabel": "العربية",
-      "builtin": false,
+      "builtin": true,
       "default": false
     }
   ],
