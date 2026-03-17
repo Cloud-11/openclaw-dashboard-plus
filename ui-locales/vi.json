@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Nét viền rõ, mật độ cân bằng và các điều khiển quen thuộc theo phong cách Material.",
     "ui_style_preset_flat_label": "Phẳng",
     "ui_style_preset_flat_description": "Bề mặt gọn hơn, ít chiều sâu hơn cho cảm giác trực diện và sạch sẽ.",
-    "ui_style_preset_soft-rounded_label": "Bo tròn mềm",
-    "ui_style_preset_soft-rounded_description": "Bo góc mềm hơn và bề mặt dịu hơn để tạo cảm giác thân thiện.",
     "theme_preset_soft-light_label": "Ánh sáng mềm",
     "theme_preset_soft-light_description": "Bảng màu sáng dịu với tông trung tính ấm và điểm nhấn xanh nhẹ.",
     "theme_preset_clear-light_label": "Ánh sáng trong",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Tải từ xa",
     "not_cached": "Chưa lưu đệm",
     "not_builtin": "Không tích hợp",
-    "not_synced": "Chưa đồng bộ"
+    "not_synced": "Chưa đồng bộ",
+    "ui_style_preset_frosted-glass_label": "Kinh mo",
+    "ui_style_preset_frosted-glass_description": "Cac lop ban trong suot, highlight mem hon va be mat mo cho hieu ung kinh tiet che.",
+    "ui_style_preset_soft-neumorphism_label": "Neumorphism mem",
+    "ui_style_preset_soft-neumorphism_description": "Highlight khuech tan, do day mem hon va bong do ben trong de tao cam giac cham nhe.",
+    "ui_style_preset_glass-lens_label": "Thau kinh kinh",
+    "ui_style_preset_glass-lens_description": "Gradient bong nhu thau kinh, highlight noi that manh hon va canh sang hon theo phong cach glass UI di dong."
   }
 }

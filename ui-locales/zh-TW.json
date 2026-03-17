@@ -59,13 +59,11 @@
     "theme_preset_plus-contrast_label": "Plus Contrast",
     "theme_preset_plus-contrast_description": "更深色且高對比的配色，讓層級與重點更鮮明。",
     "ui_style_preset_openclaw-default_label": "OpenClaw 預設",
-    "ui_style_preset_openclaw-default_description": "保留 OpenClaw 原本的控制項造型、間距與表面層次。",
+    "ui_style_preset_openclaw-default_description": "保留 OpenClaw 原本的形態語言，同時統一間距、控制項與修補後的表面層次。",
     "ui_style_preset_material_label": "Material Design",
-    "ui_style_preset_material_description": "描邊清晰、密度平衡，呈現熟悉的 Material 風格控制項。",
+    "ui_style_preset_material_description": "借鑑 Material 元件的清晰描邊、色調表面、分層海拔與更明確的狀態回饋。",
     "ui_style_preset_flat_label": "扁平",
-    "ui_style_preset_flat_description": "表面更俐落、層次更輕，整體更直接乾淨。",
-    "ui_style_preset_soft-rounded_label": "柔和圓角",
-    "ui_style_preset_soft-rounded_description": "圓角更柔和、表面更溫和，視覺上更輕鬆親切。",
+    "ui_style_preset_flat_description": "更俐落的幾何邊角、更實的填充、更輕的層次，以及更直接的塊面反差。",
     "theme_builtin_version": "內建版本",
     "theme_cached_version": "快取版本",
     "theme_active_source": "目前來源",
@@ -163,6 +161,12 @@
     "locale_option_remote": "遠端下載",
     "not_cached": "未快取",
     "not_builtin": "非內建",
-    "not_synced": "未同步"
+    "not_synced": "未同步",
+    "ui_style_preset_frosted-glass_label": "毛玻璃",
+    "ui_style_preset_frosted-glass_description": "半透明層次、柔和高光與模糊表面，讓介面呈現克制的毛玻璃質感。",
+    "ui_style_preset_soft-neumorphism_label": "輕擬物",
+    "ui_style_preset_soft-neumorphism_description": "擴散高光、柔和厚度與內凹陰影，呈現更輕的擬物觸感。",
+    "ui_style_preset_glass-lens_label": "玻璃透鏡",
+    "ui_style_preset_glass-lens_description": "借鑑行動端玻璃 UI 的鏡面漸層、更強的內高光與更亮的玻璃邊緣。"
   }
 }

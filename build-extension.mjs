@@ -164,8 +164,16 @@ function hydrateStyleBundle(styleBundlePath) {
   };
 }
 
-function createExtensionContentSource(contentSource, hydratedStyleBundle) {
+function createExtensionContentSource(contentSource, themePresets, uiStylePresets, hydratedStyleBundle) {
   return contentSource
+    .replace(
+      /const FALLBACK_THEME_PRESET_BUNDLE = Object\.freeze\(\{[\s\S]*?\}\);\r?\n/,
+      `const FALLBACK_THEME_PRESET_BUNDLE = Object.freeze(${JSON.stringify(themePresets, null, 2)});\n`,
+    )
+    .replace(
+      /const FALLBACK_UI_STYLE_BUNDLE = Object\.freeze\(\{[\s\S]*?\}\);\r?\n/,
+      `const FALLBACK_UI_STYLE_BUNDLE = Object.freeze(${JSON.stringify(uiStylePresets, null, 2)});\n`,
+    )
     .replace(
       /const BUILTIN_STYLE_BUNDLE_DATA = [\s\S]*?;\r?\n/,
       `const BUILTIN_STYLE_BUNDLE_DATA = ${JSON.stringify(hydratedStyleBundle)};\n`,
@@ -204,7 +212,12 @@ function writeExtensionFiles() {
   const builtinLocaleVersions = Object.fromEntries(
     Object.entries(localeBundles).map(([locale, bundle]) => [locale, bundle?.version || `builtin-${extensionVersion}`]),
   );
-  const contentSource = createExtensionContentSource(readText(extensionContentSourcePath), hydratedStyleBundle);
+  const contentSource = createExtensionContentSource(
+    readText(extensionContentSourcePath),
+    themePresets,
+    uiStylePresets,
+    hydratedStyleBundle,
+  );
 
   const nextPluginMetadata = {
     ...pluginMetadata,

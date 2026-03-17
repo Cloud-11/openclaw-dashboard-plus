@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "حدود واضحة وكثافة متوازنة وعناصر تحكم مألوفة بطابع Material.",
     "ui_style_preset_flat_label": "مسطح",
     "ui_style_preset_flat_description": "أسطح أبسط وعمق أقل لمظهر أنظف وأكثر مباشرة.",
-    "ui_style_preset_soft-rounded_label": "مستدير ناعم",
-    "ui_style_preset_soft-rounded_description": "زوايا أكثر نعومة وأسطح ألطف لإحساس أهدأ وأكثر ودية.",
     "theme_builtin_version": "الإصدار المضمن",
     "theme_cached_version": "الإصدار المخزن مؤقتا",
     "theme_active_source": "المصدر النشط",
@@ -163,6 +161,12 @@
     "locale_option_remote": "تنزيل بعيد",
     "not_cached": "غير مخزن مؤقتا",
     "not_builtin": "غير مضمن",
-    "not_synced": "غير متزامن"
+    "not_synced": "غير متزامن",
+    "ui_style_preset_frosted-glass_label": "زجاج مصنفر",
+    "ui_style_preset_frosted-glass_description": "طبقات شبه شفافة ولمعات أكثر نعومة واسطح مموهة لمنح الواجهة تاثيرا زجاجيا هادئا.",
+    "ui_style_preset_soft-neumorphism_label": "نيومورفية ناعمة",
+    "ui_style_preset_soft-neumorphism_description": "لمعات منتشرة وعمق انعم وظلال داخلية لتقديم احساس لمسي اخف.",
+    "ui_style_preset_glass-lens_label": "عدسة زجاجية",
+    "ui_style_preset_glass-lens_description": "تدرجات لامعة تشبه العدسة ولمعات داخلية اقوى وحواف مضيئة مستوحاة من واجهات الزجاج على الهاتف."
   }
 }

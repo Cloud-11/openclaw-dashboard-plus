@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Des contours nets, une densité équilibrée et des contrôles dans un esprit Material.",
     "ui_style_preset_flat_label": "Plat",
     "ui_style_preset_flat_description": "Des surfaces plus franches et peu de profondeur pour un rendu plus direct et plus propre.",
-    "ui_style_preset_soft-rounded_label": "Arrondi doux",
-    "ui_style_preset_soft-rounded_description": "Des angles plus doux et des surfaces plus calmes pour une apparence plus détendue et accueillante.",
     "theme_builtin_version": "Version intégrée",
     "theme_cached_version": "Version en cache",
     "theme_active_source": "Source active",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Téléchargement distant",
     "not_cached": "Non mis en cache",
     "not_builtin": "Non intégré",
-    "not_synced": "Non synchronisé"
+    "not_synced": "Non synchronisé",
+    "ui_style_preset_frosted-glass_label": "Verre depoli",
+    "ui_style_preset_frosted-glass_description": "Des couches translucides, des reflets plus doux et des surfaces floutees pour un rendu verre discret.",
+    "ui_style_preset_soft-neumorphism_label": "Neumorphisme doux",
+    "ui_style_preset_soft-neumorphism_description": "Des reflets diffus, une profondeur plus moelleuse et des ombres internes pour des controles plus tactiles.",
+    "ui_style_preset_glass-lens_label": "Lentille de verre",
+    "ui_style_preset_glass-lens_description": "Des degrades brillants, des reflets internes plus marques et des bords lumineux inspires des interfaces verre sur mobile."
   }
 }

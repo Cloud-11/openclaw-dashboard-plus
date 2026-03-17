@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Klare Konturen, ausgewogene Dichte und vertraute Bedienelemente im Material-Stil.",
     "ui_style_preset_flat_label": "Flach",
     "ui_style_preset_flat_description": "Geradlinigere Flächen mit wenig Tiefe für einen saubereren, direkteren Look.",
-    "ui_style_preset_soft-rounded_label": "Weich gerundet",
-    "ui_style_preset_soft-rounded_description": "Sanftere Ecken und ruhigere Flächen für einen entspannteren, freundlicheren Eindruck.",
     "theme_preset_soft-light_label": "Sanftes Licht",
     "theme_preset_soft-light_description": "Eine sanfte helle Palette mit warmen Neutraltönen und weichen blauen Akzenten.",
     "theme_preset_clear-light_label": "Klares Licht",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Remote-Download",
     "not_cached": "Nicht zwischengespeichert",
     "not_builtin": "Nicht integriert",
-    "not_synced": "Nicht synchronisiert"
+    "not_synced": "Nicht synchronisiert",
+    "ui_style_preset_frosted-glass_label": "Mattglas",
+    "ui_style_preset_frosted-glass_description": "Transluzente Ebenen, weichere Lichtkanten und verschwommene Flachen fur einen zuruckhaltenden Glas-Look.",
+    "ui_style_preset_soft-neumorphism_label": "Weiche Neumorphie",
+    "ui_style_preset_soft-neumorphism_description": "Diffuse Highlights, weichere Tiefe und innere Schatten fur einen sanfteren taktilen Eindruck.",
+    "ui_style_preset_glass-lens_label": "Glaslinse",
+    "ui_style_preset_glass-lens_description": "Glanzende Linsenverlaufe, starkere Innenlichter und hellere Glaskanten im Stil mobiler Glasoberflachen."
   }
 }

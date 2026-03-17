@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Malinaw na outlines, balanseng density, at pamilyar na Material-style controls.",
     "ui_style_preset_flat_label": "Flat",
     "ui_style_preset_flat_description": "Mas simple ang surfaces at halos walang depth para sa mas malinis at direktang itsura.",
-    "ui_style_preset_soft-rounded_label": "Soft Rounded",
-    "ui_style_preset_soft-rounded_description": "Mas malalambot ang kanto at mas banayad ang mga surface para sa mas magaan at mas friendly na pakiramdam.",
     "theme_builtin_version": "Naka-built-in na bersyon",
     "theme_cached_version": "Naka-cache na bersyon",
     "theme_active_source": "Aktibong pinagmulan",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Remote download",
     "not_cached": "Hindi naka-cache",
     "not_builtin": "Hindi built-in",
-    "not_synced": "Hindi naka-sync"
+    "not_synced": "Hindi naka-sync",
+    "ui_style_preset_frosted-glass_label": "Frosted Glass",
+    "ui_style_preset_frosted-glass_description": "May bahagyang transparent na layers, mas malambot na highlights, at blurred na surfaces para sa kontroladong glass look.",
+    "ui_style_preset_soft-neumorphism_label": "Soft Neumorphism",
+    "ui_style_preset_soft-neumorphism_description": "Diffuse na highlights, mas malambot na lalim, at inset shadows para sa mas tactile na controls.",
+    "ui_style_preset_glass-lens_label": "Glass Lens",
+    "ui_style_preset_glass-lens_description": "Makintab na lens-like gradients, mas malinaw na internal highlights, at mas maliwanag na edges na hango sa mobile glass UI."
   }
 }

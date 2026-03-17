@@ -59,13 +59,11 @@
     "theme_preset_plus-contrast_label": "Plus Contrast",
     "theme_preset_plus-contrast_description": "A darker, higher-contrast palette for clearer hierarchy and stronger emphasis.",
     "ui_style_preset_openclaw-default_label": "OpenClaw Default",
-    "ui_style_preset_openclaw-default_description": "Keeps the original OpenClaw control shapes, spacing, and surface treatment.",
+    "ui_style_preset_openclaw-default_description": "Keeps the native OpenClaw shape language while normalizing spacing, controls, and repaired surfaces.",
     "ui_style_preset_material_label": "Material Design",
-    "ui_style_preset_material_description": "Clear outlines, balanced density, and familiar Material-style controls.",
+    "ui_style_preset_material_description": "Clear outlines, tonal surfaces, layered elevation, and stronger state feedback inspired by Material components.",
     "ui_style_preset_flat_label": "Flat",
-    "ui_style_preset_flat_description": "Sharper surfaces and minimal depth for a cleaner, more direct look.",
-    "ui_style_preset_soft-rounded_label": "Soft Rounded",
-    "ui_style_preset_soft-rounded_description": "Softer corners and gentler surfaces for a calmer, friendlier feel.",
+    "ui_style_preset_flat_description": "Sharper geometry, solid fills, reduced depth, and cleaner block-to-block contrast.",
     "theme_preset_soft-light_label": "Soft Light",
     "theme_preset_soft-light_description": "A gentle light palette with warm neutrals and soft blue accents.",
     "theme_preset_clear-light_label": "Clear Light",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Remote download",
     "not_cached": "Not cached",
     "not_builtin": "Not built-in",
-    "not_synced": "Not synced"
+    "not_synced": "Not synced",
+    "ui_style_preset_frosted-glass_label": "Frosted Glass",
+    "ui_style_preset_frosted-glass_description": "Translucent layers, softer highlights, and blurred surfaces for a restrained glass treatment.",
+    "ui_style_preset_soft-neumorphism_label": "Soft Neumorphism",
+    "ui_style_preset_soft-neumorphism_description": "Diffuse highlights, pill-like depth, and inset shadows for a softer tactile control style.",
+    "ui_style_preset_glass-lens_label": "Glass Lens",
+    "ui_style_preset_glass-lens_description": "Glossy lens-like gradients, stronger internal highlights, and brightened glass edges inspired by layered mobile glass UI."
   }
 }

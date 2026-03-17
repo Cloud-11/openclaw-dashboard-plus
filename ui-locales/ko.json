@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "윤곽이 또렷하고 밀도가 균형 잡혀 있으며 Material 스타일 조작감이 익숙합니다.",
     "ui_style_preset_flat_label": "플랫",
     "ui_style_preset_flat_description": "표면을 더 단순하게 하고 깊이를 줄여 깔끔하고 직접적인 인상을 줍니다.",
-    "ui_style_preset_soft-rounded_label": "부드러운 라운드",
-    "ui_style_preset_soft-rounded_description": "모서리와 표면을 더 부드럽게 다듬어 편안하고 친근한 느낌을 줍니다.",
     "theme_builtin_version": "내장 버전",
     "theme_cached_version": "캐시 버전",
     "theme_active_source": "현재 소스",
@@ -163,6 +161,12 @@
     "locale_option_remote": "원격 다운로드",
     "not_cached": "캐시되지 않음",
     "not_builtin": "내장 아님",
-    "not_synced": "동기화되지 않음"
+    "not_synced": "동기화되지 않음",
+    "ui_style_preset_frosted-glass_label": "서리 유리",
+    "ui_style_preset_frosted-glass_description": "반투명 레이어와 부드러운 하이라이트, 블러 표면으로 절제된 글라스 질감을 만듭니다.",
+    "ui_style_preset_soft-neumorphism_label": "소프트 뉴모피즘",
+    "ui_style_preset_soft-neumorphism_description": "확산 하이라이트와 부드러운 두께감, 안쪽 그림자로 더 가벼운 촉감을 만듭니다.",
+    "ui_style_preset_glass-lens_label": "글래스 렌즈",
+    "ui_style_preset_glass-lens_description": "모바일 글라스 UI 를 닮은 렌즈형 그라데이션과 더 강한 내부 하이라이트를 제공합니다."
   }
 }

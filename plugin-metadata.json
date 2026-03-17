@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "OpenClaw Dashboard Plus",
   "description": "OpenClaw Dashboard 的多语言与增强扩展。",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "compatibility": {
     "openclaw": "2026.3.2+"
   },
@@ -139,10 +139,10 @@
   },
   "uiStyleBundle": {
     "defaultPreset": "openclaw-default",
-    "builtinVersion": "builtin-0.3.0"
+    "builtinVersion": "builtin-0.4.1"
   },
   "styleBundle": {
-    "builtinVersion": "builtin-0.3.0"
+    "builtinVersion": "builtin-0.4.1"
   },
   "updateSources": [
     {

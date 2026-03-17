@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Чёткие контуры, сбалансированная плотность и знакомые элементы в духе Material.",
     "ui_style_preset_flat_label": "Плоский",
     "ui_style_preset_flat_description": "Более ровные поверхности и минимум глубины для прямого и чистого вида.",
-    "ui_style_preset_soft-rounded_label": "Мягко скруглённый",
-    "ui_style_preset_soft-rounded_description": "Более мягкие углы и спокойные поверхности для дружелюбного и расслабленного вида.",
     "theme_builtin_version": "Встроенная версия",
     "theme_cached_version": "Версия в кэше",
     "theme_active_source": "Активный источник",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Удалённая загрузка",
     "not_cached": "Не в кэше",
     "not_builtin": "Не встроено",
-    "not_synced": "Не синхронизировано"
+    "not_synced": "Не синхронизировано",
+    "ui_style_preset_frosted-glass_label": "Матовое стекло",
+    "ui_style_preset_frosted-glass_description": "Полупрозрачные слои, более мягкие блики и размытые поверхности для сдержанного стеклянного эффекта.",
+    "ui_style_preset_soft-neumorphism_label": "Мягкий неоморфизм",
+    "ui_style_preset_soft-neumorphism_description": "Рассеянные блики, более мягкая глубина и внутренние тени для лёгкого тактильного ощущения.",
+    "ui_style_preset_glass-lens_label": "Стеклянная линза",
+    "ui_style_preset_glass-lens_description": "Глянцевые линзовые градиенты, более сильные внутренние блики и светлые кромки в духе мобильного glass UI."
   }
 }

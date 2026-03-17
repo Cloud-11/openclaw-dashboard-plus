@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "Contornos claros, densidad equilibrada y controles familiares con estilo Material.",
     "ui_style_preset_flat_label": "Plano",
     "ui_style_preset_flat_description": "Superficies más limpias y profundidad mínima para un aspecto más directo y claro.",
-    "ui_style_preset_soft-rounded_label": "Redondeado suave",
-    "ui_style_preset_soft-rounded_description": "Esquinas más suaves y superficies más calmadas para una apariencia más amable y relajada.",
     "theme_builtin_version": "Versión integrada",
     "theme_cached_version": "Versión en caché",
     "theme_active_source": "Fuente activa",
@@ -163,6 +161,12 @@
     "locale_option_remote": "Descarga remota",
     "not_cached": "No en caché",
     "not_builtin": "No integrado",
-    "not_synced": "No sincronizado"
+    "not_synced": "No sincronizado",
+    "ui_style_preset_frosted-glass_label": "Vidrio esmerilado",
+    "ui_style_preset_frosted-glass_description": "Capas translucidas, reflejos mas suaves y superficies desenfocadas para un acabado de vidrio contenido.",
+    "ui_style_preset_soft-neumorphism_label": "Neumorfismo suave",
+    "ui_style_preset_soft-neumorphism_description": "Reflejos difusos, profundidad mas mullida y sombras internas para un estilo de control mas tactil.",
+    "ui_style_preset_glass-lens_label": "Lente de vidrio",
+    "ui_style_preset_glass-lens_description": "Degradados brillantes tipo lente, reflejos internos mas marcados y bordes iluminados inspirados en UI de vidrio movil."
   }
 }

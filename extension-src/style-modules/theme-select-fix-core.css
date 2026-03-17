@@ -25,14 +25,20 @@
   width: 100%;
   min-height: var(--ocdp-control-height, 40px);
   padding: 0 var(--ocdp-control-padding-x, 14px);
-  border: var(--ocdp-surface-border-width, 1px) solid var(--border, #2e3040);
+  border: var(--ocdp-surface-border-width, 1px) solid var(--ocdp-control-border, var(--border, #2e3040));
   border-radius: var(--radius-md, 10px);
-  background: var(--input, #1e2028);
+  background: var(--ocdp-control-bg, var(--input, #1e2028));
   color: var(--text, #d4d4d8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: var(--ocdp-control-shadow, inset 0 1px 0 rgba(255, 255, 255, 0.04));
+  backdrop-filter: var(--ocdp-control-backdrop-filter, none);
   cursor: pointer;
   font: inherit;
   text-align: left;
+}
+
+.ocdp-selectfix__trigger:hover {
+  background: var(--ocdp-control-hover-bg, color-mix(in srgb, var(--input, #1e2028) 82%, var(--bg-hover, #1f2330) 18%));
+  border-color: color-mix(in srgb, var(--ocdp-control-border, var(--border-strong, #3e4050)) 74%, var(--accent, #ff5c5c) 26%);
 }
 
 .ocdp-selectfix__trigger::after {
@@ -47,9 +53,7 @@
 
 .ocdp-selectfix.is-open .ocdp-selectfix__trigger {
   border-color: var(--accent, #ff5c5c);
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 80%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: var(--ocdp-focus-ring, 0 0 0 3px color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 80%, transparent));
 }
 
 .ocdp-selectfix__trigger:disabled {
@@ -72,11 +76,11 @@
   z-index: 2147483646;
   display: none;
   padding: 6px;
-  border: var(--ocdp-surface-border-width, 1px) solid var(--border-strong, #3e4050);
+  border: var(--ocdp-surface-border-width, 1px) solid var(--ocdp-menu-border, var(--border-strong, #3e4050));
   border-radius: calc(var(--radius-lg, 14px) + 2px);
-  background: color-mix(in srgb, var(--bg-elevated, #161920) 96%, black 4%);
-  box-shadow: var(--shadow-lg, 0 12px 32px rgba(0, 0, 0, 0.4));
-  backdrop-filter: blur(18px);
+  background: var(--ocdp-menu-bg, color-mix(in srgb, var(--bg-elevated, #161920) 96%, black 4%));
+  box-shadow: var(--ocdp-menu-shadow, var(--shadow-lg, 0 12px 32px rgba(0, 0, 0, 0.4)));
+  backdrop-filter: var(--ocdp-menu-backdrop-filter, blur(18px));
   max-height: min(360px, 50vh);
   overflow-y: auto;
 }
@@ -106,17 +110,22 @@
   cursor: pointer;
   font: inherit;
   text-align: left;
+  transition:
+    background-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .ocdp-selectfix__option:hover,
 .ocdp-selectfix__option:focus-visible {
   outline: none;
-  background: color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 82%, var(--bg-elevated, #161920) 18%);
+  background: var(--ocdp-button-hover-bg, color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 82%, var(--bg-elevated, #161920) 18%));
   color: var(--text-strong, #f4f4f5);
 }
 
 .ocdp-selectfix__option.is-selected {
-  background: color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 88%, var(--bg-elevated, #161920) 12%);
-  color: var(--text-strong, #f4f4f5);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #ff5c5c) 24%, transparent);
+  background: var(--ocdp-button-active-bg, color-mix(in srgb, var(--accent-subtle, rgba(255, 92, 92, 0.16)) 88%, var(--bg-elevated, #161920) 12%));
+  color: var(--ocdp-button-active-text, var(--text-strong, #f4f4f5));
+  box-shadow: var(--ocdp-button-active-shadow, inset 0 0 0 1px color-mix(in srgb, var(--accent, #ff5c5c) 24%, transparent));
 }

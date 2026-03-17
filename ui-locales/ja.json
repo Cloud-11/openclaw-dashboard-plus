@@ -64,8 +64,6 @@
     "ui_style_preset_material_description": "輪郭が明快で密度もバランスよく、Material らしい操作感です。",
     "ui_style_preset_flat_label": "Flat",
     "ui_style_preset_flat_description": "面の抑揚を減らし、すっきり直接的な見た目にします。",
-    "ui_style_preset_soft-rounded_label": "Soft Rounded",
-    "ui_style_preset_soft-rounded_description": "角をやわらかくし、面の印象も穏やかにして親しみやすくします。",
     "theme_builtin_version": "内蔵バージョン",
     "theme_cached_version": "キャッシュ版",
     "theme_active_source": "現在のソース",
@@ -163,6 +161,12 @@
     "locale_option_remote": "リモートダウンロード",
     "not_cached": "未キャッシュ",
     "not_builtin": "内蔵なし",
-    "not_synced": "未同期"
+    "not_synced": "未同期",
+    "ui_style_preset_frosted-glass_label": "すりガラス",
+    "ui_style_preset_frosted-glass_description": "半透明のレイヤーと柔らかなハイライト、ぼかし面で控えめなガラス感を出します。",
+    "ui_style_preset_soft-neumorphism_label": "ソフトニューモーフィズム",
+    "ui_style_preset_soft-neumorphism_description": "拡散したハイライトと柔らかな厚み、内側の影でやさしい触感を作ります。",
+    "ui_style_preset_glass-lens_label": "ガラスレンズ",
+    "ui_style_preset_glass-lens_description": "モバイル系ガラス UI を思わせるレンズ状グラデーションと強めの内側ハイライトです。"
   }
 }

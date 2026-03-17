@@ -26,14 +26,16 @@
 :where(input, textarea, select, button, [role="button"]) {
   transition:
     background-color 160ms ease,
+    background 160ms ease,
     border-color 160ms ease,
     box-shadow 160ms ease,
-    color 160ms ease !important;
+    color 160ms ease,
+    transform 160ms ease !important;
 }
 
 :where(input:focus, textarea:focus, select:focus, button:focus-visible, [role="button"]:focus-visible) {
   outline: none !important;
-  box-shadow: 0 0 0 3px var(--accent-subtle) !important;
+  box-shadow: var(--ocdp-focus-ring, 0 0 0 3px var(--accent-subtle)) !important;
   border-color: var(--accent) !important;
 }
 
@@ -53,5 +55,6 @@
 }
 
 :where(.theme-orb__menu, .login-gate__card, .sidebar-version, .config-section-card, .settings-appearance__section, .settings-info-row, .cfg-array, .cfg-map, .cfg-object) {
-  box-shadow: var(--shadow-md) !important;
+  box-shadow: var(--ocdp-surface-shadow, var(--shadow-md)) !important;
+  backdrop-filter: var(--ocdp-surface-backdrop-filter, none) !important;
 }

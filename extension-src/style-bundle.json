@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "builtin-0.3.0",
+  "version": "builtin-0.4.1",
   "modules": [
     {
       "id": "theme-override-core",

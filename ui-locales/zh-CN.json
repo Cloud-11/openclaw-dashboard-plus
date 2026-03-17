@@ -59,13 +59,11 @@
     "theme_preset_plus-contrast_label": "Plus 高对比",
     "theme_preset_plus-contrast_description": "更深、更高对比的配色，层级和重点更鲜明。",
     "ui_style_preset_openclaw-default_label": "OpenClaw 默认",
-    "ui_style_preset_openclaw-default_description": "保留 OpenClaw 原本的控件造型、间距和表面层次。",
+    "ui_style_preset_openclaw-default_description": "保留 OpenClaw 原本的形态语言，同时统一间距、控件和修补后的表面层次。",
     "ui_style_preset_material_label": "Material Design",
-    "ui_style_preset_material_description": "描边清晰、密度均衡，带来熟悉的 Material 风格控件。",
+    "ui_style_preset_material_description": "借鉴 Material 组件的清晰描边、色调表面、分层海拔和更明确的状态反馈。",
     "ui_style_preset_flat_label": "扁平",
-    "ui_style_preset_flat_description": "表面更利落、层次更轻，整体更直接干净。",
-    "ui_style_preset_soft-rounded_label": "柔和圆角",
-    "ui_style_preset_soft-rounded_description": "圆角更柔和、表面更温和，观感更轻松亲和。",
+    "ui_style_preset_flat_description": "更利落的几何边角、更实的填充、更轻的层次，以及更直接的块面反差。",
     "theme_preset_soft-light_label": "柔光亮色",
     "theme_preset_soft-light_description": "柔和的亮色配色，暖中性色搭配克制的蓝色强调。",
     "theme_preset_clear-light_label": "清透亮色",
@@ -163,6 +161,12 @@
     "locale_option_remote": "远端可下载",
     "not_cached": "未缓存",
     "not_builtin": "未内置",
-    "not_synced": "未同步"
+    "not_synced": "未同步",
+    "ui_style_preset_frosted-glass_label": "毛玻璃",
+    "ui_style_preset_frosted-glass_description": "半透明层次、柔和高光与模糊表面，让界面呈现克制的毛玻璃质感。",
+    "ui_style_preset_soft-neumorphism_label": "轻拟物",
+    "ui_style_preset_soft-neumorphism_description": "扩散高光、柔和厚度和内凹阴影，呈现更轻的拟物触感。",
+    "ui_style_preset_glass-lens_label": "玻璃透镜",
+    "ui_style_preset_glass-lens_description": "借鉴移动端玻璃 UI 的镜面渐变、更强的内高光和更亮的玻璃边缘。"
   }
 }

@@ -106,6 +106,8 @@ The repository includes a Windows-based GitHub Actions workflow that:
 - Builds `dist/extension/`
 - Packages `dist/openclaw-dashboard-plus-extension.zip`
 - Uploads both the ZIP archive and unpacked extension as workflow artifacts
+- Creates a Git tag like `v0.2.1` automatically when a new `plugin-metadata.json` version is pushed to `main` or `master`
+- Publishes a GitHub Release for version tags and attaches `dist/openclaw-dashboard-plus-extension.zip` as the release asset
 
 ## Pull Requests
 
