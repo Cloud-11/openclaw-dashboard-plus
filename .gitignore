@@ -2,3 +2,5 @@ dist/
 *.pem
 *.crx
 node_modules/
+.codex
+tests
