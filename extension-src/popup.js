@@ -1231,6 +1231,10 @@ function renderAll(elements, state) {
   elements.refreshMeta.textContent = state.busy.meta
     ? t(state, "refresh_meta_busy", {}, "Refreshing...")
     : t(state, "refresh_meta_button", {}, "Refresh remote");
+  elements.applyLocale.disabled = state.busy.applyLocale;
+  elements.applyLocale.textContent = state.busy.applyLocale
+    ? t(state, "content_locale_apply_busy", {}, "Applying...")
+    : t(state, "content_locale_apply", {}, "Apply content language");
   elements.downloadLocale.disabled = state.busy.download;
   elements.downloadLocale.textContent = state.busy.download
     ? t(state, "content_locale_download_busy", {}, "Downloading...")
@@ -1511,15 +1515,25 @@ async function applyPanelLocale(elements, state) {
 async function applyContentLocale(elements, state) {
   const metadata = effectiveMetadata(state);
   const locale = contentLocale(state, metadata);
+  const localeLabel = localeName(metadata.locales.find((entry) => entry.code === locale), state.uiLocale) || locale;
+  if (state.busy.applyLocale) {
+    return;
+  }
+  state.busy.applyLocale = true;
+  state.openSelect = null;
+  setStatus(state, "content", "content_locale_status_applying", "info", { locale: localeLabel });
+  renderAll(elements, state);
   try {
     await storageSet("sync", { ...state.settings, locale });
     state.settings.locale = locale;
     state.draft.locale = locale;
     setStatus(state, "content", "content_locale_status_success", "success", {
-      locale: localeName(metadata.locales.find((entry) => entry.code === locale), state.uiLocale) || locale,
+      locale: localeLabel,
     });
   } catch (error) {
     setStatus(state, "content", "content_locale_status_error", "error", { message: error.message });
+  } finally {
+    state.busy.applyLocale = false;
   }
   renderAll(elements, state);
 }
@@ -1824,7 +1838,7 @@ async function initializePopup() {
     cachedStates: cache.states,
     activeTab: "settings",
     openSelect: null,
-    busy: { meta: false, download: false, theme: false },
+    busy: { meta: false, download: false, theme: false, applyLocale: false },
     githubStats: { repoUrl: "", stars: null, loading: false, error: null },
     messages: {},
   };

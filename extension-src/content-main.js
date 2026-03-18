@@ -288,6 +288,85 @@
     return SKIP_SELECTORS.some((selector) => element.closest(selector));
   }
 
+  function getTrackedTextNodeSource(node) {
+    const currentValue = String(node?.nodeValue ?? "");
+    const tracked = textNodeTranslationMemory.get(node);
+    if (!tracked) {
+      return currentValue;
+    }
+    if (currentValue === tracked.translated) {
+      return tracked.source;
+    }
+    if (currentValue !== tracked.source) {
+      textNodeTranslationMemory.set(node, { source: currentValue, translated: currentValue });
+      return currentValue;
+    }
+    return tracked.source;
+  }
+
+  function rememberTextNodeTranslation(node, source, translated) {
+    textNodeTranslationMemory.set(node, { source, translated });
+  }
+
+  function getTrackedAttributeSource(element, attributeName, currentValue) {
+    let trackedAttributes = elementAttributeTranslationMemory.get(element);
+    if (!trackedAttributes) {
+      trackedAttributes = new Map();
+      elementAttributeTranslationMemory.set(element, trackedAttributes);
+    }
+    const tracked = trackedAttributes.get(attributeName);
+    if (!tracked) {
+      return currentValue;
+    }
+    if (currentValue === tracked.translated) {
+      return tracked.source;
+    }
+    if (currentValue !== tracked.source) {
+      trackedAttributes.set(attributeName, { source: currentValue, translated: currentValue });
+      return currentValue;
+    }
+    return tracked.source;
+  }
+
+  function rememberAttributeTranslation(element, attributeName, source, translated) {
+    let trackedAttributes = elementAttributeTranslationMemory.get(element);
+    if (!trackedAttributes) {
+      trackedAttributes = new Map();
+      elementAttributeTranslationMemory.set(element, trackedAttributes);
+    }
+    trackedAttributes.set(attributeName, { source, translated });
+  }
+
+  function forgetAttributeTranslation(element, attributeName) {
+    const trackedAttributes = elementAttributeTranslationMemory.get(element);
+    if (!trackedAttributes) {
+      return;
+    }
+    trackedAttributes.delete(attributeName);
+    if (!trackedAttributes.size) {
+      elementAttributeTranslationMemory.delete(element);
+    }
+  }
+
+  function getTrackedDocumentTitleSource() {
+    const currentValue = String(document.title || "");
+    if (!documentTitleTranslationMemory.source && !documentTitleTranslationMemory.translated) {
+      return currentValue;
+    }
+    if (currentValue === documentTitleTranslationMemory.translated) {
+      return documentTitleTranslationMemory.source;
+    }
+    if (currentValue !== documentTitleTranslationMemory.source) {
+      documentTitleTranslationMemory = { source: currentValue, translated: currentValue };
+      return currentValue;
+    }
+    return documentTitleTranslationMemory.source;
+  }
+
+  function rememberDocumentTitleTranslation(source, translated) {
+    documentTitleTranslationMemory = { source, translated };
+  }
+
   function translateTextNode(node) {
     if (!node || !node.nodeValue) {
       return;
@@ -296,7 +375,12 @@
     if (shouldSkipElement(parent)) {
       return;
     }
-    const translated = translateText(node.nodeValue);
+    const source = getTrackedTextNodeSource(node);
+    const translated = translateText(source);
+    rememberTextNodeTranslation(node, source, translated);
+    if (parent?.tagName === "TITLE") {
+      rememberDocumentTitleTranslation(source, translated);
+    }
     if (translated !== node.nodeValue) {
       node.nodeValue = translated;
     }
@@ -309,9 +393,12 @@
     for (const attr of ATTRIBUTE_NAMES) {
       const value = element.getAttribute(attr);
       if (!value) {
+        forgetAttributeTranslation(element, attr);
         continue;
       }
-      const translated = translateAttribute(attr, value);
+      const source = getTrackedAttributeSource(element, attr, value);
+      const translated = translateAttribute(attr, source);
+      rememberAttributeTranslation(element, attr, source, translated);
       if (translated !== value) {
         element.setAttribute(attr, translated);
       }
@@ -937,6 +1024,9 @@
   let translationLoadVersion = 0;
   let themeLoadVersion = 0;
   let pendingRuntimeReload = false;
+  const textNodeTranslationMemory = new WeakMap();
+  const elementAttributeTranslationMemory = new WeakMap();
+  let documentTitleTranslationMemory = { source: "", translated: "" };
   let activeThemeBundle = BUILTIN_THEME_PRESET_BUNDLE;
   let activeThemePreset = BUILTIN_THEME_PRESET_BUNDLE.presets[0];
   let activeUiStyleBundle = BUILTIN_UI_STYLE_BUNDLE;
@@ -2134,7 +2224,12 @@
       clearThemeStyles();
       return;
     }
-    document.title = translateText(document.title);
+    const sourceTitle = getTrackedDocumentTitleSource();
+    const translatedTitle = translateText(sourceTitle);
+    rememberDocumentTitleTranslation(sourceTitle, translatedTitle);
+    if (document.title !== translatedTitle) {
+      document.title = translatedTitle;
+    }
     translateRoot(document.body);
   }
 
