@@ -4,11 +4,43 @@
 
 # OpenClaw Dashboard Plus
 
-Browser extension tool para sa OpenClaw Dashboard.
+<p align="center">Browser extension na nakatuon sa multilingguwal na suporta para sa OpenClaw WebUI, kasama ang UI repairs, theme polish, font controls, at mabilis na pagtalon sa progreso ng usapan.</p>
+
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="Compatible na bersyon ng OpenClaw"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="Pinakabagong release"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub Issues"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 > Paalala: hindi bihasa ang developer sa Filipino. Ginawa ang dokumentong ito gamit ang AI model at maaaring may hindi natural na pananalita.
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+
+## Preview
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="../../image5.png" alt="OpenClaw WebUI enhancement">
+      <p><strong>OpenClaw WebUI enhancement</strong><br>Direktang inilalapat sa OpenClaw page ang theme colors, UI repairs, at mabilis na pagtalon sa progreso ng usapan.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image3.png" alt="Theme at style presets">
+      <p><strong>Theme at style presets</strong><br>Magpalit ng color palette at UI style nang hindi binabago ang source ng OpenClaw.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="../../image4.png" alt="UI repair toggles">
+      <p><strong>UI repair toggles</strong><br>Ayusin nang hiwalay ang dropdowns, code blocks, borders, spacing, at iba pang detalye ng interface kung kinakailangan.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image.png" alt="Language at runtime settings">
+      <p><strong>Language at runtime settings</strong><br>Pamahalaan sa isang lugar ang WebUI language packs, wika ng popup, mga aktibong URL, at sync sources.</p>
+    </td>
+  </tr>
+</table>
 
 ## Pangkalahatan
 
@@ -81,22 +113,15 @@ Mga output:
 
 ## Install
 
-### Extension ZIP
+Inirerekomenda: [I-download ang ZIP installation package](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
 
-1. I-download ang `openclaw-dashboard-plus-extension.zip` mula sa GitHub Actions artifacts o Releases.
+1. I-download ang ZIP installation package mula sa GitHub Releases.
 2. I-extract ito sa stable na folder.
 3. Buksan ang `chrome://extensions` o `edge://extensions`.
 4. I-on ang Developer mode.
 5. I-click ang `Load unpacked`.
 6. Piliin ang extracted folder.
-
-### Lokal Na Unpacked Extension
-
-1. Patakbuhin ang `node build-extension.mjs`.
-2. Buksan ang `chrome://extensions` o `edge://extensions`.
-3. I-on ang Developer mode.
-4. I-click ang `Load unpacked`.
-5. Piliin ang `dist/extension/`.
+7. Buksan ang iyong OpenClaw WebUI, halimbawa `http://127.0.0.1:18789`.
 
 ## GitHub Actions
 
@@ -106,6 +131,10 @@ May Windows-based GitHub Actions workflow ang repository na awtomatikong:
 - Gumagawa ng `dist/openclaw-dashboard-plus-extension.zip`
 - Nag-a-upload ng ZIP at unpacked extension bilang artifacts
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
+
 ## Pull Request
 
 - Magbago sa `extension-src/`, locales, metadata, o build scripts. Huwag direktang i-edit ang `dist/extension/`.
@@ -113,11 +142,6 @@ May Windows-based GitHub Actions workflow ang repository na awtomatikong:
 - Ang remote theme assets ay dapat manatiling HTML / CSS / JSON lang, walang remote JavaScript execution.
 - Para sa UI o style fixes, magdagdag ng reproduction steps at screenshots kung makakatulong.
 - Patakbuhin ang kaukulang build bago magbukas ng PR at ilagay ang verification result.
-
-## Mga Larawan
-
-![Extension popup preview](../../image.png)
-![Extension install preview](../../image2.png)
 
 ## Lisensya
 

@@ -38,6 +38,76 @@
       "nativeLabel": "English",
       "builtin": true,
       "default": false
+    },
+    {
+      "code": "zh-TW",
+      "label": "繁體中文",
+      "nativeLabel": "繁體中文",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "ja",
+      "label": "Japanese",
+      "nativeLabel": "日本語",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "ko",
+      "label": "Korean",
+      "nativeLabel": "한국어",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "fr",
+      "label": "French",
+      "nativeLabel": "Français",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "es",
+      "label": "Spanish",
+      "nativeLabel": "Español",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "ru",
+      "label": "Russian",
+      "nativeLabel": "Русский",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "de",
+      "label": "German",
+      "nativeLabel": "Deutsch",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "vi",
+      "label": "Vietnamese",
+      "nativeLabel": "Tiếng Việt",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "fil",
+      "label": "Filipino",
+      "nativeLabel": "Filipino",
+      "builtin": true,
+      "default": false
+    },
+    {
+      "code": "ar",
+      "label": "Arabic",
+      "nativeLabel": "العربية",
+      "builtin": true,
+      "default": false
     }
   ],
   "uiLocales": [
@@ -129,8 +199,18 @@
   "translationBundle": {
     "defaultLocale": "zh-CN",
     "builtinVersions": {
-      "zh-CN": "builtin-0.2.0",
-      "en": "builtin-0.2.0"
+      "zh-CN": "builtin-0.2.3",
+      "en": "builtin-0.2.3",
+      "zh-TW": "builtin-0.2.3",
+      "ja": "builtin-0.2.3",
+      "ko": "builtin-0.2.3",
+      "fr": "builtin-0.2.3",
+      "es": "builtin-0.2.3",
+      "ru": "builtin-0.2.3",
+      "de": "builtin-0.2.3",
+      "vi": "builtin-0.2.3",
+      "fil": "builtin-0.2.3",
+      "ar": "builtin-0.2.3"
     }
   },
   "themeBundle": {

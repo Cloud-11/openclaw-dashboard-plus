@@ -4,11 +4,43 @@
 
 # OpenClaw Dashboard Plus
 
-Browser-Erweiterungswerkzeug fuer OpenClaw Dashboard.
+<p align="center">Browser-Erweiterung mit Fokus auf mehrsprachige Unterstuetzung fuer die OpenClaw WebUI sowie UI-Reparaturen, Theme-Feinschliff, Schriftsteuerung und schnelles Springen im Chat-Fortschritt.</p>
+
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="OpenClaw Kompatibilitaet"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="Neueste Version"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub Issues"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 > Hinweis: Der Entwickler ist mit Deutsch nicht vertraut. Dieses Dokument wurde mit Hilfe eines KI-Modells erstellt und kann unnatuerliche Formulierungen enthalten.
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+
+## Vorschau
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="../../image5.png" alt="OpenClaw WebUI Verbesserung">
+      <p><strong>OpenClaw WebUI Verbesserung</strong><br>Theme-Farben, UI-Reparaturen und schnelles Springen im Gespraechsfortschritt wirken direkt auf der OpenClaw-Seite.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image3.png" alt="Theme- und Stil-Presets">
+      <p><strong>Theme- und Stil-Presets</strong><br>Farbschema und UI-Stil lassen sich wechseln, ohne den OpenClaw-Quellcode anzupassen.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="../../image4.png" alt="UI-Reparatur-Schalter">
+      <p><strong>UI-Reparatur-Schalter</strong><br>Dropdowns, Codebloecke, Rahmen, Abstaende und andere Details koennen bei Bedarf einzeln korrigiert werden.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image.png" alt="Sprache und Laufzeit">
+      <p><strong>Sprache und Laufzeit</strong><br>WebUI-Sprachpakete, Popup-Sprache, aktive URLs und Synchronquellen werden zentral verwaltet.</p>
+    </td>
+  </tr>
+</table>
 
 ## Ueberblick
 
@@ -81,22 +113,15 @@ Ausgaben:
 
 ## Installation
 
-### Erweiterungs-ZIP
+Empfohlen: [ZIP-Installationspaket herunterladen](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
 
-1. `openclaw-dashboard-plus-extension.zip` aus GitHub-Actions-Artefakten oder Releases herunterladen.
+1. Das ZIP-Installationspaket aus den GitHub Releases herunterladen.
 2. In einen festen Ordner entpacken.
 3. `chrome://extensions` oder `edge://extensions` oeffnen.
 4. Entwicklermodus aktivieren.
 5. `Load unpacked` klicken.
 6. Den entpackten Ordner waehlen.
-
-### Lokale Entpackte Erweiterung
-
-1. `node build-extension.mjs` ausfuehren.
-2. `chrome://extensions` oder `edge://extensions` oeffnen.
-3. Entwicklermodus aktivieren.
-4. `Load unpacked` klicken.
-5. `dist/extension/` waehlen.
+7. Die OpenClaw WebUI oeffnen, zum Beispiel `http://127.0.0.1:18789`.
 
 ## GitHub Actions
 
@@ -106,6 +131,10 @@ Das Repository enthaelt einen Windows-basierten GitHub-Actions-Workflow, der aut
 - `dist/openclaw-dashboard-plus-extension.zip` erzeugt
 - ZIP und entpackte Erweiterung als Artefakte hochlaedt
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
+
 ## Pull Request
 
 - Aendere `extension-src/`, Lokalisierungen, Metadaten oder Build-Skripte. `dist/extension/` nicht direkt bearbeiten.
@@ -113,11 +142,6 @@ Das Repository enthaelt einen Windows-basierten GitHub-Actions-Workflow, der aut
 - Remote-Theme-Ressourcen muessen auf HTML / CSS / JSON beschraenkt bleiben, ohne JavaScript-Ausfuehrung.
 - Fuer UI- oder Style-Fixes bitte Reproduktionsschritte und bei Bedarf Screenshots in die PR aufnehmen.
 - Vor der PR den relevanten Build ausfuehren und das Ergebnis dokumentieren.
-
-## Screenshots
-
-![Popup-Vorschau](../../image.png)
-![Installationsvorschau](../../image2.png)
 
 ## Lizenz
 

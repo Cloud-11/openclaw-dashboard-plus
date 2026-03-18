@@ -4,11 +4,43 @@
 
 # OpenClaw Dashboard Plus
 
-OpenClaw Dashboard용 브라우저 확장 강화 도구입니다.
+<p align="center">OpenClaw WebUI 다국어 지원을 중심으로 UI 보정, 테마 다듬기, 글꼴 제어, 대화 진행 빠른 점프까지 제공하는 브라우저 확장입니다.</p>
+
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="OpenClaw 호환 버전"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="최신 릴리스"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub Issues"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 > 참고: 개발자는 한국어에 익숙하지 않습니다. 이 문서는 AI 모델의 도움으로 생성되었으며 어색한 표현이 있을 수 있습니다.
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+
+## 미리보기
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="../../image5.png" alt="OpenClaw WebUI 강화 화면">
+      <p><strong>OpenClaw WebUI 강화</strong><br>테마 색상, UI 보정, 오른쪽 대화 진행 점프 기능이 OpenClaw 페이지에 바로 적용됩니다.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image3.png" alt="테마와 스타일 프리셋">
+      <p><strong>테마 색상과 스타일 프리셋</strong><br>OpenClaw 원본을 수정하지 않고도 색상 조합과 UI 스타일을 바꿀 수 있습니다.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="../../image4.png" alt="UI 보정 토글">
+      <p><strong>UI 보정 토글</strong><br>드롭다운, 코드 블록, 테두리, 간격 같은 세부 요소를 필요에 따라 개별적으로 고칠 수 있습니다.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image.png" alt="언어와 실행 설정">
+      <p><strong>언어와 실행 설정</strong><br>WebUI 언어 팩, 팝업 언어, 적용 URL, 동기화 소스를 한곳에서 관리합니다.</p>
+    </td>
+  </tr>
+</table>
 
 ## 개요
 
@@ -81,22 +113,15 @@ OpenClaw Dashboard Plus는 이제 `dist/extension/`에 빌드되는 브라우저
 
 ## 설치
 
-### 브라우저 확장 ZIP
+권장 방법: [ZIP 설치 패키지 다운로드](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
 
-1. GitHub Actions 아티팩트 또는 Releases에서 `openclaw-dashboard-plus-extension.zip`을 다운로드합니다.
+1. GitHub Releases에서 ZIP 설치 패키지를 다운로드합니다.
 2. 안정적인 폴더에 압축을 풉니다.
 3. `chrome://extensions` 또는 `edge://extensions`를 엽니다.
 4. 개발자 모드를 켭니다.
 5. `Load unpacked`를 클릭합니다.
 6. 압축을 푼 폴더를 선택합니다.
-
-### 로컬 압축 해제 확장
-
-1. `node build-extension.mjs`를 실행합니다.
-2. `chrome://extensions` 또는 `edge://extensions`를 엽니다.
-3. 개발자 모드를 켭니다.
-4. `Load unpacked`를 클릭합니다.
-5. `dist/extension/`을 선택합니다.
+7. OpenClaw WebUI를 엽니다. 예: `http://127.0.0.1:18789`
 
 ## GitHub Actions
 
@@ -106,6 +131,10 @@ OpenClaw Dashboard Plus는 이제 `dist/extension/`에 빌드되는 브라우저
 - `dist/openclaw-dashboard-plus-extension.zip` 생성
 - ZIP과 압축 해제 확장을 아티팩트로 업로드
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
+
 ## Pull Request
 
 - `extension-src/`, 로캘, 메타데이터, 빌드 스크립트를 수정하고 `dist/extension/`은 직접 편집하지 마세요.
@@ -113,11 +142,6 @@ OpenClaw Dashboard Plus는 이제 `dist/extension/`에 빌드되는 브라우저
 - 원격 테마 자산은 HTML / CSS / JSON으로 제한하고 JavaScript 실행 경로를 추가하지 마세요.
 - UI 또는 스타일 수정에는 재현 단계와 필요한 경우 스크린샷을 PR에 첨부하세요.
 - PR 전에 관련 빌드를 실행하고 검증 결과를 적어 주세요.
-
-## 스크린샷
-
-![Extension popup preview](../../image.png)
-![Extension install preview](../../image2.png)
 
 ## 라이선스
 

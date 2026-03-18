@@ -4,11 +4,43 @@
 
 # OpenClaw Dashboard Plus
 
-Outil d'amélioration par extension de navigateur pour OpenClaw Dashboard.
+<p align="center">Extension de navigateur axée sur le support multilingue de l'OpenClaw WebUI, avec correctifs UI, palettes de thème, contrôle des polices et saut rapide dans la progression des conversations.</p>
+
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="Version compatible OpenClaw"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="Dernière version"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub Issues"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 > Remarque : le développeur ne maîtrise pas le français. Ce document a été généré avec l'aide d'un modèle IA et peut contenir des formulations imparfaites.
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+
+## Aperçu Visuel
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="../../image5.png" alt="Amélioration OpenClaw WebUI">
+      <p><strong>Amélioration OpenClaw WebUI</strong><br>Palette de thème, correctifs UI et saut rapide dans la progression des conversations directement sur la page OpenClaw.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image3.png" alt="Palettes et styles prédéfinis">
+      <p><strong>Palettes et styles prédéfinis</strong><br>Changez le schéma de couleurs et le style UI sans modifier le code source d'OpenClaw.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="../../image4.png" alt="Correctifs UI">
+      <p><strong>Correctifs UI</strong><br>Corrigez séparément menus déroulants, blocs de code, bordures, espacements et autres détails visuels.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image.png" alt="Langues et exécution">
+      <p><strong>Langues et exécution</strong><br>Gérez en un seul endroit les packs de langue WebUI, la langue du popup, les hôtes actifs et les sources de synchronisation.</p>
+    </td>
+  </tr>
+</table>
 
 ## Aperçu
 
@@ -81,22 +113,15 @@ Sorties :
 
 ## Installation
 
-### ZIP De L'Extension
+Recommande : [Telecharger l'archive ZIP d'installation](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
 
-1. Téléchargez `openclaw-dashboard-plus-extension.zip` depuis les artefacts GitHub Actions ou les releases.
-2. Extrayez-le dans un dossier stable.
+1. Telechargez l'archive ZIP d'installation depuis les GitHub Releases.
+2. Extrayez-la dans un dossier stable.
 3. Ouvrez `chrome://extensions` ou `edge://extensions`.
 4. Activez le mode développeur.
 5. Cliquez sur `Load unpacked`.
 6. Sélectionnez le dossier extrait.
-
-### Extension Locale Non Empaquetée
-
-1. Exécutez `node build-extension.mjs`.
-2. Ouvrez `chrome://extensions` ou `edge://extensions`.
-3. Activez le mode développeur.
-4. Cliquez sur `Load unpacked`.
-5. Sélectionnez `dist/extension/`.
+7. Ouvrez votre OpenClaw WebUI, par exemple `http://127.0.0.1:18789`.
 
 ## GitHub Actions
 
@@ -106,6 +131,10 @@ Le dépôt inclut un workflow GitHub Actions sous Windows qui :
 - Produit `dist/openclaw-dashboard-plus-extension.zip`
 - Téléverse le ZIP et l'extension non empaquetée comme artefacts
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
+
 ## Pull Request
 
 - Modifiez `extension-src/`, les locales, les métadonnées ou les scripts de build. N'éditez pas directement `dist/extension/`.
@@ -113,11 +142,6 @@ Le dépôt inclut un workflow GitHub Actions sous Windows qui :
 - Les ressources distantes de thème doivent rester limitées à HTML / CSS / JSON, sans JavaScript distant.
 - Pour les correctifs UI ou style, ajoutez des étapes de reproduction et si utile une capture d'écran dans la PR.
 - Exécutez la commande de build pertinente avant d'ouvrir la PR et mentionnez le résultat de vérification.
-
-## Captures D'Écran
-
-![Aperçu du popup](../../image.png)
-![Aperçu de l'installation](../../image2.png)
 
 ## Licence
 

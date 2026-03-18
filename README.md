@@ -4,45 +4,84 @@
 
 # OpenClaw Dashboard Plus
 
-Browser extension tooling for OpenClaw Dashboard.
+<p align="center">A browser extension focused on multilingual support for the OpenClaw WebUI, with UI repairs, theme polish, font controls, and fast chat progress jumping.</p>
 
-English is the canonical README for this repository.
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="OpenClaw compatibility"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="Latest release"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub issues"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 [English](./README.md) | [简体中文](./docs/readme/README.zh-CN.md) | [繁體中文](./docs/readme/README.zh-TW.md) | [日本語](./docs/readme/README.ja.md) | [한국어](./docs/readme/README.ko.md) | [Français](./docs/readme/README.fr.md) | [Español](./docs/readme/README.es.md) | [Русский](./docs/readme/README.ru.md) | [Deutsch](./docs/readme/README.de.md) | [Tiếng Việt](./docs/readme/README.vi.md) | [Filipino](./docs/readme/README.fil.md) | [العربية](./docs/readme/README.ar.md)
 
-## Overview
+## Preview
 
-OpenClaw Dashboard Plus ships as a browser extension built into `dist/extension/`.
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./image5.png" alt="OpenClaw WebUI with theme polish and chat progress rail">
+      <p><strong>OpenClaw WebUI enhancement</strong><br>Theme polish, repaired surfaces, and quick progress jumping for long chats.</p>
+    </td>
+    <td width="50%">
+      <img src="./image3.png" alt="Popup theme preset selector">
+      <p><strong>Theme palette and style presets</strong><br>Switch color palettes and UI styles without editing OpenClaw itself.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./image4.png" alt="Popup repair toggles">
+      <p><strong>UI repair controls</strong><br>Fix dropdowns, code blocks, borders, spacing, and other rough edges with one click.</p>
+    </td>
+    <td width="50%">
+      <img src="./image.png" alt="Popup language and runtime settings">
+      <p><strong>Language and runtime control</strong><br>Manage WebUI language packs, popup locale, host filters, and sync sources.</p>
+    </td>
+  </tr>
+</table>
 
-It adds:
+## Why This Extension
 
-- Separate OpenClaw content language and popup UI language settings
-- Remote metadata, locale packs, and style assets delivered from GitHub or Gitee
-- Theme controls for UI preset, font, font size, and independent repair toggles
-- Shared project branding across the docs and extension package
+- Bring multilingual support directly to the OpenClaw WebUI, not just the extension popup.
+- Ship built-in locale packs and allow remote refresh from GitHub or Gitee.
+- Repair rough UI details in cards, inputs, dropdowns, spacing, focus states, and code blocks.
+- Add theme palette, UI style, font, and font scale controls for a more polished OpenClaw experience.
+- Add a chat progress rail so long conversations can be jumped through quickly.
+- Keep remote-delivered assets limited to metadata, locale JSON, CSS, HTML, and JSON style bundles only.
 
-## Features
+## Core Features
 
-- Popup tabs for settings, features, languages, and project information
-- Remote refresh for metadata, locale packs, theme presets, and style modules
-- Theme/style controls without allowing remote JavaScript execution
-- Modular source layout for popup UI, content script logic, language packs, and style bundles
-- Build output kept under `dist/` instead of mixing generated assets with source files
+- OpenClaw WebUI language packs: built-in support for `zh-CN`, `en`, `zh-TW`, `ja`, `ko`, `fr`, `es`, `ru`, `de`, `vi`, `fil`, and `ar`.
+- Popup UI localization: the extension popup can also follow the user's language preference, but this is a secondary convenience feature.
+- Theme polish: switch palette presets, UI style presets, fonts, and font size from the popup.
+- UI repair toggles: enable style override, style repair, select styling repair, and code block repair independently.
+- Fast navigation: enable the chat progress rail to jump to different parts of a long conversation.
+- Remote sync: refresh metadata, locale packs, theme presets, and style modules without rebuilding the extension.
 
-## Usage
+## Install
 
-1. Run `node build-extension.mjs`, or download the packaged ZIP artifact from GitHub Actions.
-2. Open `chrome://extensions` or `edge://extensions` and enable Developer mode.
-3. Load `dist/extension/` as an unpacked extension.
-4. Open your OpenClaw panel, for example `http://127.0.0.1:18789`.
-5. Use the popup tabs:
-   - `Settings`: enable translation and define allowed hosts and ports
-   - `Features`: choose UI preset, font, font size, and toggle style override, style repair, select-style fix, and code-block styling
-   - `Languages`: switch content language, refresh remote locale packs, and clear caches
-   - `About`: refresh remote metadata and review repository or compatibility information
-6. Save runtime or theme settings after changes. Cached remote assets stay local until cleared from the popup.
+Recommended: [Download ZIP package](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
+
+1. Download the ZIP package from GitHub Releases.
+2. Extract it to a stable local folder.
+3. Open `chrome://extensions` or `edge://extensions`.
+4. Enable Developer mode.
+5. Click `Load unpacked`.
+6. Select the extracted folder.
+7. Open your OpenClaw WebUI, for example `http://127.0.0.1:18789`.
+
+## Getting Started
+
+1. Open the extension popup on your OpenClaw page.
+2. In `Settings`, enable translation and set allowed hosts or ports if needed.
+3. In `Languages`, choose the OpenClaw WebUI language and apply or refresh locale packs.
+4. In `Features`, choose a palette, UI style, font, and font scale.
+5. Turn on the repair toggles you want for dropdowns, code blocks, spacing, and overall component polish.
+6. Save runtime settings or theme settings after changes.
 
 ## Build
+
+Build is only needed if you want to modify the source, test local changes, or produce fresh distribution files.
 
 Prerequisites:
 
@@ -52,52 +91,29 @@ Prerequisites:
 
 Commands:
 
-1. Build the unpacked browser extension:
+1. Build the unpacked extension:
    `node build-extension.mjs`
-2. Package a ZIP archive for distribution:
+2. Package the release ZIP:
    `node package-extension-zip.mjs`
-3. Optional: package a local CRX file:
+3. Optionally package a local CRX:
    `node package-crx.mjs`
 
 Outputs:
 
 - `dist/extension/`: generated unpacked browser extension
-- `dist/openclaw-dashboard-plus-extension.zip`: packaged extension ZIP
+- `dist/openclaw-dashboard-plus-extension.zip`: packaged ZIP for distribution
 - `dist/openclaw-dashboard-plus.crx`: optional local CRX build
 
-## Feature And File Guide
+## Project Layout
 
-- `extension-src/`: extension source, popup UI, icons, theme presets, and content logic
-- `extension-src/content-main.js`: source-of-truth content script for the extension build
-- `extension-src/style-bundle.json`: manifest for remote-loadable style modules
-- `extension-src/style-modules/`: modular CSS, HTML, and JSON style assets
-- `extension-src/theme-presets.json`: built-in OpenClaw theme preset structure and variables
-- `language-packs/`: OpenClaw content locale bundles
-- `ui-locales/`: popup UI locale strings, including localized theme preset labels and descriptions
-- `plugin-metadata.json`: canonical metadata for versions, remote sources, locale availability, and UI locale support
-- `build-extension.mjs`: generates `dist/extension/` and syncs packaged assets
-- `package-extension-zip.mjs`: creates the extension ZIP artifact in `dist/`
-- `package-crx.mjs`: optional local CRX packaging helper
-- `dist/extension/`: generated output that should be treated as build artifacts
-
-## Install
-
-### Browser Extension ZIP
-
-1. Download `openclaw-dashboard-plus-extension.zip` from GitHub Actions artifacts or releases.
-2. Extract it to a stable folder.
-3. Open `chrome://extensions` or `edge://extensions`.
-4. Enable Developer mode.
-5. Click `Load unpacked`.
-6. Select the extracted folder.
-
-### Local Unpacked Extension
-
-1. Run `node build-extension.mjs`.
-2. Open `chrome://extensions` or `edge://extensions`.
-3. Enable Developer mode.
-4. Click `Load unpacked`.
-5. Select `dist/extension/`.
+- `extension-src/`: popup UI, content logic, icons, theme presets, and style bundles
+- `extension-src/style-modules/`: modular CSS and JSON assets, including the chat progress rail and repair modules
+- `language-packs/`: OpenClaw WebUI locale packs
+- `ui-locales/`: popup UI locale strings
+- `plugin-metadata.json`: version, compatibility, locale, theme, and remote source metadata
+- `build-extension.mjs`: generates `dist/extension/`
+- `package-extension-zip.mjs`: packages the extension ZIP
+- `dist/extension/`: ready-to-load build artifact
 
 ## GitHub Actions
 
@@ -106,22 +122,20 @@ The repository includes a Windows-based GitHub Actions workflow that:
 - Builds `dist/extension/`
 - Packages `dist/openclaw-dashboard-plus-extension.zip`
 - Uploads both the ZIP archive and unpacked extension as workflow artifacts
-- Creates a Git tag like `vX.Y.Z` automatically when a new `plugin-metadata.json` version is pushed to `main` or `master`
-- Publishes a GitHub Release for version tags and attaches `dist/openclaw-dashboard-plus-extension.zip` as the release asset
+- Creates a version tag from `plugin-metadata.json`
+- Publishes a GitHub Release for tagged versions
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
 
 ## Pull Requests
 
-- Make source changes in `extension-src/`, locale sources, metadata files, or build scripts. Do not manually edit `dist/extension/`.
-- Keep the repository extension-only. Do not reintroduce legacy script packaging or parallel delivery paths.
-- Remote-delivered theme assets must stay limited to HTML, CSS, and JSON payloads. Do not add remote JavaScript execution paths.
-- Include reproduction steps for fixes, and attach screenshots or short notes when changing popup UI or OpenClaw styling behavior.
-- Run the relevant build command before opening a PR, and mention the verification result in the PR description.
-- Update the English README first for user-facing changes, then sync localized docs when behavior changes meaningfully.
-
-## Screenshots
-
-![Extension popup preview](./image.png)
-![Extension install preview](./image2.png)
+- Make source changes in `extension-src/`, locale files, metadata, or build scripts instead of manually editing `dist/extension/`.
+- Keep remote-delivered assets limited to HTML, CSS, and JSON payloads. Do not add remote JavaScript execution paths.
+- Include screenshots when changing popup UI, OpenClaw styling, or interaction repairs.
+- Run the relevant build step before opening a PR and mention the verification result.
+- Update the English README first for user-facing behavior changes, then sync localized docs as needed.
 
 ## License
 

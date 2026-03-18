@@ -4,11 +4,43 @@
 
 # OpenClaw Dashboard Plus
 
-أداة إضافة متصفح لتحسين OpenClaw Dashboard.
+<p align="center">إضافة متصفح تركّز على دعم تعدد اللغات داخل OpenClaw WebUI، مع إصلاحات UI، وتحسينات السمات، والتحكم بالخطوط، والتنقل السريع عبر تقدم المحادثة.</p>
+
+<p align="center"><a><img src="https://img.shields.io/badge/OpenClaw-2026.3.2%2B-ff6b57" alt="إصدار OpenClaw المتوافق"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/releases"><img src="https://img.shields.io/github/v/release/Cloud-11/openclaw-dashboard-plus?display_name=tag" alt="أحدث إصدار"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/stargazers"><img src="https://img.shields.io/github/stars/Cloud-11/openclaw-dashboard-plus?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/Cloud-11/openclaw-dashboard-plus/issues"><img src="https://img.shields.io/github/issues/Cloud-11/openclaw-dashboard-plus" alt="GitHub Issues"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
+</p>
 
 > ملاحظة: المطور غير متمكن من العربية. تم إنشاء هذا المستند بمساعدة نموذج ذكاء اصطناعي وقد يحتوي على صياغات غير طبيعية.
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+
+## معاينة
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="../../image5.png" alt="تحسين OpenClaw WebUI">
+      <p><strong>تحسين OpenClaw WebUI</strong><br>ألوان السمات وإصلاحات UI والتنقل السريع عبر تقدم المحادثة تظهر مباشرة داخل صفحة OpenClaw.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image3.png" alt="ألوان السمات والأنماط">
+      <p><strong>ألوان السمات والأنماط</strong><br>بدّل لوحة الألوان ونمط الواجهة من دون تعديل الشيفرة المصدرية لـ OpenClaw.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="../../image4.png" alt="مفاتيح إصلاح UI">
+      <p><strong>مفاتيح إصلاح UI</strong><br>يمكن إصلاح القوائم المنسدلة وكتل الشيفرة والحدود والمسافات والتفاصيل البصرية الأخرى بشكل منفصل عند الحاجة.</p>
+    </td>
+    <td width="50%">
+      <img src="../../image.png" alt="اللغة والتشغيل">
+      <p><strong>اللغة والتشغيل</strong><br>أدِر حزم لغة WebUI ولغة النافذة المنبثقة وعناوين URL النشطة ومصادر المزامنة من مكان واحد.</p>
+    </td>
+  </tr>
+</table>
 
 ## نظرة عامة
 
@@ -81,22 +113,15 @@
 
 ## التثبيت
 
-### ZIP الإضافة
+الطريقة الموصى بها: [تنزيل حزمة التثبيت ZIP](https://github.com/Cloud-11/openclaw-dashboard-plus/releases/latest/download/openclaw-dashboard-plus-extension.zip)
 
-1. نزّل `openclaw-dashboard-plus-extension.zip` من مخرجات GitHub Actions أو من الإصدارات.
+1. نزّل حزمة التثبيت ZIP من GitHub Releases.
 2. فك الضغط داخل مجلد ثابت.
 3. افتح `chrome://extensions` أو `edge://extensions`.
 4. فعّل وضع المطور.
 5. اضغط `Load unpacked`.
 6. اختر المجلد الذي تم فك ضغطه.
-
-### الإضافة المحلية غير المضغوطة
-
-1. شغّل `node build-extension.mjs`.
-2. افتح `chrome://extensions` أو `edge://extensions`.
-3. فعّل وضع المطور.
-4. اضغط `Load unpacked`.
-5. اختر `dist/extension/`.
+7. افتح OpenClaw WebUI، مثل `http://127.0.0.1:18789`.
 
 ## GitHub Actions
 
@@ -106,6 +131,10 @@
 - إنشاء `dist/openclaw-dashboard-plus-extension.zip`
 - رفع ملف ZIP والإضافة غير المضغوطة كعناصر مخرجات
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Cloud-11/openclaw-dashboard-plus&type=Date)](https://star-history.com/#Cloud-11/openclaw-dashboard-plus&Date)
+
 ## Pull Request
 
 - عدّل `extension-src/` أو ملفات اللغات أو البيانات الوصفية أو سكربتات البناء. لا تعدّل `dist/extension/` مباشرة.
@@ -113,11 +142,6 @@
 - يجب أن تبقى موارد السمات البعيدة ضمن HTML / CSS / JSON فقط، من دون تنفيذ JavaScript بعيد.
 - عند إصلاحات الواجهة أو الأنماط، أضف خطوات إعادة الإنتاج ولقطات شاشة إذا كانت مفيدة.
 - شغّل البناء المناسب قبل فتح PR واكتب نتيجة التحقق.
-
-## لقطات الشاشة
-
-![Extension popup preview](../../image.png)
-![Extension install preview](../../image2.png)
 
 ## الترخيص
 
