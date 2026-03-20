@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "OpenClaw Dashboard Plus",
   "description": "OpenClaw Dashboard enhancement extension plugin. Supports 简体中文, English, 繁體中文, 日本語, 한국어, Français, Español, Русский, Deutsch, Tiếng Việt, Filipino, العربية.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "compatibility": {
     "openclaw": "2026.3.2+"
   },

@@ -32,6 +32,9 @@
     "Saving…": "儲存中…",
     "Clear": "清除",
     "Delete": "刪除",
+    "Delete message": "刪除消息",
+    "Delete this message?": "要刪除這條消息嗎？",
+    "Don't ask again": "不再詢問",
     "Remove": "移除",
     "Approve": "批准",
     "Reject": "拒絕",
@@ -179,6 +182,8 @@
     "Text-to-speech conversion": "文字轉語音轉換",
     "Voice call tool": "語音通話工具",
     "View": "檢視",
+    "Read aloud": "朗讀",
+    "Stop speaking": "停止朗讀",
     "Close session details": "關閉會話詳情",
     "Loading chat": "正在載入聊天",
     "Attached image": "已附加圖片",
@@ -393,6 +398,19 @@
     "Exporting session...": "正在匯出會話...",
     "Check system health": "檢查系統健康狀態",
     "Help me configure a channel": "幫我設定一個頻道",
+    "Starting new session...": "正在開始新會話...",
+    "Resetting session...": "正在重置會話...",
+    "Stopping current run...": "正在停止當前運行...",
+    "Toggled focus mode.": "已切換專注模式。",
+    "Available Commands": "可用命令",
+    "Current model:": "當前模型：",
+    "Available:": "可用項：",
+    "Session Usage": "會話用量",
+    "Fast mode enabled.": "快速模式已啟用。",
+    "Fast mode disabled.": "快速模式已禁用。",
+    "No active session.": "沒有活動會話。",
+    "No agents configured.": "未配置任何智能體。",
+    "No active sub-agent runs to abort.": "沒有可中止的活躍子智能體運行。",
     "Copy as markdown": "複製為 Markdown",
     "Copy failed": "複製失敗",
     "Apply Patch": "應用補丁",
@@ -404,6 +422,10 @@
     "List Sessions": "列出會話",
     "Cron Jobs": "定時任務",
     "Gateway Error": "閘道器錯誤",
+    "Tool output": "工具輸出",
+    "WebSocket URL": "WebSocket 地址",
+    "Webhook POST": "Webhook POST 請求",
+    "Webhook URL": "Webhook 地址",
     "Logged out.": "已退出登入。",
     "Banner URL": "橫幅圖片 URL",
     "HTTPS URL to a banner image": "指向橫幅圖片的 HTTPS URL",
@@ -432,6 +454,10 @@
     "Select a node before loading exec approvals.": "請先選擇一個節點，再載入執行審批設定。",
     "Select a node before saving exec approvals.": "請先選擇一個節點，再儲存執行審批設定。",
     "Failure alert threshold must be greater than 0.": "失敗告警閾值必須大於 0。",
+    "Cooldown must be 0 or greater.": "冷卻時間必須大於或等於 0。",
+    "unauthorized: gateway token mismatch (open dashboard URL with current token)": "未授權：網關令牌不匹配（請使用當前令牌打開儀表盤 URL）",
+    "unauthorized: too many failed authentication attempts (retry later)": "未授權：身份驗證失敗次數過多（請稍後重試）",
+    "unauthorized: authentication failed": "未授權：身份驗證失敗",
     "Verifiable identifier (e.g., you@domain.com)": "可驗證識別符號（例如：you@domain.com）",
     "Lightning address for tips (LUD-16)": "用於打賞的閃電地址（LUD-16）",
     "Avg Tokens / Msg": "平均權杖/訊息",
@@ -454,7 +480,295 @@
     "No channel data": "沒有頻道資料",
     "No tool calls": "沒有工具呼叫",
     "No model data": "沒有模型資料",
-    "never": "從未"
+    "never": "從未",
+    "OK": "正常",
+    "Offline": "離線",
+    "Connect": "連接",
+    "Disabled": "已禁用",
+    "Version": "版本",
+    "Docs": "文檔",
+    "Resources": "資源",
+    "Search": "搜索",
+    "Chat": "聊天",
+    "Control": "控制",
+    "Expand sidebar": "展開側邊欄",
+    "Collapse sidebar": "摺疊側邊欄",
+    "Resize sidebar": "調整側邊欄大小",
+    "Instances": "實例",
+    "Usage": "使用情況",
+    "Config": "配置",
+    "Communication": "通信",
+    "Communications": "通信",
+    "Appearance": "外觀",
+    "Automation": "自動化",
+    "Infrastructure": "基礎設施",
+    "Debug": "調試",
+    "Workspaces, tools, identities.": "工作區、工具與身份。",
+    "Status, entry points, health.": "狀態、入口點與健康情況。",
+    "Channels and settings.": "渠道與設置。",
+    "Connected clients and nodes.": "已連接的客戶端與節點。",
+    "Active sessions and defaults.": "活動會話與默認值。",
+    "API usage and costs.": "API 使用情況與成本。",
+    "Wakeups and recurring runs.": "喚醒任務與週期運行。",
+    "Skills and API keys.": "技能與 API 密鑰。",
+    "Paired devices and commands.": "已配對設備與命令。",
+    "Gateway chat for quick interventions.": "用於快速干預的網關聊天。",
+    "Edit openclaw.json.": "編輯 openclaw.json。",
+    "Channels, messages, and audio settings.": "渠道、消息與音頻設置。",
+    "Theme, UI, and setup wizard settings.": "主題、界面與設置嚮導設置。",
+    "Commands, hooks, cron, and plugins.": "命令、鉤子、定時任務與插件。",
+    "Gateway, web, browser, and media settings.": "網關、Web、瀏覽器與媒體設置。",
+    "Agents, models, skills, tools, memory, session.": "智能體、模型、技能、工具、記憶與會話。",
+    "Snapshots, events, RPC.": "快照、事件與 RPC。",
+    "Live gateway logs.": "實時網關日誌。",
+    "Gateway Access": "網關訪問",
+    "Where the dashboard connects and how it authenticates.": "儀表盤連接到哪裡，以及如何進行身份驗證。",
+    "Gateway Token": "網關令牌",
+    "Password (not stored)": "密碼（不保存）",
+    "Default Session Key": "默認會話 Key",
+    "Language": "語言",
+    "Click Connect to apply connection changes.": "點擊“連接”以應用連接更改。",
+    "Authenticated via trusted proxy.": "已通過受信任代理完成身份驗證。",
+    "Snapshot": "快照",
+    "Latest gateway handshake information.": "最新的網關握手信息。",
+    "Uptime": "運行時間",
+    "Tick Interval": "輪詢間隔",
+    "Last Channels Refresh": "上次渠道刷新時間",
+    "Use Channels to link WhatsApp, Telegram, Discord, Signal, or iMessage.": "使用“Channels”連接 WhatsApp、Telegram、Discord、Signal 或 iMessage。",
+    "Presence beacons in the last 5 minutes.": "最近 5 分鐘內的在線心跳。",
+    "Recent session keys tracked by the gateway.": "網關最近追蹤到的會話 Key。",
+    "Next wake {time}": "下次喚醒 {time}",
+    "Notes": "備註",
+    "Quick reminders for remote control setups.": "遠程控制配置的快速提醒。",
+    "Tailscale serve": "Tailscale Serve",
+    "Prefer serve mode to keep the gateway on loopback with tailnet auth.": "建議優先使用 serve 模式，以便在 tailnet 身份驗證下讓網關保持在迴環地址。",
+    "Session hygiene": "會話整理",
+    "Use /new or sessions.patch to reset context.": "使用 `/new` 或 `sessions.patch` 重置上下文。",
+    "Cron reminders": "定時任務提醒",
+    "Use isolated sessions for recurring runs.": "週期性運行建議使用隔離會話。",
+    "This gateway requires auth. Add a token or password, then click Connect.": "此網關需要身份驗證。請添加令牌或密碼，然後點擊“連接”。",
+    "Auth failed. Re-copy a tokenized URL with {command}, or update the token, then click Connect.": "身份驗證失敗。請用 {command} 重新複製帶令牌的 URL，或更新令牌後再點擊“連接”。",
+    "This device needs pairing approval from the gateway host.": "此設備需要網關主機批准配對。",
+    "On mobile? Copy the full URL (including #token=...) from openclaw dashboard --no-open on your desktop.": "如果你在移動設備上，請在桌面端運行 `openclaw dashboard --no-open` 後複製完整 URL（包含 `#token=...`）。",
+    "This page is HTTP, so the browser blocks device identity. Use HTTPS (Tailscale Serve) or open {url} on the gateway host.": "當前頁面是 HTTP，瀏覽器會阻止設備身份驗證。請使用 HTTPS（Tailscale Serve），或直接在網關主機上打開 {url}。",
+    "If you must stay on HTTP, set {config} (token-only).": "如果必須繼續使用 HTTP，請設置 {config}（僅令牌模式）。",
+    "How to connect": "如何連接",
+    "Start the gateway on your host machine:": "在你的主機上啟動網關：",
+    "Get a tokenized dashboard URL:": "獲取帶令牌的儀表盤 URL：",
+    "Paste the WebSocket URL and token above, or open the tokenized URL directly.": "將 WebSocket URL 和令牌粘貼到上方，或直接打開帶令牌的 URL。",
+    "Or generate a reusable token:": "或生成一個可重複使用的令牌：",
+    "For remote access, Tailscale Serve is recommended. ": "如果需要遠程訪問，建議使用 Tailscale Serve。",
+    "Read the docs →": "查看文檔 →",
+    "Recent Sessions": "最近會話",
+    "Attention": "注意事項",
+    "Gateway Logs": "網關日誌",
+    "New Session": "新建會話",
+    "Refresh All": "全部刷新",
+    "Terminal": "終端",
+    "Type a command…": "輸入命令…",
+    "No results": "無結果",
+    "Gateway Dashboard": "網關儀表盤",
+    "optional": "可選",
+    "Disconnected from gateway.": "已與網關斷開連接。",
+    "Refresh chat data": "刷新聊天數據",
+    "Toggle assistant thinking/working output": "切換助手思考/工作輸出",
+    "Toggle focus mode (hide sidebar + page header)": "切換專注模式（隱藏側邊欄和頁面頭部）",
+    "Hide cron sessions": "隱藏定時任務會話",
+    "Show cron sessions": "顯示定時任務會話",
+    "Show cron sessions ({count} hidden)": "顯示定時任務會話（已隱藏 {count} 個）",
+    "Disabled during onboarding": "引導流程期間禁用",
+    "English": "英語",
+    "简体中文 (Simplified Chinese)": "簡體中文",
+    "繁體中文 (Traditional Chinese)": "繁體中文",
+    "Português (Brazilian Portuguese)": "葡萄牙語（巴西）",
+    "Deutsch (German)": "德語",
+    "Español (Spanish)": "西班牙語",
+    "Jobs": "任務",
+    "Next wake": "下次喚醒",
+    "Refreshing...": "刷新中...",
+    "All scheduled jobs stored in the gateway.": "網關中存儲的全部定時任務。",
+    "{shown} shown of {total}": "已顯示 {shown} / 共 {total}",
+    "Search jobs": "搜索任務",
+    "Name, description, or agent": "名稱、描述或智能體",
+    "Schedule": "調度",
+    "Last run": "上次運行",
+    "Next run": "下次運行",
+    "Recently updated": "最近更新",
+    "Name": "名稱",
+    "Direction": "方向",
+    "No matching jobs.": "沒有匹配的任務。",
+    "Load more jobs": "加載更多任務",
+    "Run history": "運行歷史",
+    "Latest runs across all jobs.": "所有任務的最新運行記錄。",
+    "Latest runs for {title}.": "{title} 的最新運行記錄。",
+    "All jobs": "全部任務",
+    "Selected job": "已選任務",
+    "Search runs": "搜索運行記錄",
+    "Summary, error, or job": "摘要、錯誤或任務",
+    "Newest first": "最新優先",
+    "Oldest first": "最早優先",
+    "Delivery": "投遞",
+    "All statuses": "全部狀態",
+    "All delivery": "全部投遞方式",
+    "Select a job to inspect run history.": "請選擇一個任務以查看運行歷史。",
+    "No matching runs.": "沒有匹配的運行記錄。",
+    "Load more runs": "加載更多運行記錄",
+    "Error": "錯誤",
+    "Skipped": "已跳過",
+    "Unknown": "未知",
+    "Delivered": "已投遞",
+    "Not delivered": "未投遞",
+    "Not requested": "未請求",
+    "Edit Job": "編輯任務",
+    "New Job": "新建任務",
+    "Update the selected scheduled job.": "更新所選定時任務。",
+    "Create a scheduled wakeup or agent run.": "創建一個定時喚醒或智能體運行任務。",
+    "Required": "必填",
+    "required": "必填",
+    "Basics": "基礎信息",
+    "Name it, choose the assistant, and set enabled state.": "填寫名稱、選擇助手並設置啟用狀態。",
+    "Description": "描述",
+    "Agent ID": "智能體 ID",
+    "Morning brief": "晨間簡報",
+    "Optional context for this job": "此任務的可選說明",
+    "main or ops": "main 或 ops",
+    "Start typing to pick a known agent, or enter a custom one.": "輸入內容以選擇已知智能體，或直接輸入自定義值。",
+    "Control when this job runs.": "控制此任務的運行時間。",
+    "Every": "每隔",
+    "At": "在",
+    "Run at": "運行時間",
+    "Unit": "單位",
+    "Minutes": "分鐘",
+    "Hours": "小時",
+    "Days": "天",
+    "Expression": "表達式",
+    "Timezone (optional)": "時區（可選）",
+    "Pick a common timezone or enter any valid IANA timezone.": "選擇一個常用時區，或輸入任意有效的 IANA 時區。",
+    "Need jitter? Use Advanced → Stagger window / Stagger unit.": "如果需要抖動，請使用“高級”→“抖動窗口 / 抖動單位”。",
+    "Execution": "執行",
+    "Choose when to wake, and what this job should do.": "選擇何時喚醒，以及此任務要執行什麼。",
+    "Main": "主會話",
+    "Isolated": "隔離會話",
+    "Main posts a system event. Isolated runs a dedicated agent turn.": "主會話會發送系統事件；隔離會話則運行一次獨立的智能體任務。",
+    "Wake mode": "喚醒模式",
+    "Now": "立即",
+    "Next heartbeat": "下次心跳",
+    "Now triggers immediately. Next heartbeat waits for the next cycle.": "“立即”會立刻觸發；“下次心跳”會等待到下一個週期。",
+    "What should run?": "要運行什麼？",
+    "Post message to main timeline": "向主時間線發送消息",
+    "Run assistant task (isolated)": "運行助手任務（隔離）",
+    "Sends your text to the gateway main timeline (good for reminders/triggers).": "會將你的文本發送到網關主時間線，適合提醒或觸發用途。",
+    "Starts an assistant run in its own session using your prompt.": "會用你的提示詞在獨立會話中啟動一次助手運行。",
+    "Timeout (seconds)": "超時（秒）",
+    "Optional, e.g. 90": "可選，例如 90",
+    "Optional. Leave blank to use the gateway default timeout behavior for this run.": "可選。留空時將使用網關默認的超時行為。",
+    "Main timeline message": "主時間線消息",
+    "Assistant task prompt": "助手任務提示詞",
+    "Choose where run summaries are sent.": "選擇運行摘要要發送到哪裡。",
+    "Result delivery": "結果投遞",
+    "Announce summary (default)": "發佈摘要（默認）",
+    "None (internal)": "無（僅內部）",
+    "Announce posts a summary to chat. None keeps execution internal.": "“發佈摘要”會把摘要發送到聊天中；“無”則僅保留內部執行。",
+    "Choose which connected channel receives the summary.": "選擇由哪個已連接渠道接收摘要。",
+    "Send run summaries to a webhook endpoint.": "將運行摘要發送到 Webhook 端點。",
+    "To": "發送到",
+    "+1555... or chat id": "+1555... 或聊天 ID",
+    "Optional recipient override (chat id, phone, or user id).": "可選的接收人覆蓋值（聊天 ID、手機號或用戶 ID）。",
+    "Advanced": "高級",
+    "Optional overrides for delivery guarantees, schedule jitter, and model controls.": "用於投遞保障、調度抖動和模型控制的可選覆蓋項。",
+    "Delete after run": "運行後刪除",
+    "Best for one-shot reminders that should auto-clean up.": "適合執行後應自動清理的一次性提醒。",
+    "Clear agent override": "清除智能體覆蓋",
+    "Force this job to use the gateway default assistant.": "強制此任務使用網關默認助手。",
+    "Exact timing (no stagger)": "精確時間（無抖動）",
+    "Run on exact cron boundaries with no spread.": "嚴格按 Cron 邊界時間運行，不做分散。",
+    "Stagger window": "抖動窗口",
+    "Stagger unit": "抖動單位",
+    "Seconds": "秒",
+    "Start typing to pick a known model, or enter a custom one.": "輸入內容以選擇已知模型，或直接輸入自定義模型。",
+    "Use a suggested level or enter a provider-specific value.": "可使用建議級別，也可輸入提供商特定的值。",
+    "Best effort delivery": "盡力投遞",
+    "Do not fail the job if delivery itself fails.": "即使投遞本身失敗，也不要讓任務判定為失敗。",
+    "Can't add job yet": "暫時還不能添加任務",
+    "Fill the required fields below to enable submit.": "請先填寫下方必填項，才能提交。",
+    "Fix {count} field to continue.": "請修正 {count} 個字段後繼續。",
+    "Fix {count} fields to continue.": "請修正 {count} 個字段後繼續。",
+    "Saving...": "保存中...",
+    "Add job": "添加任務",
+    "Cancel": "取消",
+    "all jobs": "全部任務",
+    "(select a job)": "（選擇一個任務）",
+    "enabled": "已啟用",
+    "disabled": "已禁用",
+    "Edit": "編輯",
+    "Clone": "克隆",
+    "Run": "運行",
+    "History": "歷史",
+    "Prompt": "提示詞",
+    "Next": "下次",
+    "Last": "上次",
+    "No summary.": "無摘要。",
+    "Next {rel}": "下次 {rel}",
+    "Due {rel}": "到期 {rel}",
+    "Name is required.": "名稱為必填項。",
+    "Enter a valid date/time.": "請輸入有效的日期/時間。",
+    "Interval must be greater than 0.": "間隔必須大於 0。",
+    "Cron expression is required.": "Cron 表達式為必填項。",
+    "Stagger must be greater than 0.": "抖動值必須大於 0。",
+    "System text is required.": "系統文本為必填項。",
+    "Agent message is required.": "智能體消息為必填項。",
+    "If set, timeout must be greater than 0 seconds.": "如果設置了超時，值必須大於 0 秒。",
+    "Webhook URL is required.": "Webhook URL 為必填項。",
+    "Webhook URL must start with http:// or https://.": "Webhook URL 必須以 http:// 或 https:// 開頭。",
+    "Invalid run time.": "運行時間無效。",
+    "Invalid interval amount.": "間隔數值無效。",
+    "Cron expression required.": "必須填寫 Cron 表達式。",
+    "Invalid stagger amount.": "抖動數值無效。",
+    "System event text required.": "必須填寫系統事件文本。",
+    "Agent message required.": "必須填寫智能體消息。",
+    "Name required.": "必須填寫名稱。",
+    "Missing operator.read scope": "缺少 operator.read 權限",
+    "Skills with missing dependencies": "存在缺失依賴的技能",
+    "Files": "文件",
+    "Read file contents": "讀取文件內容",
+    "Patch files (OpenAI)": "修補文件（OpenAI）",
+    "Runtime": "運行時",
+    "Run shell commands": "運行 Shell 命令",
+    "Search the web": "搜索網絡",
+    "Memory": "記憶",
+    "Semantic search": "語義搜索",
+    "Read memory files": "讀取記憶文件",
+    "Session history": "會話歷史",
+    "Send to session": "發送到會話",
+    "Spawn sub-agent": "生成子智能體",
+    "Session status": "會話狀態",
+    "Send messages": "發送消息",
+    "Schedule tasks": "安排任務",
+    "Nodes + devices": "節點與設備",
+    "all skills": "全部技能",
+    "Start a new session": "開始新會話",
+    "Reset current session": "重置當前會話",
+    "Stop current run": "停止當前運行",
+    "Toggle focus mode": "切換專注模式",
+    "Show or set model": "顯示或設置模型",
+    "Set thinking level": "設置思考級別",
+    "Toggle verbose mode": "切換詳細模式",
+    "Toggle fast mode": "切換快速模式",
+    "Show available commands": "顯示可用命令",
+    "Show session status": "顯示會話狀態",
+    "Show token usage": "顯示 Token 用量",
+    "Run a skill": "運行技能",
+    "Steer a sub-agent": "引導子智能體",
+    "Run Command": "運行命令",
+    "Read File": "讀取文件",
+    "Write File": "寫入文件",
+    "Web Search": "網頁搜索",
+    "Canvas": "畫布",
+    "Search Memory": "搜索記憶",
+    "Session Status": "會話狀態",
+    "Session History": "會話歷史",
+    "Send to Session": "發送到會話",
+    "Spawn Session": "創建會話"
   },
   "configHelpTranslations": {
     "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history.": "由 OpenClaw 自動維護的後設資料欄位，用於記錄此設定檔案的寫入/版本歷史。除非在除錯遷移歷史，否則請保持這些值由系統管理，避免手動編輯。",
@@ -1106,664 +1420,363 @@
     "Optional SSH identity file path (passed to ssh -i).": "可選的 SSH 身分檔案路徑（會傳遞給 `ssh -i`）。",
     "CLI presentation controls for local command output behavior such as banner and tagline style. Use this section to keep startup output aligned with operator preference without changing runtime behavior.": "用於控制本地命令輸出表現形式的 CLI 展示設定，例如橫幅和標語樣式。使用此部分可在不改變執行時行為的情況下，讓啟動輸出符合操作者偏好。",
     "Update-channel and startup-check behavior for keeping OpenClaw runtime versions current. Use conservative channels in production and more experimental channels only in controlled environments.": "用於保持 OpenClaw 執行時版本最新的更新通道和啟動檢查行為設定。生產環境請使用保守通道，實驗性通道僅應在受控環境中使用。",
-    "Gateway runtime surface for bind mode, auth, control UI, remote transport, and operational safety controls. Keep conservative defaults unless you intentionally expose the gateway beyond trusted local interfaces.": "閘道器執行時設定面，涵蓋繫結模式、認證、控制介面、遠端傳輸和執行安全控制。除非你明確希望將閘道器暴露到受信任本地介面之外，否則請保持保守預設值。"
+    "Gateway runtime surface for bind mode, auth, control UI, remote transport, and operational safety controls. Keep conservative defaults unless you intentionally expose the gateway beyond trusted local interfaces.": "閘道器執行時設定面，涵蓋繫結模式、認證、控制介面、遠端傳輸和執行安全控制。除非你明確希望將閘道器暴露到受信任本地介面之外，否則請保持保守預設值。",
+    "Talk-mode voice synthesis settings for voice identity, model selection, output format, and interruption behavior. Use this section to tune human-facing voice UX while controlling latency and cost.": "Talk 模式的語音合成設置，涵蓋音色身份、模型選擇、輸出格式和打斷行為。使用此部分可在控制延遲和成本的同時調優面向用戶的語音體驗。",
+    "Active Talk provider id (for example \"elevenlabs\").": "當前啟用的 Talk 提供商 ID（例如 `elevenlabs`）。",
+    "Provider-specific Talk settings keyed by provider id. During migration, prefer this over legacy talk.* keys.": "按提供商 ID 組織的 Talk 專屬設置。在遷移期間，優先使用這裡而不是舊版 `talk.*` 鍵。",
+    "Provider default voice ID for Talk mode.": "Talk 模式使用的提供商默認語音 ID。",
+    "Optional provider voice alias map for Talk directives.": "供 Talk 指令使用的可選提供商語音別名映射。",
+    "Provider default model ID for Talk mode.": "Talk 模式使用的提供商默認模型 ID。",
+    "Provider default output format for Talk mode.": "Talk 模式使用的提供商默認輸出格式。",
+    "Provider API key for Talk mode.": "Talk 模式使用的提供商 API 密鑰。",
+    "Legacy ElevenLabs default voice ID for Talk mode. Prefer talk.providers.elevenlabs.voiceId.": "舊版 ElevenLabs 的 Talk 模式默認語音 ID。優先使用 `talk.providers.elevenlabs.voiceId`。",
+    "Use this legacy ElevenLabs voice alias map (for example {\"Clawd\":\"EXAVITQu4vr4xnSDxMaL\"}) only during migration. Prefer talk.providers.elevenlabs.voiceAliases.": "此舊版 ElevenLabs 語音別名映射（例如 `{\"Clawd\":\"EXAVITQu4vr4xnSDxMaL\"}`）僅應在遷移期間使用。優先使用 `talk.providers.elevenlabs.voiceAliases`。",
+    "Legacy ElevenLabs model ID for Talk mode (default: eleven_v3). Prefer talk.providers.elevenlabs.modelId.": "舊版 ElevenLabs 的 Talk 模式模型 ID（默認：`eleven_v3`）。優先使用 `talk.providers.elevenlabs.modelId`。",
+    "Use this legacy ElevenLabs output format for Talk mode (for example pcm_44100 or mp3_44100_128) only during migration. Prefer talk.providers.elevenlabs.outputFormat.": "此舊版 ElevenLabs 輸出格式（例如 `pcm_44100` 或 `mp3_44100_128`）僅應在遷移期間用於 Talk 模式。優先使用 `talk.providers.elevenlabs.outputFormat`。",
+    "Use this legacy ElevenLabs API key for Talk mode only during migration, and keep secrets in env-backed storage. Prefer talk.providers.elevenlabs.apiKey (fallback: ELEVENLABS_API_KEY).": "此舊版 ElevenLabs API 密鑰僅應在遷移期間用於 Talk 模式，並請將密鑰保存在環境變量等受保護存儲中。優先使用 `talk.providers.elevenlabs.apiKey`（回退：`ELEVENLABS_API_KEY`）。",
+    "If true (default), stop assistant speech when the user starts speaking in Talk mode. Keep enabled for conversational turn-taking.": "為 true（默認）時，在 Talk 模式下用戶開始說話後會停止助手播報。為了保證自然輪流對話，建議保持啟用。",
+    "ACP runtime controls for enabling dispatch, selecting backends, constraining allowed agent targets, and tuning streamed turn projection behavior.": "ACP 運行時控制項，用於啟用分發、選擇後端、限制允許的智能體目標，以及調優流式回合投影行為。",
+    "Global ACP feature gate. Keep disabled unless ACP runtime + policy are configured.": "ACP 全局功能開關。除非 ACP 運行時與策略已配置完成，否則請保持禁用。",
+    "Independent dispatch gate for ACP session turns (default: true). Set false to keep ACP commands available while blocking ACP turn execution.": "ACP 會話回合的獨立分發開關（默認：true）。設為 false 可保留 ACP 命令可用，但阻止 ACP 回合執行。",
+    "Default ACP runtime backend id (for example: acpx). Must match a registered ACP runtime plugin backend.": "默認 ACP 運行時後端 ID（例如：`acpx`）。必須與已註冊的 ACP 運行時插件後端一致。",
+    "Fallback ACP target agent id used when ACP spawns do not specify an explicit target.": "當 ACP 派生未顯式指定目標時，使用的回退 ACP 目標智能體 ID。",
+    "Allowlist of ACP target agent ids permitted for ACP runtime sessions. Empty means no additional allowlist restriction.": "ACP 運行時會話允許訪問的目標智能體 ID 允許列表。為空表示不額外施加允許列表限制。",
+    "Maximum concurrently active ACP sessions across this gateway process.": "當前網關進程中允許同時活躍的 ACP 會話最大數量。",
+    "ACP streaming projection controls for chunk sizing, metadata visibility, and deduped delivery behavior.": "ACP 流式投影控制項，用於調節分塊大小、元數據可見性以及去重投遞行為。",
+    "Coalescer idle flush window in milliseconds for ACP streamed text before block replies are emitted.": "ACP 流式文本在輸出為塊狀回覆前的聚合器空閒刷新窗口（毫秒）。",
+    "Maximum chunk size for ACP streamed block projection before splitting into multiple block replies.": "ACP 流式塊投影在拆分為多個塊回覆前允許的最大分塊大小。",
+    "When true (default), suppress repeated ACP status/tool projection lines in a turn while keeping raw ACP events unchanged.": "為 true（默認）時，在單輪中抑制重複的 ACP 狀態/工具投影行，同時保留原始 ACP 事件不變。",
+    "ACP delivery style: live streams projected output incrementally, final_only buffers all projected ACP output until terminal turn events.": "ACP 投遞樣式：`live` 會增量投影輸出，`final_only` 會緩衝所有投影后的 ACP 輸出，直到回合終止事件出現。",
+    "Separator inserted before next visible assistant text when hidden ACP tool lifecycle events occurred (none|space|newline|paragraph). Default: paragraph.": "當發生被隱藏的 ACP 工具生命週期事件時，在下一段可見助手文本前插入的分隔符（`none|space|newline|paragraph`）。默認：`paragraph`。",
+    "Maximum assistant output characters projected per ACP turn before truncation notice is emitted.": "每個 ACP 回合中允許投影的助手輸出最大字符數，超過後會發出截斷提示。",
+    "Maximum characters for projected ACP session/update lines (tool/status updates).": "投影后的 ACP 會話/更新行（工具/狀態更新）允許的最大字符數。",
+    "Per-sessionUpdate visibility overrides for ACP projection (for example usage_update, available_commands_update).": "ACP 投影中針對各類 `sessionUpdate` 的可見性覆蓋項（例如 `usage_update`、`available_commands_update`）。",
+    "Idle runtime TTL in minutes for ACP session workers before eligible cleanup.": "ACP 會話工作進程在可被清理前的空閒運行時 TTL（分鐘）。",
+    "Optional operator install/setup command shown by `/acp install` and `/acp doctor` when ACP backend wiring is missing.": "當 ACP 後端接線缺失時，`/acp install` 和 `/acp doctor` 顯示的可選運維安裝/初始化命令。",
+    "Timeout in milliseconds for connecting to a remote CDP endpoint before failing the browser attach attempt. Increase for high-latency tunnels, or lower for faster failure detection.": "連接遠程 CDP 端點時，在判定瀏覽器附加失敗前允許等待的超時時間（毫秒）。高延遲隧道環境可適當調高，若需要更快失敗檢測則可調低。",
+    "Timeout in milliseconds for post-connect CDP handshake readiness checks against remote browser targets. Raise this for slow-start remote browsers and lower to fail fast in automation loops.": "連接後對遠程瀏覽器目標執行 CDP 握手就緒檢查的超時時間（毫秒）。遠程瀏覽器啟動較慢時可調高，在自動化循環中需要快速失敗時可調低。",
+    "Optional unicast DNS-SD domain for wide-area discovery, such as openclaw.internal. Use this when you intentionally publish gateway discovery beyond local mDNS scopes.": "用於廣域發現的可選單播 DNS-SD 域名，例如 `openclaw.internal`。當你有意將網關發現發佈到本地 mDNS 範圍之外時使用。",
+    "mDNS discovery configuration group for local network advertisement and discovery behavior tuning. Keep minimal mode for routine LAN discovery unless extra metadata is required.": "用於局域網廣播與發現行為調優的 mDNS 發現配置組。除非需要額外元數據，否則常規 LAN 發現請保持最小模式。",
+    "Approval strategy for when exec commands require human confirmation before running. Use stricter ask behavior in shared channels and lower-friction settings in private operator contexts.": "當 exec 命令在執行前需要人工確認時採用的審批策略。在共享頻道中請使用更嚴格的詢問策略，在私有運維場景中可使用更低摩擦的設置。",
+    "Allowlist of target agent IDs permitted for agent_to_agent calls when orchestration is enabled. Use explicit allowlists to avoid uncontrolled cross-agent call graphs.": "啟用 `agent_to_agent` 編排時允許調用的目標智能體 ID 允許列表。請使用顯式允許列表，以避免不可控的跨智能體調用圖。",
+    "Tool policy wrapper for spawned subagents to restrict or expand tool availability compared to parent defaults. Use this to keep delegated agent capabilities scoped to task intent.": "用於派生子智能體的工具策略包裝層，可相對父級默認值限制或擴展工具可用性。可用它讓委派智能體的能力範圍與任務意圖保持一致。",
+    "Tool policy wrapper for sandboxed agent executions so sandbox runs can have distinct capability boundaries. Use this to enforce stronger safety in sandbox contexts.": "用於沙箱化智能體執行的工具策略包裝層，使沙箱運行具備獨立的能力邊界。可用它在沙箱場景中實施更強的安全約束。",
+    "Web channel runtime settings for heartbeat and reconnect behavior when operating web-based chat surfaces. Use reconnect values tuned to your network reliability profile and expected uptime needs.": "Web 渠道運行時設置，用於控制基於 Web 的聊天界面的心跳與重連行為。請根據你的網絡可靠性特徵和預期在線需求來調整重連參數。",
+    "Enables the web channel runtime and related websocket lifecycle behavior. Keep disabled when web chat is unused to reduce active connection management overhead.": "啟用 Web 渠道運行時及相關 WebSocket 生命週期行為。當未使用 Web 聊天時請保持禁用，以減少活躍連接管理開銷。",
+    "Heartbeat interval in seconds for web channel connectivity and liveness maintenance. Use shorter intervals for faster detection, or longer intervals to reduce keepalive chatter.": "用於維持 Web 渠道連接與存活狀態的心跳間隔（秒）。更短的間隔有助於更快發現故障，更長的間隔可減少 keepalive 噪音。",
+    "Reconnect backoff policy for web channel reconnect attempts after transport failure. Keep bounded retries and jitter tuned to avoid thundering-herd reconnect behavior.": "Web 渠道在傳輸失敗後的重連退避策略。請合理設置重試上限與抖動，以避免羊群效應式重連。",
+    "Initial reconnect delay in milliseconds before the first retry after disconnection. Use modest delays to recover quickly without immediate retry storms.": "斷開連接後首次重試前的初始重連延遲（毫秒）。適度延遲可在快速恢復與避免立即重試風暴之間取得平衡。",
+    "Maximum reconnect backoff cap in milliseconds to bound retry delay growth over repeated failures. Use a reasonable cap so recovery remains timely after prolonged outages.": "重連退避延遲的最大上限（毫秒），用於限制連續失敗時重試延遲的增長。請設置合理上限，以便在長時間故障後仍能及時恢復。",
+    "Exponential backoff multiplier used between reconnect attempts in web channel retry loops. Keep factor above 1 and tune with jitter for stable large-fleet reconnect behavior.": "Web 渠道重試循環中用於相鄰重連嘗試之間的指數退避倍率。請保持大於 1，並結合抖動調優，以獲得穩定的大規模客戶端重連行為。",
+    "Randomization factor (0-1) applied to reconnect delays to desynchronize clients after outage events. Keep non-zero jitter in multi-client deployments to reduce synchronized spikes.": "應用於重連延遲的隨機化因子（0-1），用於在故障後打散客戶端重連時間。多客戶端部署中請保持非零抖動，以減少同步尖峰。",
+    "Maximum reconnect attempts before giving up for the current failure sequence (0 means no retries). Use finite caps for controlled failure handling in automation-sensitive environments.": "在當前故障序列中放棄前允許的最大重連次數（0 表示不重試）。在對自動化較敏感的環境中，請使用有限上限以實現可控的失敗處理。",
+    "Optional URL prefix where the Control UI is served (e.g. /openclaw).": "提供 Control UI 時使用的可選 URL 前綴（例如 `/openclaw`）。",
+    "Optional filesystem root for Control UI assets (defaults to dist/control-ui).": "Control UI 靜態資源的可選文件系統根目錄（默認：`dist/control-ui`）。",
+    "Allowed browser origins for Control UI/WebChat websocket connections (full origins only, e.g. https://control.example.com). Required for non-loopback Control UI deployments unless dangerous Host-header fallback is explicitly enabled.": "允許用於 Control UI/WebChat WebSocket 連接的瀏覽器來源（僅完整 origin，例如 `https://control.example.com`）。對於非 loopback 的 Control UI 部署，這是必需項，除非顯式啟用了危險的 Host 頭回退機制。",
+    "Push-delivery settings used by the gateway when it needs to wake or notify paired devices. Configure relay-backed APNs here for official iOS builds; direct APNs auth remains env-based for local/manual builds.": "當網關需要喚醒或通知已配對設備時使用的推送投遞設置。官方 iOS 構建請在此配置基於中繼的 APNs；本地/手動構建的直接 APNs 認證仍通過環境變量提供。",
+    "APNs delivery settings for iOS devices paired to this gateway. Use relay settings for official/TestFlight builds that register through the external push relay.": "與此網關配對的 iOS 設備所使用的 APNs 投遞設置。對於通過外部推送中繼註冊的官方/TestFlight 構建，請使用中繼設置。",
+    "External relay settings for relay-backed APNs sends. The gateway uses this relay for push.test, wake nudges, and reconnect wakes after a paired official iOS build publishes a relay-backed registration.": "用於中繼式 APNs 發送的外部中繼設置。已配對的官方 iOS 構建發佈中繼註冊後，網關會通過此中繼執行 `push.test`、喚醒提示和重連喚醒。",
+    "Base HTTPS URL for the external APNs relay service used by official/TestFlight iOS builds. Keep this aligned with the relay URL baked into the iOS build so registration and send traffic hit the same deployment.": "官方/TestFlight iOS 構建使用的外部 APNs 中繼服務基礎 HTTPS 地址。請保持其與 iOS 構建內置的中繼 URL 一致，以確保註冊與發送流量命中同一部署。",
+    "Timeout in milliseconds for relay send requests from the gateway to the APNs relay (default: 10000). Increase for slower relays or networks, or lower to fail wake attempts faster.": "網關向 APNs 中繼發送請求時的超時時間（毫秒，默認：10000）。較慢的中繼或網絡可適當調高，若希望更快判定喚醒失敗則可調低。",
+    "Top-level media behavior shared across providers and tools that handle inbound files. Keep defaults unless you need stable filenames for external processing pipelines or longer-lived inbound media retention.": "由處理入站文件的各提供商和工具共享的頂層媒體行為設置。除非外部處理流水線需要穩定文件名，或你需要更長時間保留入站媒體，否則請保持默認值。",
+    "When enabled, uploaded media keeps its original filename instead of a generated temp-safe name. Turn this on when downstream automations depend on stable names, and leave off to reduce accidental filename leakage.": "啟用後，上傳媒體會保留原始文件名，而不是使用臨時安全名稱。當下遊自動化依賴穩定文件名時可開啟；若要減少文件名意外洩露，則請保持關閉。",
+    "Optional retention window in hours for persisted inbound media cleanup across the full media tree. Leave unset to preserve legacy behavior, or set values like 24 (1 day) or 168 (7 days) when you want automatic cleanup.": "對整個媒體目錄中持久化入站媒體執行清理的可選保留時長（小時）。留空可保持舊行為；若希望自動清理，可設置為 24（1 天）或 168（7 天）等值。",
+    "Top-level binding rules for routing and persistent ACP conversation ownership. Use type=route for normal routing and type=acp for persistent ACP harness bindings.": "用於路由和持久化 ACP 會話歸屬的頂層綁定規則。普通路由請使用 `type=route`，持久化 ACP 宿主綁定請使用 `type=acp`。",
+    "Binding kind. Use \"route\" (or omit for legacy route entries) for normal routing, and \"acp\" for persistent ACP conversation bindings.": "綁定類型。普通路由請使用 `route`（舊版 route 條目也可省略），持久化 ACP 會話綁定請使用 `acp`。",
+    "Target agent ID that receives traffic when the corresponding binding match rule is satisfied. Use valid configured agent IDs only so routing does not fail at runtime.": "當對應綁定匹配規則命中時接收流量的目標智能體 ID。請僅使用已配置且有效的智能體 ID，以免運行時路由失敗。",
+    "Match rule object for deciding when a binding applies, including channel and optional account/peer constraints. Keep rules narrow to avoid accidental agent takeover across contexts.": "用於判斷綁定何時生效的匹配規則對象，包含渠道以及可選的賬戶/對話對象約束。請保持規則足夠收窄，以避免智能體意外接管其他上下文。",
+    "Channel/provider identifier this binding applies to, such as `telegram`, `discord`, or a plugin channel ID. Use the configured channel key exactly so binding evaluation works reliably.": "此綁定適用的渠道/提供商標識符，例如 `telegram`、`discord` 或插件渠道 ID。請精確使用已配置的渠道鍵名，以確保綁定判斷可靠生效。",
+    "Optional account selector for multi-account channel setups so the binding applies only to one identity. Use this when account scoping is required for the route and leave unset otherwise.": "用於多賬戶渠道場景的可選賬戶選擇器，使綁定僅作用於某一個身份。當路由需要按賬戶範圍限定時使用，否則可留空。",
+    "Optional peer matcher for specific conversations including peer kind and peer id. Use this when only one direct/group/channel target should be pinned to an agent.": "用於特定會話的可選對話對象匹配器，包含對話對象類型和 ID。當只有某一個私聊/群組/頻道目標應固定綁定到某個智能體時使用。",
+    "Peer conversation type: \"direct\", \"group\", \"channel\", or legacy \"dm\" (deprecated alias for direct). Prefer \"direct\" for new configs and keep kind aligned with channel semantics.": "對話對象類型：`direct`、`group`、`channel`，或舊版 `dm`（已廢棄，等同於 direct）。新配置建議優先使用 `direct`，並保持類型與渠道語義一致。",
+    "Conversation identifier used with peer matching, such as a chat ID, channel ID, or group ID from the provider. Keep this exact to avoid silent non-matches.": "與對話對象匹配一起使用的會話標識符，例如提供商側的聊天 ID、頻道 ID 或群組 ID。請保持精確一致，以避免靜默不匹配。",
+    "Optional Discord-style guild/server ID constraint for binding evaluation in multi-server deployments. Use this when the same peer identifiers can appear across different guilds.": "在多服務器部署中用於綁定判斷的可選 Discord 風格 guild/server ID 約束。當相同的對話對象標識可能出現在不同 guild 中時使用。",
+    "Optional team/workspace ID constraint used by providers that scope chats under teams. Add this when you need bindings isolated to one workspace context.": "某些按團隊範圍組織聊天的提供商所使用的可選 team/workspace ID 約束。當你需要讓綁定僅限於單個工作區上下文時使用。",
+    "Optional role-based filter list used by providers that attach roles to chat context. Use this to route privileged or operational role traffic to specialized agents.": "供會在聊天上下文中附帶角色信息的提供商使用的可選基於角色的過濾列表。可用它將特權或運維角色流量路由給專門的智能體。",
+    "Optional per-binding ACP overrides for bindings[].type=acp. This layer overrides agents.list[].runtime.acp defaults for the matched conversation.": "針對 `bindings[].type=acp` 的可選單綁定 ACP 覆蓋項。對於匹配到的會話，此層會覆蓋 `agents.list[].runtime.acp` 的默認值。",
+    "ACP session mode override for this binding (persistent or oneshot).": "此綁定使用的 ACP 會話模式覆蓋項（`persistent` 或 `oneshot`）。",
+    "Human-friendly label for ACP status/diagnostics in this bound conversation.": "此綁定會話中用於 ACP 狀態/診斷顯示的人類友好標籤。",
+    "Working directory override for ACP sessions created from this binding.": "由此綁定創建的 ACP 會話所使用的工作目錄覆蓋項。",
+    "ACP backend override for this binding (falls back to agent runtime ACP backend, then global acp.backend).": "此綁定使用的 ACP 後端覆蓋項（依次回退到智能體運行時 ACP 後端，再回退到全局 `acp.backend`）。",
+    "Broadcast routing map for sending the same outbound message to multiple peer IDs per source conversation. Keep this minimal and audited because one source can fan out to many destinations.": "廣播路由映射，用於將同一條出站消息從一個源會話發送到多個對話對象 ID。請儘量保持精簡併做好審計，因為一個來源可能會扇出到許多目標。",
+    "Delivery order for broadcast fan-out: \"parallel\" sends to all targets concurrently, while \"sequential\" sends one-by-one. Use \"parallel\" for speed and \"sequential\" for stricter ordering/backpressure control.": "廣播扇出時的投遞順序：`parallel` 會併發發送到所有目標，`sequential` 會逐個發送。追求速度請使用 `parallel`，需要更嚴格的順序或背壓控制時請使用 `sequential`。",
+    "Per-source broadcast destination list where each key is a source peer ID and the value is an array of destination peer IDs. Keep lists intentional to avoid accidental message amplification.": "按源會話配置的廣播目標列表，其中每個鍵是源對話對象 ID，值是目標對話對象 ID 數組。請有意識地維護這些列表，以避免消息被意外放大傳播。",
+    "Enable targeted diagnostics logs by flag (e.g. [\"telegram.http\"]). Supports wildcards like \"telegram.*\" or \"*\".": "按標記啟用定向診斷日誌（例如 `[\"telegram.http\"]`）。支持 `telegram.*` 或 `*` 這類通配符。",
+    "Master toggle for diagnostics instrumentation output in logs and telemetry wiring paths. Keep enabled for normal observability, and disable only in tightly constrained environments.": "用於控制日誌與遙測接線路徑中診斷埋點輸出的總開關。常規可觀測性場景請保持啟用，僅在資源約束極強的環境中才建議禁用。",
+    "Age threshold in milliseconds for emitting stuck-session warnings while a session remains in processing state. Increase for long multi-tool turns to reduce false positives; decrease for faster hang detection.": "當會話長時間處於處理中狀態時，觸發卡住會話警告的時長閾值（毫秒）。多工具長回合可適當調高以減少誤報，需要更快檢測卡死時則可調低。",
+    "Enables OpenTelemetry export pipeline for traces, metrics, and logs based on configured endpoint/protocol settings. Keep disabled unless your collector endpoint and auth are fully configured.": "根據配置的端點和協議設置啟用 OpenTelemetry 導出流水線，用於發送追蹤、指標和日誌。除非採集器端點和認證已完整配置，否則請保持禁用。",
+    "Collector endpoint URL used for OpenTelemetry export transport, including scheme and port. Use a reachable, trusted collector endpoint and monitor ingestion errors after rollout.": "OpenTelemetry 導出傳輸使用的採集器端點 URL，包含協議和端口。請使用可達且可信任的採集器端點，並在上線後關注接收錯誤。",
+    "OTel transport protocol for telemetry export: \"http/protobuf\" or \"grpc\" depending on collector support. Use the protocol your observability backend expects to avoid dropped telemetry payloads.": "用於遙測導出的 OTel 傳輸協議：根據採集器支持情況選擇 `http/protobuf` 或 `grpc`。請使用你的可觀測性後端所期望的協議，以避免遙測載荷被丟棄。",
+    "Additional HTTP/gRPC metadata headers sent with OpenTelemetry export requests, often used for tenant auth or routing. Keep secrets in env-backed values and avoid unnecessary header sprawl.": "隨 OpenTelemetry 導出請求發送的附加 HTTP/gRPC 元數據請求頭，通常用於租戶認證或路由。請將敏感值保存在環境變量等安全來源中，並避免不必要的請求頭膨脹。",
+    "Service name reported in telemetry resource attributes to identify this gateway instance in observability backends. Use stable names so dashboards and alerts remain consistent over deployments.": "在遙測資源屬性中上報的服務名稱，用於在可觀測性後端識別此網關實例。請使用穩定的名稱，以便儀表盤和告警在不同部署之間保持一致。",
+    "Enable trace signal export to the configured OpenTelemetry collector endpoint. Keep enabled when latency/debug tracing is needed, and disable if you only want metrics/logs.": "啟用向已配置 OpenTelemetry 採集器端點導出追蹤信號。當需要延遲分析或調試追蹤時請保持啟用；如果只需要指標/日誌，則可禁用。",
+    "Enable metrics signal export to the configured OpenTelemetry collector endpoint. Keep enabled for runtime health dashboards, and disable only if metric volume must be minimized.": "啟用向已配置 OpenTelemetry 採集器端點導出指標信號。運行時健康儀表盤場景建議保持啟用，僅在必須壓縮指標量時才禁用。",
+    "Enable log signal export through OpenTelemetry in addition to local logging sinks. Use this when centralized log correlation is required across services and agents.": "除本地日誌輸出外，同時通過 OpenTelemetry 導出日誌信號。當你需要跨服務和智能體進行集中式日誌關聯時使用。",
+    "Trace sampling rate (0-1) controlling how much trace traffic is exported to observability backends. Lower rates reduce overhead/cost, while higher rates improve debugging fidelity.": "追蹤採樣率（0-1），用於控制導出到可觀測性後端的追蹤流量比例。較低採樣率可降低開銷和成本，較高採樣率則有助於提升調試精度。",
+    "Interval in milliseconds for periodic telemetry flush from buffers to the collector. Increase to reduce export chatter, or lower for faster visibility during active incident response.": "將緩衝中的遙測數據定期刷新到採集器的時間間隔（毫秒）。調高可減少導出噪音，調低則可在故障處理中更快看到數據。",
+    "Log cache trace snapshots for embedded agent runs (default: false).": "記錄嵌入式智能體運行的緩存追蹤快照（默認：false）。",
+    "JSONL output path for cache trace logs (default: $OPENCLAW_STATE_DIR/logs/cache-trace.jsonl).": "緩存追蹤日誌的 JSONL 輸出路徑（默認：`$OPENCLAW_STATE_DIR/logs/cache-trace.jsonl`）。",
+    "Include full message payloads in trace output (default: true).": "在追蹤輸出中包含完整消息載荷（默認：true）。",
+    "Include prompt text in trace output (default: true).": "在追蹤輸出中包含提示詞文本（默認：true）。",
+    "Include system prompt in trace output (default: true).": "在追蹤輸出中包含系統提示詞（默認：true）。",
+    "Tool history window size for loop detection (default: 30).": "用於循環檢測的工具歷史窗口大小（默認：30）。",
+    "Timeout in seconds for each image understanding request before it is aborted. Increase for high-resolution analysis and lower it for latency-sensitive operator workflows.": "每次圖像理解請求在被中止前允許的超時時間（秒）。高分辨率分析場景可適當調高，對延遲敏感的操作流則可調低。",
+    "Controls post-compaction session memory reindex mode: \"off\", \"async\", or \"await\" (default: \"async\"). Use \"await\" for strongest freshness, \"async\" for lower compaction latency, and \"off\" only when session-memory sync is handled elsewhere.": "控制壓縮後工作階段記憶體重新索引模式：`off`、`async` 或 `await`（預設：`async`）。若需最強的新鮮度請使用 `await`，若希望降低壓縮延遲請使用 `async`，只有當工作階段記憶體同步由其他地方處理時才使用 `off`。",
+    "Adds extra directories or .md files to the memory index beyond default memory files. Use this when key reference docs live elsewhere in your repo; when multimodal memory is enabled, matching image/audio files under these paths are also eligible for indexing.": "在預設記憶檔案之外，為記憶索引額外新增目錄或 `.md` 檔案。當關鍵參考文件位於儲存庫其他位置時可使用；啟用多模態記憶後，這些路徑下相符的影像/音訊檔案也可參與索引。",
+    "Optional multimodal memory settings for indexing image and audio files from configured extra paths. Keep this off unless your embedding model explicitly supports cross-modal embeddings, and set `memorySearch.fallback` to \"none\" while it is enabled. Matching files are uploaded to the configured remote embedding provider during indexing.": "用於從已設定額外路徑中索引影像和音訊檔案的可選多模態記憶設定。除非你的嵌入模型明確支援跨模態嵌入，否則請保持關閉；啟用期間還應將 `memorySearch.fallback` 設為 `none`。相符檔案會在索引過程中上傳到已設定的遠端嵌入提供商。",
+    "Enables image/audio memory indexing from extraPaths. This currently requires Gemini embedding-2, keeps the default memory roots Markdown-only, disables memory-search fallback providers, and uploads matching binary content to the configured remote embedding provider.": "啟用從 `extraPaths` 對影像/音訊進行記憶索引。當前這需要 Gemini embedding-2，會讓預設記憶根目錄僅索引 Markdown、停用記憶搜尋回退提供商，並將相符的二進位內容上傳到已設定的遠端嵌入提供商。",
+    "Sets the maximum bytes allowed per multimodal file before it is skipped during memory indexing. Use this to cap upload cost and indexing latency, or raise it for short high-quality audio clips.": "設定每個多模態檔案在記憶索引時允許的最大位元組數，超出後將被跳過。可用來限制上傳成本和索引延遲；對於較短但高品質的音訊片段，也可以適度調高。",
+    "Selects which multimodal file types are indexed from extraPaths: \"image\", \"audio\", or \"all\". Keep this narrow to avoid indexing large binary corpora unintentionally.": "選擇從 `extraPaths` 中索引哪些多模態檔案類型：`image`、`audio` 或 `all`。請盡量縮小範圍，以避免無意間索引大量二進位素材。",
+    "Gemini embedding-2 only: chooses the output vector size for memory embeddings. Use 768, 1536, or 3072 (default), and expect a full reindex when you change it because stored vector dimensions must stay consistent.": "僅適用於 Gemini embedding-2：選擇記憶嵌入的輸出向量維度。可使用 768、1536 或 3072（預設），修改後通常需要完整重建索引，因為已儲存向量的維度必須保持一致。",
+    "Forces a session memory-search reindex after compaction-triggered transcript updates (default: true). Keep enabled when compacted summaries must be immediately searchable, or disable to reduce write-time indexing pressure.": "在壓縮觸發轉錄更新後，強制重新索引工作階段記憶搜尋（預設：true）。如果壓縮後的摘要需要立即可搜尋，請保持啟用；若想降低寫入時的索引壓力，則可停用。",
+    "Agent avatar (workspace-relative path, http(s) URL, or data URI).": "代理頭像（工作區相對路徑、http(s) URL 或 data URI）。",
+    "Optional allowlist of agent IDs eligible for forwarded approvals, for example `[\"primary\", \"ops-agent\"]`. Use this to limit forwarding blast radius and avoid notifying channels for unrelated agents.": "可選的可轉發審批代理 ID 允許列表，例如 `[\"primary\", \"ops-agent\"]`。可用來限制轉發影響範圍，避免為無關代理通知頻道。",
+    "Optional session-key filters matched as substring or regex-style patterns, for example `[\"discord:\", \"^agent:ops:\"]`. Use narrow patterns so only intended approval contexts are forwarded to shared destinations.": "可選的工作階段鍵過濾器，可按子字串或類正則模式匹配，例如 `[\"discord:\", \"^agent:ops:\"]`。請使用足夠收斂的模式，確保只有預期的審批上下文會被轉發到共享目標。",
+    "Optional account selector for multi-account channel setups when approvals must route through a specific account context. Use this only when the target channel has multiple configured identities.": "當審批必須透過特定帳號上下文路由時，用於多帳號頻道設定的可選帳號選擇器。僅當目標頻道設定了多個身分時才需要使用。",
+    "Channel/provider ID used for forwarded approval delivery, such as discord, slack, or a plugin channel id. Use valid channel IDs only so approvals do not silently fail due to unknown routes.": "用於轉發審批投遞的頻道/提供商 ID，例如 `discord`、`slack` 或外掛頻道 ID。請僅使用有效頻道 ID，以免因未知路由導致審批靜默失敗。",
+    "Optional thread/topic target for channels that support threaded delivery of forwarded approvals. Use this to keep approval traffic contained in operational threads instead of main channels.": "支援執行緒式投遞審批的頻道可使用的可選執行緒/主題目標。可用來把審批流量限制在運維執行緒中，而不是發送到主頻道。",
+    "Destination identifier inside the target channel (channel ID, user ID, or thread root depending on provider). Verify semantics per provider because destination format differs across channel integrations.": "目標頻道內部的目標識別碼（具體可能是頻道 ID、使用者 ID 或執行緒根 ID，取決於提供商）。請依各提供商語義核對，因為不同頻道整合的目標格式並不相同。",
+    "Cooldown/backoff controls for temporary profile suppression after billing-related failures and retry windows. Use these to prevent rapid re-selection of profiles that are still blocked.": "用於在計費相關失敗後暫時抑制設定檔並控制重試視窗的冷卻/退避設定。可用來避免仍被阻塞的設定檔被快速重複選中。",
+    "Base backoff (hours) when a profile fails due to billing/insufficient credits (default: 5).": "當設定檔因計費問題或額度不足而失敗時的基礎退避時長（小時，預設：5）。",
+    "Optional per-provider overrides for billing backoff (hours).": "按提供商覆蓋計費退避時長（小時）的可選設定。",
+    "Cap (hours) for billing backoff (default: 24).": "計費退避的上限（小時，預設：24）。",
+    "Failure window (hours) for backoff counters (default: 24).": "退避計數器的失敗統計視窗（小時，預設：24）。",
+    "Ordered auth profile IDs per provider (used for automatic failover).": "按提供商排列的認證設定檔 ID 順序（用於自動故障切換）。",
+    "Named auth profiles (provider + mode + optional email).": "具名認證設定檔（提供商 + 模式 + 可選電子郵件）。",
+    "Slack app-level token used for Socket Mode connections and event transport when enabled. Use least-privilege app scopes and store this token as a secret.": "啟用時用於 Socket Mode 連線和事件傳輸的 Slack 應用層級權杖。請採用最小權限應用範圍，並將此權杖作為密鑰安全儲存。",
+    "Telegram-native exec approval routing and approver authorization. Enable this only when Telegram should act as an explicit exec-approval client for the selected bot account.": "Telegram 原生 exec 審批路由與審批人授權設定。僅當你希望 Telegram 作為所選機器人帳號的明確 exec 審批客戶端時才啟用。",
+    "Optional allowlist of agent IDs eligible for Telegram exec approvals, for example `[\"main\", \"ops-agent\"]`. Use this to keep approval prompts scoped to the agents you actually operate from Telegram.": "可選的 Telegram exec 審批代理 ID 允許列表，例如 `[\"main\", \"ops-agent\"]`。可用來確保審批提示只針對你確實會在 Telegram 中操作的代理。",
+    "Telegram user IDs allowed to approve exec requests for this bot account. Use numeric Telegram user IDs; prompts are only delivered to these approvers when target includes dm.": "允許為此機器人帳號審批 exec 請求的 Telegram 使用者 ID。請使用數字型 Telegram 使用者 ID；當目標包含 `dm` 時，提示只會發送給這些審批人。",
+    "Enable Telegram exec approvals for this account. When false or unset, Telegram messages/buttons cannot approve exec requests.": "為此帳號啟用 Telegram exec 審批。為 false 或未設定時，Telegram 訊息/按鈕將無法審批 exec 請求。",
+    "Optional session-key filters matched as substring or regex-style patterns before Telegram approval routing is used. Use narrow patterns so Telegram approvals only appear for intended sessions.": "在啟用 Telegram 審批路由前使用的可選工作階段鍵過濾器，可按子字串或類正則模式匹配。請使用足夠收斂的模式，確保 Telegram 審批只出現在預期工作階段中。",
+    "Controls where Telegram approval prompts are sent: \"dm\" sends to approver DMs (default), \"channel\" sends to the originating Telegram chat/topic, and \"both\" sends to both. Channel delivery exposes the command text to the chat, so only use it in trusted groups/topics.": "控制 Telegram 審批提示發送位置：`dm` 發送到審批人私訊（預設），`channel` 發送到來源 Telegram 聊天/主題，`both` 則兩邊都發送。發送到頻道會把命令文字暴露在聊天中，因此僅應在受信任的群組/主題中使用。",
+    "Defines elevated command allow rules by channel and sender for owner-level command surfaces. Use narrow provider-specific identities so privileged commands are not exposed to broad chat audiences.": "按頻道和發送者定義高權限命令的允許規則，適用於 owner 層級命令入口。請使用足夠收斂、且與提供商對應的身分標識，避免特權命令暴露給過寬的聊天受眾。",
+    "Allow bash chat command (`!`; `/bash` alias) to run host shell commands (default: false; requires tools.elevated).": "允許 bash 聊天命令（`!`；`/bash` 別名）執行主機 shell 命令（預設：false；需要 `tools.elevated`）。",
+    "How long bash waits before backgrounding (default: 2000; 0 backgrounds immediately).": "bash 在轉入背景前等待的時間（預設：2000；設為 0 則立即背景執行）。",
+    "Allow /config chat command to read/write config on disk (default: false).": "允許 `/config` 聊天命令讀寫磁碟上的設定（預設：false）。",
+    "Allow /debug chat command for runtime-only overrides (default: false).": "允許 `/debug` 聊天命令進行僅執行時的覆蓋設定（預設：false）。",
+    "Registers native slash/menu commands with channels that support command registration (Discord, Slack, Telegram). Keep enabled for discoverability unless you intentionally run text-only command workflows.": "為支援命令註冊的頻道（Discord、Slack、Telegram）註冊原生斜線/選單命令。除非你刻意採用純文字命令工作流，否則建議保持啟用以提升可發現性。",
+    "Registers native skill commands so users can invoke skills directly from provider command menus where supported. Keep aligned with your skill policy so exposed commands match what operators expect.": "註冊原生技能命令，以便使用者在支援的提供商命令選單中直接呼叫技能。請與技能策略保持一致，確保暴露出的命令符合操作者預期。",
+    "Explicit owner allowlist for owner-only tools/commands. Use channel-native IDs (optionally prefixed like \"whatsapp:+15551234567\"). '*' is ignored.": "owner 專用工具/命令的顯式允許列表。請使用頻道原生 ID（也可使用如 `whatsapp:+15551234567` 這樣的前綴形式）。`*` 會被忽略。",
+    "Controls how owner IDs are rendered in the system prompt. Allowed values: raw, hash. Default: raw.": "控制 owner ID 在系統提示詞中的呈現方式。允許值：`raw`、`hash`。預設：`raw`。",
+    "Optional secret used to HMAC hash owner IDs when ownerDisplay=hash. Prefer env substitution.": "當 `ownerDisplay=hash` 時，用於對 owner ID 做 HMAC 雜湊的可選密鑰。優先使用環境變數替換。",
+    "Allow /restart and gateway restart tool actions (default: true).": "允許 `/restart` 以及閘道器重啟工具動作（預設：true）。",
+    "Enables text-command parsing in chat input in addition to native command surfaces where available. Keep this enabled for compatibility across channels that do not support native command registration.": "除原生命令入口外，也在聊天輸入中啟用文字命令解析。為了相容不支援原生命令註冊的頻道，建議保持啟用。",
+    "Enforce access-group allowlists/policies for commands.": "對命令強制執行存取群組允許列表/策略。",
+    "Enables cron job execution for stored schedules managed by the gateway. Keep enabled for normal reminder/automation flows, and disable only to pause all cron execution without deleting jobs.": "啟用由閘道器管理的已儲存排程任務的 cron 執行。一般提醒/自動化流程建議保持啟用；僅在你想暫停所有 cron 執行但不刪除任務時才停用。",
+    "Limits how many cron jobs can execute at the same time when multiple schedules fire together. Use lower values to protect CPU/memory under heavy automation load, or raise carefully for higher throughput.": "當多個排程同時觸發時，限制可並行執行的 cron 任務數量。自動化負載較重時可降低該值以保護 CPU/記憶體；若要提高吞吐量，可謹慎調高。",
+    "Overrides the default retry policy for one-shot jobs when they fail with transient errors (rate limit, overloaded, network, server_error). Omit to use defaults: maxAttempts 3, backoffMs [30000, 60000, 300000], retry all transient types.": "為一次性任務在遇到瞬時錯誤（限流、過載、網路、server_error）失敗時覆蓋預設重試策略。留空則使用預設值：`maxAttempts` 為 3、`backoffMs` 為 `[30000, 60000, 300000]`，並對所有瞬時錯誤類型重試。",
+    "Backoff delays in ms for each retry attempt (default: [30000, 60000, 300000]). Use shorter values for faster retries.": "每次重試的退避延遲（毫秒，預設：`[30000, 60000, 300000]`）。若希望更快重試，可使用較短的值。",
+    "Max retries for one-shot jobs on transient errors before permanent disable (default: 3).": "一次性任務遇到瞬時錯誤時，在被永久停用前允許的最大重試次數（預設：3）。",
+    "Error types to retry: rate_limit, overloaded, network, timeout, server_error. Use to restrict which errors trigger retries; omit to retry all transient types.": "要重試的錯誤類型：`rate_limit`、`overloaded`、`network`、`timeout`、`server_error`。可用於限制哪些錯誤會觸發重試；留空則會重試所有瞬時錯誤類型。",
+    "Pruning controls for per-job cron run history files under `cron/runs/<jobId>.jsonl`, including size and line retention.": "用於控制 `cron/runs/<jobId>.jsonl` 下每個任務執行歷史檔案裁剪行為的設定，包含大小和保留行數。",
+    "How many trailing run-log lines to retain when a file exceeds maxBytes (default `2000`). Increase for longer forensic history or lower for smaller disks.": "當檔案超過 `maxBytes` 時，要保留的尾端執行日誌行數（預設：`2000`）。若需要更長的鑑識歷史可調高；磁碟較小時可調低。",
+    "Maximum bytes per cron run-log file before pruning rewrites to the last keepLines entries (for example `2mb`, default `2000000`).": "每個 cron 執行日誌檔案在觸發裁剪前允許的最大位元組數；超過後會重寫為僅保留最後 `keepLines` 條記錄（例如 `2mb`，預設：`2000000`）。",
+    "Controls how long completed cron run sessions are kept before pruning (`24h`, `7d`, `1h30m`, or `false` to disable pruning; default: `24h`). Use shorter retention to reduce storage growth on high-frequency schedules.": "控制已完成的 cron 執行工作階段在被清理前保留多久（可用 `24h`、`7d`、`1h30m`，或設為 `false` 停用清理；預設：`24h`）。高頻排程下可縮短保留時長，以減少儲存成長。",
+    "Path to the cron job store file used to persist scheduled jobs across restarts. Set an explicit path only when you need custom storage layout, backups, or mounted volumes.": "用於在重啟之間持久化排程任務的 cron 儲存檔案路徑。僅在你需要自訂儲存布局、備份或掛載卷時才設定顯式路徑。",
+    "Deprecated legacy fallback webhook URL used only for old jobs with `notify=true`. Migrate to per-job delivery using `delivery.mode=\"webhook\"` plus `delivery.to`, and avoid relying on this global field.": "已淘汰的舊版回退 webhook URL，僅供設定了 `notify=true` 的舊任務使用。請遷移到逐任務投遞方式，使用 `delivery.mode=\"webhook\"` 加 `delivery.to`，並避免依賴這個全域欄位。",
+    "Bearer token attached to cron webhook POST deliveries when webhook mode is used. Prefer secret/env substitution and rotate this token regularly if shared webhook endpoints are internet-reachable.": "在使用 webhook 模式時附加到 cron webhook POST 投遞中的 Bearer Token。優先使用密鑰/環境變數替換；若共享 webhook 端點可被網際網路存取，請定期輪換此權杖。",
+    "Allowlist of agent IDs that hook mappings are allowed to target when selecting execution agents. Use this to constrain automation events to dedicated service agents.": "在選擇執行代理時，hook 對映允許指向的代理 ID 允許列表。可用來把自動化事件限制到專用服務代理。",
+    "Allowlist of accepted session-key prefixes for inbound hook requests when caller-provided keys are enabled. Use narrow prefixes to prevent arbitrary session-key injection.": "在啟用呼叫方提供工作階段鍵時，入站 hook 請求可接受的工作階段鍵前綴允許列表。請使用足夠收斂的前綴，以防止任意工作階段鍵注入。",
+    "Target agent ID for mapping execution when action routing should not use defaults. Use dedicated automation agents to isolate webhook behavior from interactive operator sessions.": "當動作路由不應使用預設值時，對映執行所使用的目標代理 ID。建議使用專用自動化代理，將 webhook 行為與互動式操作工作階段隔離開。",
+    "Caps how much QMD text can be injected into one turn across all hits. Use lower values to control prompt bloat and latency; raise only when context is consistently truncated.": "限制一次回合中可注入的全部 QMD 文字總量。較低值可控制提示詞膨脹和延遲；僅當上下文持續被截斷時再調高。",
+    "Limits how many QMD hits are returned into the agent loop for each recall request (default: 6). Increase for broader recall context, or lower to keep prompts tighter and faster.": "限制每次召回請求返回到代理迴圈中的 QMD 命中數量（預設：6）。若需要更廣的召回上下文可調高；若希望提示更緊湊、更快則可調低。",
+    "Caps per-result snippet length extracted from QMD hits in characters (default: 700). Lower this when prompts bloat quickly, and raise only if answers consistently miss key details.": "限制從 QMD 命中中提取的每條結果片段長度上限（字元數，預設：700）。如果提示詞很容易膨脹，可調低；只有在回答持續遺漏關鍵資訊時才建議調高。",
+    "Sets per-query QMD search timeout in milliseconds (default: 4000). Increase for larger indexes or slower environments, and lower to keep request latency bounded.": "設定每次 QMD 查詢的搜尋逾時時間（毫秒，預設：4000）。較大的索引或較慢環境可適度調高；若需控制請求延遲上界，則可調低。",
+    "Defines which sessions/channels are eligible for QMD recall using session.sendPolicy-style rules. Keep default direct-only scope unless you intentionally want cross-chat memory sharing.": "使用類似 `session.sendPolicy` 的規則定義哪些工作階段/頻道可參與 QMD 召回。除非你有意啟用跨聊天記憶共享，否則建議保持預設僅 direct 範圍。",
+    "Sets maximum runtime for each `qmd embed` cycle in milliseconds (default: 120000). Increase for heavier embedding workloads or slower hardware, and lower to fail fast under tight SLAs.": "設定每次 `qmd embed` 週期的最長執行時間（毫秒，預設：120000）。嵌入負載更重或硬體較慢時可調高；在 SLA 嚴格時可調低以更快失敗。",
+    "Sets maximum runtime for each `qmd update` cycle in milliseconds (default: 120000). Raise this for larger collections; lower it when you want quicker failure detection in automation.": "設定每次 `qmd update` 週期的最長執行時間（毫秒，預設：120000）。更大的集合可適度調高；若希望自動化中更快發現失敗，則可調低。",
+    "Override default status reaction emojis. Keys: thinking, compacting, tool, coding, web, done, error, stallSoft, stallHard. Must be valid Telegram reaction emojis.": "覆蓋預設狀態反應表情。鍵包括：`thinking`、`compacting`、`tool`、`coding`、`web`、`done`、`error`、`stallSoft`、`stallHard`。必須是有效的 Telegram 反應表情。",
+    "Automatic AWS Bedrock model discovery settings used to synthesize provider model entries from account visibility. Keep discovery scoped and refresh intervals conservative to reduce API churn.": "用於根據帳號可見性自動發現 AWS Bedrock 模型並合成提供商模型條目的設定。請控制發現範圍並保持較保守的刷新間隔，以減少 API 頻繁呼叫。",
+    "Fallback context-window value applied to discovered models when provider metadata lacks explicit limits. Use realistic defaults to avoid oversized prompts that exceed true provider constraints.": "當提供商後設資料未給出明確限制時，套用於已發現模型的回退上下文視窗值。請使用符合實際的預設值，以避免提示過大而超出真實提供商限制。",
+    "Fallback max-token value applied to discovered models without explicit output token limits. Use conservative defaults to reduce truncation surprises and unexpected token spend.": "當已發現模型沒有明確輸出 token 限制時，套用的回退最大 token 值。請使用較保守的預設值，以減少意外截斷和不可預期的 token 開銷。",
+    "Refresh cadence for Bedrock discovery polling in seconds to detect newly available models over time. Use longer intervals in production to reduce API cost and control-plane noise.": "Bedrock 發現輪詢的刷新頻率（秒），用於隨時間推移偵測新可用模型。生產環境建議使用較長間隔，以減少 API 成本和控制面雜訊。",
+    "AWS region used for Bedrock discovery calls when discovery is enabled for your deployment. Use the region where your Bedrock models are provisioned to avoid empty discovery results.": "在部署啟用發現功能時，Bedrock 發現呼叫所使用的 AWS 區域。請使用已部署 Bedrock 模型所在區域，以避免得到空的發現結果。",
+    "Controls provider catalog behavior: \"merge\" keeps built-ins and overlays your custom providers, while \"replace\" uses only your configured providers. In \"merge\", matching provider IDs preserve non-empty agent models.json baseUrl values, while apiKey values are preserved only when the provider is not SecretRef-managed in current config/auth-profile context; SecretRef-managed providers refresh apiKey from current source markers, and matching model contextWindow/maxTokens use the higher value between explicit and implicit entries.": "控制提供商目錄行為：`merge` 會保留內建提供商並疊加你的自訂提供商，而 `replace` 僅使用你所設定的提供商。在 `merge` 模式下，相符的提供商 ID 會保留代理 `models.json` 中非空的 `baseUrl` 值；`apiKey` 只有在目前設定/認證設定檔上下文中該提供商未由 SecretRef 管理時才會保留。由 SecretRef 管理的提供商會根據目前來源標記刷新 `apiKey`，而相符模型的 `contextWindow`/`maxTokens` 則會採用顯式條目與隱式條目之間較高的值。",
+    "Provider API adapter selection controlling request/response compatibility handling for model calls. Use the adapter that matches your upstream provider protocol to avoid feature mismatch.": "用於控制模型呼叫請求/回應相容性處理的提供商 API 配接器選擇。請使用與你上游提供商協定相符的配接器，以避免功能不相容。",
+    "Selects provider auth style: \"api-key\" for API key auth, \"token\" for bearer token auth, \"oauth\" for OAuth credentials, and \"aws-sdk\" for AWS credential resolution. Match this to your provider requirements.": "選擇提供商認證方式：`api-key` 表示 API Key 認證，`token` 表示 Bearer Token 認證，`oauth` 表示 OAuth 憑證，`aws-sdk` 表示 AWS 憑證解析。請與提供商要求保持一致。",
+    "When true, credentials are sent via the HTTP Authorization header even if alternate auth is possible. Use this only when your provider or proxy explicitly requires Authorization forwarding.": "為 true 時，即使存在其他認證方式，也會透過 HTTP `Authorization` 請求頭發送憑證。僅當你的提供商或代理明確要求轉發 `Authorization` 時才使用。",
+    "Static HTTP headers merged into provider requests for tenant routing, proxy auth, or custom gateway requirements. Use this sparingly and keep sensitive header values in secrets.": "合併到提供商請求中的靜態 HTTP 請求頭，可用於租戶路由、代理認證或自訂閘道器需求。請謹慎使用，並將敏感請求頭值保存在密鑰中。",
+    "Controls whether OpenClaw injects `options.num_ctx` for Ollama providers configured with the OpenAI-compatible adapter (`openai-completions`). Default is true. Set false only if your proxy/upstream rejects unknown `options` payload fields.": "控制 OpenClaw 是否為設定為 OpenAI 相容配接器（`openai-completions`）的 Ollama 提供商注入 `options.num_ctx`。預設值為 true。只有當你的代理/上游會拒絕未知的 `options` 載荷欄位時，才應設為 false。",
+    "Declared model list for a provider including identifiers, metadata, and optional compatibility/cost hints. Keep IDs exact to provider catalog values so selection and fallback resolve correctly.": "提供商宣告的模型列表，包含識別碼、後設資料以及可選的相容性/成本提示。請保持 ID 與提供商目錄值完全一致，以便選擇和回退邏輯正確解析。",
+    "Approval routing controls for forwarding exec approval requests to chat destinations outside the originating session. Keep this disabled unless operators need explicit out-of-band approval visibility.": "用於將 exec 審批請求轉發到原始工作階段之外聊天目標的審批路由控制。除非操作人員需要明確的帶外審批可見性，否則請保持停用。",
+    "Model catalog root for provider definitions, merge/replace behavior, and optional Bedrock discovery integration. Keep provider definitions explicit and validated before relying on production failover paths.": "模型目錄的根設定，包含提供商定義、merge/replace 行為以及可選的 Bedrock 發現整合。在依賴生產級故障切換路徑之前，請確保提供商定義是顯式且已完成驗證的。",
+    "Authentication profile root used for multi-profile provider credentials and cooldown-based failover ordering. Keep profiles minimal and explicit so automatic failover behavior stays auditable.": "認證設定檔的根設定，用於多設定檔提供商憑證以及基於冷卻的故障切換順序。請保持設定檔精簡且顯式，以便自動故障切換行為可審計。",
+    "Controls chat command surfaces, owner gating, and elevated command access behavior across providers. Keep defaults unless you need stricter operator controls or broader command availability.": "控制各提供商上的聊天命令入口、owner 門控以及高權限命令存取行為。除非你需要更嚴格的操作控制或更廣的命令可用性，否則請保持預設值。",
+    "Global scheduler settings for stored cron jobs, run concurrency, delivery fallback, and run-session retention. Keep defaults unless you are scaling job volume or integrating external webhook receivers.": "已儲存 cron 任務的全域排程器設定，包含執行並行、投遞回退以及執行工作階段保留。除非你正在擴大任務規模或整合外部 webhook 接收端，否則請保持預設值。",
+    "ISO timestamp of last install/update.": "最近一次安裝/更新的 ISO 時間戳。",
+    "Overrides the canonical main session key used for continuity when dmScope or routing logic points to \"main\". Use a stable value only if you intentionally need custom session anchoring.": "當 `dmScope` 或路由邏輯指向 `main` 時，覆蓋用於保持連續性的規範主工作階段鍵。僅在你確實需要自訂工作階段錨點時才使用穩定值。",
+    "Enable filesystem watching for skill-definition changes so updates can be applied without full process restart. Keep enabled in development workflows and disable in immutable production images.": "啟用對技能定義變更的檔案系統監聽，以便無需完整重啟程序即可套用更新。開發流程中建議保持啟用，在不可變生產映像中可停用。",
+    "Debounce window in milliseconds for coalescing rapid skill file changes before reload logic runs. Increase to reduce reload churn on frequent writes, or lower for faster edit feedback.": "在重載邏輯執行前，用於合併快速技能檔案變更的防抖視窗（毫秒）。頻繁寫入時可調高以減少重載抖動；若需要更快的編輯回饋則可調低。",
+    "Timeout in seconds for each video understanding request before cancellation. Use conservative values in interactive channels and longer values for offline or batch-heavy processing.": "每次影片理解請求在取消前允許的逾時時間（秒）。互動式頻道建議使用較保守的值；離線或批次處理較重時可使用更長的值。",
+    "Cache TTL in minutes for web_fetch results.": "`web_fetch` 結果的快取 TTL（分鐘）。",
+    "Timeout in seconds for Firecrawl requests.": "Firecrawl 請求的逾時時間（秒）。",
+    "Timeout in seconds for web_fetch requests.": "`web_fetch` 請求的逾時時間（秒）。",
+    "Override User-Agent header for web_fetch requests.": "為 `web_fetch` 請求覆蓋 `User-Agent` 請求頭。",
+    "Cache TTL in minutes for web_search results.": "`web_search` 結果的快取 TTL（分鐘）。",
+    "Timeout in seconds for web_search requests.": "`web_search` 請求的逾時時間（秒）。"
   },
   "configLabelReplacements": [
-    [
-      "Config Last Touched Version",
-      "設定最近修改版本"
-    ],
-    [
-      "Config Last Touched At",
-      "設定最近修改時間"
-    ],
-    [
-      "Shell Environment Import",
-      "Shell 環境匯入"
-    ],
-    [
-      "Shell Environment Import Enabled",
-      "Shell 環境匯入已啟用"
-    ],
-    [
-      "Environment Variable Overrides",
-      "環境變數覆蓋"
-    ],
-    [
-      "Wizard Last Run Timestamp",
-      "嚮導最近執行時間戳"
-    ],
-    [
-      "Wizard Last Run Version",
-      "嚮導最近執行版本"
-    ],
-    [
-      "Wizard Last Run Commit",
-      "嚮導最近執行提交"
-    ],
-    [
-      "Wizard Last Run Command",
-      "嚮導最近執行命令"
-    ],
-    [
-      "Wizard Last Run Mode",
-      "嚮導最近執行模式"
-    ],
-    [
-      "Sensitive Data Redaction Mode",
-      "敏感資料脫敏模式"
-    ],
-    [
-      "Update Check on Start",
-      "啟動時檢查更新"
-    ],
-    [
-      "OpenTelemetry Trace Sample Rate",
-      "OpenTelemetry 追蹤取樣率"
-    ],
-    [
-      "Gateway Auth Allow Tailscale Identity",
-      "閘道器認證允許 Tailscale 身分"
-    ],
-    [
-      "Gateway Trusted Proxy CIDRs",
-      "閘道器受信任代理 CIDR 列表"
-    ],
-    [
-      "Gateway HTTP Security Headers",
-      "閘道器 HTTP 安全頭"
-    ],
-    [
-      "Bedrock Model Discovery",
-      "Bedrock 模型發現"
-    ],
-    [
-      "Model Discovery",
-      "模型發現"
-    ],
-    [
-      "Discovery Provider Filter",
-      "Discovery 提供商篩選"
-    ],
-    [
-      "Provider Filter",
-      "提供商篩選"
-    ],
-    [
-      "Approvals",
-      "審批"
-    ],
-    [
-      "Approval Forwarding Targets",
-      "審批轉發目標"
-    ],
-    [
-      "DM Session Scope",
-      "DM 會話範圍"
-    ],
-    [
-      "Model providers",
-      "模型提供商"
-    ],
-    [
-      "Model provider",
-      "模型提供商"
-    ],
-    [
-      "Browser Headless Mode",
-      "瀏覽器無頭模式"
-    ],
-    [
-      "Image Understanding Max Bytes",
-      "影象理解最大位元組數"
-    ],
-    [
-      "Tool-loop Critical Threshold",
-      "工具迴圈嚴重閾值"
-    ],
-    [
-      "Exec Approval Running Notice (ms)",
-      "執行審批執行提示（毫秒）"
-    ],
-    [
-      "Approval Target Account ID",
-      "審批目標賬戶 ID"
-    ],
-    [
-      "Allow Cross-Context (Across Providers)",
-      "允許跨上下文（跨提供商）"
-    ],
-    [
-      "Allow Cross-Context (Same Provider)",
-      "允許跨上下文（同一提供商）"
-    ],
-    [
-      "Web Search Max Results",
-      "Web 搜尋最大結果數"
-    ],
-    [
-      "Gemini Search Model",
-      "Gemini 搜尋模型"
-    ],
-    [
-      "Agent ACP Working Directory",
-      "代理 ACP 工作目錄"
-    ],
-    [
-      "Agent-to-Agent Target Allowlist",
-      "代理到代理目標允許列表"
-    ],
-    [
-      "Exec Safe Bin Trusted Dirs",
-      "Exec 安全二進位制受信任目錄"
-    ],
-    [
-      "Environment Variable",
-      "環境變數"
-    ],
-    [
-      "Sensitive Data Redaction",
-      "敏感資料脫敏"
-    ],
-    [
-      "Log File Path",
-      "日誌檔案路徑"
-    ],
-    [
-      "Log Level",
-      "日誌級別"
-    ],
-    [
-      "Console Log Level",
-      "控制檯日誌級別"
-    ],
-    [
-      "Console Log Style",
-      "控制檯日誌樣式"
-    ],
-    [
-      "Auto Update",
-      "自動更新"
-    ],
-    [
-      "Cache Trace",
-      "快取追蹤"
-    ],
-    [
-      "Control UI",
-      "控制介面"
-    ],
-    [
-      "Trusted Proxy",
-      "受信任代理"
-    ],
-    [
-      "Remote Gateway",
-      "遠端閘道器"
-    ],
-    [
-      "Config Reload",
-      "設定過載"
-    ],
-    [
-      "HTTP Security Headers",
-      "HTTP 安全頭"
-    ],
-    [
-      "HTTP Endpoints",
-      "HTTP 端點"
-    ],
-    [
-      "HTTP API",
-      "HTTP API"
-    ],
-    [
-      "Certificate Path",
-      "證書路徑"
-    ],
-    [
-      "Key Path",
-      "金鑰路徑"
-    ],
-    [
-      "CA Path",
-      "CA 路徑"
-    ],
-    [
-      "No-Sandbox Mode",
-      "無沙箱模式"
-    ],
-    [
-      "Attach-only Mode",
-      "僅附加模式"
-    ],
-    [
-      "Relay Bind Address",
-      "中繼繫結地址"
-    ],
-    [
-      "Default Profile",
-      "預設設定"
-    ],
-    [
-      "Port Range Start",
-      "埠範圍起始值"
-    ],
-    [
-      "Accent Color",
-      "強調色"
-    ],
-    [
-      "Image Understanding",
-      "影象理解"
-    ],
-    [
-      "Video Understanding",
-      "影片理解"
-    ],
-    [
-      "Link Understanding",
-      "連結理解"
-    ],
-    [
-      "Max Bytes",
-      "最大位元組數"
-    ],
-    [
-      "Max Chars",
-      "最大字元數"
-    ],
-    [
-      "Attachment Policy",
-      "附件策略"
-    ],
-    [
-      "Max Links",
-      "最大連結數"
-    ],
-    [
-      "Shared Models",
-      "共享模型"
-    ],
-    [
-      "Tool Profile",
-      "工具設定檔"
-    ],
-    [
-      "Allowlist Additions",
-      "允許列表附加項"
-    ],
-    [
-      "Policy by Provider",
-      "按提供商劃分的策略"
-    ],
-    [
-      "Workspace-Only",
-      "僅工作區"
-    ],
-    [
-      "History Size",
-      "歷史大小"
-    ],
-    [
-      "Global Circuit Breaker Threshold",
-      "全域性熔斷閾值"
-    ],
-    [
-      "Repeat Detection",
-      "重複檢測"
-    ],
-    [
-      "No-Progress Detection",
-      "無進展檢測"
-    ],
-    [
-      "Ping-Pong Detection",
-      "乒乓檢測"
-    ],
-    [
-      "Session Tools Visibility",
-      "會話工具可見性"
-    ],
-    [
-      "Notify On Exit",
-      "退出時通知"
-    ],
-    [
-      "Notify On Empty Success",
-      "空成功時通知"
-    ],
-    [
-      "Running Notice",
-      "執行提示"
-    ],
-    [
-      "Exec Host",
-      "執行主機"
-    ],
-    [
-      "Exec Security",
-      "執行安全"
-    ],
-    [
-      "Exec Ask",
-      "執行詢問"
-    ],
-    [
-      "Node Binding",
-      "節點繫結"
-    ],
-    [
-      "Agent-to-Agent",
-      "代理到代理"
-    ],
-    [
-      "Target Allowlist",
-      "目標允許列表"
-    ],
-    [
-      "??????????????????????????????????????????????????????????????????????????????????????????????????????",
-      "高許可權訪問規則"
-    ],
-    [
-      "Command ??????????????????????????????????????????????????????????????????????????????????????????????????????",
-      "命令高許可權訪問規則"
-    ],
-    [
-      "Elevated Tool Access",
-      "高許可權工具訪問"
-    ],
-    [
-      "Allow Rules",
-      "允許規則"
-    ],
-    [
-      "Subagent Tool Policy",
-      "子代理工具策略"
-    ],
-    [
-      "Sandbox Tool Policy",
-      "沙箱工具策略"
-    ],
-    [
-      "PATH Prepend",
-      "PATH 前置"
-    ],
-    [
-      "Safe Bin Trusted Dirs",
-      "安全二進位制受信任目錄"
-    ],
-    [
-      "Safe Bins",
-      "安全二進位制"
-    ],
-    [
-      "Approval Forwarding",
-      "審批轉發"
-    ],
-    [
-      "Forward Exec Approvals",
-      "轉發執行審批"
-    ],
-    [
-      "Agent Filter",
-      "代理篩選"
-    ],
-    [
-      "Session Filter",
-      "會話篩選"
-    ],
-    [
-      "Account ID",
-      "賬戶 ID"
-    ],
-    [
-      "Thread ID",
-      "執行緒 ID"
-    ],
-    [
-      "Cross-Context",
-      "跨上下文"
-    ],
-    [
-      "Marker Prefix",
-      "標記字首"
-    ],
-    [
-      "Marker Suffix",
-      "標記字尾"
-    ],
-    [
-      "Message Broadcast",
-      "訊息廣播"
-    ],
-    [
-      "Web Search",
-      "Web 搜尋"
-    ],
-    [
-      "Max Results",
-      "最大結果數"
-    ],
-    [
-      "Cache TTL",
-      "快取 TTL"
-    ],
-    [
-      "Search Mode",
-      "搜尋模式"
-    ],
-    [
-      "Search Model",
-      "搜尋模型"
-    ],
-    [
-      "API Key",
-      "API 金鑰"
-    ],
-    [
-      "Working Directory",
-      "工作目錄"
-    ],
-    [
-      "Working Directory",
-      "工作目錄"
-    ],
-    [
-      "ACP Runtime",
-      "ACP 執行時"
-    ],
-    [
-      "ACP Harness Agent",
-      "ACP 宿主代理"
-    ],
-    [
-      "ACP Backend",
-      "ACP 後端"
-    ],
-    [
-      "ACP Mode",
-      "ACP 模式"
-    ],
-    [
-      "Service Name",
-      "服務名稱"
-    ],
-    [
-      "Flush Interval",
-      "重新整理間隔"
-    ],
-    [
-      "Warning Threshold",
-      "警告閾值"
-    ],
-    [
-      "Critical Threshold",
-      "嚴重閾值"
-    ],
-    [
-      "Rate Limit",
-      "速率限制"
-    ],
-    [
-      "Tailscale",
-      "Tailscale"
-    ],
-    [
-      "Allowlist",
-      "允許列表"
-    ],
-    [
-      "Denylist",
-      "拒絕列表"
-    ],
-    [
-      "Identity Avatar",
-      "身分頭像"
-    ],
-    [
-      "Skill Filter",
-      "技能過濾器"
-    ],
-    [
-      "Agent Runtime",
-      "代理執行時"
-    ],
-    [
-      "Defaults",
-      "預設值"
-    ],
-    [
-      "Enabled",
-      "已啟用"
-    ],
-    [
-      "Version",
-      "版本"
-    ],
-    [
-      "Timestamp",
-      "時間戳"
-    ],
-    [
-      "Command",
-      "命令"
-    ],
-    [
-      "Timeout",
-      "超時"
-    ],
-    [
-      "Interval",
-      "間隔"
-    ],
-    [
-      "Path",
-      "路徑"
-    ],
-    [
-      "Mode",
-      "模式"
-    ],
-    [
-      "State",
-      "狀態"
-    ],
-    [
-      "Gateway",
-      "閘道器"
-    ],
-    [
-      "Environment",
-      "環境"
-    ],
-    [
-      "Browser",
-      "瀏覽器"
-    ],
-    [
-      "Diagnostics",
-      "診斷"
-    ],
-    [
-      "Logging",
-      "日誌記錄"
-    ],
-    [
-      "Agents",
-      "代理"
-    ],
-    [
-      "Agent",
-      "代理"
-    ],
-    [
-      "Tools",
-      "工具"
-    ],
-    [
-      "Tool",
-      "工具"
-    ],
-    [
-      "Session",
-      "會話"
-    ],
-    [
-      "Approval",
-      "審批"
-    ],
-    [
-      "Target",
-      "目標"
-    ],
-    [
-      "Provider",
-      "提供商"
-    ],
-    [
-      "Headers",
-      "請求頭"
-    ],
-    [
-      "Protocol",
-      "協議"
-    ],
-    [
-      "Metrics",
-      "指標"
-    ],
-    [
-      "Traces",
-      "追蹤"
-    ],
-    [
-      "Logs",
-      "日誌"
-    ],
-    [
-      "Files",
-      "檔案"
-    ],
-    [
-      "Prompt",
-      "提示詞"
-    ],
-    [
-      "(ms)",
-      "（毫秒）"
-    ],
-    [
-      "(min)",
-      "（分鐘）"
-    ],
-    [
-      "(hours)",
-      "（小時）"
-    ],
-    [
-      "(sec)",
-      "（秒）"
-    ]
+    ["Config Last Touched Version", "設定最近修改版本"],
+    ["Config Last Touched At", "設定最近修改時間"],
+    ["Shell Environment Import", "Shell 環境匯入"],
+    ["Shell Environment Import Enabled", "Shell 環境匯入已啟用"],
+    ["Environment Variable Overrides", "環境變數覆蓋"],
+    ["Wizard Last Run Timestamp", "嚮導最近執行時間戳"],
+    ["Wizard Last Run Version", "嚮導最近執行版本"],
+    ["Wizard Last Run Commit", "嚮導最近執行提交"],
+    ["Wizard Last Run Command", "嚮導最近執行命令"],
+    ["Wizard Last Run Mode", "嚮導最近執行模式"],
+    ["Sensitive Data Redaction Mode", "敏感資料脫敏模式"],
+    ["Update Check on Start", "啟動時檢查更新"],
+    ["OpenTelemetry Trace Sample Rate", "OpenTelemetry 追蹤取樣率"],
+    ["Gateway Auth Allow Tailscale Identity", "閘道器認證允許 Tailscale 身分"],
+    ["Gateway Trusted Proxy CIDRs", "閘道器受信任代理 CIDR 列表"],
+    ["Gateway HTTP Security Headers", "閘道器 HTTP 安全頭"],
+    ["Bedrock Model Discovery", "Bedrock 模型發現"],
+    ["Model Discovery", "模型發現"],
+    ["Discovery Provider Filter", "Discovery 提供商篩選"],
+    ["Provider Filter", "提供商篩選"],
+    ["Approvals", "審批"],
+    ["Approval Forwarding Targets", "審批轉發目標"],
+    ["DM Session Scope", "DM 會話範圍"],
+    ["Model providers", "模型提供商"],
+    ["Model provider", "模型提供商"],
+    ["Browser Headless Mode", "瀏覽器無頭模式"],
+    ["Image Understanding Max Bytes", "影象理解最大位元組數"],
+    ["Tool-loop Critical Threshold", "工具迴圈嚴重閾值"],
+    ["Exec Approval Running Notice (ms)", "執行審批執行提示（毫秒）"],
+    ["Approval Target Account ID", "審批目標賬戶 ID"],
+    ["Allow Cross-Context (Across Providers)", "允許跨上下文（跨提供商）"],
+    ["Allow Cross-Context (Same Provider)", "允許跨上下文（同一提供商）"],
+    ["Web Search Max Results", "Web 搜尋最大結果數"],
+    ["Gemini Search Model", "Gemini 搜尋模型"],
+    ["Agent ACP Working Directory", "代理 ACP 工作目錄"],
+    ["Agent-to-Agent Target Allowlist", "代理到代理目標允許列表"],
+    ["Exec Safe Bin Trusted Dirs", "Exec 安全二進位制受信任目錄"],
+    ["Environment Variable", "環境變數"],
+    ["Sensitive Data Redaction", "敏感資料脫敏"],
+    ["Log File Path", "日誌檔案路徑"],
+    ["Log Level", "日誌級別"],
+    ["Console Log Level", "控制檯日誌級別"],
+    ["Console Log Style", "控制檯日誌樣式"],
+    ["Auto Update", "自動更新"],
+    ["Cache Trace", "快取追蹤"],
+    ["Control UI", "控制介面"],
+    ["Trusted Proxy", "受信任代理"],
+    ["Remote Gateway", "遠端閘道器"],
+    ["Config Reload", "設定過載"],
+    ["HTTP Security Headers", "HTTP 安全頭"],
+    ["HTTP Endpoints", "HTTP 端點"],
+    ["HTTP API", "HTTP API"],
+    ["Certificate Path", "證書路徑"],
+    ["Key Path", "金鑰路徑"],
+    ["CA Path", "CA 路徑"],
+    ["No-Sandbox Mode", "無沙箱模式"],
+    ["Attach-only Mode", "僅附加模式"],
+    ["Relay Bind Address", "中繼繫結地址"],
+    ["Default Profile", "預設設定"],
+    ["Port Range Start", "埠範圍起始值"],
+    ["Accent Color", "強調色"],
+    ["Image Understanding", "影象理解"],
+    ["Video Understanding", "影片理解"],
+    ["Link Understanding", "連結理解"],
+    ["Max Bytes", "最大位元組數"],
+    ["Max Chars", "最大字元數"],
+    ["Attachment Policy", "附件策略"],
+    ["Max Links", "最大連結數"],
+    ["Shared Models", "共享模型"],
+    ["Tool Profile", "工具設定檔"],
+    ["Allowlist Additions", "允許列表附加項"],
+    ["Policy by Provider", "按提供商劃分的策略"],
+    ["Workspace-Only", "僅工作區"],
+    ["History Size", "歷史大小"],
+    ["Global Circuit Breaker Threshold", "全域性熔斷閾值"],
+    ["Repeat Detection", "重複檢測"],
+    ["No-Progress Detection", "無進展檢測"],
+    ["Ping-Pong Detection", "乒乓檢測"],
+    ["Session Tools Visibility", "會話工具可見性"],
+    ["Notify On Exit", "退出時通知"],
+    ["Notify On Empty Success", "空成功時通知"],
+    ["Running Notice", "執行提示"],
+    ["Exec Host", "執行主機"],
+    ["Exec Security", "執行安全"],
+    ["Exec Ask", "執行詢問"],
+    ["Node Binding", "節點繫結"],
+    ["Agent-to-Agent", "代理到代理"],
+    ["Target Allowlist", "目標允許列表"],
+    ["Elevated Tool Access", "高許可權工具訪問"],
+    ["Allow Rules", "允許規則"],
+    ["Subagent Tool Policy", "子代理工具策略"],
+    ["Sandbox Tool Policy", "沙箱工具策略"],
+    ["PATH Prepend", "PATH 前置"],
+    ["Safe Bin Trusted Dirs", "安全二進位制受信任目錄"],
+    ["Safe Bins", "安全二進位制"],
+    ["Approval Forwarding", "審批轉發"],
+    ["Forward Exec Approvals", "轉發執行審批"],
+    ["Agent Filter", "代理篩選"],
+    ["Session Filter", "會話篩選"],
+    ["Account ID", "賬戶 ID"],
+    ["Thread ID", "執行緒 ID"],
+    ["Cross-Context", "跨上下文"],
+    ["Marker Prefix", "標記字首"],
+    ["Marker Suffix", "標記字尾"],
+    ["Message Broadcast", "訊息廣播"],
+    ["Web Search", "Web 搜尋"],
+    ["Max Results", "最大結果數"],
+    ["Cache TTL", "快取 TTL"],
+    ["Search Mode", "搜尋模式"],
+    ["Search Model", "搜尋模型"],
+    ["API Key", "API 金鑰"],
+    ["Working Directory", "工作目錄"],
+    ["ACP Runtime", "ACP 執行時"],
+    ["ACP Harness Agent", "ACP 宿主代理"],
+    ["ACP Backend", "ACP 後端"],
+    ["ACP Mode", "ACP 模式"],
+    ["Service Name", "服務名稱"],
+    ["Flush Interval", "重新整理間隔"],
+    ["Warning Threshold", "警告閾值"],
+    ["Critical Threshold", "嚴重閾值"],
+    ["Rate Limit", "速率限制"],
+    ["Tailscale", "Tailscale"],
+    ["Allowlist", "允許列表"],
+    ["Denylist", "拒絕列表"],
+    ["Identity Avatar", "身分頭像"],
+    ["Skill Filter", "技能過濾器"],
+    ["Agent Runtime", "代理執行時"],
+    ["Defaults", "預設值"],
+    ["Enabled", "已啟用"],
+    ["Version", "版本"],
+    ["Timestamp", "時間戳"],
+    ["Command", "命令"],
+    ["Timeout", "超時"],
+    ["Interval", "間隔"],
+    ["Path", "路徑"],
+    ["Mode", "模式"],
+    ["State", "狀態"],
+    ["Gateway", "閘道器"],
+    ["Environment", "環境"],
+    ["Browser", "瀏覽器"],
+    ["Diagnostics", "診斷"],
+    ["Logging", "日誌記錄"],
+    ["Agents", "代理"],
+    ["Agent", "代理"],
+    ["Tools", "工具"],
+    ["Tool", "工具"],
+    ["Session", "會話"],
+    ["Approval", "審批"],
+    ["Target", "目標"],
+    ["Provider", "提供商"],
+    ["Headers", "請求頭"],
+    ["Protocol", "協議"],
+    ["Metrics", "指標"],
+    ["Traces", "追蹤"],
+    ["Logs", "日誌"],
+    ["Files", "檔案"],
+    ["Prompt", "提示詞"],
+    ["(ms)", "（毫秒）"],
+    ["(min)", "（分鐘）"],
+    ["(hours)", "（小時）"],
+    ["(sec)", "（秒）"]
   ]
 }
