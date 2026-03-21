@@ -17,6 +17,8 @@
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
+> 안내: 이 문서는 AI 대규모 언어 모델로 번역되었으며 아직 사람이 직접 교정하지 않았습니다. 일부 표현이 어색하거나 부정확할 수 있는 점 양해 부탁드립니다.
+
 ## 미리보기
 
 <table>

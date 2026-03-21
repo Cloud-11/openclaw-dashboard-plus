@@ -17,6 +17,8 @@
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
+> ملاحظة: تمت ترجمة هذه الوثيقة باستخدام نموذج لغوي كبير بالذكاء الاصطناعي، ولم تُراجع يدويًا بعد. نعتذر إذا كانت بعض العبارات غير دقيقة أو غير طبيعية.
+
 ## معاينة
 
 <table>

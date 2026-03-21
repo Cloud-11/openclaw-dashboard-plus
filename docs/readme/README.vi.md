@@ -17,6 +17,8 @@
 
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
+> Lưu ý: Tài liệu này được dịch bằng mô hình ngôn ngữ lớn AI và vẫn chưa được hiệu đính thủ công. Rất xin lỗi nếu còn một số cách diễn đạt chưa thật tự nhiên hoặc chính xác.
+
 ## Xem Truoc
 
 <table>
