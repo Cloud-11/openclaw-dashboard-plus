@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "OpenClaw Dashboard Plus",
-  "description": "OpenClaw Dashboard enhancement extension plugin. Supports 简体中文, English, 繁體中文, 日本語, 한국어, Français, Español, Русский, Deutsch, Tiếng Việt, Filipino, العربية.",
+  "description": "OpenClaw Dashboard enhancement extension plugin. Supports 简体中文, English, 繁體中文, 日本語, 한국어, Français, Español, Русский, Deutsch, Svenska, Tiếng Việt, Filipino, العربية.",
   "version": "0.3.2",
   "compatibility": {
     "openclaw": "2026.3.2+"
@@ -89,24 +89,31 @@
       "default": false
     },
     {
+      "code": "sv",
+      "label": "Swedish",
+      "nativeLabel": "Svenska",
+      "builtin": true,
+      "default": false
+    },
+    {
       "code": "vi",
       "label": "Vietnamese",
       "nativeLabel": "Tiếng Việt",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "fil",
       "label": "Filipino",
       "nativeLabel": "Filipino",
-      "builtin": false,
+      "builtin": true,
       "default": false
     },
     {
       "code": "ar",
       "label": "Arabic",
       "nativeLabel": "العربية",
-      "builtin": false,
+      "builtin": true,
       "default": false
     }
   ],
@@ -175,6 +182,13 @@
       "default": false
     },
     {
+      "code": "sv",
+      "label": "Swedish",
+      "nativeLabel": "Svenska",
+      "builtin": true,
+      "default": false
+    },
+    {
       "code": "vi",
       "label": "Vietnamese",
       "nativeLabel": "Tiếng Việt",
@@ -202,15 +216,16 @@
       "zh-CN": "builtin-0.3.0",
       "en": "builtin-0.3.0",
       "zh-TW": "builtin-0.3.0",
-      "ja": "0.0.1",
-      "ko": "0.0.1",
-      "fr": "0.0.1",
-      "es": "0.0.1",
-      "ru": "0.0.1",
-      "de": "0.0.1",
-      "vi": "0.0.1",
-      "fil": "0.0.1",
-      "ar": "0.0.1"
+      "ja": "builtin-0.3.0",
+      "ko": "builtin-0.3.0",
+      "fr": "builtin-0.3.0",
+      "es": "builtin-0.3.0",
+      "ru": "builtin-0.3.0",
+      "de": "builtin-0.3.0",
+      "sv": "builtin-0.3.0",
+      "vi": "builtin-0.3.0",
+      "fil": "builtin-0.3.0",
+      "ar": "builtin-0.3.0"
     }
   },
   "themeBundle": {

@@ -15,7 +15,7 @@
 
 > Remarque : le développeur ne maîtrise pas le français. Ce document a été généré avec l'aide d'un modèle IA et peut contenir des formulations imparfaites.
 
-[English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+[English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Svenska](./README.sv.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
 > Remarque : Ce document a été traduit à l'aide d'un grand modèle de langage d'IA et n'a pas encore été relu manuellement. Veuillez nous excuser si certaines formulations restent peu naturelles ou imprécises.
 

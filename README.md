@@ -13,7 +13,7 @@
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
 </p>
 
-[English](./README.md) | [简体中文](./docs/readme/README.zh-CN.md) | [繁體中文](./docs/readme/README.zh-TW.md) | [日本語](./docs/readme/README.ja.md) | [한국어](./docs/readme/README.ko.md) | [Français](./docs/readme/README.fr.md) | [Español](./docs/readme/README.es.md) | [Русский](./docs/readme/README.ru.md) | [Deutsch](./docs/readme/README.de.md) | [Tiếng Việt](./docs/readme/README.vi.md) | [Filipino](./docs/readme/README.fil.md) | [العربية](./docs/readme/README.ar.md)
+[English](./README.md) | [简体中文](./docs/readme/README.zh-CN.md) | [繁體中文](./docs/readme/README.zh-TW.md) | [日本語](./docs/readme/README.ja.md) | [한국어](./docs/readme/README.ko.md) | [Français](./docs/readme/README.fr.md) | [Español](./docs/readme/README.es.md) | [Русский](./docs/readme/README.ru.md) | [Deutsch](./docs/readme/README.de.md) | [Svenska](./docs/readme/README.sv.md) | [Tiếng Việt](./docs/readme/README.vi.md) | [Filipino](./docs/readme/README.fil.md) | [العربية](./docs/readme/README.ar.md)
 
 ## Preview
 
@@ -51,7 +51,7 @@
 
 ## Core Features
 
-- OpenClaw WebUI language packs: built-in support for `zh-CN`, `en`, `zh-TW`, `ja`, `ko`, `fr`, `es`, `ru`, `de`, `vi`, `fil`, and `ar`.
+- OpenClaw WebUI language packs: built-in support for `zh-CN`, `en`, `zh-TW`, `ja`, `ko`, `fr`, `es`, `ru`, `de`, `sv`, `vi`, `fil`, and `ar`.
 - Popup UI localization: the extension popup can also follow the user's language preference, but this is a secondary convenience feature.
 - Theme polish: switch palette presets, UI style presets, fonts, and font size from the popup.
 - UI repair toggles: enable style override, style repair, select styling repair, and code block repair independently.
@@ -136,6 +136,12 @@ The repository includes a Windows-based GitHub Actions workflow that:
 - Include screenshots when changing popup UI, OpenClaw styling, or interaction repairs.
 - Run the relevant build step before opening a PR and mention the verification result.
 - Update the English README first for user-facing behavior changes, then sync localized docs as needed.
+
+## Contributors
+
+Thanks to everyone who helps improve OpenClaw Dashboard Plus.
+
+- [@yeager](https://github.com/yeager): contributed Swedish language support for the project.
 
 ## License
 

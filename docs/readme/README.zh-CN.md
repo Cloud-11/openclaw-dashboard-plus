@@ -13,7 +13,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/Cloud-11/openclaw-dashboard-plus" alt="License"></a>
 </p>
 
-[English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
+[English](../../README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Français](./README.fr.md) | [Español](./README.es.md) | [Русский](./README.ru.md) | [Deutsch](./README.de.md) | [Svenska](./README.sv.md) | [Tiếng Việt](./README.vi.md) | [Filipino](./README.fil.md) | [العربية](./README.ar.md)
 
 ## 效果预览
 
@@ -51,7 +51,7 @@
 
 ## 核心功能
 
-- OpenClaw WebUI 多语言：内置支持 `zh-CN`、`en`、`zh-TW`、`ja`、`ko`、`fr`、`es`、`ru`、`de`、`vi`、`fil`、`ar`。
+- OpenClaw WebUI 多语言：内置支持 `zh-CN`、`en`、`zh-TW`、`ja`、`ko`、`fr`、`es`、`ru`、`de`、`sv`、`vi`、`fil`、`ar`。
 - 主题增强：支持切换配色方案、UI 风格预设、字体和字体大小。
 - UI 修复：支持独立开启样式覆盖、样式修补、下拉框样式修复、代码块样式修补。
 - 对话进度快捷跳转：在长聊天页面中快速跳到不同段落。
@@ -135,6 +135,12 @@
 - 涉及弹窗 UI、OpenClaw 页面样式或交互修复时，建议在 PR 中附上截图。
 - 提交前请运行对应构建命令，并在 PR 描述里写明验证结果。
 - 用户可见行为变化时，优先更新英文主 README，再按需同步本地化文档。
+
+## 贡献者感谢
+
+感谢所有帮助完善 OpenClaw Dashboard Plus 的贡献者。
+
+- [@yeager](https://github.com/yeager)：为项目贡献了瑞典语支持。
 
 ## 许可证
 
