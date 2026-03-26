@@ -3,6 +3,7 @@
   "use strict";
 
   const EXACT_TRANSLATIONS = new Map();
+  const DYNAMIC_TRANSLATIONS = new Map();
 
   const ATTRIBUTE_NAMES = new Set(["title", "aria-label", "placeholder"]);
   const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "TEXTAREA", "PRE", "CODE"]);
@@ -22,6 +23,7 @@
   }
   refreshOrderedConfigLabelReplacements();
   const BASE_EXACT_TRANSLATIONS = new Map(EXACT_TRANSLATIONS);
+  const BASE_DYNAMIC_TRANSLATIONS = new Map(DYNAMIC_TRANSLATIONS);
   const BASE_CONFIG_HELP_TRANSLATIONS = new Map(CONFIG_HELP_TRANSLATIONS);
   const BASE_CONFIG_LABEL_REPLACEMENTS = CONFIG_LABEL_REPLACEMENTS.map(([source, target]) => [
     source,
@@ -34,6 +36,16 @@
     ".chat-tool-card__preview",
     ".code-block",
   ];
+  const COMPOSITE_TEXT_SELECTORS = [
+    ".card-sub",
+    ".cfg-field__help",
+    ".cfg-field__error",
+    ".usage-mosaic-sub",
+  ];
+
+  function matchesCompositeTextSelector(element) {
+    return COMPOSITE_TEXT_SELECTORS.some((selector) => element?.matches?.(selector));
+  }
 
   function normalizeWhitespace(input) {
     return String(input).replace(/\s+/g, " ").trim();
@@ -43,119 +55,386 @@
     return EXACT_TRANSLATIONS.get(normalizeWhitespace(input)) ?? null;
   }
 
-  function translateDynamic(input) {
-    const patterns = [
-      [/^Last refresh:\s*(.+)$/i, (_, rest) => `上次刷新：${translateText(rest)}`],
-      [/^Workspace:\s*(.+)$/i, (_, rest) => `工作区：${rest}`],
-      [/^Subagent:\s*(.+)$/i, (_, rest) => `子代理：${rest}`],
-      [/^Cron Job:\s*(.+)$/i, (_, rest) => `定时任务：${rest}`],
-      [/^Cron:\s*(.+)$/i, (_, rest) => `定时任务：${rest}`],
-      [/^Days:\s*(.+)$/i, (_, rest) => `天：${translateText(rest)}`],
-      [/^Hours:\s*(.+)$/i, (_, rest) => `小时：${translateText(rest)}`],
-      [/^Session:\s*(.+)$/i, (_, rest) => `会话：${rest}`],
-      [/^Store:\s*(.+)$/i, (_, rest) => `存储：${rest}`],
-      [/^File:\s*(.+)$/i, (_, rest) => `文件：${rest}`],
-      [/^Last used:\s*(.+)$/i, (_, rest) => `上次使用：${translateText(rest)}`],
-      [/^Last input\s+(.+)$/i, (_, rest) => `最近输入 ${rest}`],
-      [/^Reason\s+(.+)$/i, (_, rest) => `原因 ${rest}`],
-      [/^role:\s*(.+)$/i, (_, rest) => `角色：${rest}`],
-      [/^roles:\s*(.+)$/i, (_, rest) => `角色：${rest}`],
-      [/^scopes:\s*(.+)$/i, (_, rest) => `范围：${rest}`],
-      [/^(\d+)\s+scopes$/i, (_, count) => `${count} 个范围`],
-      [/^Tokens:\s*none$/i, () => "令牌：无"],
-      [/^uses default \((.+)\)$/i, (_, rest) => `使用默认（${String(rest).toLowerCase() === "any" ? "任意" : rest}）`],
-      [/^Using default \((.+)\)\.$/i, (_, rest) => `使用默认值（${String(rest).toLowerCase() === "on" ? "开启" : String(rest).toLowerCase() === "off" ? "关闭" : rest}）。`],
-      [/^Override \((.+)\)\.$/i, (_, rest) => `覆盖（${String(rest).toLowerCase() === "on" ? "开启" : String(rest).toLowerCase() === "off" ? "关闭" : rest}）。`],
-      [/^Default:\s*(.+)\.$/i, (_, rest) => `默认值：${rest}。`],
-      [/^override:\s*(.+)$/i, (_, rest) => `覆盖：${rest}`],
-      [/^requested\s+(.+)\s+·\s+repair$/i, (_, rest) => `请求于 ${rest} · 修复`],
-      [/^(\d+)\s+configured\.$/i, (_, count) => `已配置 ${count} 个。`],
-      [/^(\d+)\s+unsaved changes$/i, (_, count) => `${count} 项未保存更改`],
-      [/^View\s+(\d+)\s+pending changes$/i, (_, count) => `查看 ${count} 项待应用更改`],
-      [/^Inherit default \((.+)\)$/i, (_, rest) => `继承默认值（${rest}）`],
-      [/^(\d+)\s+days$/i, (_, count) => `${count} 天`],
-      [/^(\d+)\s+hours$/i, (_, count) => `${count} 小时`],
-      [/^(\d+)\s+msgs$/i, (_, count) => `${count} 条消息`],
-      [/^(\d+)\s+calls$/i, (_, count) => `${count} 次调用`],
-      [/^(\d+)\s+tools$/i, (_, count) => `${count} 个工具`],
-      [/^(\d+)\s+tool results$/i, (_, count) => `${count} 个工具结果`],
-      [/^(\d+)\s+tools used$/i, (_, count) => `已使用 ${count} 个工具`],
-      [/^(\d+)\s+user\s+·\s+(\d+)\s+assistant$/i, (_, user, assistant) => {
-        return `${user} 条用户消息 · ${assistant} 条助手消息`;
-      }],
-      [/^Across\s+(\d+)\s+messages$/i, (_, count) => `共 ${count} 条消息`],
-      [/^of\s+(\d+)\s+in range$/i, (_, count) => `范围内共 ${count} 个`],
-      [/^(.+)\s+total$/i, (_, value) => `总计 ${value}`],
-      [/^(.+)\s+cached\s+·\s+(.+)\s+prompt$/i, (_, cached, prompt) => {
-        return `${cached} 已缓存 · ${prompt} 提示词`;
-      }],
-      [/^(\d+)\s+errors\s+·\s+(.+)\s+avg session$/i, (_, errors, avgSession) => {
-        return `${errors} 个错误 · 平均会话 ${avgSession}`;
-      }],
-      [/^(\d+)\s+errors\s+·\s+(\d+)\s+msgs\s+·\s+(.+)$/i, (_, errors, msgs, rest) => {
-        return `${errors} 个错误 · ${msgs} 条消息 · ${rest}`;
-      }],
-      [/^(.+)\s+·\s+(\d+)\s+msgs$/i, (_, left, count) => {
-        return `${translateText(left)} · ${count} 条消息`;
-      }],
-      [/^Color mode:\s*(.+)$/i, (_, rest) => `颜色模式：${translateText(rest)}`],
-      [/^JSON\s+·\s+(\d+)\s+lines$/i, (_, count) => `JSON · ${count} 行`],
-      [/^At\s+(.+)$/i, (_, rest) => `在 ${rest}`],
-      [/^Every\s+(.+)$/i, (_, rest) => `每 ${rest}`],
-      [/^(\d+)\s+shown$/i, (_, count) => `显示 ${count} 项`],
-      [/^(\d+)\/(\d+)\s+enabled\.$/i, (_, enabled, total) => `已启用 ${enabled}/${total} 项。`],
-      [/^(\d+)\s+shown · (\d+)\s+total$/i, (_, shown, total) => `显示 ${shown} 项 · 共 ${total} 项`],
-      [/^(\d+)\s+of\s+(\d+)\s+sessions match$/i, (_, matched, total) => `匹配 ${matched} / ${total} 个会话`],
-      [/^(\d+)\s+of\s+(\d+)\s+\(timeline filtered\)$/i, (_, shown, total) => `${shown} / ${total}（时间线已筛选）`],
-      [/^(\d+)\s+sessions in range$/i, (_, total) => `范围内有 ${total} 个会话`],
-      [/^(\d+)\s+critical$/i, (_, total) => `${total} 个严重问题`],
-      [/^(\d+)\s+warnings$/i, (_, total) => `${total} 条警告`],
-      [/^(\d+)\s+info$/i, (_, total) => `${total} 条信息`],
-      [/^(.+)\s+avg$/i, (_, value) => `平均 ${value}`],
-      [/^(\d+)\s+errors$/i, (_, count) => `${count} 个错误`],
-      [/^Export\s+filtered$/i, () => "导出已筛选内容"],
-      [/^Export\s+visible$/i, () => "导出可见内容"],
-      [/^Log output truncated; showing latest chunk\.$/i, () => "日志输出已截断；当前显示最新一段。"],
-      [/^Total:\s*(.+)$/i, (_, rest) => `总计：${rest}`],
-      [/^Missing:\s*(.+)$/i, (_, rest) => `缺失：${rest}`],
-      [/^Reason:\s*(.+)$/i, (_, rest) => `原因：${rest}`],
-      [/^Security audit:\s*(.+)\.\s+Run\s+openclaw security audit --deep for details\.$/i, (_, rest) => {
-        const translatedRest = String(rest)
+  function interpolateTemplate(template, values = {}) {
+    return String(template).replace(/\{(\w+)\}/g, (_, key) => {
+      if (Object.prototype.hasOwnProperty.call(values, key)) {
+        return String(values[key] ?? "");
+      }
+      return `{${key}}`;
+    });
+  }
+
+  function renderDynamicTemplate(key, values = {}) {
+    const template = DYNAMIC_TRANSLATIONS.get(key);
+    if (typeof template !== "string") {
+      return null;
+    }
+    return interpolateTemplate(template, values);
+  }
+
+  function translateDynamicEnumValue(value) {
+    const original = String(value);
+    const normalized = original.trim().toLowerCase();
+    if (!normalized) {
+      return original;
+    }
+    return DYNAMIC_TRANSLATIONS.get(`enum.${normalized}`) ?? original;
+  }
+
+  const DYNAMIC_TRANSLATION_RULES = [
+    {
+      pattern: /^Last refresh:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("lastRefresh", { value: translateText(rest) }),
+    },
+    {
+      pattern: /^Workspace:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("workspace", { value: rest }),
+    },
+    {
+      pattern: /^Subagent:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("subagent", { value: rest }),
+    },
+    {
+      pattern: /^Cron Job:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("cronJob", { value: rest }),
+    },
+    {
+      pattern: /^Cron:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("cronJob", { value: rest }),
+    },
+    {
+      pattern: /^Days:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("daysLabel", { value: translateText(rest) }),
+    },
+    {
+      pattern: /^Hours:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("hoursLabel", { value: translateText(rest) }),
+    },
+    {
+      pattern: /^Session:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("session", { value: rest }),
+    },
+    {
+      pattern: /^Store:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("store", { value: rest }),
+    },
+    {
+      pattern: /^File:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("file", { value: rest }),
+    },
+    {
+      pattern: /^Last used:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("lastUsed", { value: translateText(rest) }),
+    },
+    {
+      pattern: /^Last input\s+(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("lastInput", { value: rest }),
+    },
+    {
+      pattern: /^Reason\s+(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("reasonInline", { value: rest }),
+    },
+    {
+      pattern: /^role:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("role", { value: rest }),
+    },
+    {
+      pattern: /^roles:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("roles", { value: rest }),
+    },
+    {
+      pattern: /^scopes:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("scopes", { value: rest }),
+    },
+    {
+      pattern: /^(\d+)\s+scopes$/i,
+      render: ([, count]) => renderDynamicTemplate("scopesCount", { count }),
+    },
+    {
+      pattern: /^Tokens:\s*none$/i,
+      render: () => renderDynamicTemplate("tokensNone"),
+    },
+    {
+      pattern: /^Default\s+\((.+)\)$/i,
+      render: ([, rest]) =>
+        renderDynamicTemplate("defaultValue", { value: translateDynamicEnumValue(rest) }),
+    },
+    {
+      pattern: /^uses default \((.+)\)$/i,
+      render: ([, rest]) =>
+        renderDynamicTemplate("usesDefault", { value: translateDynamicEnumValue(rest) }),
+    },
+    {
+      pattern: /^Using default \((.+)\)\.$/i,
+      render: ([, rest]) =>
+        renderDynamicTemplate("usingDefault", { value: translateDynamicEnumValue(rest) }),
+    },
+    {
+      pattern: /^Override \((.+)\)\.$/i,
+      render: ([, rest]) =>
+        renderDynamicTemplate("overrideSentence", { value: translateDynamicEnumValue(rest) }),
+    },
+    {
+      pattern: /^Default:\s*(.+)\.$/i,
+      render: ([, rest]) => renderDynamicTemplate("defaultSentence", { value: rest }),
+    },
+    {
+      pattern: /^override:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("overrideLabel", { value: rest }),
+    },
+    {
+      pattern: /^requested\s+(.+)\s+·\s+repair$/i,
+      render: ([, rest]) => renderDynamicTemplate("requestedRepair", { value: rest }),
+    },
+    {
+      pattern: /^(\d+)\s+configured\.$/i,
+      render: ([, count]) => renderDynamicTemplate("configuredCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+unsaved changes$/i,
+      render: ([, count]) => renderDynamicTemplate("unsavedChanges", { count }),
+    },
+    {
+      pattern: /^View\s+(\d+)\s+pending changes$/i,
+      render: ([, count]) => renderDynamicTemplate("viewPendingChanges", { count }),
+    },
+    {
+      pattern: /^Inherit default \((.+)\)$/i,
+      render: ([, rest]) => renderDynamicTemplate("inheritDefault", { value: rest }),
+    },
+    {
+      pattern: /^(\d+)\s+days$/i,
+      render: ([, count]) => renderDynamicTemplate("daysCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+hours$/i,
+      render: ([, count]) => renderDynamicTemplate("hoursCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+msgs$/i,
+      render: ([, count]) => renderDynamicTemplate("msgsCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+calls$/i,
+      render: ([, count]) => renderDynamicTemplate("callsCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+tool$/i,
+      render: ([, count]) => renderDynamicTemplate("toolCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+tools$/i,
+      render: ([, count]) => renderDynamicTemplate("toolsCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+tool results$/i,
+      render: ([, count]) => renderDynamicTemplate("toolResultsCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+tools used$/i,
+      render: ([, count]) => renderDynamicTemplate("toolsUsedCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+user\s+·\s+(\d+)\s+assistant$/i,
+      render: ([, user, assistant]) =>
+        renderDynamicTemplate("userAssistantCounts", { user, assistant }),
+    },
+    {
+      pattern: /^Across\s+(\d+)\s+messages$/i,
+      render: ([, count]) => renderDynamicTemplate("acrossMessages", { count }),
+    },
+    {
+      pattern: /^of\s+(\d+)\s+in range$/i,
+      render: ([, count]) => renderDynamicTemplate("ofInRange", { count }),
+    },
+    {
+      pattern: /^(.+)\s+total$/i,
+      render: ([, value]) => renderDynamicTemplate("valueTotal", { value }),
+    },
+    {
+      pattern: /^(.+)\s+cached\s+·\s+(.+)\s+prompt$/i,
+      render: ([, cached, prompt]) => renderDynamicTemplate("cachedPrompt", { cached, prompt }),
+    },
+    {
+      pattern: /^(\d+)\s+errors\s+·\s+(.+)\s+avg session$/i,
+      render: ([, errors, avgSession]) =>
+        renderDynamicTemplate("errorsAvgSession", { errors, avgSession }),
+    },
+    {
+      pattern: /^(\d+)\s+errors\s+·\s+(\d+)\s+msgs\s+·\s+(.+)$/i,
+      render: ([, errors, msgs, rest]) =>
+        renderDynamicTemplate("errorsMsgsRest", { errors, msgs, rest }),
+    },
+    {
+      pattern: /^(.+)\s+·\s+(\d+)\s+msgs$/i,
+      render: ([, left, count]) =>
+        renderDynamicTemplate("leftMsgs", { left: translateText(left), count }),
+    },
+    {
+      pattern: /^Color mode:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("colorMode", { value: translateText(rest) }),
+    },
+    {
+      pattern: /^Search or jump to\.\.\.\s+\((.+)\)$/i,
+      render: ([, shortcut]) => renderDynamicTemplate("searchOrJump", { shortcut }),
+    },
+    {
+      pattern: /^\(running v(.+)\)\.$/i,
+      render: ([, version]) => renderDynamicTemplate("runningVersion", { version }),
+    },
+    {
+      pattern: /^JSON\s+·\s+(\d+)\s+lines$/i,
+      render: ([, count]) => renderDynamicTemplate("jsonLines", { count }),
+    },
+    {
+      pattern: /^Array\s+\((\d+)\s+items\)$/i,
+      render: ([, count]) => renderDynamicTemplate("arrayItems", { count }),
+    },
+    {
+      pattern: /^Object\s+\((\d+)\s+keys\)$/i,
+      render: ([, count]) => renderDynamicTemplate("objectKeys", { count }),
+    },
+    {
+      pattern: /^At\s+(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("atValue", { value: rest }),
+    },
+    {
+      pattern: /^Every\s+(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("everyValue", { value: rest }),
+    },
+    {
+      pattern: /^(\d+)\s+shown$/i,
+      render: ([, count]) => renderDynamicTemplate("shownCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\/(\d+)\s+enabled\.$/i,
+      render: ([, enabled, total]) => renderDynamicTemplate("enabledFraction", { enabled, total }),
+    },
+    {
+      pattern: /^(\d+)\s+shown · (\d+)\s+total$/i,
+      render: ([, shown, total]) => renderDynamicTemplate("shownTotal", { shown, total }),
+    },
+    {
+      pattern: /^(\d+)\s+of\s+(\d+)\s+sessions match$/i,
+      render: ([, matched, total]) => renderDynamicTemplate("sessionsMatch", { matched, total }),
+    },
+    {
+      pattern: /^(\d+)\s+of\s+(\d+)\s+\(timeline filtered\)$/i,
+      render: ([, shown, total]) => renderDynamicTemplate("timelineFiltered", { shown, total }),
+    },
+    {
+      pattern: /^(\d+)\s+sessions in range$/i,
+      render: ([, total]) => renderDynamicTemplate("sessionsInRange", { total }),
+    },
+    {
+      pattern: /^(\d+)\s+critical$/i,
+      render: ([, count]) => renderDynamicTemplate("criticalCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+warnings$/i,
+      render: ([, count]) => renderDynamicTemplate("warningsCount", { count }),
+    },
+    {
+      pattern: /^(\d+)\s+info$/i,
+      render: ([, count]) => renderDynamicTemplate("infoCount", { count }),
+    },
+    {
+      pattern: /^(.+)\s+avg$/i,
+      render: ([, value]) => renderDynamicTemplate("avgValue", { value }),
+    },
+    {
+      pattern: /^(\d+)\s+errors$/i,
+      render: ([, count]) => renderDynamicTemplate("errorsCount", { count }),
+    },
+    {
+      pattern: /^Export\s+filtered$/i,
+      render: () => renderDynamicTemplate("exportFiltered"),
+    },
+    {
+      pattern: /^Export\s+visible$/i,
+      render: () => renderDynamicTemplate("exportVisible"),
+    },
+    {
+      pattern: /^Log output truncated; showing latest chunk\.$/i,
+      render: () => renderDynamicTemplate("logOutputTruncated"),
+    },
+    {
+      pattern: /^Total:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("totalLabel", { value: rest }),
+    },
+    {
+      pattern: /^Missing:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("missingLabel", { value: rest }),
+    },
+    {
+      pattern: /^Reason:\s*(.+)$/i,
+      render: ([, rest]) => renderDynamicTemplate("reasonLabel", { value: rest }),
+    },
+    {
+      pattern: /^Security audit:\s*(.+)\.\s+Run\s+openclaw security audit --deep for details\.$/i,
+      render: ([, rest]) => {
+        const value = String(rest)
           .split(" · ")
           .map((part) => translateText(part))
           .join(" · ");
-        return `安全审计：${translatedRest}。运行 openclaw security audit --deep 查看详情。`;
-      }],
-      [/^\+(\d+)\s+more$/i, (_, count) => `另有 ${count} 项`],
-      [/^Message\s+(.+)\s+\(Enter to send\)$/i, (_, target) => {
-        return `向 ${target} 发送消息（回车发送）`;
-      }],
-      [/^(Output|Input|Cache Write|Cache Read)\s+([0-9].+)$/i, (_, label, rest) => {
-        const translatedLabel = translateText(label);
-        return `${translatedLabel} ${rest}`;
-      }],
-      [/^(Output|Input|Cache Write|Cache Read):\s*(.+)$/i, (_, label, rest) => {
-        const translatedLabel = translateText(label);
-        return `${translatedLabel}：${rest}`;
-      }],
-      [
-        /^Delete session "(.+)"\?\s+Deletes the session entry and archives its transcript\.$/i,
-        (_, sessionKey) => `要删除会话“${sessionKey}”吗？\n\n这会删除该会话条目并归档其转录记录。`,
-      ],
-      [/^Revoke token for (.+) \((.+)\)\?$/i, (_, deviceId, role) => {
-        return `要撤销 ${deviceId}（${role}）的令牌吗？`;
-      }],
-      [/^Profile update failed \((.+)\)$/i, (_, status) => `资料更新失败（${status}）`],
-      [/^Profile import failed \((.+)\)$/i, (_, status) => `资料导入失败（${status}）`],
-      [/^Profile update failed:\s*(.+)$/i, (_, message) => `资料更新失败：${message}`],
-      [/^Profile import failed:\s*(.+)$/i, (_, message) => `资料导入失败：${message}`],
-    ];
+        return renderDynamicTemplate("securityAudit", { value });
+      },
+    },
+    {
+      pattern: /^\+(\d+)\s+more$/i,
+      render: ([, count]) => renderDynamicTemplate("moreCount", { count }),
+    },
+    {
+      pattern: /^Message\s+(.+)\s+\(Enter to send\)$/i,
+      render: ([, target]) => renderDynamicTemplate("messageTargetEnterToSend", { target }),
+    },
+    {
+      pattern: /^(Output|Input|Cache Write|Cache Read)\s+([0-9].+)$/i,
+      render: ([, label, value]) =>
+        renderDynamicTemplate("metricLabelValue", { label: translateText(label), value }),
+    },
+    {
+      pattern: /^(Output|Input|Cache Write|Cache Read):\s*(.+)$/i,
+      render: ([, label, value]) =>
+        renderDynamicTemplate("metricLabelColonValue", { label: translateText(label), value }),
+    },
+    {
+      pattern: /^Delete session "(.+)"\?\s+Deletes the session entry and archives its transcript\.$/i,
+      render: ([, sessionKey]) => renderDynamicTemplate("deleteSessionConfirm", { sessionKey }),
+    },
+    {
+      pattern: /^Revoke token for (.+) \((.+)\)\?$/i,
+      render: ([, deviceId, role]) =>
+        renderDynamicTemplate("revokeTokenConfirm", { deviceId, role }),
+    },
+    {
+      pattern: /^Profile update failed \((.+)\)$/i,
+      render: ([, status]) => renderDynamicTemplate("profileUpdateFailedStatus", { status }),
+    },
+    {
+      pattern: /^Profile import failed \((.+)\)$/i,
+      render: ([, status]) => renderDynamicTemplate("profileImportFailedStatus", { status }),
+    },
+    {
+      pattern: /^Profile update failed:\s*(.+)$/i,
+      render: ([, message]) => renderDynamicTemplate("profileUpdateFailedMessage", { message }),
+    },
+    {
+      pattern: /^Profile import failed:\s*(.+)$/i,
+      render: ([, message]) => renderDynamicTemplate("profileImportFailedMessage", { message }),
+    },
+  ];
 
-    for (const [pattern, replacer] of patterns) {
-      if (!pattern.test(input)) {
+  function translateDynamic(input) {
+    for (const rule of DYNAMIC_TRANSLATION_RULES) {
+      const match = input.match(rule.pattern);
+      if (!match) {
         continue;
       }
-      return input.replace(pattern, replacer);
+      const translated = rule.render(match);
+      if (typeof translated === "string") {
+        return translated;
+      }
     }
     return null;
   }
@@ -243,23 +522,94 @@
     return `${leading}${translated}${trailing}`;
   }
 
+  function normalizeCompositeSourceText(input) {
+    return normalizeWhitespace(input)
+      .replace(/\s+([,.;:!?])/g, "$1")
+      .replace(/([([{])\s+/g, "$1")
+      .replace(/\s+([)\]}])/g, "$1");
+  }
+
+  function shouldTranslateAsComposite(element) {
+    const childNodes = Array.from(element?.childNodes ?? []);
+    if (childNodes.length < 2) {
+      return false;
+    }
+
+    let directTextCount = 0;
+    let hasDirectElement = false;
+    let hasCommentNode = false;
+    for (const child of childNodes) {
+      if (child.nodeType === Node.TEXT_NODE && normalizeWhitespace(child.nodeValue ?? "")) {
+        directTextCount += 1;
+      }
+      if (child.nodeType === Node.ELEMENT_NODE && normalizeWhitespace(child.textContent ?? "")) {
+        hasDirectElement = true;
+      }
+      if (child.nodeType === Node.COMMENT_NODE) {
+        hasCommentNode = true;
+      }
+    }
+
+    if (matchesCompositeTextSelector(element)) {
+      return directTextCount >= 2 || (directTextCount >= 1 && hasDirectElement);
+    }
+
+    return (directTextCount >= 1 && hasDirectElement) || (directTextCount >= 1 && hasCommentNode);
+  }
+
+  function hasStructuredCompositeTranslation(element) {
+    if (!element || shouldSkipElement(element) || !shouldTranslateAsComposite(element)) {
+      return false;
+    }
+
+    const childNodes = Array.from(element.childNodes ?? []);
+    const sourceParts = [];
+
+    for (const child of childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        sourceParts.push(getTrackedTextNodeSource(child));
+        continue;
+      }
+
+      if (child.nodeType === Node.ELEMENT_NODE) {
+        sourceParts.push(String(child.textContent ?? ""));
+      }
+    }
+
+    const combinedSource = normalizeCompositeSourceText(sourceParts.join(""));
+    if (!combinedSource) {
+      return false;
+    }
+
+    const combinedTranslation = translateStructuredText(combinedSource);
+    return Boolean(combinedTranslation && combinedTranslation !== combinedSource);
+  }
+
+  function translateStructuredText(input) {
+    const exact = translateExact(input);
+    if (exact) {
+      return exact;
+    }
+    const dynamic = translateDynamic(input);
+    if (dynamic) {
+      return dynamic;
+    }
+    const configHelp = translateConfigHelpText(input);
+    if (configHelp) {
+      return configHelp;
+    }
+    return null;
+  }
+
   function translateText(input) {
     const original = String(input);
     const trimmed = normalizeWhitespace(original);
     if (!trimmed) {
       return original;
     }
-    const exact = translateExact(trimmed);
-    if (exact) {
-      return preserveEdgeWhitespace(original, exact);
-    }
-    const dynamic = translateDynamic(trimmed);
-    if (dynamic) {
-      return preserveEdgeWhitespace(original, dynamic);
-    }
-    const configHelp = translateConfigHelpText(trimmed);
-    if (configHelp) {
-      return preserveEdgeWhitespace(original, configHelp);
+    const structured = translateStructuredText(trimmed);
+    if (structured) {
+      return preserveEdgeWhitespace(original, structured);
     }
     if (looksLikeConfigHelpText(trimmed)) {
       return original;
@@ -306,6 +656,14 @@
 
   function rememberTextNodeTranslation(node, source, translated) {
     textNodeTranslationMemory.set(node, { source, translated });
+  }
+
+  function getTrackedCompositeTextNodeSource(node) {
+    const currentValue = String(node?.nodeValue ?? "");
+    if (!normalizeWhitespace(currentValue)) {
+      return "";
+    }
+    return getTrackedTextNodeSource(node);
   }
 
   function getTrackedAttributeSource(element, attributeName, currentValue) {
@@ -367,12 +725,132 @@
     documentTitleTranslationMemory = { source, translated };
   }
 
+  function translateCompositeElement(element) {
+    if (!element || shouldSkipElement(element)) {
+      return false;
+    }
+    if (!shouldTranslateAsComposite(element)) {
+      return false;
+    }
+
+    const childNodes = Array.from(element.childNodes ?? []);
+    const translatedChildTokens = new Map();
+    const sourceParts = [];
+
+    for (const child of childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const source = getTrackedTextNodeSource(child);
+        sourceParts.push(source);
+        continue;
+      }
+
+      if (child.nodeType === Node.ELEMENT_NODE) {
+        const source = String(child.textContent ?? "");
+        const normalizedSource = normalizeWhitespace(source);
+        if (normalizedSource) {
+          translatedChildTokens.set(child, normalizeWhitespace(translateText(source)));
+        }
+        sourceParts.push(source);
+      }
+    }
+
+    const rawCombinedSource = sourceParts.join("");
+    const combinedSource = normalizeCompositeSourceText(rawCombinedSource);
+    if (!combinedSource) {
+      return false;
+    }
+
+    const combinedTranslation = translateStructuredText(combinedSource);
+    if (!combinedTranslation || combinedTranslation === combinedSource) {
+      return false;
+    }
+
+    if (!translatedChildTokens.size) {
+      const translatedText = preserveEdgeWhitespace(rawCombinedSource, combinedTranslation);
+      let assigned = false;
+
+      for (const child of childNodes) {
+        if (child.nodeType !== Node.TEXT_NODE) {
+          continue;
+        }
+
+        const source = getTrackedTextNodeSource(child);
+        const translated = !assigned && normalizeWhitespace(source) ? translatedText : "";
+        rememberTextNodeTranslation(child, source, translated);
+        if (child.nodeValue !== translated) {
+          child.nodeValue = translated;
+        }
+        if (!assigned && normalizeWhitespace(source)) {
+          assigned = true;
+        }
+      }
+
+      return assigned;
+    }
+
+    let cursor = 0;
+
+    for (let index = 0; index < childNodes.length; index += 1) {
+      const child = childNodes[index];
+
+      if (child.nodeType === Node.TEXT_NODE) {
+        let nextToken = "";
+        for (let lookahead = index + 1; lookahead < childNodes.length; lookahead += 1) {
+          const candidate = childNodes[lookahead];
+          if (candidate.nodeType !== Node.ELEMENT_NODE) {
+            continue;
+          }
+          nextToken = translatedChildTokens.get(candidate) ?? "";
+          if (nextToken) {
+            break;
+          }
+        }
+
+        const nextIndex = nextToken
+          ? combinedTranslation.indexOf(nextToken, cursor)
+          : combinedTranslation.length;
+        if (nextIndex < 0) {
+          return false;
+        }
+
+        const source = getTrackedTextNodeSource(child);
+        const translated = combinedTranslation.slice(cursor, nextIndex);
+        rememberTextNodeTranslation(child, source, translated);
+        if (child.nodeValue !== translated) {
+          child.nodeValue = translated;
+        }
+        cursor = nextIndex;
+        continue;
+      }
+
+      if (child.nodeType !== Node.ELEMENT_NODE) {
+        continue;
+      }
+
+      const token = translatedChildTokens.get(child) ?? "";
+      if (!token) {
+        continue;
+      }
+
+      const tokenIndex = combinedTranslation.indexOf(token, cursor);
+      if (tokenIndex < 0) {
+        return false;
+      }
+      cursor = tokenIndex + token.length;
+    }
+
+    return cursor === combinedTranslation.length;
+  }
+
   function translateTextNode(node) {
     if (!node || !node.nodeValue) {
       return;
     }
     const parent = node.parentElement;
     if (shouldSkipElement(parent)) {
+      return;
+    }
+    if (hasStructuredCompositeTranslation(parent)) {
       return;
     }
     const source = getTrackedTextNodeSource(node);
@@ -410,7 +888,17 @@
       return;
     }
     if (root.nodeType === Node.TEXT_NODE) {
+      const parent = root.parentElement;
+      if (parent) {
+        translateElementAttributes(parent);
+        if (translateCompositeElement(parent)) {
+          return;
+        }
+      }
       translateTextNode(root);
+      if (parent) {
+        translateCompositeElement(parent);
+      }
       return;
     }
     if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) {
@@ -422,9 +910,14 @@
       translateTextNode(currentNode);
       currentNode = walker.nextNode();
     }
+    if (root.nodeType === Node.ELEMENT_NODE) {
+      translateElementAttributes(root);
+      translateCompositeElement(root);
+    }
     if (root.querySelectorAll) {
       for (const element of root.querySelectorAll("*")) {
         translateElementAttributes(element);
+        translateCompositeElement(element);
       }
     }
   }
@@ -1656,6 +2149,7 @@
   function hasInlineBaseTranslations() {
     return (
       BASE_EXACT_TRANSLATIONS.size > 0 ||
+      BASE_DYNAMIC_TRANSLATIONS.size > 0 ||
       BASE_CONFIG_HELP_TRANSLATIONS.size > 0 ||
       BASE_CONFIG_LABEL_REPLACEMENTS.length > 0
     );
@@ -1667,12 +2161,17 @@
 
   function resetTranslationCollections(useBaseTranslations = false) {
     EXACT_TRANSLATIONS.clear();
+    DYNAMIC_TRANSLATIONS.clear();
     CONFIG_HELP_TRANSLATIONS.clear();
     CONFIG_LABEL_REPLACEMENTS = [];
 
     if (useBaseTranslations) {
       for (const [source, target] of BASE_EXACT_TRANSLATIONS.entries()) {
         EXACT_TRANSLATIONS.set(source, target);
+      }
+
+      for (const [source, target] of BASE_DYNAMIC_TRANSLATIONS.entries()) {
+        DYNAMIC_TRANSLATIONS.set(source, target);
       }
 
       for (const [source, target] of BASE_CONFIG_HELP_TRANSLATIONS.entries()) {
@@ -1701,6 +2200,16 @@
           continue;
         }
         EXACT_TRANSLATIONS.set(source, target);
+        changed = true;
+      }
+    }
+
+    if (bundle.dynamicTranslations && typeof bundle.dynamicTranslations === "object") {
+      for (const [source, target] of Object.entries(bundle.dynamicTranslations)) {
+        if (typeof source !== "string" || typeof target !== "string") {
+          continue;
+        }
+        DYNAMIC_TRANSLATIONS.set(source, target);
         changed = true;
       }
     }
