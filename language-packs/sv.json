@@ -281,8 +281,8 @@
     "Default security mode.": "Standardläge för säkerhet.",
     "Ask": "Fråga",
     "Default prompt policy.": "Standardpolicy för promptar.",
-    "Ask fallback": "Fråga-fallback",
-    "Applied when the UI prompt is unavailable.": "Används när UI-prompten inte är tillgänglig.",
+    "Ask fallback": "Reservfråga",
+    "Applied when the UI prompt is unavailable.": "Används när instruktionen i gränssnittet inte är tillgänglig.",
     "Auto-allow skill CLIs": "Tillåt skill-CLI automatiskt",
     "Case-insensitive glob patterns.": "Skiftlägesokänsliga glob-mönster.",
     "Add pattern": "Lägg till mönster",
@@ -663,7 +663,7 @@
     "Optional, e.g. 90": "Valfritt, t.ex. 90",
     "Optional. Leave blank to use the gateway default timeout behavior for this run.": "Valfritt. Lämna tomt för att använda gatewayns standardbeteende för timeout i den här körningen.",
     "Main timeline message": "Meddelande till huvudtidslinjen",
-    "Assistant task prompt": "Prompt för assistentuppgift",
+    "Assistant task prompt": "Instruktion för assistentuppgift",
     "Choose where run summaries are sent.": "Välj vart körsammanfattningar ska skickas.",
     "Result delivery": "Resultatleverans",
     "Announce summary (default)": "Meddela sammanfattning (standard)",
@@ -704,7 +704,7 @@
     "Clone": "Klona",
     "Run": "Kör",
     "History": "Historik",
-    "Prompt": "Prompt",
+    "Prompt": "Instruktion",
     "Next": "Nästa",
     "Last": "Sista",
     "No summary.": "Ingen sammanfattning.",
@@ -727,7 +727,7 @@
     "System event text required.": "Systemhändelsetext krävs.",
     "Agent message required.": "Agentmeddelande krävs.",
     "Name required.": "Namn krävs.",
-    "Missing operator.read scope": "Saknar scope för operator.read",
+    "Missing operator.read scope": "Saknar behörigheten operator.read",
     "Skills with missing dependencies": "Skills med saknade beroenden",
     "Files": "Filer",
     "Read file contents": "Läs filinnehåll",
@@ -1668,7 +1668,7 @@
     ],
     [
       "OpenTelemetry Trace Sample Rate",
-      "Samplingsgrad för OpenTelemetry-spår"
+      "Samplingsfrekvens för OpenTelemetry-spår"
     ],
     [
       "Gateway Auth Allow Tailscale Identity",
@@ -1740,11 +1740,11 @@
     ],
     [
       "Allow Cross-Context (Across Providers)",
-      "Tillåt korskontext (mellan leverantörer)"
+      "Tillåt mellan kontexter (mellan leverantörer)"
     ],
     [
       "Allow Cross-Context (Same Provider)",
-      "Tillåt korskontext (samma leverantör)"
+      "Tillåt mellan kontexter (samma leverantör)"
     ],
     [
       "Web Search Max Results",
@@ -1908,7 +1908,7 @@
     ],
     [
       "Workspace-Only",
-      "Endast arbetsyta"
+      "Endast i arbetsytan"
     ],
     [
       "History Size",
@@ -2068,7 +2068,7 @@
     ],
     [
       "ACP Runtime",
-      "ACP-runtime"
+      "ACP-körtid"
     ],
     [
       "ACP Harness Agent",
@@ -2124,7 +2124,7 @@
     ],
     [
       "Agent Runtime",
-      "Agent-runtime"
+      "Agentkörtid"
     ],
     [
       "Defaults",
@@ -2232,7 +2232,7 @@
     ],
     [
       "Traces",
-      "Traces"
+      "Spårningar"
     ],
     [
       "Logs",
@@ -2244,7 +2244,7 @@
     ],
     [
       "Prompt",
-      "Prompt"
+      "Instruktion"
     ],
     [
       "(ms)",
