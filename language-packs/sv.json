@@ -2108,7 +2108,7 @@
     ],
     [
       "Allowlist",
-      "Allowlist"
+      "Tillåtelselista"
     ],
     [
       "Denylist",
@@ -2148,7 +2148,7 @@
     ],
     [
       "Timeout",
-      "Timeout"
+      "Tidsgräns"
     ],
     [
       "Interval",
@@ -2208,11 +2208,11 @@
     ],
     [
       "Approval",
-      "Approval"
+      "Godkännande"
     ],
     [
       "Target",
-      "Target"
+      "Mål"
     ],
     [
       "Provider",
@@ -2224,11 +2224,11 @@
     ],
     [
       "Protocol",
-      "Protocol"
+      "Protokoll"
     ],
     [
       "Metrics",
-      "Metrics"
+      "Mätvärden"
     ],
     [
       "Traces",
@@ -2236,11 +2236,11 @@
     ],
     [
       "Logs",
-      "Logs"
+      "Loggar"
     ],
     [
       "Files",
-      "Files"
+      "Filer"
     ],
     [
       "Prompt",
