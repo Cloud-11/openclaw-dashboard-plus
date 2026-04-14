@@ -253,6 +253,10 @@ function getElements() {
     lastSync: $("last-sync"),
     refreshMeta: $("refresh-meta"),
     metaStatus: $("meta-status"),
+    openScreenRecording: $("open-screen-recording"),
+    openAccessibility: $("open-accessibility"),
+    openPeekabooHelp: $("open-peekaboo-help"),
+    peekabooStatus: $("peekaboo-status"),
     tabButtons: [...document.querySelectorAll("[data-tab]")],
     panels: [...document.querySelectorAll("[data-panel]")],
     i18nText: [...document.querySelectorAll("[data-i18n]")],
@@ -1095,7 +1099,7 @@ function applyUiTexts(elements, state) {
 }
 
 function renderStatuses(elements, state) {
-  for (const [slot, element] of [["save", elements.saveStatus], ["theme", elements.themeStatus], ["content", elements.localeStatus], ["meta", elements.metaStatus]]) {
+  for (const [slot, element] of [["save", elements.saveStatus], ["theme", elements.themeStatus], ["content", elements.localeStatus], ["meta", elements.metaStatus], ["peekaboo", elements.peekabooStatus]]) {
     const message = state.messages[slot];
     element.textContent = message ? t(state, message.key, message.params, element.textContent) : "";
     element.dataset.tone = message?.tone || "info";
@@ -1108,6 +1112,9 @@ function ensureMessages(state, metadata) {
   }
   if (!state.messages.meta) {
     setStatus(state, "meta", "meta_status_checking");
+  }
+  if (!state.messages.peekaboo) {
+    setStatus(state, "peekaboo", "peekaboo_permissions_status_hint");
   }
   if (!state.messages.theme) {
     setStatus(
@@ -1725,6 +1732,21 @@ async function clearThemeBundle(elements, state) {
   renderAll(elements, state);
 }
 
+function openExternalUrl(url) {
+  if (!url) {
+    return;
+  }
+  try {
+    if (chrome?.tabs?.create) {
+      chrome.tabs.create({ url });
+      return;
+    }
+  } catch {
+    // Fall through to window.open.
+  }
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 function bindSelects(elements, state) {
   const selects = {
     panel: {
@@ -1850,6 +1872,7 @@ async function initializePopup() {
 
   setStatus(state, "save", "save_status_loaded");
   setStatus(state, "meta", "meta_status_checking");
+  setStatus(state, "peekaboo", "peekaboo_permissions_status_hint");
   bindSelects(elements, state);
   renderAll(elements, state);
   void refreshGitHubRepoStats(elements, state);
@@ -1906,6 +1929,21 @@ async function initializePopup() {
   elements.downloadTheme.addEventListener("click", () => downloadThemeBundle(elements, state));
   elements.clearTheme.addEventListener("click", () => clearThemeBundle(elements, state));
   elements.refreshMeta.addEventListener("click", () => refreshRemoteMetadata(elements, state));
+  elements.openScreenRecording.addEventListener("click", () => {
+    openExternalUrl("x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture");
+    setStatus(state, "peekaboo", "peekaboo_permissions_status_opened", "success");
+    renderAll(elements, state);
+  });
+  elements.openAccessibility.addEventListener("click", () => {
+    openExternalUrl("x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility");
+    setStatus(state, "peekaboo", "peekaboo_permissions_status_opened", "success");
+    renderAll(elements, state);
+  });
+  elements.openPeekabooHelp.addEventListener("click", () => {
+    openExternalUrl("https://peekaboo.boo");
+    setStatus(state, "peekaboo", "peekaboo_permissions_status_help", "info");
+    renderAll(elements, state);
+  });
 
   await refreshRemoteMetadata(elements, state);
 }
