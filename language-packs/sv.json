@@ -424,7 +424,7 @@
     "Gateway Error": "Gateway-fel",
     "Tool output": "Verktygsutdata",
     "WebSocket URL": "WebSocket-URL",
-    "Webhook POST": "Webhook POST",
+    "Webhook POST": "Webhook-POST",
     "Webhook URL": "Webhook-URL",
     "Logged out.": "Utloggad.",
     "Banner URL": "Banner-URL",
@@ -506,269 +506,269 @@
     "Workspaces, tools, identities.": "Arbetsytor, verktyg och identiteter.",
     "Status, entry points, health.": "Status, ingångspunkter och hälsa.",
     "Channels and settings.": "Kanaler och inställningar.",
-    "Connected clients and nodes.": "Connected clients and nodes.",
-    "Active sessions and defaults.": "Active sessions and defaults.",
-    "API usage and costs.": "API usage and costs.",
-    "Wakeups and recurring runs.": "Wakeups and recurring runs.",
-    "Skills and API keys.": "Skills and API keys.",
-    "Paired devices and commands.": "Paired devices and commands.",
-    "Gateway chat for quick interventions.": "Gateway chat for quick interventions.",
-    "Edit openclaw.json.": "Edit openclaw.json.",
-    "Channels, messages, and audio settings.": "Channels, messages, and audio settings.",
-    "Theme, UI, and setup wizard settings.": "Theme, UI, and setup wizard settings.",
-    "Commands, hooks, cron, and plugins.": "Commands, hooks, cron, and plugins.",
-    "Gateway, web, browser, and media settings.": "Gateway, web, browser, and media settings.",
-    "Agents, models, skills, tools, memory, session.": "Agents, models, skills, tools, memory, session.",
-    "Snapshots, events, RPC.": "Snapshots, events, RPC.",
-    "Live gateway logs.": "Live gateway logs.",
-    "Gateway Access": "Gateway Access",
-    "Where the dashboard connects and how it authenticates.": "Where the dashboard connects and how it authenticates.",
-    "Gateway Token": "Gateway Token",
-    "Password (not stored)": "Password (not stored)",
-    "Default Session Key": "Default Session Key",
-    "Language": "Language",
-    "Click Connect to apply connection changes.": "Click Connect to apply connection changes.",
-    "Authenticated via trusted proxy.": "Authenticated via trusted proxy.",
-    "Snapshot": "Snapshot",
-    "Latest gateway handshake information.": "Latest gateway handshake information.",
-    "Uptime": "Uptime",
-    "Tick Interval": "Tick Interval",
-    "Last Channels Refresh": "Last Channels Refresh",
-    "Use Channels to link WhatsApp, Telegram, Discord, Signal, or iMessage.": "Use Channels to link WhatsApp, Telegram, Discord, Signal, or iMessage.",
-    "Presence beacons in the last 5 minutes.": "Presence beacons in the last 5 minutes.",
-    "Recent session keys tracked by the gateway.": "Recent session keys tracked by the gateway.",
-    "Next wake {time}": "Next wake {time}",
-    "Notes": "Notes",
-    "Quick reminders for remote control setups.": "Quick reminders for remote control setups.",
-    "Tailscale serve": "Tailscale serve",
-    "Prefer serve mode to keep the gateway on loopback with tailnet auth.": "Prefer serve mode to keep the gateway on loopback with tailnet auth.",
-    "Session hygiene": "Session hygiene",
-    "Use /new or sessions.patch to reset context.": "Use /new or sessions.patch to reset context.",
-    "Cron reminders": "Cron reminders",
-    "Use isolated sessions for recurring runs.": "Use isolated sessions for recurring runs.",
-    "This gateway requires auth. Add a token or password, then click Connect.": "This gateway requires auth. Add a token or password, then click Connect.",
-    "Auth failed. Re-copy a tokenized URL with {command}, or update the token, then click Connect.": "Auth failed. Re-copy a tokenized URL with {command}, or update the token, then click Connect.",
-    "This device needs pairing approval from the gateway host.": "This device needs pairing approval from the gateway host.",
-    "On mobile? Copy the full URL (including #token=...) from openclaw dashboard --no-open on your desktop.": "On mobile? Copy the full URL (including #token=...) from openclaw dashboard --no-open on your desktop.",
-    "This page is HTTP, so the browser blocks device identity. Use HTTPS (Tailscale Serve) or open {url} on the gateway host.": "This page is HTTP, so the browser blocks device identity. Use HTTPS (Tailscale Serve) or open {url} on the gateway host.",
-    "If you must stay on HTTP, set {config} (token-only).": "If you must stay on HTTP, set {config} (token-only).",
-    "How to connect": "How to connect",
-    "Start the gateway on your host machine:": "Start the gateway on your host machine:",
-    "Get a tokenized dashboard URL:": "Get a tokenized dashboard URL:",
-    "Paste the WebSocket URL and token above, or open the tokenized URL directly.": "Paste the WebSocket URL and token above, or open the tokenized URL directly.",
-    "Or generate a reusable token:": "Or generate a reusable token:",
-    "For remote access, Tailscale Serve is recommended. ": "For remote access, Tailscale Serve is recommended. ",
-    "Read the docs →": "Read the docs →",
-    "Recent Sessions": "Recent Sessions",
-    "Attention": "Attention",
-    "Gateway Logs": "Gateway Logs",
-    "New Session": "New Session",
-    "Refresh All": "Refresh All",
+    "Connected clients and nodes.": "Anslutna klienter och noder.",
+    "Active sessions and defaults.": "Aktiva sessioner och standardvärden.",
+    "API usage and costs.": "API-användning och kostnader.",
+    "Wakeups and recurring runs.": "Väckningar och återkommande körningar.",
+    "Skills and API keys.": "Skills och API-nycklar.",
+    "Paired devices and commands.": "Parade enheter och kommandon.",
+    "Gateway chat for quick interventions.": "Gateway-chatt för snabba ingripanden.",
+    "Edit openclaw.json.": "Redigera openclaw.json.",
+    "Channels, messages, and audio settings.": "Kanaler, meddelanden och ljudinställningar.",
+    "Theme, UI, and setup wizard settings.": "Inställningar för tema, UI och installationsguide.",
+    "Commands, hooks, cron, and plugins.": "Kommandon, hooks, cron och pluginer.",
+    "Gateway, web, browser, and media settings.": "Inställningar för gateway, webb, webbläsare och media.",
+    "Agents, models, skills, tools, memory, session.": "Agenter, modeller, skills, verktyg, minne, session.",
+    "Snapshots, events, RPC.": "Ögonblicksbilder, händelser, RPC.",
+    "Live gateway logs.": "Live-loggar från gatewayn.",
+    "Gateway Access": "Gateway-åtkomst",
+    "Where the dashboard connects and how it authenticates.": "Var dashboarden ansluter och hur den autentiserar sig.",
+    "Gateway Token": "Gateway-token",
+    "Password (not stored)": "Lösenord (sparas inte)",
+    "Default Session Key": "Standardnyckel för session",
+    "Language": "Språk",
+    "Click Connect to apply connection changes.": "Klicka på Anslut för att tillämpa anslutningsändringar.",
+    "Authenticated via trusted proxy.": "Autentiserad via betrodd proxy.",
+    "Snapshot": "Ögonblicksbild",
+    "Latest gateway handshake information.": "Senaste information om gateway-handshake.",
+    "Uptime": "Upptid",
+    "Tick Interval": "Tick-intervall",
+    "Last Channels Refresh": "Senaste kanaluppdatering",
+    "Use Channels to link WhatsApp, Telegram, Discord, Signal, or iMessage.": "Använd Kanaler för att länka WhatsApp, Telegram, Discord, Signal eller iMessage.",
+    "Presence beacons in the last 5 minutes.": "Närvarobeacons de senaste 5 minuterna.",
+    "Recent session keys tracked by the gateway.": "Senaste sessionsnycklar som spåras av gatewayn.",
+    "Next wake {time}": "Nästa väckning {time}",
+    "Notes": "Anteckningar",
+    "Quick reminders for remote control setups.": "Snabba påminnelser för fjärrstyrningsupplägg.",
+    "Tailscale serve": "Tailscale Serve",
+    "Prefer serve mode to keep the gateway on loopback with tailnet auth.": "Föredra serve-läge för att hålla gatewayn på loopback med tailnet-auth.",
+    "Session hygiene": "Sessionshygien",
+    "Use /new or sessions.patch to reset context.": "Använd /new eller sessions.patch för att återställa kontexten.",
+    "Cron reminders": "Cron-påminnelser",
+    "Use isolated sessions for recurring runs.": "Använd isolerade sessioner för återkommande körningar.",
+    "This gateway requires auth. Add a token or password, then click Connect.": "Den här gatewayn kräver auth. Lägg till token eller lösenord och klicka sedan på Anslut.",
+    "Auth failed. Re-copy a tokenized URL with {command}, or update the token, then click Connect.": "Auth misslyckades. Kopiera om en tokeniserad URL med {command}, eller uppdatera token och klicka sedan på Anslut.",
+    "This device needs pairing approval from the gateway host.": "Den här enheten behöver parningsgodkännande från gateway-värden.",
+    "On mobile? Copy the full URL (including #token=...) from openclaw dashboard --no-open on your desktop.": "På mobil? Kopiera hela URL:en (inklusive #token=...) från openclaw dashboard --no-open på din dator.",
+    "This page is HTTP, so the browser blocks device identity. Use HTTPS (Tailscale Serve) or open {url} on the gateway host.": "Den här sidan kör HTTP, så webbläsaren blockerar enhetsidentitet. Använd HTTPS (Tailscale Serve) eller öppna {url} på gateway-värden.",
+    "If you must stay on HTTP, set {config} (token-only).": "Om du måste stanna på HTTP, ställ in {config} (endast token).",
+    "How to connect": "Så ansluter du",
+    "Start the gateway on your host machine:": "Starta gatewayn på värddatorn:",
+    "Get a tokenized dashboard URL:": "Hämta en tokeniserad dashboard-URL:",
+    "Paste the WebSocket URL and token above, or open the tokenized URL directly.": "Klistra in WebSocket-URL:en och token ovan, eller öppna den tokeniserade URL:en direkt.",
+    "Or generate a reusable token:": "Eller generera en återanvändbar token:",
+    "For remote access, Tailscale Serve is recommended. ": "För fjärråtkomst rekommenderas Tailscale Serve. ",
+    "Read the docs →": "Läs dokumentationen →",
+    "Recent Sessions": "Senaste sessioner",
+    "Attention": "Observera",
+    "Gateway Logs": "Gateway-loggar",
+    "New Session": "Ny session",
+    "Refresh All": "Uppdatera alla",
     "Terminal": "Terminal",
-    "Type a command…": "Type a command…",
-    "No results": "No results",
-    "Gateway Dashboard": "Gateway Dashboard",
-    "optional": "optional",
-    "Disconnected from gateway.": "Disconnected from gateway.",
-    "Refresh chat data": "Refresh chat data",
-    "Toggle assistant thinking/working output": "Toggle assistant thinking/working output",
-    "Toggle focus mode (hide sidebar + page header)": "Toggle focus mode (hide sidebar + page header)",
-    "Hide cron sessions": "Hide cron sessions",
-    "Show cron sessions": "Show cron sessions",
-    "Show cron sessions ({count} hidden)": "Show cron sessions ({count} hidden)",
-    "Disabled during onboarding": "Disabled during onboarding",
-    "English": "English",
-    "简体中文 (Simplified Chinese)": "简体中文 (Simplified Chinese)",
-    "繁體中文 (Traditional Chinese)": "繁體中文 (Traditional Chinese)",
-    "Português (Brazilian Portuguese)": "Português (Brazilian Portuguese)",
-    "Deutsch (German)": "Deutsch (German)",
-    "Español (Spanish)": "Español (Spanish)",
-    "Jobs": "Jobs",
-    "Next wake": "Next wake",
+    "Type a command…": "Skriv ett kommando…",
+    "No results": "Inga resultat",
+    "Gateway Dashboard": "Gateway-dashboard",
+    "optional": "valfritt",
+    "Disconnected from gateway.": "Frånkopplad från gateway.",
+    "Refresh chat data": "Uppdatera chattdata",
+    "Toggle assistant thinking/working output": "Växla visning av assistentens tänkande/arbete",
+    "Toggle focus mode (hide sidebar + page header)": "Växla fokusläge (dölj sidopanel och sidhuvud)",
+    "Hide cron sessions": "Dölj cron-sessioner",
+    "Show cron sessions": "Visa cron-sessioner",
+    "Show cron sessions ({count} hidden)": "Visa cron-sessioner ({count} dolda)",
+    "Disabled during onboarding": "Inaktiverad under onboarding",
+    "English": "Engelska",
+    "简体中文 (Simplified Chinese)": "简体中文 (förenklad kinesiska)",
+    "繁體中文 (Traditional Chinese)": "繁體中文 (traditionell kinesiska)",
+    "Português (Brazilian Portuguese)": "Português (brasiliansk portugisiska)",
+    "Deutsch (German)": "Deutsch (tyska)",
+    "Español (Spanish)": "Español (spanska)",
+    "Jobs": "Jobb",
+    "Next wake": "Nästa väckning",
     "Refreshing...": "Uppfriskande...",
-    "All scheduled jobs stored in the gateway.": "All scheduled jobs stored in the gateway.",
-    "{shown} shown of {total}": "{shown} shown of {total}",
-    "Search jobs": "Search jobs",
-    "Name, description, or agent": "Name, description, or agent",
-    "Schedule": "Schedule",
-    "Last run": "Last run",
-    "Next run": "Next run",
-    "Recently updated": "Recently updated",
-    "Name": "Name",
-    "Direction": "Direction",
-    "No matching jobs.": "No matching jobs.",
-    "Load more jobs": "Load more jobs",
-    "Run history": "Run history",
-    "Latest runs across all jobs.": "Latest runs across all jobs.",
-    "Latest runs for {title}.": "Latest runs for {title}.",
-    "All jobs": "All jobs",
-    "Selected job": "Selected job",
-    "Search runs": "Search runs",
-    "Summary, error, or job": "Summary, error, or job",
-    "Newest first": "Newest first",
-    "Oldest first": "Oldest first",
-    "Delivery": "Delivery",
-    "All statuses": "All statuses",
-    "All delivery": "All delivery",
-    "Select a job to inspect run history.": "Select a job to inspect run history.",
-    "No matching runs.": "No matching runs.",
-    "Load more runs": "Load more runs",
-    "Error": "Error",
-    "Skipped": "Skipped",
-    "Unknown": "Unknown",
-    "Delivered": "Delivered",
-    "Not delivered": "Not delivered",
-    "Not requested": "Not requested",
-    "Edit Job": "Edit Job",
-    "New Job": "New Job",
-    "Update the selected scheduled job.": "Update the selected scheduled job.",
-    "Create a scheduled wakeup or agent run.": "Create a scheduled wakeup or agent run.",
-    "Required": "Required",
-    "required": "required",
-    "Basics": "Basics",
-    "Name it, choose the assistant, and set enabled state.": "Name it, choose the assistant, and set enabled state.",
-    "Description": "Description",
-    "Agent ID": "Agent ID",
-    "Morning brief": "Morning brief",
-    "Optional context for this job": "Optional context for this job",
-    "main or ops": "main or ops",
-    "Start typing to pick a known agent, or enter a custom one.": "Start typing to pick a known agent, or enter a custom one.",
-    "Control when this job runs.": "Control when this job runs.",
-    "Every": "Every",
-    "At": "At",
-    "Run at": "Run at",
-    "Unit": "Unit",
-    "Minutes": "Minutes",
-    "Hours": "Hours",
-    "Days": "Days",
-    "Expression": "Expression",
-    "Timezone (optional)": "Timezone (optional)",
-    "Pick a common timezone or enter any valid IANA timezone.": "Pick a common timezone or enter any valid IANA timezone.",
-    "Need jitter? Use Advanced → Stagger window / Stagger unit.": "Need jitter? Use Advanced → Stagger window / Stagger unit.",
-    "Execution": "Execution",
-    "Choose when to wake, and what this job should do.": "Choose when to wake, and what this job should do.",
-    "Main": "Main",
-    "Isolated": "Isolated",
-    "Main posts a system event. Isolated runs a dedicated agent turn.": "Main posts a system event. Isolated runs a dedicated agent turn.",
-    "Wake mode": "Wake mode",
-    "Now": "Now",
-    "Next heartbeat": "Next heartbeat",
-    "Now triggers immediately. Next heartbeat waits for the next cycle.": "Now triggers immediately. Next heartbeat waits for the next cycle.",
-    "What should run?": "What should run?",
-    "Post message to main timeline": "Post message to main timeline",
-    "Run assistant task (isolated)": "Run assistant task (isolated)",
-    "Sends your text to the gateway main timeline (good for reminders/triggers).": "Sends your text to the gateway main timeline (good for reminders/triggers).",
-    "Starts an assistant run in its own session using your prompt.": "Starts an assistant run in its own session using your prompt.",
-    "Timeout (seconds)": "Timeout (seconds)",
-    "Optional, e.g. 90": "Optional, e.g. 90",
-    "Optional. Leave blank to use the gateway default timeout behavior for this run.": "Optional. Leave blank to use the gateway default timeout behavior for this run.",
-    "Main timeline message": "Main timeline message",
-    "Assistant task prompt": "Assistant task prompt",
-    "Choose where run summaries are sent.": "Choose where run summaries are sent.",
-    "Result delivery": "Result delivery",
-    "Announce summary (default)": "Announce summary (default)",
-    "None (internal)": "None (internal)",
-    "Announce posts a summary to chat. None keeps execution internal.": "Announce posts a summary to chat. None keeps execution internal.",
-    "Choose which connected channel receives the summary.": "Choose which connected channel receives the summary.",
-    "Send run summaries to a webhook endpoint.": "Send run summaries to a webhook endpoint.",
-    "To": "To",
-    "+1555... or chat id": "+1555... or chat id",
-    "Optional recipient override (chat id, phone, or user id).": "Optional recipient override (chat id, phone, or user id).",
-    "Advanced": "Advanced",
-    "Optional overrides for delivery guarantees, schedule jitter, and model controls.": "Optional overrides for delivery guarantees, schedule jitter, and model controls.",
-    "Delete after run": "Delete after run",
-    "Best for one-shot reminders that should auto-clean up.": "Best for one-shot reminders that should auto-clean up.",
-    "Clear agent override": "Clear agent override",
-    "Force this job to use the gateway default assistant.": "Force this job to use the gateway default assistant.",
-    "Exact timing (no stagger)": "Exact timing (no stagger)",
-    "Run on exact cron boundaries with no spread.": "Run on exact cron boundaries with no spread.",
-    "Stagger window": "Stagger window",
-    "Stagger unit": "Stagger unit",
-    "Seconds": "Seconds",
-    "Start typing to pick a known model, or enter a custom one.": "Start typing to pick a known model, or enter a custom one.",
-    "Use a suggested level or enter a provider-specific value.": "Use a suggested level or enter a provider-specific value.",
-    "Best effort delivery": "Best effort delivery",
-    "Do not fail the job if delivery itself fails.": "Do not fail the job if delivery itself fails.",
-    "Can't add job yet": "Can't add job yet",
-    "Fill the required fields below to enable submit.": "Fill the required fields below to enable submit.",
-    "Fix {count} field to continue.": "Fix {count} field to continue.",
-    "Fix {count} fields to continue.": "Fix {count} fields to continue.",
-    "Saving...": "Saving...",
-    "Add job": "Add job",
-    "Cancel": "Cancel",
-    "all jobs": "all jobs",
-    "(select a job)": "(select a job)",
-    "enabled": "enabled",
-    "disabled": "disabled",
-    "Edit": "Edit",
-    "Clone": "Clone",
-    "Run": "Run",
-    "History": "History",
+    "All scheduled jobs stored in the gateway.": "Alla schemalagda jobb som finns lagrade i gatewayn.",
+    "{shown} shown of {total}": "{shown} visade av {total}",
+    "Search jobs": "Sök jobb",
+    "Name, description, or agent": "Namn, beskrivning eller agent",
+    "Schedule": "Schema",
+    "Last run": "Senaste körning",
+    "Next run": "Nästa körning",
+    "Recently updated": "Nyligen uppdaterad",
+    "Name": "Namn",
+    "Direction": "Riktning",
+    "No matching jobs.": "Inga matchande jobb.",
+    "Load more jobs": "Läs in fler jobb",
+    "Run history": "Körhistorik",
+    "Latest runs across all jobs.": "Senaste körningarna över alla jobb.",
+    "Latest runs for {title}.": "Senaste körningarna för {title}.",
+    "All jobs": "Alla jobb",
+    "Selected job": "Valt jobb",
+    "Search runs": "Sök körningar",
+    "Summary, error, or job": "Sammanfattning, fel eller jobb",
+    "Newest first": "Nyaste först",
+    "Oldest first": "Äldsta först",
+    "Delivery": "Leverans",
+    "All statuses": "Alla statusar",
+    "All delivery": "Alla leveranser",
+    "Select a job to inspect run history.": "Välj ett jobb för att granska körhistorik.",
+    "No matching runs.": "Inga matchande körningar.",
+    "Load more runs": "Läs in fler körningar",
+    "Error": "Fel",
+    "Skipped": "Hoppad över",
+    "Unknown": "Okänd",
+    "Delivered": "Levererad",
+    "Not delivered": "Inte levererad",
+    "Not requested": "Inte begärd",
+    "Edit Job": "Redigera jobb",
+    "New Job": "Nytt jobb",
+    "Update the selected scheduled job.": "Uppdatera det valda schemalagda jobbet.",
+    "Create a scheduled wakeup or agent run.": "Skapa en schemalagd väckning eller agentkörning.",
+    "Required": "Obligatorisk",
+    "required": "obligatorisk",
+    "Basics": "Grunder",
+    "Name it, choose the assistant, and set enabled state.": "Namnge det, välj assistent och ange om det ska vara aktiverat.",
+    "Description": "Beskrivning",
+    "Agent ID": "Agent-ID",
+    "Morning brief": "Morgonbrief",
+    "Optional context for this job": "Valfri kontext för det här jobbet",
+    "main or ops": "main eller ops",
+    "Start typing to pick a known agent, or enter a custom one.": "Börja skriva för att välja en känd agent, eller ange en egen.",
+    "Control when this job runs.": "Styr när det här jobbet körs.",
+    "Every": "Varje",
+    "At": "Klockan",
+    "Run at": "Kör vid",
+    "Unit": "Enhet",
+    "Minutes": "Minuter",
+    "Hours": "Timmar",
+    "Days": "Dagar",
+    "Expression": "Uttryck",
+    "Timezone (optional)": "Tidszon (valfri)",
+    "Pick a common timezone or enter any valid IANA timezone.": "Välj en vanlig tidszon eller ange en giltig IANA-tidszon.",
+    "Need jitter? Use Advanced → Stagger window / Stagger unit.": "Behöver du jitter? Använd Avancerat → Fördröjningsfönster / Fördröjningsenhet.",
+    "Execution": "Körning",
+    "Choose when to wake, and what this job should do.": "Välj när den ska väckas och vad jobbet ska göra.",
+    "Main": "Huvud",
+    "Isolated": "Isolerad",
+    "Main posts a system event. Isolated runs a dedicated agent turn.": "Main postar en systemhändelse. Isolerad kör ett dedikerat agentvarv.",
+    "Wake mode": "Väckningsläge",
+    "Now": "Nu",
+    "Next heartbeat": "Nästa heartbeat",
+    "Now triggers immediately. Next heartbeat waits for the next cycle.": "Nu triggar omedelbart. Nästa heartbeat väntar till nästa cykel.",
+    "What should run?": "Vad ska köras?",
+    "Post message to main timeline": "Posta meddelande till huvudtidslinjen",
+    "Run assistant task (isolated)": "Kör assistentuppgift (isolerad)",
+    "Sends your text to the gateway main timeline (good for reminders/triggers).": "Skickar din text till gatewayns huvudtidslinje (bra för påminnelser/triggers).",
+    "Starts an assistant run in its own session using your prompt.": "Startar en assistentkörning i en egen session med din prompt.",
+    "Timeout (seconds)": "Timeout (sekunder)",
+    "Optional, e.g. 90": "Valfritt, t.ex. 90",
+    "Optional. Leave blank to use the gateway default timeout behavior for this run.": "Valfritt. Lämna tomt för att använda gatewayns standardbeteende för timeout i den här körningen.",
+    "Main timeline message": "Meddelande till huvudtidslinjen",
+    "Assistant task prompt": "Prompt för assistentuppgift",
+    "Choose where run summaries are sent.": "Välj vart körsammanfattningar ska skickas.",
+    "Result delivery": "Resultatleverans",
+    "Announce summary (default)": "Meddela sammanfattning (standard)",
+    "None (internal)": "Ingen (intern)",
+    "Announce posts a summary to chat. None keeps execution internal.": "Meddela postar en sammanfattning i chatten. Ingen håller körningen intern.",
+    "Choose which connected channel receives the summary.": "Välj vilken ansluten kanal som ska få sammanfattningen.",
+    "Send run summaries to a webhook endpoint.": "Skicka körningssammanfattningar till en webhook-slutpunkt.",
+    "To": "Till",
+    "+1555... or chat id": "+1555... eller chatt-id",
+    "Optional recipient override (chat id, phone, or user id).": "Valfri åsidosättning av mottagare (chatt-id, telefonnummer eller användar-id).",
+    "Advanced": "Avancerat",
+    "Optional overrides for delivery guarantees, schedule jitter, and model controls.": "Valfria åsidosättningar för leveransgarantier, schemastagger och modellstyrning.",
+    "Delete after run": "Ta bort efter körning",
+    "Best for one-shot reminders that should auto-clean up.": "Bäst för engångspåminnelser som ska städas bort automatiskt.",
+    "Clear agent override": "Rensa agentåsidosättning",
+    "Force this job to use the gateway default assistant.": "Tvinga det här jobbet att använda gatewayens standardassistent.",
+    "Exact timing (no stagger)": "Exakt timing (ingen spridning)",
+    "Run on exact cron boundaries with no spread.": "Kör exakt på cron-gränser utan spridning.",
+    "Stagger window": "Spridningsfönster",
+    "Stagger unit": "Spridningsenhet",
+    "Seconds": "Sekunder",
+    "Start typing to pick a known model, or enter a custom one.": "Börja skriva för att välja en känd modell, eller ange en egen.",
+    "Use a suggested level or enter a provider-specific value.": "Använd en föreslagen nivå eller ange ett leverantörsspecifikt värde.",
+    "Best effort delivery": "Leverans efter bästa förmåga",
+    "Do not fail the job if delivery itself fails.": "Markera inte jobbet som misslyckat om själva leveransen misslyckas.",
+    "Can't add job yet": "Kan inte lägga till jobb ännu",
+    "Fill the required fields below to enable submit.": "Fyll i de obligatoriska fälten nedan för att kunna skicka.",
+    "Fix {count} field to continue.": "Rätta {count} fält för att fortsätta.",
+    "Fix {count} fields to continue.": "Rätta {count} fält för att fortsätta.",
+    "Saving...": "Sparar...",
+    "Add job": "Lägg till jobb",
+    "Cancel": "Avbryt",
+    "all jobs": "alla jobb",
+    "(select a job)": "(välj ett jobb)",
+    "enabled": "aktiverad",
+    "disabled": "inaktiverad",
+    "Edit": "Redigera",
+    "Clone": "Klona",
+    "Run": "Kör",
+    "History": "Historik",
     "Prompt": "Prompt",
-    "Next": "Next",
-    "Last": "Last",
-    "No summary.": "No summary.",
-    "Next {rel}": "Next {rel}",
-    "Due {rel}": "Due {rel}",
-    "Name is required.": "Name is required.",
-    "Enter a valid date/time.": "Enter a valid date/time.",
-    "Interval must be greater than 0.": "Interval must be greater than 0.",
-    "Cron expression is required.": "Cron expression is required.",
-    "Stagger must be greater than 0.": "Stagger must be greater than 0.",
-    "System text is required.": "System text is required.",
-    "Agent message is required.": "Agent message is required.",
-    "If set, timeout must be greater than 0 seconds.": "If set, timeout must be greater than 0 seconds.",
-    "Webhook URL is required.": "Webhook URL is required.",
-    "Webhook URL must start with http:// or https://.": "Webhook URL must start with http:// or https://.",
-    "Invalid run time.": "Invalid run time.",
-    "Invalid interval amount.": "Invalid interval amount.",
-    "Cron expression required.": "Cron expression required.",
-    "Invalid stagger amount.": "Invalid stagger amount.",
-    "System event text required.": "System event text required.",
-    "Agent message required.": "Agent message required.",
-    "Name required.": "Name required.",
-    "Missing operator.read scope": "Missing operator.read scope",
-    "Skills with missing dependencies": "Skills with missing dependencies",
-    "Files": "Files",
-    "Read file contents": "Read file contents",
-    "Patch files (OpenAI)": "Patch files (OpenAI)",
+    "Next": "Nästa",
+    "Last": "Sista",
+    "No summary.": "Ingen sammanfattning.",
+    "Next {rel}": "Nästa {rel}",
+    "Due {rel}": "Förfaller {rel}",
+    "Name is required.": "Namn krävs.",
+    "Enter a valid date/time.": "Ange ett giltigt datum/klockslag.",
+    "Interval must be greater than 0.": "Intervallet måste vara större än 0.",
+    "Cron expression is required.": "Cron-uttryck krävs.",
+    "Stagger must be greater than 0.": "Spridningen måste vara större än 0.",
+    "System text is required.": "Systemtext krävs.",
+    "Agent message is required.": "Agentmeddelande krävs.",
+    "If set, timeout must be greater than 0 seconds.": "Om det används måste timeout vara större än 0 sekunder.",
+    "Webhook URL is required.": "Webhook-URL krävs.",
+    "Webhook URL must start with http:// or https://.": "Webhook-URL måste börja med http:// eller https://.",
+    "Invalid run time.": "Ogiltig körtid.",
+    "Invalid interval amount.": "Ogiltigt intervallvärde.",
+    "Cron expression required.": "Cron-uttryck krävs.",
+    "Invalid stagger amount.": "Ogiltigt spridningsvärde.",
+    "System event text required.": "Systemhändelsetext krävs.",
+    "Agent message required.": "Agentmeddelande krävs.",
+    "Name required.": "Namn krävs.",
+    "Missing operator.read scope": "Saknar scope för operator.read",
+    "Skills with missing dependencies": "Skills med saknade beroenden",
+    "Files": "Filer",
+    "Read file contents": "Läs filinnehåll",
+    "Patch files (OpenAI)": "Patcha filer (OpenAI)",
     "Runtime": "Körning",
-    "Run shell commands": "Run shell commands",
-    "Search the web": "Search the web",
-    "Memory": "Memory",
-    "Semantic search": "Semantic search",
-    "Read memory files": "Read memory files",
-    "Session history": "Session history",
-    "Send to session": "Send to session",
-    "Spawn sub-agent": "Spawn sub-agent",
-    "Session status": "Session status",
-    "Send messages": "Send messages",
-    "Schedule tasks": "Schedule tasks",
-    "Nodes + devices": "Nodes + devices",
-    "all skills": "all skills",
-    "Start a new session": "Start a new session",
-    "Reset current session": "Reset current session",
-    "Stop current run": "Stop current run",
-    "Toggle focus mode": "Toggle focus mode",
-    "Show or set model": "Show or set model",
-    "Set thinking level": "Set thinking level",
-    "Toggle verbose mode": "Toggle verbose mode",
-    "Toggle fast mode": "Toggle fast mode",
-    "Show available commands": "Show available commands",
-    "Show session status": "Show session status",
-    "Show token usage": "Show token usage",
-    "Run a skill": "Run a skill",
-    "Steer a sub-agent": "Steer a sub-agent",
-    "Run Command": "Run Command",
-    "Read File": "Read File",
-    "Write File": "Write File",
-    "Web Search": "Web Search",
+    "Run shell commands": "Kör shell-kommandon",
+    "Search the web": "Sök på webben",
+    "Memory": "Minne",
+    "Semantic search": "Semantisk sökning",
+    "Read memory files": "Läs minnesfiler",
+    "Session history": "Sessionshistorik",
+    "Send to session": "Skicka till session",
+    "Spawn sub-agent": "Starta subagent",
+    "Session status": "Sessionsstatus",
+    "Send messages": "Skicka meddelanden",
+    "Schedule tasks": "Schemalägg jobb",
+    "Nodes + devices": "Noder och enheter",
+    "all skills": "alla skills",
+    "Start a new session": "Starta en ny session",
+    "Reset current session": "Återställ aktuell session",
+    "Stop current run": "Stoppa aktuell körning",
+    "Toggle focus mode": "Växla fokusläge",
+    "Show or set model": "Visa eller ange modell",
+    "Set thinking level": "Ställ in tankenivå",
+    "Toggle verbose mode": "Växla utförligt läge",
+    "Toggle fast mode": "Växla snabbt läge",
+    "Show available commands": "Visa tillgängliga kommandon",
+    "Show session status": "Visa sessionsstatus",
+    "Show token usage": "Visa tokenanvändning",
+    "Run a skill": "Kör en skill",
+    "Steer a sub-agent": "Styr en subagent",
+    "Run Command": "Kör kommando",
+    "Read File": "Läs fil",
+    "Write File": "Skriv fil",
+    "Web Search": "Webbsökning",
     "Canvas": "Canvas",
-    "Search Memory": "Search Memory",
-    "Session Status": "Session Status",
-    "Session History": "Session History",
-    "Send to Session": "Send to Session",
-    "Spawn Session": "Spawn Session"
+    "Search Memory": "Sök i minnet",
+    "Session Status": "Sessionsstatus",
+    "Session History": "Sessionshistorik",
+    "Send to Session": "Skicka till session",
+    "Spawn Session": "Starta session"
   },
   "configHelpTranslations": {
     "Metadata fields automatically maintained by OpenClaw to record write/version history for this config file. Keep these values system-managed and avoid manual edits unless debugging migration history.": "Metadatafält som OpenClaw underhåller automatiskt för att spara skriv- och versionshistorik för den här konfigurationsfilen. Låt systemet hantera värdena och undvik manuella ändringar om du inte felsöker migreringshistorik.",
@@ -791,126 +791,126 @@
     "Control UI hosting settings including enablement, pathing, and browser-origin/auth hardening behavior. Keep UI exposure minimal and pair with strong auth controls before internet-facing deployments.": "Inställningar för hur kontroll-UI:t hostas, inklusive aktivering, sökvägar och härdning av browser origin/auth. Håll UI-exponeringen minimal och kombinera med stark auth innan internetexponerade driftsättningar.",
     "OpenTelemetry export settings for traces, metrics, and logs emitted by gateway components. Use this when integrating with centralized observability backends and distributed tracing pipelines.": "OpenTelemetry-exportinställningar för spår, mätvärden och loggar som skickas från gatewaykomponenter. Använd detta när du integrerar med centraliserade observability-backends och distribuerade spårningspipelines.",
     "Groups exec-approval forwarding behavior including enablement, routing mode, filters, and explicit targets. Configure here when approval prompts must reach operational channels instead of only the origin thread.": "Grupperar beteendet för vidarebefordran av exec-godkännanden, inklusive aktivering, routningsläge, filter och explicita mål. Konfigurera här när godkännandefrågor måste nå driftkanaler i stället för bara ursprungstråden.",
-    "DM session scoping: \"main\" keeps continuity, while \"per-peer\", \"per-channel-peer\", and \"per-account-channel-peer\" increase isolation. Use isolated modes for shared inboxes or multi-account deployments.": "DM session scoping: \"main\" keeps continuity, while \"per-peer\", \"per-channel-peer\", and \"per-account-channel-peer\" increase isolation. Use isolated modes for shared inboxes or multi-account deployments.",
-    "Gateway auth mode: \"none\", \"token\", \"password\", or \"trusted-proxy\" depending on your edge architecture. Use token/password for direct exposure, and trusted-proxy only behind hardened identity-aware proxies.": "Gateway auth mode: \"none\", \"token\", \"password\", or \"trusted-proxy\" depending on your edge architecture. Use token/password for direct exposure, and trusted-proxy only behind hardened identity-aware proxies.",
-    "Trusted-proxy auth header mapping for upstream identity providers that inject user claims. Use only with known proxy CIDRs and strict header allowlists to prevent spoofed identity headers.": "Trusted-proxy auth header mapping for upstream identity providers that inject user claims. Use only with known proxy CIDRs and strict header allowlists to prevent spoofed identity headers.",
-    "Gateway-level tool exposure allow/deny policy that can restrict runtime tool availability independent of agent/tool profiles. Use this for coarse emergency controls and production hardening.": "Gateway-level tool exposure allow/deny policy that can restrict runtime tool availability independent of agent/tool profiles. Use this for coarse emergency controls and production hardening.",
-    "Remote Gateway WebSocket URL (ws:// or wss://).": "Remote Gateway WebSocket URL (ws:// or wss://).",
-    "Bearer token used to authenticate this client to a remote gateway in token-auth deployments. Store via secret/env substitution and rotate alongside remote gateway auth changes.": "Bearer token used to authenticate this client to a remote gateway in token-auth deployments. Store via secret/env substitution and rotate alongside remote gateway auth changes.",
-    "Enables browser capability wiring in the gateway so browser tools and CDP-driven workflows can run. Disable when browser automation is not needed to reduce surface area and startup work.": "Enables browser capability wiring in the gateway so browser tools and CDP-driven workflows can run. Disable when browser automation is not needed to reduce surface area and startup work.",
-    "Remote CDP websocket URL used to attach to an externally managed browser instance. Use this for centralized browser hosts and keep URL access restricted to trusted network paths.": "Remote CDP websocket URL used to attach to an externally managed browser instance. Use this for centralized browser hosts and keep URL access restricted to trusted network paths.",
-    "Explicit browser executable path when auto-discovery is insufficient for your host environment. Use absolute stable paths so launch behavior stays deterministic across restarts.": "Explicit browser executable path when auto-discovery is insufficient for your host environment. Use absolute stable paths so launch behavior stays deterministic across restarts.",
-    "Disables Chromium sandbox isolation flags for environments where sandboxing fails at runtime. Keep this off whenever possible because process isolation protections are reduced.": "Disables Chromium sandbox isolation flags for environments where sandboxing fails at runtime. Keep this off whenever possible because process isolation protections are reduced.",
-    "Restricts browser mode to attach-only behavior without starting local browser processes. Use this when all browser sessions are externally managed by a remote CDP provider.": "Restricts browser mode to attach-only behavior without starting local browser processes. Use this when all browser sessions are externally managed by a remote CDP provider.",
-    "Provider map keyed by provider ID containing connection/auth settings and concrete model definitions. Use stable provider keys so references from agents and tooling remain portable across environments.": "Provider map keyed by provider ID containing connection/auth settings and concrete model definitions. Use stable provider keys so references from agents and tooling remain portable across environments.",
-    "Base URL for the provider endpoint used to serve model requests for that provider entry. Use HTTPS endpoints and keep URLs environment-specific through config templating where needed.": "Base URL for the provider endpoint used to serve model requests for that provider entry. Use HTTPS endpoints and keep URLs environment-specific through config templating where needed.",
-    "Provider credential used for API-key based authentication when the provider requires direct key auth. Use secret/env substitution and avoid storing real keys in committed config files.": "Provider credential used for API-key based authentication when the provider requires direct key auth. Use secret/env substitution and avoid storing real keys in committed config files.",
-    "Enables periodic Bedrock model discovery and catalog refresh for Bedrock-backed providers. Keep disabled unless Bedrock is actively used and IAM permissions are correctly configured.": "Enables periodic Bedrock model discovery and catalog refresh for Bedrock-backed providers. Keep disabled unless Bedrock is actively used and IAM permissions are correctly configured.",
-    "Optional provider allowlist filter for Bedrock discovery so only selected providers are refreshed. Use this to limit discovery scope in multi-provider environments.": "Optional provider allowlist filter for Bedrock discovery so only selected providers are refreshed. Use this to limit discovery scope in multi-provider environments.",
-    "Enables forwarding of exec approval requests to configured delivery destinations (default: false). Keep disabled in low-risk setups and enable only when human approval responders need channel-visible prompts.": "Enables forwarding of exec approval requests to configured delivery destinations (default: false). Keep disabled in low-risk setups and enable only when human approval responders need channel-visible prompts.",
-    "Controls where approval prompts are sent: \"session\" uses origin chat, \"targets\" uses configured targets, and \"both\" sends to both paths. Use \"session\" as baseline and expand only when operational workflow requires redundancy.": "Controls where approval prompts are sent: \"session\" uses origin chat, \"targets\" uses configured targets, and \"both\" sends to both paths. Use \"session\" as baseline and expand only when operational workflow requires redundancy.",
-    "Explicit delivery targets used when forwarding mode includes targets, each with channel and destination details. Keep target lists least-privilege and validate each destination before enabling broad forwarding.": "Explicit delivery targets used when forwarding mode includes targets, each with channel and destination details. Keep target lists least-privilege and validate each destination before enabling broad forwarding.",
-    "Sets base session grouping strategy: \"per-sender\" isolates by sender and \"global\" shares one session per channel context. Keep \"per-sender\" for safer multi-user behavior unless deliberate shared context is required.": "Sets base session grouping strategy: \"per-sender\" isolates by sender and \"global\" shares one session per channel context. Keep \"per-sender\" for safer multi-user behavior unless deliberate shared context is required.",
-    "Maps canonical identities to provider-prefixed peer IDs so equivalent users resolve to one DM thread (example: telegram:123456). Use this when the same human appears across multiple channels or accounts.": "Maps canonical identities to provider-prefixed peer IDs so equivalent users resolve to one DM thread (example: telegram:123456). Use this when the same human appears across multiple channels or accounts.",
-    "Lists message triggers that force a session reset when matched in inbound content. Use sparingly for explicit reset phrases so context is not dropped unexpectedly during normal conversation.": "Lists message triggers that force a session reset when matched in inbound content. Use sparingly for explicit reset phrases so context is not dropped unexpectedly during normal conversation.",
-    "Sets the session storage file path used to persist session records across restarts. Use an explicit path only when you need custom disk layout, backup routing, or mounted-volume storage.": "Sets the session storage file path used to persist session records across restarts. Use an explicit path only when you need custom disk layout, backup routing, or mounted-volume storage.",
-    "Controls cross-session send permissions using allow/deny rules evaluated against channel, chatType, and key prefixes. Use this to fence where session tools can deliver messages in complex environments.": "Controls cross-session send permissions using allow/deny rules evaluated against channel, chatType, and key prefixes. Use this to fence where session tools can deliver messages in complex environments.",
-    "Shared defaults for thread-bound session routing behavior across providers that support thread focus workflows. Configure global defaults here and override per channel only when behavior differs.": "Shared defaults for thread-bound session routing behavior across providers that support thread focus workflows. Configure global defaults here and override per channel only when behavior differs.",
-    "Automatic session-store maintenance controls for pruning age, entry caps, and file rotation behavior. Start in warn mode to observe impact, then enforce once thresholds are tuned.": "Automatic session-store maintenance controls for pruning age, entry caps, and file rotation behavior. Start in warn mode to observe impact, then enforce once thresholds are tuned.",
-    "Remote connection transport: \"direct\" uses configured URL connectivity, while \"ssh\" tunnels through SSH. Use SSH when you need encrypted tunnel semantics without exposing remote ports.": "Remote connection transport: \"direct\" uses configured URL connectivity, while \"ssh\" tunnels through SSH. Use SSH when you need encrypted tunnel semantics without exposing remote ports.",
-    "Live config-reload policy for how edits are applied and when full restarts are triggered. Keep hybrid behavior for safest operational updates unless debugging reload internals.": "Live config-reload policy for how edits are applied and when full restarts are triggered. Keep hybrid behavior for safest operational updates unless debugging reload internals.",
-    "TLS certificate and key settings for terminating HTTPS directly in the gateway process. Use explicit certificates in production and avoid plaintext exposure on untrusted networks.": "TLS certificate and key settings for terminating HTTPS directly in the gateway process. Use explicit certificates in production and avoid plaintext exposure on untrusted networks.",
-    "Enables TLS termination at the gateway listener so clients connect over HTTPS/WSS directly. Keep enabled for direct internet exposure or any untrusted network boundary.": "Enables TLS termination at the gateway listener so clients connect over HTTPS/WSS directly. Keep enabled for direct internet exposure or any untrusted network boundary.",
-    "Auto-generates a local TLS certificate/key pair when explicit files are not configured. Use only for local/dev setups and replace with real certificates for production traffic.": "Auto-generates a local TLS certificate/key pair when explicit files are not configured. Use only for local/dev setups and replace with real certificates for production traffic.",
-    "Filesystem path to the TLS certificate file used by the gateway when TLS is enabled. Use managed certificate paths and keep renewal automation aligned with this location.": "Filesystem path to the TLS certificate file used by the gateway when TLS is enabled. Use managed certificate paths and keep renewal automation aligned with this location.",
-    "Filesystem path to the TLS private key file used by the gateway when TLS is enabled. Keep this key file permission-restricted and rotate per your security policy.": "Filesystem path to the TLS private key file used by the gateway when TLS is enabled. Keep this key file permission-restricted and rotate per your security policy.",
-    "Optional CA bundle path for client verification or custom trust-chain requirements at the gateway edge. Use this when private PKI or custom certificate chains are part of deployment.": "Optional CA bundle path for client verification or custom trust-chain requirements at the gateway edge. Use this when private PKI or custom certificate chains are part of deployment.",
-    "Gateway HTTP API configuration grouping endpoint toggles and transport-facing API exposure controls. Keep only required endpoints enabled to reduce attack surface.": "Gateway HTTP API configuration grouping endpoint toggles and transport-facing API exposure controls. Keep only required endpoints enabled to reduce attack surface.",
-    "HTTP endpoint feature toggles under the gateway API surface for compatibility routes and optional integrations. Enable endpoints intentionally and monitor access patterns after rollout.": "HTTP endpoint feature toggles under the gateway API surface for compatibility routes and optional integrations. Enable endpoints intentionally and monitor access patterns after rollout.",
-    "Optional HTTP response security headers applied by the gateway process itself. Prefer setting these at your reverse proxy when TLS terminates there.": "Optional HTTP response security headers applied by the gateway process itself. Prefer setting these at your reverse proxy when TLS terminates there.",
-    "Value for the Strict-Transport-Security response header. Set only on HTTPS origins that you fully control; use false to explicitly disable.": "Value for the Strict-Transport-Security response header. Set only on HTTPS origins that you fully control; use false to explicitly disable.",
-    "DANGEROUS toggle that enables Host-header based origin fallback for Control UI/WebChat websocket checks. This mode is supported when your deployment intentionally relies on Host-header origin policy; explicit gateway.controlUi.allowedOrigins remains the recommended hardened default.": "DANGEROUS toggle that enables Host-header based origin fallback for Control UI/WebChat websocket checks. This mode is supported when your deployment intentionally relies on Host-header origin policy; explicit gateway.controlUi.allowedOrigins remains the recommended hardened default.",
-    "Loosens strict browser auth checks for Control UI when you must run a non-standard setup. Keep this off unless you trust your network and proxy path, because impersonation risk is higher.": "Loosens strict browser auth checks for Control UI when you must run a non-standard setup. Keep this off unless you trust your network and proxy path, because impersonation risk is higher.",
-    "Sets inactivity window before reset for idle mode and can also act as secondary guard with daily mode. Use larger values to preserve continuity or smaller values for fresher short-lived threads.": "Sets inactivity window before reset for idle mode and can also act as secondary guard with daily mode. Use larger values to preserve continuity or smaller values for fresher short-lived threads.",
-    "Overrides reset behavior by chat type (direct, group, thread) when defaults are not sufficient. Use this when group/thread traffic needs different reset cadence than direct messages.": "Overrides reset behavior by chat type (direct, group, thread) when defaults are not sufficient. Use this when group/thread traffic needs different reset cadence than direct messages.",
-    "Defines reset policy for direct chats and supersedes the base session.reset configuration for that type. Use this as the canonical direct-message override instead of the legacy dm alias.": "Defines reset policy for direct chats and supersedes the base session.reset configuration for that type. Use this as the canonical direct-message override instead of the legacy dm alias.",
-    "Deprecated alias for direct reset behavior kept for backward compatibility with older configs. Use session.resetByType.direct instead so future tooling and validation remain consistent.": "Deprecated alias for direct reset behavior kept for backward compatibility with older configs. Use session.resetByType.direct instead so future tooling and validation remain consistent.",
-    "Defines reset policy for group chat sessions where continuity and noise patterns differ from DMs. Use shorter idle windows for busy groups if context drift becomes a problem.": "Defines reset policy for group chat sessions where continuity and noise patterns differ from DMs. Use shorter idle windows for busy groups if context drift becomes a problem.",
-    "Defines reset policy for thread-scoped sessions, including focused channel thread workflows. Use this when thread sessions should expire faster or slower than other chat types.": "Defines reset policy for thread-scoped sessions, including focused channel thread workflows. Use this when thread sessions should expire faster or slower than other chat types.",
-    "Provides channel-specific reset overrides keyed by provider/channel id for fine-grained behavior control. Use this only when one channel needs exceptional reset behavior beyond type-level policies.": "Provides channel-specific reset overrides keyed by provider/channel id for fine-grained behavior control. Use this only when one channel needs exceptional reset behavior beyond type-level policies.",
-    "Controls interval for repeated typing indicators while replies are being prepared in typing-capable channels. Increase to reduce chatty updates or decrease for more active typing feedback.": "Controls interval for repeated typing indicators while replies are being prepared in typing-capable channels. Increase to reduce chatty updates or decrease for more active typing feedback.",
-    "CLI-managed install metadata (used by `openclaw plugins update` to locate install sources).": "CLI-managed install metadata (used by `openclaw plugins update` to locate install sources).",
-    "Install source (\"npm\", \"archive\", or \"path\").": "Install source (\"npm\", \"archive\", or \"path\").",
-    "Original npm spec used for install (if source is npm).": "Original npm spec used for install (if source is npm).",
-    "Original archive/path used for install (if any).": "Original archive/path used for install (if any).",
-    "Resolved install directory (usually ~/.openclaw/extensions/<id>).": "Resolved install directory (usually ~/.openclaw/extensions/<id>).",
-    "Default browser profile name selected when callers do not explicitly choose a profile. Use a stable low-privilege profile as the default to reduce accidental cross-context state use.": "Default browser profile name selected when callers do not explicitly choose a profile. Use a stable low-privilege profile as the default to reduce accidental cross-context state use.",
-    "Bind IP address for the Chrome extension relay listener. Leave unset for loopback-only access, or set an explicit non-loopback IP such as 0.0.0.0 only when the relay must be reachable across network namespaces (for example WSL2) and the surrounding network is already trusted.": "Bind IP address for the Chrome extension relay listener. Leave unset for loopback-only access, or set an explicit non-loopback IP such as 0.0.0.0 only when the relay must be reachable across network namespaces (for example WSL2) and the surrounding network is already trusted.",
-    "Named browser profile connection map used for explicit routing to CDP ports or URLs with optional metadata. Keep profile names consistent and avoid overlapping endpoint definitions.": "Named browser profile connection map used for explicit routing to CDP ports or URLs with optional metadata. Keep profile names consistent and avoid overlapping endpoint definitions.",
-    "Per-profile local CDP port used when connecting to browser instances by port instead of URL. Use unique ports per profile to avoid connection collisions.": "Per-profile local CDP port used when connecting to browser instances by port instead of URL. Use unique ports per profile to avoid connection collisions.",
-    "Per-profile CDP websocket URL used for explicit remote browser routing by profile name. Use this when profile connections terminate on remote hosts or tunnels.": "Per-profile CDP websocket URL used for explicit remote browser routing by profile name. Use this when profile connections terminate on remote hosts or tunnels.",
-    "Per-profile browser driver mode: \"openclaw\" (or legacy \"clawd\") or \"extension\" depending on connection/runtime strategy. Use the driver that matches your browser control stack to avoid protocol mismatches.": "Per-profile browser driver mode: \"openclaw\" (or legacy \"clawd\") or \"extension\" depending on connection/runtime strategy. Use the driver that matches your browser control stack to avoid protocol mismatches.",
-    "Per-profile attach-only override that skips local browser launch and only attaches to an existing CDP endpoint. Useful when one profile is externally managed but others are locally launched.": "Per-profile attach-only override that skips local browser launch and only attaches to an existing CDP endpoint. Useful when one profile is externally managed but others are locally launched.",
-    "Per-profile accent color for visual differentiation in dashboards and browser-related UI hints. Use distinct colors for high-signal operator recognition of active profiles.": "Per-profile accent color for visual differentiation in dashboards and browser-related UI hints. Use distinct colors for high-signal operator recognition of active profiles.",
-    "Enables browser-side evaluate helpers for runtime script evaluation capabilities where supported. Keep disabled unless your workflows require evaluate semantics beyond snapshots/navigation.": "Enables browser-side evaluate helpers for runtime script evaluation capabilities where supported. Keep disabled unless your workflows require evaluate semantics beyond snapshots/navigation.",
-    "Default snapshot capture configuration used when callers do not provide explicit snapshot options. Tune this for consistent capture behavior across channels and automation paths.": "Default snapshot capture configuration used when callers do not provide explicit snapshot options. Tune this for consistent capture behavior across channels and automation paths.",
-    "Default snapshot extraction mode controlling how page content is transformed for agent consumption. Choose the mode that balances readability, fidelity, and token footprint for your workflows.": "Default snapshot extraction mode controlling how page content is transformed for agent consumption. Choose the mode that balances readability, fidelity, and token footprint for your workflows.",
-    "Server-side request forgery guardrail settings for browser/network fetch paths that could reach internal hosts. Keep restrictive defaults in production and open only explicitly approved targets.": "Server-side request forgery guardrail settings for browser/network fetch paths that could reach internal hosts. Keep restrictive defaults in production and open only explicitly approved targets.",
-    "Legacy alias for browser.ssrfPolicy.dangerouslyAllowPrivateNetwork. Prefer the dangerously-named key so risk intent is explicit.": "Legacy alias for browser.ssrfPolicy.dangerouslyAllowPrivateNetwork. Prefer the dangerously-named key so risk intent is explicit.",
-    "Allows access to private-network address ranges from browser tooling. Default is enabled for trusted-network operator setups; disable to enforce strict public-only resolution checks.": "Allows access to private-network address ranges from browser tooling. Default is enabled for trusted-network operator setups; disable to enforce strict public-only resolution checks.",
-    "Explicit hostname allowlist exceptions for SSRF policy checks on browser/network requests. Keep this list minimal and review entries regularly to avoid stale broad access.": "Explicit hostname allowlist exceptions for SSRF policy checks on browser/network requests. Keep this list minimal and review entries regularly to avoid stale broad access.",
-    "Legacy/alternate hostname allowlist field used by SSRF policy consumers for explicit host exceptions. Use stable exact hostnames and avoid wildcard-like broad patterns.": "Legacy/alternate hostname allowlist field used by SSRF policy consumers for explicit host exceptions. Use stable exact hostnames and avoid wildcard-like broad patterns.",
-    "Interval in minutes for automatic channel health probing and status updates. Use lower intervals for faster detection, or higher intervals to reduce periodic probe noise.": "Interval in minutes for automatic channel health probing and status updates. Use lower intervals for faster detection, or higher intervals to reduce periodic probe noise.",
-    "Tailscale integration settings for Serve/Funnel exposure and lifecycle handling on gateway start/exit. Keep off unless your deployment intentionally relies on Tailscale ingress.": "Tailscale integration settings for Serve/Funnel exposure and lifecycle handling on gateway start/exit. Keep off unless your deployment intentionally relies on Tailscale ingress.",
-    "Tailscale publish mode: \"off\", \"serve\", or \"funnel\" for private or public exposure paths. Use \"serve\" for tailnet-only access and \"funnel\" only when public internet reachability is required.": "Tailscale publish mode: \"off\", \"serve\", or \"funnel\" for private or public exposure paths. Use \"serve\" for tailnet-only access and \"funnel\" only when public internet reachability is required.",
-    "Resets Tailscale Serve/Funnel state on gateway exit to avoid stale published routes after shutdown. Keep enabled unless another controller manages publish lifecycle outside the gateway.": "Resets Tailscale Serve/Funnel state on gateway exit to avoid stale published routes after shutdown. Keep enabled unless another controller manages publish lifecycle outside the gateway.",
-    "Remote gateway connection settings for direct or SSH transport when this instance proxies to another runtime host. Use remote mode only when split-host operation is intentionally configured.": "Remote gateway connection settings for direct or SSH transport when this instance proxies to another runtime host. Use remote mode only when split-host operation is intentionally configured.",
-    "Global session routing, reset, delivery policy, and maintenance controls for conversation history behavior. Keep defaults unless you need stricter isolation, retention, or delivery constraints.": "Global session routing, reset, delivery policy, and maintenance controls for conversation history behavior. Keep defaults unless you need stricter isolation, retention, or delivery constraints.",
-    "Applies a legacy idle reset window in minutes for session reuse behavior across inactivity gaps. Use this only for compatibility and prefer structured reset policies under session.reset/session.resetByType.": "Applies a legacy idle reset window in minutes for session reuse behavior across inactivity gaps. Use this only for compatibility and prefer structured reset policies under session.reset/session.resetByType.",
-    "Defines the default reset policy object used when no type-specific or channel-specific override applies. Set this first, then layer resetByType or resetByChannel only where behavior must differ.": "Defines the default reset policy object used when no type-specific or channel-specific override applies. Set this first, then layer resetByType or resetByChannel only where behavior must differ.",
-    "Selects reset strategy: \"daily\" resets at a configured hour and \"idle\" resets after inactivity windows. Keep one clear mode per policy to avoid surprising context turnover patterns.": "Selects reset strategy: \"daily\" resets at a configured hour and \"idle\" resets after inactivity windows. Keep one clear mode per policy to avoid surprising context turnover patterns.",
-    "Sets local-hour boundary (0-23) for daily reset mode so sessions roll over at predictable times. Use with mode=daily and align to operator timezone expectations for human-readable behavior.": "Sets local-hour boundary (0-23) for daily reset mode so sessions roll over at predictable times. Use with mode=daily and align to operator timezone expectations for human-readable behavior.",
-    "Memory backend configuration (global).": "Memory backend configuration (global).",
-    "Selects the global memory engine: \"builtin\" uses OpenClaw memory internals, while \"qmd\" uses the QMD sidecar pipeline. Keep \"builtin\" unless you intentionally operate QMD.": "Selects the global memory engine: \"builtin\" uses OpenClaw memory internals, while \"qmd\" uses the QMD sidecar pipeline. Keep \"builtin\" unless you intentionally operate QMD.",
-    "Controls citation visibility in replies: \"auto\" shows citations when useful, \"on\" always shows them, and \"off\" hides them. Keep \"auto\" for a balanced signal-to-noise default.": "Controls citation visibility in replies: \"auto\" shows citations when useful, \"on\" always shows them, and \"off\" hides them. Keep \"auto\" for a balanced signal-to-noise default.",
-    "Sets the executable path for the `qmd` binary used by the QMD backend (default: resolved from PATH). Use an explicit absolute path when multiple qmd installs exist or PATH differs across environments.": "Sets the executable path for the `qmd` binary used by the QMD backend (default: resolved from PATH). Use an explicit absolute path when multiple qmd installs exist or PATH differs across environments.",
-    "Routes QMD work through mcporter (MCP runtime) instead of spawning `qmd` for each call. Use this when cold starts are expensive on large models; keep direct process mode for simpler local setups.": "Routes QMD work through mcporter (MCP runtime) instead of spawning `qmd` for each call. Use this when cold starts are expensive on large models; keep direct process mode for simpler local setups.",
-    "Plugin system controls for enabling extensions, constraining load scope, configuring entries, and tracking installs. Keep plugin policy explicit and least-privilege in production environments.": "Plugin system controls for enabling extensions, constraining load scope, configuring entries, and tracking installs. Keep plugin policy explicit and least-privilege in production environments.",
-    "Enable or disable plugin/extension loading globally during startup and config reload (default: true). Keep enabled only when extension capabilities are required by your deployment.": "Enable or disable plugin/extension loading globally during startup and config reload (default: true). Keep enabled only when extension capabilities are required by your deployment.",
-    "Optional allowlist of plugin IDs; when set, only listed plugins are eligible to load. Use this to enforce approved extension inventories in controlled environments.": "Optional allowlist of plugin IDs; when set, only listed plugins are eligible to load. Use this to enforce approved extension inventories in controlled environments.",
-    "Optional denylist of plugin IDs that are blocked even if allowlists or paths include them. Use deny rules for emergency rollback and hard blocks on risky plugins.": "Optional denylist of plugin IDs that are blocked even if allowlists or paths include them. Use deny rules for emergency rollback and hard blocks on risky plugins.",
-    "Plugin loader configuration group for specifying filesystem paths where plugins are discovered. Keep load paths explicit and reviewed to avoid accidental untrusted extension loading.": "Plugin loader configuration group for specifying filesystem paths where plugins are discovered. Keep load paths explicit and reviewed to avoid accidental untrusted extension loading.",
-    "Browser runtime controls for local or remote CDP attachment, profile routing, and screenshot/snapshot behavior. Keep defaults unless your automation workflow requires custom browser transport settings.": "Browser runtime controls for local or remote CDP attachment, profile routing, and screenshot/snapshot behavior. Keep defaults unless your automation workflow requires custom browser transport settings.",
-    "Default accent color used for browser profile/UI cues where colored identity hints are displayed. Use consistent colors to help operators identify active browser profile context quickly.": "Default accent color used for browser profile/UI cues where colored identity hints are displayed. Use consistent colors to help operators identify active browser profile context quickly.",
-    "Forces browser launch in headless mode when the local launcher starts browser instances. Keep headless enabled for server environments and disable only when visible UI debugging is required.": "Forces browser launch in headless mode when the local launcher starts browser instances. Keep headless enabled for server environments and disable only when visible UI debugging is required.",
-    "Starting local CDP port used for auto-allocated browser profile ports. Increase this when host-level port defaults conflict with other local services.": "Starting local CDP port used for auto-allocated browser profile ports. Increase this when host-level port defaults conflict with other local services.",
-    "Default browser profile name selected when callers do not request a specific profile. Keep this stable so scripted browser actions have predictable context.": "Default browser profile name selected when callers do not request a specific profile. Keep this stable so scripted browser actions have predictable context.",
-    "Service discovery settings for local mDNS advertisement and optional wide-area presence signaling. Keep discovery scoped to expected networks to avoid leaking service metadata.": "Service discovery settings for local mDNS advertisement and optional wide-area presence signaling. Keep discovery scoped to expected networks to avoid leaking service metadata.",
-    "mDNS broadcast mode (\"minimal\" default, \"full\" includes cliPath/sshPort, \"off\" disables mDNS).": "mDNS broadcast mode (\"minimal\" default, \"full\" includes cliPath/sshPort, \"off\" disables mDNS).",
-    "Wide-area discovery configuration group for exposing discovery signals beyond local-link scopes. Enable only in deployments that intentionally aggregate gateway presence across sites.": "Wide-area discovery configuration group for exposing discovery signals beyond local-link scopes. Enable only in deployments that intentionally aggregate gateway presence across sites.",
-    "Enables wide-area discovery signaling when your environment needs non-local gateway discovery. Keep disabled unless cross-network discovery is operationally required.": "Enables wide-area discovery signaling when your environment needs non-local gateway discovery. Keep disabled unless cross-network discovery is operationally required.",
-    "Canvas host settings for serving canvas assets and local live-reload behavior used by canvas-enabled workflows. Keep disabled unless canvas-hosted assets are actively used.": "Canvas host settings for serving canvas assets and local live-reload behavior used by canvas-enabled workflows. Keep disabled unless canvas-hosted assets are actively used.",
-    "Enables the canvas host server process and routes for serving canvas files. Keep disabled when canvas workflows are inactive to reduce exposed local services.": "Enables the canvas host server process and routes for serving canvas files. Keep disabled when canvas workflows are inactive to reduce exposed local services.",
-    "Filesystem root directory served by canvas host for canvas content and static assets. Use a dedicated directory and avoid broad repo roots for least-privilege file exposure.": "Filesystem root directory served by canvas host for canvas content and static assets. Use a dedicated directory and avoid broad repo roots for least-privilege file exposure.",
-    "TCP port used by the canvas host HTTP server when canvas hosting is enabled. Choose a non-conflicting port and align firewall/proxy policy accordingly.": "TCP port used by the canvas host HTTP server when canvas hosting is enabled. Choose a non-conflicting port and align firewall/proxy policy accordingly.",
-    "Enables automatic live-reload behavior for canvas assets during development workflows. Keep disabled in production-like environments where deterministic output is preferred.": "Enables automatic live-reload behavior for canvas assets during development workflows. Keep disabled in production-like environments where deterministic output is preferred.",
-    "UI presentation settings for accenting and assistant identity shown in control surfaces. Use this for branding and readability customization without changing runtime behavior.": "UI presentation settings for accenting and assistant identity shown in control surfaces. Use this for branding and readability customization without changing runtime behavior.",
-    "Primary accent/seam color used by UI surfaces for emphasis, badges, and visual identity cues. Use high-contrast values that remain readable across light/dark themes.": "Primary accent/seam color used by UI surfaces for emphasis, badges, and visual identity cues. Use high-contrast values that remain readable across light/dark themes.",
-    "Assistant display identity settings for name and avatar shown in UI surfaces. Keep these values aligned with your operator-facing persona and support expectations.": "Assistant display identity settings for name and avatar shown in UI surfaces. Keep these values aligned with your operator-facing persona and support expectations.",
-    "Display name shown for the assistant in UI views, chat chrome, and status contexts. Keep this stable so operators can reliably identify which assistant persona is active.": "Display name shown for the assistant in UI views, chat chrome, and status contexts. Keep this stable so operators can reliably identify which assistant persona is active.",
-    "Assistant avatar image source used in UI surfaces (URL, path, or data URI depending on runtime support). Use trusted assets and consistent branding dimensions for clean rendering.": "Assistant avatar image source used in UI surfaces (URL, path, or data URI depending on runtime support). Use trusted assets and consistent branding dimensions for clean rendering.",
-    "Node host controls for features exposed from this gateway node to other nodes or clients. Keep defaults unless you intentionally proxy local capabilities across your node network.": "Node host controls for features exposed from this gateway node to other nodes or clients. Keep defaults unless you intentionally proxy local capabilities across your node network.",
-    "Groups browser-proxy settings for exposing local browser control through node routing. Enable only when remote node workflows need your local browser profiles.": "Groups browser-proxy settings for exposing local browser control through node routing. Enable only when remote node workflows need your local browser profiles.",
-    "Expose the local browser control server through node proxy routing so remote clients can use this host's browser capabilities. Keep disabled unless remote automation explicitly depends on it.": "Expose the local browser control server through node proxy routing so remote clients can use this host's browser capabilities. Keep disabled unless remote automation explicitly depends on it.",
-    "Optional allowlist of browser profile names exposed through node proxy routing. Leave empty to expose all configured profiles, or use a tight list to enforce least-privilege profile access.": "Optional allowlist of browser profile names exposed through node proxy routing. Leave empty to expose all configured profiles, or use a tight list to enforce least-privilege profile access.",
-    "Global audio ingestion settings used before higher-level tools process speech or media content. Configure this when you need deterministic transcription behavior for voice notes and clips.": "Global audio ingestion settings used before higher-level tools process speech or media content. Configure this when you need deterministic transcription behavior for voice notes and clips.",
-    "Command-based transcription settings for converting audio files into text before agent handling. Keep a simple, deterministic command path here so failures are easy to diagnose in logs.": "Command-based transcription settings for converting audio files into text before agent handling. Keep a simple, deterministic command path here so failures are easy to diagnose in logs.",
-    "Executable + args used to transcribe audio (first token must be a safe binary/path), for example `[\"whisper-cli\", \"--model\", \"small\", \"{input}\"]`. Prefer a pinned command so runtime environments behave consistently.": "Executable + args used to transcribe audio (first token must be a safe binary/path), for example `[\"whisper-cli\", \"--model\", \"small\", \"{input}\"]`. Prefer a pinned command so runtime environments behave consistently.",
-    "Maximum time allowed for the transcription command to finish before it is aborted. Increase this for longer recordings, and keep it tight in latency-sensitive deployments.": "Maximum time allowed for the transcription command to finish before it is aborted. Increase this for longer recordings, and keep it tight in latency-sensitive deployments.",
-    "Extra node.invoke commands to allow beyond the gateway defaults (array of command strings). Enabling dangerous commands here is a security-sensitive override and is flagged by `openclaw security audit`.": "Extra node.invoke commands to allow beyond the gateway defaults (array of command strings). Enabling dangerous commands here is a security-sensitive override and is flagged by `openclaw security audit`.",
-    "Node command names to block even if present in node claims or default allowlist (exact command-name matching only, e.g. `system.run`; does not inspect shell text inside that command).": "Node command names to block even if present in node claims or default allowlist (exact command-name matching only, e.g. `system.run`; does not inspect shell text inside that command).",
-    "Controls typing behavior timing: \"never\", \"instant\", \"thinking\", or \"message\" based emission points. Keep conservative modes in high-volume channels to avoid unnecessary typing noise.": "Controls typing behavior timing: \"never\", \"instant\", \"thinking\", or \"message\" based emission points. Keep conservative modes in high-volume channels to avoid unnecessary typing noise.",
-    "Maximum parent-session token count allowed for thread/session inheritance forking. If the parent exceeds this, OpenClaw starts a fresh thread session instead of forking; set 0 to disable this protection.": "Maximum parent-session token count allowed for thread/session inheritance forking. If the parent exceeds this, OpenClaw starts a fresh thread session instead of forking; set 0 to disable this protection.",
+    "DM session scoping: \"main\" keeps continuity, while \"per-peer\", \"per-channel-peer\", and \"per-account-channel-peer\" increase isolation. Use isolated modes for shared inboxes or multi-account deployments.": "Omfattning för DM-sessioner: \"main\" behåller kontinuiteten, medan \"per-peer\", \"per-channel-peer\" och \"per-account-channel-peer\" ger högre isolering. Använd isolerade lägen för delade inkorgar eller miljöer med flera konton.",
+    "Gateway auth mode: \"none\", \"token\", \"password\", or \"trusted-proxy\" depending on your edge architecture. Use token/password for direct exposure, and trusted-proxy only behind hardened identity-aware proxies.": "Gatewayens autentiseringsläge: \"none\", \"token\", \"password\" eller \"trusted-proxy\" beroende på din edge-arkitektur. Använd token/lösenord vid direkt exponering, och trusted-proxy endast bakom härdade identitetsmedvetna proxyer.",
+    "Trusted-proxy auth header mapping for upstream identity providers that inject user claims. Use only with known proxy CIDRs and strict header allowlists to prevent spoofed identity headers.": "Mappning av auth-headers för trusted-proxy mot upstream-identitetsleverantörer som injicerar användarclaims. Använd bara detta med kända proxy-CIDR:er och strikt allowlist för headers för att förhindra spoofade identitetsheaders.",
+    "Gateway-level tool exposure allow/deny policy that can restrict runtime tool availability independent of agent/tool profiles. Use this for coarse emergency controls and production hardening.": "Gatewayövergripande allow/deny-policy för verktyg som kan begränsa tillgängliga runtime-verktyg oberoende av agent- eller verktygsprofiler. Använd detta för grova nödstopp och produktionshärdning.",
+    "Remote Gateway WebSocket URL (ws:// or wss://).": "WebSocket-URL till fjärrgateway (ws:// eller wss://).",
+    "Bearer token used to authenticate this client to a remote gateway in token-auth deployments. Store via secret/env substitution and rotate alongside remote gateway auth changes.": "Bearer-token som används för att autentisera den här klienten mot en fjärrgateway i deployment med token-auth. Lagra via secret-/miljövariabelsubstitution och rotera den tillsammans med auth-ändringar i fjärrgatewayen.",
+    "Enables browser capability wiring in the gateway so browser tools and CDP-driven workflows can run. Disable when browser automation is not needed to reduce surface area and startup work.": "Aktiverar webbläsarstöd i gatewayen så att webbläsarverktyg och CDP-drivna arbetsflöden kan köras. Inaktivera när webbläsarautomation inte behövs för att minska attackytan och uppstartsarbetet.",
+    "Remote CDP websocket URL used to attach to an externally managed browser instance. Use this for centralized browser hosts and keep URL access restricted to trusted network paths.": "Fjärr-URL för CDP-websocket som används för att ansluta till en externt hanterad webbläsarinstans. Använd detta för centraliserade webbläsarvärdar och begränsa URL-åtkomsten till betrodda nätverksvägar.",
+    "Explicit browser executable path when auto-discovery is insufficient for your host environment. Use absolute stable paths so launch behavior stays deterministic across restarts.": "Explicit sökväg till webbläsarens körbara fil när automatisk upptäckt inte räcker i din värdmiljö. Använd absoluta och stabila sökvägar så att startbeteendet förblir deterministiskt över omstarter.",
+    "Disables Chromium sandbox isolation flags for environments where sandboxing fails at runtime. Keep this off whenever possible because process isolation protections are reduced.": "Inaktiverar Chromiums sandboxflaggor i miljöer där sandboxning misslyckas vid körning. Låt detta vara avstängt när det går, eftersom processisoleringens skydd då försvagas.",
+    "Restricts browser mode to attach-only behavior without starting local browser processes. Use this when all browser sessions are externally managed by a remote CDP provider.": "Begränsar webbläsarläget till endast anslutning utan att starta lokala webbläsarprocesser. Använd detta när alla webbläsarsessioner hanteras externt av en fjärr-CDP-leverantör.",
+    "Provider map keyed by provider ID containing connection/auth settings and concrete model definitions. Use stable provider keys so references from agents and tooling remain portable across environments.": "Leverantörskarta nycklad på leverantörs-ID med anslutnings-/auth-inställningar och konkreta modelldefinitioner. Använd stabila leverantörsnycklar så att referenser från agenter och verktyg förblir portabla mellan miljöer.",
+    "Base URL for the provider endpoint used to serve model requests for that provider entry. Use HTTPS endpoints and keep URLs environment-specific through config templating where needed.": "Bas-URL för leverantörens endpoint som hanterar modellförfrågningar för den här leverantörsposten. Använd HTTPS-endpoints och håll URL:er miljöspecifika via konfigmallar där det behövs.",
+    "Provider credential used for API-key based authentication when the provider requires direct key auth. Use secret/env substitution and avoid storing real keys in committed config files.": "Leverantörsuppgift som används för API-nyckelbaserad autentisering när leverantören kräver direkt nyckelauth. Använd secret-/miljövariabelsubstitution och undvik att lagra riktiga nycklar i committade konfigfiler.",
+    "Enables periodic Bedrock model discovery and catalog refresh for Bedrock-backed providers. Keep disabled unless Bedrock is actively used and IAM permissions are correctly configured.": "Aktiverar periodisk modellupptäckt och kataloguppdatering för Bedrock-baserade leverantörer. Låt vara inaktiverat om Bedrock inte används aktivt och IAM-rättigheterna inte är korrekt konfigurerade.",
+    "Optional provider allowlist filter for Bedrock discovery so only selected providers are refreshed. Use this to limit discovery scope in multi-provider environments.": "Valfritt allowlist-filter för leverantörer vid Bedrock-upptäckt så att bara utvalda leverantörer uppdateras. Använd detta för att begränsa upptäcktsomfånget i miljöer med flera leverantörer.",
+    "Enables forwarding of exec approval requests to configured delivery destinations (default: false). Keep disabled in low-risk setups and enable only when human approval responders need channel-visible prompts.": "Aktiverar vidarebefordran av exec-godkännanden till konfigurerade leveransmål (standard: false). Låt detta vara avstängt i låg-risk-miljöer och aktivera det bara när mänskliga godkännare behöver kanalvisa promptar.",
+    "Controls where approval prompts are sent: \"session\" uses origin chat, \"targets\" uses configured targets, and \"both\" sends to both paths. Use \"session\" as baseline and expand only when operational workflow requires redundancy.": "Styr var godkännandepromptar skickas: \"session\" använder ursprungschatten, \"targets\" använder konfigurerade mål och \"both\" skickar till båda. Använd \"session\" som baslinje och utöka bara när arbetsflödet kräver redundans.",
+    "Explicit delivery targets used when forwarding mode includes targets, each with channel and destination details. Keep target lists least-privilege and validate each destination before enabling broad forwarding.": "Explicita leveransmål som används när vidarebefordringsläget inkluderar targets, vart och ett med kanal- och destinationsdetaljer. Håll mållistorna minimalt behöriga och validera varje destination innan bred vidarebefordran aktiveras.",
+    "Sets base session grouping strategy: \"per-sender\" isolates by sender and \"global\" shares one session per channel context. Keep \"per-sender\" for safer multi-user behavior unless deliberate shared context is required.": "Anger grundstrategi för sessionsgruppering: \"per-sender\" isolerar per avsändare och \"global\" delar en session per kanalkontext. Behåll \"per-sender\" för säkrare fleranvändarbeteende om du inte medvetet behöver delad kontext.",
+    "Maps canonical identities to provider-prefixed peer IDs so equivalent users resolve to one DM thread (example: telegram:123456). Use this when the same human appears across multiple channels or accounts.": "Mappar kanoniska identiteter till leverantörsprefixade peer-ID:n så att likvärdiga användare hamnar i en och samma DM-tråd (exempel: telegram:123456). Använd detta när samma person förekommer över flera kanaler eller konton.",
+    "Lists message triggers that force a session reset when matched in inbound content. Use sparingly for explicit reset phrases so context is not dropped unexpectedly during normal conversation.": "Listar meddelandetriggers som tvingar en sessionsåterställning när de matchar inkommande innehåll. Använd sparsamt för explicita återställningsfraser så att kontext inte tappas oväntat under vanliga samtal.",
+    "Sets the session storage file path used to persist session records across restarts. Use an explicit path only when you need custom disk layout, backup routing, or mounted-volume storage.": "Anger sökvägen till sessionslagringsfilen som används för att bevara sessionsposter över omstarter. Använd en explicit sökväg bara när du behöver anpassad disklayout, backup-routning eller lagring på monterad volym.",
+    "Controls cross-session send permissions using allow/deny rules evaluated against channel, chatType, and key prefixes. Use this to fence where session tools can deliver messages in complex environments.": "Styr behörigheter för sändning mellan sessioner med allow/deny-regler som utvärderas mot kanal, chatType och nyckelprefix. Använd detta för att begränsa var sessionsverktyg får leverera meddelanden i komplexa miljöer.",
+    "Shared defaults for thread-bound session routing behavior across providers that support thread focus workflows. Configure global defaults here and override per channel only when behavior differs.": "Gemensamma standardvärden för trådbunden sessionsroutning hos leverantörer som stödjer trådfokuserade arbetsflöden. Konfigurera globala standarder här och åsidosätt per kanal bara när beteendet skiljer sig.",
+    "Automatic session-store maintenance controls for pruning age, entry caps, and file rotation behavior. Start in warn mode to observe impact, then enforce once thresholds are tuned.": "Automatiska underhållsinställningar för sessionslagret, med rensningsålder, posttak och filrotation. Börja i warn-läge för att observera effekten och skärp sedan när trösklarna är intrimmade.",
+    "Remote connection transport: \"direct\" uses configured URL connectivity, while \"ssh\" tunnels through SSH. Use SSH when you need encrypted tunnel semantics without exposing remote ports.": "Transport för fjärranslutning: \"direct\" använder konfigurerad URL-anslutning, medan \"ssh\" tunnlar över SSH. Använd SSH när du behöver krypterad tunnelsemantik utan att exponera fjärrportar.",
+    "Live config-reload policy for how edits are applied and when full restarts are triggered. Keep hybrid behavior for safest operational updates unless debugging reload internals.": "Policy för live-omladdning av konfiguration som styr hur ändringar tillämpas och när full omstart triggas. Behåll hybridbeteende för säkrast driftuppdateringar om du inte felsöker omladdningslogiken.",
+    "TLS certificate and key settings for terminating HTTPS directly in the gateway process. Use explicit certificates in production and avoid plaintext exposure on untrusted networks.": "Inställningar för TLS-certifikat och nyckel för att terminera HTTPS direkt i gateway-processen. Använd explicita certifikat i produktion och undvik klartextsexponering på opålitliga nätverk.",
+    "Enables TLS termination at the gateway listener so clients connect over HTTPS/WSS directly. Keep enabled for direct internet exposure or any untrusted network boundary.": "Aktiverar TLS-terminering i gateway-lyssnaren så att klienter ansluter direkt via HTTPS/WSS. Låt vara aktiverat vid direkt internetexponering eller andra opålitliga nätverksgränser.",
+    "Auto-generates a local TLS certificate/key pair when explicit files are not configured. Use only for local/dev setups and replace with real certificates for production traffic.": "Genererar automatiskt ett lokalt TLS-certifikat/nyckelpar när explicita filer inte är konfigurerade. Använd bara detta för lokala utvecklingsmiljöer och ersätt med riktiga certifikat för produktionstrafik.",
+    "Filesystem path to the TLS certificate file used by the gateway when TLS is enabled. Use managed certificate paths and keep renewal automation aligned with this location.": "Filsystemsökväg till TLS-certifikatfilen som gatewayen använder när TLS är aktiverat. Använd hanterade certifikatsökvägar och se till att förnyelseautomation är anpassad till den här platsen.",
+    "Filesystem path to the TLS private key file used by the gateway when TLS is enabled. Keep this key file permission-restricted and rotate per your security policy.": "Filsystemsökväg till den privata TLS-nyckelfilen som gatewayen använder när TLS är aktiverat. Håll filbehörigheterna restriktiva och rotera nyckeln enligt din säkerhetspolicy.",
+    "Optional CA bundle path for client verification or custom trust-chain requirements at the gateway edge. Use this when private PKI or custom certificate chains are part of deployment.": "Valfri sökväg till CA-bundle för klientverifiering eller krav på anpassad tillitskedja vid gateway-kanten. Använd detta när privat PKI eller egna certifikatkedjor ingår i deploymenten.",
+    "Gateway HTTP API configuration grouping endpoint toggles and transport-facing API exposure controls. Keep only required endpoints enabled to reduce attack surface.": "Konfiguration för gatewayens HTTP-API som samlar endpoint-växlar och kontroller för API-exponering mot transportlagret. Låt bara nödvändiga endpoints vara aktiverade för att minska attackytan.",
+    "HTTP endpoint feature toggles under the gateway API surface for compatibility routes and optional integrations. Enable endpoints intentionally and monitor access patterns after rollout.": "Feature-växlar för HTTP-endpoints under gatewayens API-yta för kompatibilitetsrutter och valfria integrationer. Aktivera endpoints medvetet och övervaka åtkomstmönster efter utrullning.",
+    "Optional HTTP response security headers applied by the gateway process itself. Prefer setting these at your reverse proxy when TLS terminates there.": "Valfria säkerhetsheaders i HTTP-svar som sätts av gateway-processen själv. Sätt dem helst i din reverse proxy när TLS termineras där.",
+    "Value for the Strict-Transport-Security response header. Set only on HTTPS origins that you fully control; use false to explicitly disable.": "Värde för svarsheadern Strict-Transport-Security. Sätt detta endast på HTTPS-origins som du helt kontrollerar; använd false för att uttryckligen inaktivera.",
+    "DANGEROUS toggle that enables Host-header based origin fallback for Control UI/WebChat websocket checks. This mode is supported when your deployment intentionally relies on Host-header origin policy; explicit gateway.controlUi.allowedOrigins remains the recommended hardened default.": "FARLIG växel som aktiverar Host-headerbaserad origin-fallback för websocket-kontroller i Control UI/WebChat. Läget stöds när din deployment medvetet förlitar sig på Host-header-policy; explicit gateway.controlUi.allowedOrigins är fortfarande den rekommenderade härdade standarden.",
+    "Loosens strict browser auth checks for Control UI when you must run a non-standard setup. Keep this off unless you trust your network and proxy path, because impersonation risk is higher.": "Lättar på de strikta auth-kontrollerna för webbläsaren i Control UI när du måste köra en icke-standardiserad setup. Låt detta vara avstängt om du inte litar på ditt nätverk och din proxyväg, eftersom risken för impersonering då är högre.",
+    "Sets inactivity window before reset for idle mode and can also act as secondary guard with daily mode. Use larger values to preserve continuity or smaller values for fresher short-lived threads.": "Anger inaktivitetsfönster före återställning i idle-läge och kan även fungera som sekundärt skydd tillsammans med daily-läge. Använd större värden för att bevara kontinuitet eller mindre värden för fräschare kortlivade trådar.",
+    "Overrides reset behavior by chat type (direct, group, thread) when defaults are not sufficient. Use this when group/thread traffic needs different reset cadence than direct messages.": "Åsidosätter återställningsbeteendet per chattyp (direct, group, thread) när standardvärdena inte räcker. Använd detta när grupp-/trådtrafik behöver en annan återställningstakt än direktmeddelanden.",
+    "Defines reset policy for direct chats and supersedes the base session.reset configuration for that type. Use this as the canonical direct-message override instead of the legacy dm alias.": "Definierar återställningspolicy för direkta chattar och ersätter grundkonfigurationen i session.reset för den typen. Använd detta som det kanoniska åsidosättandet för direktmeddelanden i stället för det äldre dm-aliaset.",
+    "Deprecated alias for direct reset behavior kept for backward compatibility with older configs. Use session.resetByType.direct instead so future tooling and validation remain consistent.": "Föråldrat alias för återställningsbeteende i direkta chattar, kvar för bakåtkompatibilitet med äldre konfigurationer. Använd i stället session.resetByType.direct så att framtida verktyg och validering förblir konsekventa.",
+    "Defines reset policy for group chat sessions where continuity and noise patterns differ from DMs. Use shorter idle windows for busy groups if context drift becomes a problem.": "Definierar återställningspolicy för gruppchattsessioner där kontinuitet och brusmönster skiljer sig från DM. Använd kortare idle-fönster för livliga grupper om kontextdrift blir ett problem.",
+    "Defines reset policy for thread-scoped sessions, including focused channel thread workflows. Use this when thread sessions should expire faster or slower than other chat types.": "Definierar återställningspolicy för trådbegränsade sessioner, inklusive fokuserade kanaltrådsflöden. Använd detta när trådsessioner ska löpa ut snabbare eller långsammare än andra chattyper.",
+    "Provides channel-specific reset overrides keyed by provider/channel id for fine-grained behavior control. Use this only when one channel needs exceptional reset behavior beyond type-level policies.": "Ger kanalspecifika åsidosättanden för återställning, nycklade på leverantörs-/kanal-ID för finmaskig styrning. Använd detta bara när en kanal behöver ett särskilt återställningsbeteende utöver typnivåns policyer.",
+    "Controls interval for repeated typing indicators while replies are being prepared in typing-capable channels. Increase to reduce chatty updates or decrease for more active typing feedback.": "Styr intervallet för upprepade skrivindikatorer medan svar förbereds i kanaler som stödjer typing-status. Öka för att minska pratiga uppdateringar eller sänk för mer aktiv skrivfeedback.",
+    "CLI-managed install metadata (used by `openclaw plugins update` to locate install sources).": "Installationsmetadata som hanteras av CLI:t (används av `openclaw plugins update` för att hitta installationskällor).",
+    "Install source (\"npm\", \"archive\", or \"path\").": "Installationskälla (\"npm\", \"archive\" eller \"path\").",
+    "Original npm spec used for install (if source is npm).": "Ursprunglig npm-spec som användes vid installationen (om källan är npm).",
+    "Original archive/path used for install (if any).": "Ursprungligt arkiv/ursprunglig sökväg som användes vid installationen (om någon).",
+    "Resolved install directory (usually ~/.openclaw/extensions/<id>).": "Upplöst installationskatalog (vanligen ~/.openclaw/extensions/<id>).",
+    "Default browser profile name selected when callers do not explicitly choose a profile. Use a stable low-privilege profile as the default to reduce accidental cross-context state use.": "Standardnamn på webbläsarprofilen som väljs när anropare inte uttryckligen anger en profil. Använd en stabil profil med låg behörighet som standard för att minska risken för oavsiktlig delning av tillstånd mellan kontexter.",
+    "Bind IP address for the Chrome extension relay listener. Leave unset for loopback-only access, or set an explicit non-loopback IP such as 0.0.0.0 only when the relay must be reachable across network namespaces (for example WSL2) and the surrounding network is already trusted.": "Bind-IP-adress för relälyssnaren till Chrome-tillägget. Lämna tomt för endast loopback-åtkomst, eller ange en explicit icke-loopback-IP som 0.0.0.0 bara när reläet måste nås över nätverksnamnrymder (till exempel WSL2) och det omgivande nätverket redan är betrott.",
+    "Named browser profile connection map used for explicit routing to CDP ports or URLs with optional metadata. Keep profile names consistent and avoid overlapping endpoint definitions.": "Namngiven anslutningskarta för webbläsarprofiler som används för explicit routning till CDP-portar eller URL:er med valfri metadata. Håll profilnamnen konsekventa och undvik överlappande endpoint-definitioner.",
+    "Per-profile local CDP port used when connecting to browser instances by port instead of URL. Use unique ports per profile to avoid connection collisions.": "Lokal CDP-port per profil som används när anslutning till webbläsarinstanser sker via port i stället för URL. Använd unika portar per profil för att undvika kollisioner.",
+    "Per-profile CDP websocket URL used for explicit remote browser routing by profile name. Use this when profile connections terminate on remote hosts or tunnels.": "CDP-websocket-URL per profil som används för explicit routning till fjärrwebbläsare per profilnamn. Använd detta när profilanslutningar terminerar på fjärrvärdar eller tunnlar.",
+    "Per-profile browser driver mode: \"openclaw\" (or legacy \"clawd\") or \"extension\" depending on connection/runtime strategy. Use the driver that matches your browser control stack to avoid protocol mismatches.": "Webbläsardrivrutinsläge per profil: \"openclaw\" (eller äldre \"clawd\") eller \"extension\" beroende på anslutnings-/runtime-strategi. Använd den drivrutin som matchar din kontrollstack för webbläsaren för att undvika protokollmismatchar.",
+    "Per-profile attach-only override that skips local browser launch and only attaches to an existing CDP endpoint. Useful when one profile is externally managed but others are locally launched.": "Åsidosättning per profil för endast anslutning som hoppar över lokal webbläsarstart och bara ansluter till en befintlig CDP-endpoint. Användbart när en profil hanteras externt men andra startas lokalt.",
+    "Per-profile accent color for visual differentiation in dashboards and browser-related UI hints. Use distinct colors for high-signal operator recognition of active profiles.": "Accentfärg per profil för visuell åtskillnad i dashboards och webbläsarrelaterade UI-ledtrådar. Använd tydligt olika färger för att operatören snabbt ska känna igen aktiva profiler.",
+    "Enables browser-side evaluate helpers for runtime script evaluation capabilities where supported. Keep disabled unless your workflows require evaluate semantics beyond snapshots/navigation.": "Aktiverar hjälpfunktioner för evaluate i webbläsaren där runtime-stöd finns för skriptutvärdering. Låt vara inaktiverat om dina arbetsflöden inte behöver evaluate-funktionalitet utöver snapshots och navigering.",
+    "Default snapshot capture configuration used when callers do not provide explicit snapshot options. Tune this for consistent capture behavior across channels and automation paths.": "Standardkonfiguration för snapshot-fångst som används när anropare inte anger explicita snapshot-alternativ. Trimma detta för konsekvent fångstbeteende över kanaler och automationsvägar.",
+    "Default snapshot extraction mode controlling how page content is transformed for agent consumption. Choose the mode that balances readability, fidelity, and token footprint for your workflows.": "Standardläge för snapshot-extraktion som styr hur sidinnehåll omvandlas för agentanvändning. Välj det läge som bäst balanserar läsbarhet, trohet och tokenåtgång för dina arbetsflöden.",
+    "Server-side request forgery guardrail settings for browser/network fetch paths that could reach internal hosts. Keep restrictive defaults in production and open only explicitly approved targets.": "Skyddsinställningar mot server-side request forgery för webbläsar-/nätverkshämtningar som kan nå interna värdar. Behåll restriktiva standardvärden i produktion och öppna bara uttryckligen godkända mål.",
+    "Legacy alias for browser.ssrfPolicy.dangerouslyAllowPrivateNetwork. Prefer the dangerously-named key so risk intent is explicit.": "Äldre alias för browser.ssrfPolicy.dangerouslyAllowPrivateNetwork. Föredra den explicit farligt namngivna nyckeln så att riskavsikten framgår tydligt.",
+    "Allows access to private-network address ranges from browser tooling. Default is enabled for trusted-network operator setups; disable to enforce strict public-only resolution checks.": "Tillåter åtkomst till privata nätverksintervall från webbläsarverktygen. Standard är aktiverat för operatörsmiljöer på betrodda nätverk; inaktivera för att tvinga strikt kontroll mot enbart publika adresser.",
+    "Explicit hostname allowlist exceptions for SSRF policy checks on browser/network requests. Keep this list minimal and review entries regularly to avoid stale broad access.": "Explicita undantag i hostname-allowlist för SSRF-kontroller vid webbläsar-/nätverksförfrågningar. Håll listan minimal och granska posterna regelbundet för att undvika gammal och för bred åtkomst.",
+    "Legacy/alternate hostname allowlist field used by SSRF policy consumers for explicit host exceptions. Use stable exact hostnames and avoid wildcard-like broad patterns.": "Äldre/alternativt fält för hostname-allowlist som används av SSRF-policykonsumenter för explicita värdundantag. Använd stabila exakta värdnamn och undvik breda mönster som liknar wildcard.",
+    "Interval in minutes for automatic channel health probing and status updates. Use lower intervals for faster detection, or higher intervals to reduce periodic probe noise.": "Intervall i minuter för automatisk hälsokontroll av kanaler och statusuppdateringar. Använd lägre intervall för snabbare upptäckt eller högre intervall för att minska periodiskt brus.",
+    "Tailscale integration settings for Serve/Funnel exposure and lifecycle handling on gateway start/exit. Keep off unless your deployment intentionally relies on Tailscale ingress.": "Inställningar för Tailscale-integration för Serve/Funnel-exponering och livscykelhantering vid start/avslut av gatewayen. Låt vara avstängt om din deployment inte medvetet använder Tailscale-ingress.",
+    "Tailscale publish mode: \"off\", \"serve\", or \"funnel\" for private or public exposure paths. Use \"serve\" for tailnet-only access and \"funnel\" only when public internet reachability is required.": "Publiceringsläge för Tailscale: \"off\", \"serve\" eller \"funnel\" för privata eller publika exponeringsvägar. Använd \"serve\" för åtkomst endast via tailnet och \"funnel\" bara när publik internetåtkomst krävs.",
+    "Resets Tailscale Serve/Funnel state on gateway exit to avoid stale published routes after shutdown. Keep enabled unless another controller manages publish lifecycle outside the gateway.": "Återställer Tailscale Serve/Funnel-status när gatewayen avslutas för att undvika kvarhängande publicerade rutter efter nedstängning. Låt vara aktiverat om inte en annan controller hanterar publiceringslivscykeln utanför gatewayen.",
+    "Remote gateway connection settings for direct or SSH transport when this instance proxies to another runtime host. Use remote mode only when split-host operation is intentionally configured.": "Inställningar för anslutning till fjärrgateway via direkt eller SSH-transport när denna instans proxar till en annan runtime-värd. Använd fjärrläge bara när split-host-drift är avsiktligt konfigurerad.",
+    "Global session routing, reset, delivery policy, and maintenance controls for conversation history behavior. Keep defaults unless you need stricter isolation, retention, or delivery constraints.": "Globala kontroller för sessionsroutning, återställning, leveranspolicy och underhåll som styr hur konversationshistoriken beter sig. Behåll standardvärdena om du inte behöver striktare isolering, lagringstid eller leveransbegränsningar.",
+    "Applies a legacy idle reset window in minutes for session reuse behavior across inactivity gaps. Use this only for compatibility and prefer structured reset policies under session.reset/session.resetByType.": "Tillämpa ett äldre idle-fönster i minuter för hur sessioner återanvänds efter inaktivitet. Använd detta bara för kompatibilitet och föredra strukturerade återställningspolicys under session.reset/session.resetByType.",
+    "Defines the default reset policy object used when no type-specific or channel-specific override applies. Set this first, then layer resetByType or resetByChannel only where behavior must differ.": "Definierar standardobjektet för återställningspolicy som används när inga typ- eller kanalspecifika åsidosättanden gäller. Sätt detta först och lägg sedan på resetByType eller resetByChannel bara där beteendet måste skilja sig.",
+    "Selects reset strategy: \"daily\" resets at a configured hour and \"idle\" resets after inactivity windows. Keep one clear mode per policy to avoid surprising context turnover patterns.": "Väljer återställningsstrategi: \"daily\" återställer vid en konfigurerad timme och \"idle\" återställer efter inaktivitetsfönster. Håll dig till ett tydligt läge per policy för att undvika överraskande kontextväxlingar.",
+    "Sets local-hour boundary (0-23) for daily reset mode so sessions roll over at predictable times. Use with mode=daily and align to operator timezone expectations for human-readable behavior.": "Anger lokal timgräns (0–23) för daily-läge så att sessioner rullar över på förutsägbara tider. Använd tillsammans med mode=daily och anpassa till operatörens tidszon för begripligt beteende.",
+    "Memory backend configuration (global).": "Konfiguration för minnesbackend (global).",
+    "Selects the global memory engine: \"builtin\" uses OpenClaw memory internals, while \"qmd\" uses the QMD sidecar pipeline. Keep \"builtin\" unless you intentionally operate QMD.": "Väljer global minnesmotor: \"builtin\" använder OpenClaws interna minne, medan \"qmd\" använder QMD-sidecar-pipelinen. Behåll \"builtin\" om du inte medvetet kör QMD.",
+    "Controls citation visibility in replies: \"auto\" shows citations when useful, \"on\" always shows them, and \"off\" hides them. Keep \"auto\" for a balanced signal-to-noise default.": "Styr synligheten för källhänvisningar i svar: \"auto\" visar dem när det är användbart, \"on\" visar dem alltid och \"off\" döljer dem. Behåll \"auto\" som en balanserad standard.",
+    "Sets the executable path for the `qmd` binary used by the QMD backend (default: resolved from PATH). Use an explicit absolute path when multiple qmd installs exist or PATH differs across environments.": "Anger körbar sökväg för `qmd`-binären som används av QMD-backenden (standard: upplöses från PATH). Använd en explicit absolut sökväg när flera qmd-installationer finns eller PATH skiljer sig mellan miljöer.",
+    "Routes QMD work through mcporter (MCP runtime) instead of spawning `qmd` for each call. Use this when cold starts are expensive on large models; keep direct process mode for simpler local setups.": "Routar QMD-arbete genom mcporter (MCP-runtime) i stället för att starta `qmd` för varje anrop. Använd detta när kallstarter är dyra för stora modeller; behåll direkt processläge i enklare lokala miljöer.",
+    "Plugin system controls for enabling extensions, constraining load scope, configuring entries, and tracking installs. Keep plugin policy explicit and least-privilege in production environments.": "Kontroller för pluginsystemet för att aktivera tillägg, begränsa laddningsomfång, konfigurera poster och följa installationer. Håll pluginpolicyn explicit och minimalt behörig i produktionsmiljöer.",
+    "Enable or disable plugin/extension loading globally during startup and config reload (default: true). Keep enabled only when extension capabilities are required by your deployment.": "Aktivera eller inaktivera laddning av pluginer/tillägg globalt vid uppstart och konfigurationsomladdning (standard: true). Låt vara aktiverat bara när din deployment faktiskt behöver tilläggsfunktioner.",
+    "Optional allowlist of plugin IDs; when set, only listed plugins are eligible to load. Use this to enforce approved extension inventories in controlled environments.": "Valfri allowlist för plugin-ID:n; när den är satt är det bara listade pluginer som får laddas. Använd detta för att upprätthålla en godkänd tilläggsinventering i kontrollerade miljöer.",
+    "Optional denylist of plugin IDs that are blocked even if allowlists or paths include them. Use deny rules for emergency rollback and hard blocks on risky plugins.": "Valfri denylist för plugin-ID:n som blockeras även om allowlist eller sökvägar inkluderar dem. Använd deny-regler för nödstopp och hårda blockeringar av riskabla pluginer.",
+    "Plugin loader configuration group for specifying filesystem paths where plugins are discovered. Keep load paths explicit and reviewed to avoid accidental untrusted extension loading.": "Konfigurationsgrupp för pluginladdaren där du anger filsystemsökvägar som används för att upptäcka pluginer. Håll laddningsvägar explicita och granskade för att undvika att opålitliga tillägg laddas av misstag.",
+    "Browser runtime controls for local or remote CDP attachment, profile routing, and screenshot/snapshot behavior. Keep defaults unless your automation workflow requires custom browser transport settings.": "Runtime-kontroller för webbläsaren för lokal eller fjärranslutning via CDP, profilroutning samt skärmbilds-/snapshotbeteende. Behåll standardvärdena om inte ditt automationsflöde kräver egna transportinställningar.",
+    "Default accent color used for browser profile/UI cues where colored identity hints are displayed. Use consistent colors to help operators identify active browser profile context quickly.": "Standardaccentfärg som används för webbläsarprofil/UI-ledtrådar där färgade identitetssignaler visas. Använd konsekventa färger så att operatörer snabbt ser vilken profilkontext som är aktiv.",
+    "Forces browser launch in headless mode when the local launcher starts browser instances. Keep headless enabled for server environments and disable only when visible UI debugging is required.": "Tvingar webbläsaren att starta i headless-läge när den lokala startaren skapar webbläsarinstanser. Låt headless vara aktiverat i servermiljöer och inaktivera bara när synlig UI-felsökning krävs.",
+    "Starting local CDP port used for auto-allocated browser profile ports. Increase this when host-level port defaults conflict with other local services.": "Startport för lokal CDP som används för automatiskt tilldelade webbläsarprofilportar. Höj denna när värdens standardportar krockar med andra lokala tjänster.",
+    "Default browser profile name selected when callers do not request a specific profile. Keep this stable so scripted browser actions have predictable context.": "Standardnamn på webbläsarprofilen som väljs när anropare inte begär en specifik profil. Håll detta stabilt så att skriptade webbläsaråtgärder får förutsägbar kontext.",
+    "Service discovery settings for local mDNS advertisement and optional wide-area presence signaling. Keep discovery scoped to expected networks to avoid leaking service metadata.": "Inställningar för tjänsteupptäckt för lokal mDNS-annonsering och valfri närvarosignalering över större områden. Begränsa upptäckten till förväntade nätverk för att undvika läckage av tjänstemetadata.",
+    "mDNS broadcast mode (\"minimal\" default, \"full\" includes cliPath/sshPort, \"off\" disables mDNS).": "Sändningsläge för mDNS (\"minimal\" som standard, \"full\" inkluderar cliPath/sshPort, \"off\" inaktiverar mDNS).",
+    "Wide-area discovery configuration group for exposing discovery signals beyond local-link scopes. Enable only in deployments that intentionally aggregate gateway presence across sites.": "Konfigurationsgrupp för wide-area discovery som exponerar upptäcktsignaler utanför lokallänksnivån. Aktivera bara i deploymenter som medvetet samlar gatewaynärvaro över flera platser.",
+    "Enables wide-area discovery signaling when your environment needs non-local gateway discovery. Keep disabled unless cross-network discovery is operationally required.": "Aktiverar wide-area discovery-signaler när din miljö behöver upptäcka gateways utanför det lokala nätet. Låt vara inaktiverat om inte upptäckt över nätverksgränser faktiskt krävs.",
+    "Canvas host settings for serving canvas assets and local live-reload behavior used by canvas-enabled workflows. Keep disabled unless canvas-hosted assets are actively used.": "Inställningar för canvas-värden som serverar canvasresurser och lokalt live reload-beteende i canvas-aktiverade arbetsflöden. Låt vara inaktiverat om canvas-hostade resurser inte används aktivt.",
+    "Enables the canvas host server process and routes for serving canvas files. Keep disabled when canvas workflows are inactive to reduce exposed local services.": "Aktiverar serverprocessen och routningen för canvas-värden som serverar canvasfiler. Låt vara inaktiverat när canvasarbetsflöden inte används för att minska lokalt exponerade tjänster.",
+    "Filesystem root directory served by canvas host for canvas content and static assets. Use a dedicated directory and avoid broad repo roots for least-privilege file exposure.": "Filsystemets rotkatalog som serveras av canvas-värden för canvasinnehåll och statiska resurser. Använd en dedikerad katalog och undvik breda reporötter för att hålla filåtkomsten minimalt behörig.",
+    "TCP port used by the canvas host HTTP server when canvas hosting is enabled. Choose a non-conflicting port and align firewall/proxy policy accordingly.": "TCP-port som används av canvas-värdens HTTP-server när canvashosting är aktiverad. Välj en port som inte krockar med andra och anpassa brandväggs-/proxypolicyn därefter.",
+    "Enables automatic live-reload behavior for canvas assets during development workflows. Keep disabled in production-like environments where deterministic output is preferred.": "Aktiverar automatiskt live reload för canvasresurser under utvecklingsflöden. Låt vara inaktiverat i produktionsliknande miljöer där deterministisk utdata föredras.",
+    "UI presentation settings for accenting and assistant identity shown in control surfaces. Use this for branding and readability customization without changing runtime behavior.": "UI-inställningar för accentering och assistentidentitet som visas i kontrollgränssnitt. Använd detta för branding och läsbarhetsanpassning utan att ändra runtime-beteendet.",
+    "Primary accent/seam color used by UI surfaces for emphasis, badges, and visual identity cues. Use high-contrast values that remain readable across light/dark themes.": "Primär accent-/sömfärg som används i UI-ytor för betoning, badges och visuella identitetssignaler. Använd färger med hög kontrast som förblir läsbara i både ljusa och mörka teman.",
+    "Assistant display identity settings for name and avatar shown in UI surfaces. Keep these values aligned with your operator-facing persona and support expectations.": "Inställningar för assistentens visade identitet, alltså namn och avatar som visas i UI-ytor. Håll dessa värden i linje med din operatörsvända persona och förväntad supportnivå.",
+    "Display name shown for the assistant in UI views, chat chrome, and status contexts. Keep this stable so operators can reliably identify which assistant persona is active.": "Visningsnamn för assistenten i UI-vyer, chattgränssnitt och statuslägen. Håll detta stabilt så att operatörer pålitligt kan se vilken assistentpersona som är aktiv.",
+    "Assistant avatar image source used in UI surfaces (URL, path, or data URI depending on runtime support). Use trusted assets and consistent branding dimensions for clean rendering.": "Bildkälla för assistentens avatar i UI-ytor (URL, sökväg eller data-URI beroende på runtime-stöd). Använd betrodda resurser och konsekventa dimensioner för ren rendering.",
+    "Node host controls for features exposed from this gateway node to other nodes or clients. Keep defaults unless you intentionally proxy local capabilities across your node network.": "Kontroller för nodvärden för funktioner som exponeras från denna gatewaynod till andra noder eller klienter. Behåll standardvärdena om du inte medvetet proxar lokala funktioner över nodnätverket.",
+    "Groups browser-proxy settings for exposing local browser control through node routing. Enable only when remote node workflows need your local browser profiles.": "Samlar inställningar för browser-proxy som exponerar lokal webbläsarkontroll via nodroutning. Aktivera bara när fjärrarbetsflöden på noder behöver dina lokala webbläsarprofiler.",
+    "Expose the local browser control server through node proxy routing so remote clients can use this host's browser capabilities. Keep disabled unless remote automation explicitly depends on it.": "Exponera den lokala kontrollservern för webbläsaren via nodproxy-routning så att fjärrklienter kan använda värdens webbläsarfunktioner. Låt vara inaktiverat om inte fjärrautomation uttryckligen är beroende av det.",
+    "Optional allowlist of browser profile names exposed through node proxy routing. Leave empty to expose all configured profiles, or use a tight list to enforce least-privilege profile access.": "Valfri allowlist över namn på webbläsarprofiler som exponeras via nodproxy-routning. Lämna tomt för att exponera alla konfigurerade profiler, eller använd en snäv lista för att hålla profilåtkomsten minimalt behörig.",
+    "Global audio ingestion settings used before higher-level tools process speech or media content. Configure this when you need deterministic transcription behavior for voice notes and clips.": "Globala inställningar för ljudinmatning som används innan högre nivåers verktyg behandlar tal eller medieinnehåll. Konfigurera detta när du behöver deterministiskt transkriptionsbeteende för röstanteckningar och klipp.",
+    "Command-based transcription settings for converting audio files into text before agent handling. Keep a simple, deterministic command path here so failures are easy to diagnose in logs.": "Kommandobaserade transkriptionsinställningar för att omvandla ljudfiler till text innan agenten tar över. Håll kommandokedjan enkel och deterministisk så att fel blir lätta att felsöka i loggarna.",
+    "Executable + args used to transcribe audio (first token must be a safe binary/path), for example `[\"whisper-cli\", \"--model\", \"small\", \"{input}\"]`. Prefer a pinned command so runtime environments behave consistently.": "Körbar fil och argument som används för att transkribera ljud (första token måste vara en säker binär/sökväg), till exempel `[\"whisper-cli\", \"--model\", \"small\", \"{input}\"]`. Föredra ett låst kommando så att runtime-miljöer beter sig konsekvent.",
+    "Maximum time allowed for the transcription command to finish before it is aborted. Increase this for longer recordings, and keep it tight in latency-sensitive deployments.": "Maximal tid som transkriptionskommandot får använda innan det avbryts. Öka detta för längre inspelningar och håll det snävt i deploymenter som är känsliga för latens.",
+    "Extra node.invoke commands to allow beyond the gateway defaults (array of command strings). Enabling dangerous commands here is a security-sensitive override and is flagged by `openclaw security audit`.": "Extra node.invoke-kommandon som får tillåtas utöver gatewayens standardvärden (array av kommandosträngar). Att aktivera farliga kommandon här är ett säkerhetskänsligt åsidosättande och flaggas av `openclaw security audit`.",
+    "Node command names to block even if present in node claims or default allowlist (exact command-name matching only, e.g. `system.run`; does not inspect shell text inside that command).": "Nodkommandonamn som ska blockeras även om de finns i nodclaims eller standard-allowlist (endast exakt matchning av kommandonamn, t.ex. `system.run`; shelltext inne i kommandot granskas inte).",
+    "Controls typing behavior timing: \"never\", \"instant\", \"thinking\", or \"message\" based emission points. Keep conservative modes in high-volume channels to avoid unnecessary typing noise.": "Styr tidpunkten för skrivindikatorer: \"never\", \"instant\", \"thinking\" eller \"message\". Behåll återhållsamma lägen i kanaler med hög volym för att undvika onödigt skrivbrus.",
+    "Maximum parent-session token count allowed for thread/session inheritance forking. If the parent exceeds this, OpenClaw starts a fresh thread session instead of forking; set 0 to disable this protection.": "Maximalt antal token i föräldrasessionen som tillåts för att förgrena arv till tråd/session. Om föräldern överskrider detta startar OpenClaw en ny trådsession i stället för att förgrena; ange 0 för att inaktivera skyddet.",
     "Overrides the canonical main session key used for continuity when dmScope or routing logic points to `main`. Use a stable value only if you intentionally need custom session anchoring.": "Overrides the canonical main session key used for continuity when dmScope or routing logic points to `main`. Use a stable value only if you intentionally need custom session anchoring.",
     "Matches the raw, unnormalized session-key prefix for exact full-key policy targeting. Use this when normalized keyPrefix is too broad and you need agent-prefixed or transport-specific precision.": "Matches the raw, unnormalized session-key prefix for exact full-key policy targeting. Use this when normalized keyPrefix is too broad and you need agent-prefixed or transport-specific precision.",
     "Groups controls for inter-agent session exchanges, including loop prevention limits on reply chaining. Keep defaults unless you run advanced agent-to-agent automation with strict turn caps.": "Groups controls for inter-agent session exchanges, including loop prevention limits on reply chaining. Keep defaults unless you run advanced agent-to-agent automation with strict turn caps.",
@@ -1699,407 +1699,407 @@
     ],
     [
       "Approvals",
-      "Approvals"
+      "Godkännanden"
     ],
     [
       "Approval Forwarding Targets",
-      "Approval Forwarding Targets"
+      "Mål för vidarebefordran av godkännanden"
     ],
     [
       "DM Session Scope",
-      "DM Session Scope"
+      "Sessionsomfång för direktmeddelanden"
     ],
     [
       "Model providers",
-      "Model providers"
+      "Modellleverantörer"
     ],
     [
       "Model provider",
-      "Model provider"
+      "Modellleverantör"
     ],
     [
       "Browser Headless Mode",
-      "Browser Headless Mode"
+      "Headless-läge för webbläsare"
     ],
     [
       "Image Understanding Max Bytes",
-      "Image Understanding Max Bytes"
+      "Max byte för bildförståelse"
     ],
     [
       "Tool-loop Critical Threshold",
-      "Tool-loop Critical Threshold"
+      "Kritisk tröskel för verktygsloop"
     ],
     [
       "Exec Approval Running Notice (ms)",
-      "Exec Approval Running Notice (ms)"
+      "Körnotis för exec-godkännande (ms)"
     ],
     [
       "Approval Target Account ID",
-      "Approval Target Account ID"
+      "Konto-ID för godkännandemål"
     ],
     [
       "Allow Cross-Context (Across Providers)",
-      "Allow Cross-Context (Across Providers)"
+      "Tillåt korskontext (mellan leverantörer)"
     ],
     [
       "Allow Cross-Context (Same Provider)",
-      "Allow Cross-Context (Same Provider)"
+      "Tillåt korskontext (samma leverantör)"
     ],
     [
       "Web Search Max Results",
-      "Web Search Max Results"
+      "Max antal resultat för webbsökning"
     ],
     [
       "Gemini Search Model",
-      "Gemini Search Model"
+      "Gemini-sökmodell"
     ],
     [
       "Agent ACP Working Directory",
-      "Agent ACP Working Directory"
+      "Arbetskatalog för agent-ACP"
     ],
     [
       "Agent-to-Agent Target Allowlist",
-      "Agent-to-Agent Target Allowlist"
+      "Mål-allowlist för agent-till-agent"
     ],
     [
       "Exec Safe Bin Trusted Dirs",
-      "Exec Safe Bin Trusted Dirs"
+      "Betrodda kataloger för exec safe bin"
     ],
     [
       "Environment Variable",
-      "Environment Variable"
+      "Miljövariabel"
     ],
     [
       "Sensitive Data Redaction",
-      "Sensitive Data Redaction"
+      "Maskering av känsliga data"
     ],
     [
       "Log File Path",
-      "Log File Path"
+      "Sökväg till loggfil"
     ],
     [
       "Log Level",
-      "Log Level"
+      "Loggnivå"
     ],
     [
       "Console Log Level",
-      "Console Log Level"
+      "Konsolloggnivå"
     ],
     [
       "Console Log Style",
-      "Console Log Style"
+      "Stil för konsollogg"
     ],
     [
       "Auto Update",
-      "Auto Update"
+      "Automatisk uppdatering"
     ],
     [
       "Cache Trace",
-      "Cache Trace"
+      "Cache-spårning"
     ],
     [
       "Control UI",
-      "Control UI"
+      "Kontroll-UI"
     ],
     [
       "Trusted Proxy",
-      "Trusted Proxy"
+      "Betrodd proxy"
     ],
     [
       "Remote Gateway",
-      "Remote Gateway"
+      "Fjärr-gateway"
     ],
     [
       "Config Reload",
-      "Config Reload"
+      "Konfigurationsomladdning"
     ],
     [
       "HTTP Security Headers",
-      "HTTP Security Headers"
+      "HTTP-säkerhetshuvuden"
     ],
     [
       "HTTP Endpoints",
-      "HTTP Endpoints"
+      "HTTP-endpoints"
     ],
     [
       "HTTP API",
-      "HTTP API"
+      "HTTP-API"
     ],
     [
       "Certificate Path",
-      "Certificate Path"
+      "Sökväg till certifikat"
     ],
     [
       "Key Path",
-      "Key Path"
+      "Sökväg till nyckel"
     ],
     [
       "CA Path",
-      "CA Path"
+      "Sökväg till CA"
     ],
     [
       "No-Sandbox Mode",
-      "No-Sandbox Mode"
+      "Läge utan sandbox"
     ],
     [
       "Attach-only Mode",
-      "Attach-only Mode"
+      "Endast-attach-läge"
     ],
     [
       "Relay Bind Address",
-      "Relay Bind Address"
+      "Bindningsadress för relä"
     ],
     [
       "Default Profile",
-      "Default Profile"
+      "Standardprofil"
     ],
     [
       "Port Range Start",
-      "Port Range Start"
+      "Start för portintervall"
     ],
     [
       "Accent Color",
-      "Accent Color"
+      "Accentfärg"
     ],
     [
       "Image Understanding",
-      "Image Understanding"
+      "Bildförståelse"
     ],
     [
       "Video Understanding",
-      "Video Understanding"
+      "Videoförståelse"
     ],
     [
       "Link Understanding",
-      "Link Understanding"
+      "Länkförståelse"
     ],
     [
       "Max Bytes",
-      "Max Bytes"
+      "Max byte"
     ],
     [
       "Max Chars",
-      "Max Chars"
+      "Max tecken"
     ],
     [
       "Attachment Policy",
-      "Attachment Policy"
+      "Policy för bilagor"
     ],
     [
       "Max Links",
-      "Max Links"
+      "Max länkar"
     ],
     [
       "Shared Models",
-      "Shared Models"
+      "Delade modeller"
     ],
     [
       "Tool Profile",
-      "Tool Profile"
+      "Verktygsprofil"
     ],
     [
       "Allowlist Additions",
-      "Allowlist Additions"
+      "Tillägg i allowlist"
     ],
     [
       "Policy by Provider",
-      "Policy by Provider"
+      "Policy per leverantör"
     ],
     [
       "Workspace-Only",
-      "Workspace-Only"
+      "Endast arbetsyta"
     ],
     [
       "History Size",
-      "History Size"
+      "Historikstorlek"
     ],
     [
       "Global Circuit Breaker Threshold",
-      "Global Circuit Breaker Threshold"
+      "Global tröskel för circuit breaker"
     ],
     [
       "Repeat Detection",
-      "Repeat Detection"
+      "Upptäckt av upprepning"
     ],
     [
       "No-Progress Detection",
-      "No-Progress Detection"
+      "Upptäckt av ingen framgång"
     ],
     [
       "Ping-Pong Detection",
-      "Ping-Pong Detection"
+      "Ping-pong-upptäckt"
     ],
     [
       "Session Tools Visibility",
-      "Session Tools Visibility"
+      "Synlighet för sessionsverktyg"
     ],
     [
       "Notify On Exit",
-      "Notify On Exit"
+      "Avisera vid avslut"
     ],
     [
       "Notify On Empty Success",
-      "Notify On Empty Success"
+      "Avisera vid tom framgång"
     ],
     [
       "Running Notice",
-      "Running Notice"
+      "Körnotis"
     ],
     [
       "Exec Host",
-      "Exec Host"
+      "Exec-värd"
     ],
     [
       "Exec Security",
-      "Exec Security"
+      "Exec-säkerhet"
     ],
     [
       "Exec Ask",
-      "Exec Ask"
+      "Exec-fråga"
     ],
     [
       "Node Binding",
-      "Node Binding"
+      "Nodbindning"
     ],
     [
       "Agent-to-Agent",
-      "Agent-to-Agent"
+      "Agent-till-agent"
     ],
     [
       "Target Allowlist",
-      "Target Allowlist"
+      "Mål-allowlist"
     ],
     [
       "Elevated Tool Access",
-      "Elevated Tool Access"
+      "Upphöjd verktygsåtkomst"
     ],
     [
       "Allow Rules",
-      "Allow Rules"
+      "Tillåtsregler"
     ],
     [
       "Subagent Tool Policy",
-      "Subagent Tool Policy"
+      "Verktygspolicy för underagent"
     ],
     [
       "Sandbox Tool Policy",
-      "Sandbox Tool Policy"
+      "Sandbox-policy för verktyg"
     ],
     [
       "PATH Prepend",
-      "PATH Prepend"
+      "Prepend för PATH"
     ],
     [
       "Safe Bin Trusted Dirs",
-      "Safe Bin Trusted Dirs"
+      "Betrodda kataloger för safe bin"
     ],
     [
       "Safe Bins",
-      "Safe Bins"
+      "Säkra binärer"
     ],
     [
       "Approval Forwarding",
-      "Approval Forwarding"
+      "Vidarebefordran av godkännanden"
     ],
     [
       "Forward Exec Approvals",
-      "Forward Exec Approvals"
+      "Vidarebefordra exec-godkännanden"
     ],
     [
       "Agent Filter",
-      "Agent Filter"
+      "Agentfilter"
     ],
     [
       "Session Filter",
-      "Session Filter"
+      "Sessionsfilter"
     ],
     [
       "Account ID",
-      "Account ID"
+      "Konto-ID"
     ],
     [
       "Thread ID",
-      "Thread ID"
+      "Tråd-ID"
     ],
     [
       "Cross-Context",
-      "Cross-Context"
+      "Korskontext"
     ],
     [
       "Marker Prefix",
-      "Marker Prefix"
+      "Markörprefix"
     ],
     [
       "Marker Suffix",
-      "Marker Suffix"
+      "Markörsuffix"
     ],
     [
       "Message Broadcast",
-      "Message Broadcast"
+      "Meddelandeutskick"
     ],
     [
       "Web Search",
-      "Web Search"
+      "Webbsökning"
     ],
     [
       "Max Results",
-      "Max Results"
+      "Max resultat"
     ],
     [
       "Cache TTL",
-      "Cache TTL"
+      "Cache-TTL"
     ],
     [
       "Search Mode",
-      "Search Mode"
+      "Sökläge"
     ],
     [
       "Search Model",
-      "Search Model"
+      "Sökmodell"
     ],
     [
       "API Key",
-      "API Key"
+      "API-nyckel"
     ],
     [
       "Working Directory",
-      "Working Directory"
+      "Arbetskatalog"
     ],
     [
       "ACP Runtime",
-      "ACP Runtime"
+      "ACP-runtime"
     ],
     [
       "ACP Harness Agent",
-      "ACP Harness Agent"
+      "ACP-harness-agent"
     ],
     [
       "ACP Backend",
-      "ACP Backend"
+      "ACP-backend"
     ],
     [
       "ACP Mode",
-      "ACP Mode"
+      "ACP-läge"
     ],
     [
       "Service Name",
-      "Service Name"
+      "Tjänstnamn"
     ],
     [
       "Flush Interval",
-      "Flush Interval"
+      "Flush-intervall"
     ],
     [
       "Warning Threshold",
-      "Warning Threshold"
+      "Varningströskel"
     ],
     [
       "Critical Threshold",
-      "Critical Threshold"
+      "Kritisk tröskel"
     ],
     [
       "Rate Limit",
-      "Rate Limit"
+      "Hastighetsgräns"
     ],
     [
       "Tailscale",
@@ -2111,23 +2111,23 @@
     ],
     [
       "Denylist",
-      "Denylist"
+      "Nekalista"
     ],
     [
       "Identity Avatar",
-      "Identity Avatar"
+      "Identitetsavatar"
     ],
     [
       "Skill Filter",
-      "Skill Filter"
+      "Skill-filter"
     ],
     [
       "Agent Runtime",
-      "Agent Runtime"
+      "Agent-runtime"
     ],
     [
       "Defaults",
-      "Defaults"
+      "Standardvärden"
     ],
     [
       "Enabled",
@@ -2139,11 +2139,11 @@
     ],
     [
       "Timestamp",
-      "Timestamp"
+      "Tidsstämpel"
     ],
     [
       "Command",
-      "Command"
+      "Kommando"
     ],
     [
       "Timeout",
@@ -2151,11 +2151,11 @@
     ],
     [
       "Interval",
-      "Interval"
+      "Intervall"
     ],
     [
       "Path",
-      "Path"
+      "Sökväg"
     ],
     [
       "Mode",
@@ -2163,7 +2163,7 @@
     ],
     [
       "State",
-      "State"
+      "Tillstånd"
     ],
     [
       "Gateway",
@@ -2171,7 +2171,7 @@
     ],
     [
       "Environment",
-      "Environment"
+      "Miljö"
     ],
     [
       "Browser",
@@ -2179,7 +2179,7 @@
     ],
     [
       "Diagnostics",
-      "Diagnostics"
+      "Diagnostik"
     ],
     [
       "Logging",
