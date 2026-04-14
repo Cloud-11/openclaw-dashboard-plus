@@ -54,7 +54,8 @@
 - OpenClaw WebUI language packs: built-in support for `zh-CN`, `en`, `zh-TW`, `ja`, `ko`, `fr`, `es`, `ru`, `de`, `vi`, `fil`, and `ar`.
 - Popup UI localization: the extension popup can also follow the user's language preference, but this is a secondary convenience feature.
 - Theme polish: switch palette presets, UI style presets, fonts, and font size from the popup.
-- UI repair toggles: enable style override, style repair, select styling repair, and code block repair independently.
+- UI repair toggles: enable style override, style repair, select styling repair, code block repair, and media preview assistance independently.
+- Media assist: add image lightbox behavior plus clear `inline preview` / `preview unavailable` states for chat attachments.
 - Fast navigation: enable the chat progress rail to jump to different parts of a long conversation.
 - Remote sync: refresh metadata, locale packs, theme presets, and style modules without rebuilding the extension.
 

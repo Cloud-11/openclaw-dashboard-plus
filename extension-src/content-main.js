@@ -1017,6 +1017,7 @@
     styleRepair: true,
     selectStyleFix: true,
     codeBlockStyleFix: true,
+    mediaAssist: true,
   });
 
   let runtimeSettings = { ...DEFAULT_RUNTIME_SETTINGS };
@@ -1128,6 +1129,7 @@
       styleRepair: rawSettings?.styleRepair !== false,
       selectStyleFix: rawSettings?.selectStyleFix !== false,
       codeBlockStyleFix: rawSettings?.codeBlockStyleFix !== false,
+      mediaAssist: rawSettings?.mediaAssist !== false,
     };
   }
 
@@ -2128,6 +2130,8 @@
           "styleOverride",
           "styleRepair",
           "selectStyleFix",
+          "codeBlockStyleFix",
+          "mediaAssist",
         ];
 
         for (const key of [...runtimeKeys, "locale", ...themeRelatedKeys]) {
@@ -2359,6 +2363,7 @@
     "styleRepair",
     "selectStyleFix",
     "codeBlockStyleFix",
+    "mediaAssist",
   ]);
   const STYLE_LOCAL_KEYS = new Set([
     STYLE_BUNDLE_STORAGE_KEYS.bundle,
@@ -2538,6 +2543,7 @@
       styleRepair: true,
       selectStyleFix: true,
       codeBlockStyleFix: true,
+      mediaAssist: true,
     };
   }
 
@@ -3576,4 +3582,474 @@
   document.addEventListener("DOMContentLoaded", queueRailRefreshes, { once: true });
   window.addEventListener("load", queueRailRefreshes, { once: true });
   queueRailRefreshes();
+})();
+
+(() => {
+  "use strict";
+
+  const STORAGE_DEFAULTS = Object.freeze({ mediaAssist: true });
+  const CHAT_THREAD_SELECTOR = ".chat-thread";
+  const MESSAGE_SELECTORS = Object.freeze([
+    ".chat-group",
+    ".chat-line",
+  ]);
+  const INLINE_IMAGE_SELECTOR = ".chat-message-images img";
+  const ATTACHMENT_SELECTOR = ".chat-attachment-file";
+  const MEDIA_STYLE_ID = "ocdp-media-assist-style";
+  const LIGHTBOX_ID = "ocdp-media-lightbox";
+  const ENHANCED_IMAGE_ATTR = "data-ocdp-media-image";
+  const ENHANCED_ATTACHMENT_ATTR = "data-ocdp-media-attachment";
+  const IMAGE_FILE_PATTERN = /\.(?:png|jpe?g|gif|webp|bmp|svg)(?:$|[?#])/i;
+
+  let mediaAssistEnabled = true;
+  let observerStarted = false;
+  let scheduledSweep = 0;
+  let lightboxRoot = null;
+  let lightboxImage = null;
+  let lightboxCaption = null;
+
+  function storageGetSync(defaults) {
+    return new Promise((resolve) => {
+      const storageSync = window.chrome?.storage?.sync;
+      if (!storageSync || typeof storageSync.get !== "function") {
+        resolve({ ...defaults });
+        return;
+      }
+      try {
+        storageSync.get(defaults, (result) => {
+          if (window.chrome?.runtime?.lastError) {
+            resolve({ ...defaults });
+            return;
+          }
+          resolve({ ...defaults, ...(result || {}) });
+        });
+      } catch {
+        resolve({ ...defaults });
+      }
+    });
+  }
+
+  function ensureStyle() {
+    if (document.getElementById(MEDIA_STYLE_ID)) {
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = MEDIA_STYLE_ID;
+    style.textContent = `
+      .ocdp-media-card {
+        display: grid;
+        gap: 10px;
+        margin-top: 8px;
+        padding: 10px 12px;
+        border: 1px solid color-mix(in srgb, var(--border-strong, #3e4050) 84%, transparent);
+        border-radius: calc(var(--radius-md, 10px) + 2px);
+        background: color-mix(in srgb, var(--bg-elevated, #161920) 94%, black 6%);
+        box-shadow: var(--shadow-sm, 0 6px 16px rgba(0, 0, 0, 0.24));
+      }
+      .ocdp-media-card__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-width: 0;
+      }
+      .ocdp-media-card__title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--text-strong, var(--text, #f4f4f5));
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .ocdp-media-card__badge {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 24px;
+        padding: 0 10px;
+        border: 1px solid color-mix(in srgb, var(--border-strong, #3e4050) 80%, transparent);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--bg-hover, #1f2330) 78%, transparent);
+        color: var(--muted, #9ca3af);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .ocdp-media-card__badge[data-tone="success"] {
+        color: var(--ok, #22c55e);
+        border-color: color-mix(in srgb, var(--ok, #22c55e) 38%, var(--border-strong, #3e4050) 62%);
+        background: color-mix(in srgb, var(--ok-subtle, rgba(34, 197, 94, 0.12)) 80%, transparent);
+      }
+      .ocdp-media-card__badge[data-tone="warn"] {
+        color: var(--accent, #ff7a45);
+        border-color: color-mix(in srgb, var(--accent, #ff7a45) 36%, var(--border-strong, #3e4050) 64%);
+        background: color-mix(in srgb, var(--accent-subtle, rgba(255, 122, 69, 0.16)) 82%, transparent);
+      }
+      .ocdp-media-card__preview {
+        display: block;
+        max-width: min(360px, 100%);
+        max-height: 260px;
+        border-radius: var(--radius-md, 10px);
+        border: 1px solid color-mix(in srgb, var(--border, #2e3040) 82%, transparent);
+        background: color-mix(in srgb, var(--bg, #0e1015) 86%, black 14%);
+        object-fit: contain;
+        cursor: zoom-in;
+      }
+      .ocdp-media-card__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .ocdp-media-card__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border: 1px solid color-mix(in srgb, var(--border-strong, #3e4050) 84%, transparent);
+        border-radius: 999px;
+        color: var(--text, #d4d4d8);
+        background: color-mix(in srgb, var(--bg-hover, #1f2330) 70%, transparent);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .ocdp-media-inline {
+        cursor: zoom-in;
+      }
+      .ocdp-media-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        background: rgba(5, 8, 13, 0.84);
+        backdrop-filter: blur(14px);
+      }
+      .ocdp-media-lightbox[hidden] {
+        display: none;
+      }
+      .ocdp-media-lightbox__panel {
+        display: grid;
+        gap: 12px;
+        max-width: min(92vw, 1280px);
+        max-height: min(92vh, 960px);
+      }
+      .ocdp-media-lightbox__image {
+        display: block;
+        max-width: 100%;
+        max-height: calc(92vh - 64px);
+        border-radius: calc(var(--radius-lg, 14px) + 2px);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+        background: color-mix(in srgb, var(--bg, #0e1015) 86%, black 14%);
+        object-fit: contain;
+      }
+      .ocdp-media-lightbox__caption {
+        color: #f4f4f5;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        word-break: break-word;
+      }
+    `;
+    document.head.append(style);
+  }
+
+  function ensureLightbox() {
+    if (
+      lightboxRoot instanceof HTMLDivElement &&
+      lightboxImage instanceof HTMLImageElement &&
+      lightboxCaption instanceof HTMLDivElement
+    ) {
+      return;
+    }
+
+    lightboxRoot = document.createElement("div");
+    lightboxRoot.id = LIGHTBOX_ID;
+    lightboxRoot.className = "ocdp-media-lightbox";
+    lightboxRoot.hidden = true;
+
+    const panel = document.createElement("div");
+    panel.className = "ocdp-media-lightbox__panel";
+
+    lightboxImage = document.createElement("img");
+    lightboxImage.className = "ocdp-media-lightbox__image";
+    lightboxImage.alt = "";
+
+    lightboxCaption = document.createElement("div");
+    lightboxCaption.className = "ocdp-media-lightbox__caption";
+
+    panel.append(lightboxImage, lightboxCaption);
+    lightboxRoot.append(panel);
+    lightboxRoot.addEventListener("click", (event) => {
+      if (event.target === lightboxRoot) {
+        hideLightbox();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        hideLightbox();
+      }
+    });
+    document.body.append(lightboxRoot);
+  }
+
+  function hideLightbox() {
+    if (!(lightboxRoot instanceof HTMLDivElement)) {
+      return;
+    }
+    lightboxRoot.hidden = true;
+  }
+
+  function showLightbox(src, caption) {
+    ensureLightbox();
+    if (!(lightboxImage instanceof HTMLImageElement) || !(lightboxCaption instanceof HTMLDivElement)) {
+      return;
+    }
+    lightboxImage.src = src;
+    lightboxCaption.textContent = caption || "";
+    lightboxRoot.hidden = false;
+  }
+
+  function isImageUrl(rawValue) {
+    if (typeof rawValue !== "string" || !rawValue.trim()) {
+      return false;
+    }
+    return IMAGE_FILE_PATTERN.test(rawValue.trim());
+  }
+
+  function normalizeCandidateUrl(rawValue) {
+    if (typeof rawValue !== "string") {
+      return "";
+    }
+    const trimmed = rawValue.trim();
+    if (!trimmed) {
+      return "";
+    }
+    if (
+      trimmed.startsWith("http://") ||
+      trimmed.startsWith("https://") ||
+      trimmed.startsWith("blob:") ||
+      trimmed.startsWith("data:") ||
+      trimmed.startsWith("/")
+    ) {
+      return trimmed;
+    }
+    return "";
+  }
+
+  function getFileNameFromUrl(url) {
+    if (!url) {
+      return "Image attachment";
+    }
+    const normalized = url.split("#")[0].split("?")[0];
+    const segment = normalized.split("/").pop() || normalized;
+    return decodeURIComponent(segment);
+  }
+
+  function createBadge(text, tone = "info") {
+    const badge = document.createElement("span");
+    badge.className = "ocdp-media-card__badge";
+    badge.dataset.tone = tone;
+    badge.textContent = text;
+    return badge;
+  }
+
+  function enhanceImageNode(image, caption = "") {
+    if (!(image instanceof HTMLImageElement) || image.getAttribute(ENHANCED_IMAGE_ATTR) === "true") {
+      return;
+    }
+    image.setAttribute(ENHANCED_IMAGE_ATTR, "true");
+    image.classList.add("ocdp-media-inline");
+    image.loading = image.loading || "lazy";
+    image.decoding = "async";
+    image.addEventListener("click", () => {
+      const src = image.currentSrc || image.src;
+      if (src) {
+        showLightbox(src, caption || image.alt || getFileNameFromUrl(src));
+      }
+    });
+  }
+
+  function buildAttachmentCard(url, title) {
+    const card = document.createElement("div");
+    card.className = "ocdp-media-card";
+
+    const header = document.createElement("div");
+    header.className = "ocdp-media-card__header";
+
+    const heading = document.createElement("div");
+    heading.className = "ocdp-media-card__title";
+    heading.textContent = title;
+
+    const badge = createBadge("Link only", "warn");
+    header.append(heading, badge);
+
+    const actions = document.createElement("div");
+    actions.className = "ocdp-media-card__actions";
+
+    const openLink = document.createElement("a");
+    openLink.className = "ocdp-media-card__link";
+    openLink.href = url;
+    openLink.target = "_blank";
+    openLink.rel = "noopener noreferrer";
+    openLink.textContent = "Open file";
+    actions.append(openLink);
+
+    card.append(header, actions);
+
+    if (!isImageUrl(url)) {
+      return card;
+    }
+
+    const preview = document.createElement("img");
+    preview.className = "ocdp-media-card__preview";
+    preview.alt = title;
+    preview.loading = "lazy";
+    preview.decoding = "async";
+    preview.src = url;
+    preview.addEventListener("load", () => {
+      badge.textContent = "Inline preview";
+      badge.dataset.tone = "success";
+      enhanceImageNode(preview, title);
+    });
+    preview.addEventListener("error", () => {
+      badge.textContent = "Preview unavailable";
+      badge.dataset.tone = "warn";
+    });
+
+    card.insertBefore(preview, actions);
+    return card;
+  }
+
+  function findAttachmentUrl(node) {
+    if (!(node instanceof HTMLElement)) {
+      return "";
+    }
+    const link = node.matches("a[href]") ? node : node.querySelector("a[href]");
+    if (link instanceof HTMLAnchorElement) {
+      const href = normalizeCandidateUrl(link.getAttribute("href") || link.href || "");
+      if (href) {
+        return href;
+      }
+    }
+    const text = node.textContent?.trim() || "";
+    return isImageUrl(text) ? normalizeCandidateUrl(text) : "";
+  }
+
+  function enhanceAttachmentNode(attachmentNode) {
+    if (!(attachmentNode instanceof HTMLElement) || attachmentNode.getAttribute(ENHANCED_ATTACHMENT_ATTR) === "true") {
+      return;
+    }
+    attachmentNode.setAttribute(ENHANCED_ATTACHMENT_ATTR, "true");
+
+    const url = findAttachmentUrl(attachmentNode);
+    if (!url) {
+      return;
+    }
+
+    const title = getFileNameFromUrl(url);
+    const card = buildAttachmentCard(url, title);
+    attachmentNode.insertAdjacentElement("afterend", card);
+  }
+
+  function enhanceMessageNode(messageNode) {
+    if (!(messageNode instanceof HTMLElement)) {
+      return;
+    }
+    for (const image of messageNode.querySelectorAll(INLINE_IMAGE_SELECTOR)) {
+      if (image instanceof HTMLImageElement) {
+        enhanceImageNode(image, image.alt || getFileNameFromUrl(image.currentSrc || image.src));
+      }
+    }
+    for (const attachment of messageNode.querySelectorAll(ATTACHMENT_SELECTOR)) {
+      if (attachment instanceof HTMLElement) {
+        enhanceAttachmentNode(attachment);
+      }
+    }
+  }
+
+  function sweepThread() {
+    scheduledSweep = 0;
+    if (!mediaAssistEnabled) {
+      return;
+    }
+    ensureStyle();
+    ensureLightbox();
+    const thread = document.querySelector(CHAT_THREAD_SELECTOR);
+    if (!(thread instanceof HTMLElement)) {
+      return;
+    }
+    for (const selector of MESSAGE_SELECTORS) {
+      for (const messageNode of thread.querySelectorAll(selector)) {
+        enhanceMessageNode(messageNode);
+      }
+    }
+  }
+
+  function scheduleSweepNow(delayMs = 0) {
+    window.clearTimeout(scheduledSweep);
+    scheduledSweep = window.setTimeout(sweepThread, delayMs);
+  }
+
+  function watchSettingChanges() {
+    const storage = window.chrome?.storage;
+    if (!storage?.onChanged || typeof storage.onChanged.addListener !== "function") {
+      return;
+    }
+    storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== "sync" || !changes.mediaAssist) {
+        return;
+      }
+      mediaAssistEnabled = changes.mediaAssist.newValue !== false;
+      scheduleSweepNow(0);
+    });
+  }
+
+  function startObserver() {
+    if (observerStarted || typeof MutationObserver !== "function") {
+      return;
+    }
+    observerStarted = true;
+    const observer = new MutationObserver((mutations) => {
+      if (!mediaAssistEnabled) {
+        return;
+      }
+      for (const mutation of mutations) {
+        if (mutation.type !== "childList") {
+          continue;
+        }
+        for (const node of mutation.addedNodes) {
+          if (!(node instanceof HTMLElement)) {
+            continue;
+          }
+          if (
+            node.matches?.(ATTACHMENT_SELECTOR) ||
+            node.matches?.(INLINE_IMAGE_SELECTOR) ||
+            node.querySelector?.(ATTACHMENT_SELECTOR) ||
+            node.querySelector?.(INLINE_IMAGE_SELECTOR)
+          ) {
+            scheduleSweepNow(60);
+            return;
+          }
+        }
+      }
+    });
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  storageGetSync(STORAGE_DEFAULTS).then((settings) => {
+    mediaAssistEnabled = settings.mediaAssist !== false;
+    watchSettingChanges();
+    startObserver();
+    scheduleSweepNow(0);
+    scheduleSweepNow(500);
+    scheduleSweepNow(1800);
+  });
 })();

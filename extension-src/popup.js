@@ -14,6 +14,7 @@ const DEFAULT_SETTINGS = {
   styleRepair: true,
   selectStyleFix: true,
   codeBlockStyleFix: true,
+  mediaAssist: true,
 };
 const STORAGE_KEYS = {
   bundles: "remoteLanguageBundles",
@@ -224,6 +225,7 @@ function getElements() {
     styleRepair: $("style-repair"),
     selectStyleFix: $("select-style-fix"),
     codeBlockStyleFix: $("code-block-style-fix"),
+    mediaAssist: $("media-assist"),
     saveTheme: $("save-theme"),
     downloadTheme: $("download-theme"),
     clearTheme: $("clear-theme"),
@@ -1227,6 +1229,7 @@ function renderAll(elements, state) {
   elements.styleRepair.checked = state.draft.styleRepair !== false;
   elements.selectStyleFix.checked = state.draft.selectStyleFix !== false;
   elements.codeBlockStyleFix.checked = state.draft.codeBlockStyleFix !== false;
+  elements.mediaAssist.checked = state.draft.mediaAssist !== false;
   elements.refreshMeta.disabled = state.busy.meta;
   elements.refreshMeta.textContent = state.busy.meta
     ? t(state, "refresh_meta_busy", {}, "Refreshing...")
@@ -1355,6 +1358,7 @@ async function loadSettings(defaultLocale) {
       styleRepair: settings.styleRepair !== false,
       selectStyleFix: settings.selectStyleFix !== false,
       codeBlockStyleFix: settings.codeBlockStyleFix !== false,
+      mediaAssist: settings.mediaAssist !== false,
     };
   } catch {
     return { ...DEFAULT_SETTINGS, locale: defaultLocale || DEFAULT_SETTINGS.locale };
@@ -1480,6 +1484,7 @@ async function saveThemeSettings(elements, state) {
     styleRepair: state.draft.styleRepair !== false,
     selectStyleFix: state.draft.selectStyleFix !== false,
     codeBlockStyleFix: state.draft.codeBlockStyleFix !== false,
+    mediaAssist: state.draft.mediaAssist !== false,
   };
   try {
     await storageSet("sync", nextSettings);
@@ -1885,6 +1890,11 @@ async function initializePopup() {
   });
   elements.codeBlockStyleFix.addEventListener("change", () => {
     state.draft.codeBlockStyleFix = elements.codeBlockStyleFix.checked;
+    setStatus(state, "theme", "theme_status_selected");
+    renderAll(elements, state);
+  });
+  elements.mediaAssist.addEventListener("change", () => {
+    state.draft.mediaAssist = elements.mediaAssist.checked;
     setStatus(state, "theme", "theme_status_selected");
     renderAll(elements, state);
   });
